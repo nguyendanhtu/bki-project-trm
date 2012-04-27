@@ -1,0 +1,561 @@
+﻿/* Cho giao dien ngoai*/
+body
+{
+	font-family: Arial, Times New Roman, Tahoma;
+	font-size: 12px;
+}
+.cssTable
+{
+	border:#C9BDAB 1px solid;
+}
+.cssLogout
+{
+	background-color:Transparent;
+	border:#C9BDAB 0px solid;
+	cursor:hand;
+}
+.cssButtonViewNews
+{
+	background-image:url(../images/Button/Views.gif);
+	width:21px; 
+	border:#C9BDAB 0px solid;
+}
+.cssContentViewNews
+{
+	border: #5d5d5d 0px solid;
+	background-color:Transparent;
+	color:InfoBackground;
+}
+.cssBGLanguage1
+{
+	background-image:url(../images/BGLanguage/Top1.gif)
+}
+.cssBGLanguage2
+{
+	background-image:url(../images/BGLanguage/Top2.gif)
+}
+.cssBGLanguage3
+{
+	background-image:url(../images/BGLanguage/Top3.gif)
+}
+.cssBGLanguage4
+{
+	background-image:url(../images/BGLanguage/Logout.gif)
+}
+.cssBGMenu
+{
+	background-image:url(../images/MenuTop/BGMenuTop.jpg)
+}
+.cssManField 
+{
+	color: #dd3309;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	font-weight:bold;
+}
+.cssLabelBold
+{
+	color: #000000;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 13px;
+	font-weight:normal;
+	font-weight:bold;
+}
+.cssLabel
+{
+	color: #000000;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	font-weight:normal;
+}
+.cssButton 
+{	
+	border: #5d5d5d 0px solid;
+	color: Black;/*#df4017;*/
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size: 11px;
+	font-weight: bold;
+	vertical-align:middle;
+	text-align:center;
+	background-image:url('../images/Button/BGButton.jpg');
+	cursor:hand;
+}
+.cssHyperLinkButton
+{	
+	border: #5d5d5d 0px solid;
+	background-image:url('../images/Button/BGButton.jpg');
+	color: Black;
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size: 11px;
+	font-weight: bold;
+	text-align:center;
+	cursor:hand;
+	padding-top:3px;
+	vertical-align:bottom;
+}
+.cssDorpdownlist
+{ 
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #aaa;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #aaa;
+	background-color:#ffffff;
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	padding-left:2px; 
+	padding-top:3px;  
+	padding-bottom:3px;
+	margin-bottom: 0px;
+    height: 22px;
+}
+.csscurrency 
+{
+    text-align:right;
+}
+.cssTextBox 
+{ 
+	border-left: 1px solid #bbb;
+    border-right: 1px solid #aaa;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #aaa;
+    background-color:#fff;
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	padding-left:2px; 
+	padding-top:2px;  
+	padding-bottom:2px;
+    }.
+.cssTextBoxHover 
+{ 
+	border:1px solid #bbb;
+	border-bottom-color:#aaa;
+	border-right-color:#aaa;
+	background-color:#fff;
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	padding-left:2px; 
+	padding-top:2px;  
+	padding-bottom:2px;  
+}
+.cssLanguage
+{
+	color: #FFFFFF;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.cssLanguage:Hover
+{
+	color: #FFFFFF;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	font-weight:normal;
+	text-decoration:none;
+}
+/*PageTitle*/
+.cssPageTitle
+{
+	padding-left: 9px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	font-weight: bold;
+	font-size: 12px;
+	font-family:Tahoma;		font-size:13px;	
+	color: White;			font-weight:bold;
+	text-align:left;	
+}
+.cssPageTitleBG
+{	
+	border:solid 1px #b4b4b4; 
+	background-color: #3a4f63;
+	height:26px;	
+}
+/*End PageTitle*/
+
+/*GridView*/
+.cssGridLink
+{
+	color: #000000;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	font-weight:bold;
+	text-decoration:none;
+	cursor:hand;
+}
+.cssGridLink:hover
+{
+	color: #000000;
+	font-family: Arial, Tahoma, Times New Roman;	
+	font-size: 12px;
+	text-decoration:none;
+	font-weight:bold;
+	cursor:hand;
+}
+.cssGridHeader 
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;					font-weight: bold;
+	color: #ffffff;					text-align: center;
+	background-image:url(../images/Grid/grid_preheader.gif);
+	height:29px;
+	vertical-align:middle;
+	
+}
+.cssGridCellText
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	color: #000040;
+	text-decoration:none;
+	padding-left:4px;
+	cursor:hand;	
+}
+.cssGridCellText:Hover
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	color: #000040;
+	font-weight:bold;
+	text-decoration:none;
+	padding-left:4px;
+	cursor:hand;
+}
+.cssGridCell 
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #ffffff;	
+	color: #000000;
+	height:24px;
+	cursor:hand;
+}
+.cssGridAlterCell
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #E8EEF7;	
+	color: #000000;
+	height:24px;
+	cursor:Hand;
+}
+.cssGridEdit {
+	background-color: #CCCCCC;		
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	color: #ffffff;	
+	height:24px;	
+	cursor:Hand;			
+}
+.cssSelectedRow
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #ffeec2;	
+	color: #000080;
+	height:24px;
+	cursor:hand;
+}
+.cssGridPager 
+{
+	background-image:url(../images/Grid/grid_footer_bg.gif);
+	font-family: Arial, Tahoma;
+	font-size: 12px;				font-weight: bold;
+	color: #000000;
+	height:29px;
+}
+.cssGridPager:Hover 
+{
+	background-image:url(../images/Grid/grid_footer_bg.gif);
+	font-family: Arial, Tahoma;
+	font-size: 12px;				font-weight: bold;
+	color: #000000;
+	height:29px;
+	cursor:hand;
+}
+.cssGridPager:Active 
+{
+	background-image:url(../images/Grid/grid_footer_bg.gif);
+	font-family: Arial, Tahoma;
+	font-size: 12px;				font-weight: bold;
+	color: #000000;
+	height:29px;
+	cursor:hand;
+}
+.cssGrid {
+	border-style: none;	   			border-right-style: solid;
+    border-right-color: #b0b0d9;	border-left-style: solid;	
+    border-left-color: #b0b0d9;	   	border-top-style: solid;
+    border-top-color: #b0b0d9;	   	border-bottom-style: solid;
+    border-bottom-color: #b0b0d9;       
+}
+
+.cssGridAlterCell2
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #E8EEF7;	
+	color: #000080;
+}
+.cssGridCell2
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #ffffff;	
+	color: #000040;
+}
+.cssSelectedRow2
+{
+	font-family: Tahoma, Arial, Times New Roman;
+	font-size:12px;
+	background-color: #ffeec2;	
+	color: #000080;
+}
+/*End GridView*/
+
+.cssView1280
+{
+	position:absolute;
+	left:1078px;
+	top:0px;
+	z-index:1000;
+	border:0px solid #d2d2d2;
+	background-color:Transparent;
+}
+.cssView1024
+{
+	position:absolute;
+	left:800px;
+	top:0px;
+	z-index:1000;
+	border:0px solid #d2d2d2;
+	background-color:Transparent;
+}
+.cssView800
+{
+	position:absolute;
+	left:800px;
+	top:0px;
+	z-index:1000;
+	border:0px solid #d2d2d2;
+	background-color:Transparent;
+}
+
+/*Form News*/
+.cssHeadingNews
+{	
+	background-image: url(../images/News/grid_header_bg.gif);   
+	background-color: #FFFFFF; 
+	border: 0px;
+	padding: 3px;
+	padding-bottom: 4px;
+	padding-right: 4px;
+}
+.cssContentNews
+{	
+	background-color: #FFFFFF; 
+	border: 0px;
+	border-bottom: 1px solid #D5D5D5;
+	border-right: 1px solid #D5D5D5;
+}
+.cssHeadingNewsTitle
+{	
+	padding-left: 9px;
+	font-weight: bold;
+	font-size: 12px;
+	font-family:Tahoma;		font-size:13px;	
+	color: Black;			font-weight:bold;
+	text-align:left;
+}
+/* TreeView*/
+.HeadingTree
+{
+  background: url(../images/heading_bg.gif);
+  background-color: #4B4B4B;
+  color: #FFFFFF; 
+  border: #57566F 1px solid; 
+  font-family: tahoma; 
+  font-size: 11px;
+  font-weight: bold; 
+  padding: 5px; 
+  cursor: default; 
+}
+.HeadingTree1
+{
+  background: url(../images/heading_bg.gif);
+  background-color: #4B4B4B;
+  color: #FFFFFF; 
+  border: #57566F 1px solid; 
+  font-family: tahoma; 
+  font-size: 11px;
+  font-weight: bold; 
+  cursor: default; 
+}
+.TreeView 
+{ 
+  background-color: #ffffff; 
+  border: 1px solid #ACACAC;
+  border-top-width: 0px;
+  padding-top:1px; 
+  padding-left:1px; 
+  cursor:default; 
+}
+
+.TreeNode 
+{ 
+  font-family: tahoma; 
+  font-size: 11px; 
+  padding-top:2px;
+  padding-bottom:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+}
+
+.GrayedTreeNode 
+{ 
+  font-family: tahoma; 
+  font-size: 11px; 
+  padding-top:2px;
+  padding-bottom:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color:gray; 
+  cursor:default;
+}
+
+.HoverTreeNode 
+{ 
+  font-family: tahoma; 
+  font-size: 11px; 
+  text-decoration:underline; 
+  padding-top:2px;
+  padding-bottom:1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  cursor:hand;
+}
+
+.SelectedTreeNode 
+{ 
+  background-image: url(images/node_bg.gif); 
+  font-family: tahoma; 
+  font-size: 11px; 
+  border: solid 1px #9ADFFE;
+  padding-top:1px;
+  padding-bottom:0px;
+  padding-left: 2px; 
+  padding-right: 2px; 
+  cursor:hand;
+}
+
+.HoverPopupTreeNode
+{
+  background-color: White;
+  font-family: tahoma; 
+  font-size: 11px; 
+  border: solid 1px black;
+  padding-top:1px;
+  padding-bottom:1px;
+  padding-left: 2px; 
+  padding-right: 2px; 
+  position: absolute;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=2);
+  cursor:hand;
+}
+
+.HoverPopup
+{
+  background-image: url(images/node_bg.gif);
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=2);
+  font-family: tahoma; 
+  font-size: 11px; 
+  border: solid 1px #9ADFFE;
+  padding-top:1px;
+  padding-bottom:0px;
+  padding-left: 2px; 
+  padding-right: 2px; 
+  cursor: default;
+}
+
+.NodeEdit 
+{
+  border:1px gray solid;
+  font-family: tahoma; 
+  font-size: 11px;
+}
+/*End TreeView*/
+.cssHyperLinkIcon
+{	
+	border: #5d5d5d 0px solid;
+	cursor:hand;
+}
+
+
+/*Report*/
+.cssTitleReport 
+{
+	font-family: tahoma; 
+	font-size: 11px;
+	font-weight:bold;
+	border: 1px #000000 solid;
+	text-align:left;
+}
+.cssTitleReport2
+{
+	font-family: tahoma; 
+	font-size: 14px;
+	font-weight:bold;
+}
+.cssTableReport
+{	
+	border: 1px #000000 solid;
+}
+.cssLabelTitle
+{
+	font-family: tahoma; 
+	font-size: 12px;
+	font-weight:bold;
+}
+.cssPercentReport
+{
+	color:#0000FF;
+	font-family: tahoma; 
+	font-size: 11px; 
+	text-decoration:none; 
+	border: 1px #000000 solid;
+}
+.cssTitleReport4s
+{
+	font-family: Verdana; 
+	font-size: 11px;
+	font-weight:bold;
+	color:#000000;
+}
+.cssReport4sTitle1
+{
+	font-family: tahoma; 
+	font-size: 12px;
+	font-weight:bold;
+}
+.cssReport23Title1
+{
+	color:#FFFFFF;
+	background-color:#800000;
+	font-family: tahoma,Arial,Times New Roman; 
+	font-size: 12px;
+	font-weight:bold;	
+	border: 1px #000000 solid;
+}
+.cssReport4sTitle2
+{
+	font-family: tahoma; 
+	font-size: 11px;
+	font-weight:bold;
+}
+.cssLabelReport
+{
+	color:#000000;
+	font-family: tahoma,Arial,Times New Roman; 
+	font-size: 18px;
+	font-weight:bold;
+}

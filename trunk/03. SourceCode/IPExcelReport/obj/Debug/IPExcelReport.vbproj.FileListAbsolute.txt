@@ -1,0 +1,119 @@
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPExcelReport.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPExcelReport.pdb
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPExcelReport.xml
+D:\Works\TRM\TRMPro\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\Interop.Excel.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\Interop.Office.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPCommon.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\C1.Common.dll
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPCommon.pdb
+D:\Works\TRM\TRMPro\IPExcelReport\bin\IPCommon.xml
+D:\Works\TRM\TRMPro\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+D:\Works\TRM\TRMPro\IPExcelReport\obj\Debug\IPExcelReport.dll
+D:\Works\TRM\TRMPro\IPExcelReport\obj\Debug\IPExcelReport.xml
+D:\Works\TRM\TRMPro\IPExcelReport\obj\Debug\IPExcelReport.pdb
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPExcelReport.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPExcelReport.pdb
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPExcelReport.xml
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\Interop.Excel.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\Interop.Office.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPCommon.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\C1.Common.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPCommon.pdb
+D:\Works\TRM\TRMSourceCode\IPExcelReport\bin\IPCommon.xml
+D:\Works\TRM\TRMSourceCode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+D:\Works\TRM\TRMSourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll
+D:\Works\TRM\TRMSourceCode\IPExcelReport\obj\Debug\IPExcelReport.xml
+D:\Works\TRM\TRMSourceCode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPExcelReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPExcelReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPExcelReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\Interop.Excel.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\Interop.Office.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\obj\Debug\IPExcelReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPExcelReport\obj\Debug\IPExcelReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Excel.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Office.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\obj\Debug\IPExcelReport.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPExcelReport.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Excel.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\Interop.Office.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\C1.Common.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPExcelReport\bin\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPExcelReport.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPExcelReport.pdb
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPExcelReport.xml
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\Interop.Excel.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\Interop.Office.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPCommon.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\C1.Common.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPCommon.pdb
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\bin\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\obj\Debug\IPExcelReport.dll
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\obj\Debug\IPExcelReport.xml
+C:\Users\Administrator\Desktop\TRM\IPExcelReport\obj\Debug\IPExcelReport.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPExcelReport.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPExcelReport.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPExcelReport.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\Interop.Excel.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\Interop.Office.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPCommon.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\C1.Common.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPCommon.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\bin\IPCommon.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\obj\Debug\IPExcelReport.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\obj\Debug\IPExcelReport.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPExcelReport\obj\Debug\IPExcelReport.pdb

@@ -1,0 +1,5 @@
+D:\Works\TWE\AWEPortal\WebsiteDS\bin\Debug\WebsiteDS.dll
+D:\Works\TWE\AWEPortal\WebsiteDS\bin\Debug\WebsiteDS.pdb
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\WebsiteDS.dll
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\WebsiteDS.pdb

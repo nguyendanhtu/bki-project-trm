@@ -1,0 +1,64 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPSystemAdmin.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPSystemAdmin.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPSystemAdmin.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\C1.Common.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPBusinessService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPCommon.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPData.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPException.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPUserService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\SiSButton.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\SiSMenu.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPBusinessService.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPBusinessService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPCommon.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPCommon.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPData.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPData.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPUserService.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPUserService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPException.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\bin\IPException.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IPSystemAdmin.vbproj.GenerateResource.Cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPSystemAdmin.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPSystemAdmin.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPSystemAdmin.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\C1.Common.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPBusinessService.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPCommon.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPData.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPException.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPUserService.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\SiSButton.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\SiSMenu.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPBusinessService.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPBusinessService.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPCommon.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPCommon.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPData.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPData.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPUserService.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPUserService.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPException.pdb
+D:\Works\TWE\AWEPortal\IPSystemAdmin\bin\IPException.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IPSystemAdmin.vbproj.GenerateResource.Cache
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+D:\Works\TWE\AWEPortal\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb

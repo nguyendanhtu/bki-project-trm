@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                <asp:Label runat="server" ID="m_lbl_user_name0" CssClass="cssLabelTitle">PHẦN MỀM QUẢN LÝ GIẢNG VIÊN - TRM</asp:Label>
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:HyperLink ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/TRMProject/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
+            </div>
+         </div>
+         <div id='wapper'>
+             <ul id='nav'> 
+                  <asp:Repeater ID="rptMainMenu" runat="server"
+                     OnItemDataBound="rptCategory_ItemDataBound"> 	
+                     <ItemTemplate> 
+                     <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+                      <ul> 
+                      <asp:Repeater ID="rpt_child_Menu" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_ba"> 
+                      <ItemTemplate> 
+                        <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+                         <ul>
+                            <asp:Repeater ID="rpt_child_Menu_cap_ba" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_bon"> 
+                              <ItemTemplate> 
+                              <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+                                 <ul> 
+                                      <asp:Repeater ID="rpt_child_Menu_cap_bon" runat="server" > 
+                                      <ItemTemplate> 
+                                      <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
+                                      </li> 
+                                      </ItemTemplate> 
+                                      </asp:Repeater> 
+                                 </ul>
+                              </li> 
+                              </ItemTemplate> 
+                              </asp:Repeater> 
+                         </ul> 
+                      </li> 
+                      </ItemTemplate> 
+                      </asp:Repeater> 
+                      </ul> 
+                    </li> 
+                    </ItemTemplate> 
+                </asp:Repeater> 
+
+             </ul>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

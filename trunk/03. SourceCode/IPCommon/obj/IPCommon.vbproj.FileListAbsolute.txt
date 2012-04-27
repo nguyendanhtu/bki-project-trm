@@ -1,0 +1,52 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\IPCommon.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\IPCommon.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\IPCommon.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\C1.Common.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\bin\C1.Win.C1FlexGrid.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IPCommon.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IPCommon.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPCommon\obj\Debug\IPCommon.pdb
+D:\Works\TWE\AWEPortal\IPCommon\bin\IPCommon.dll
+D:\Works\TWE\AWEPortal\IPCommon\bin\IPCommon.pdb
+D:\Works\TWE\AWEPortal\IPCommon\bin\IPCommon.xml
+D:\Works\TWE\AWEPortal\IPCommon\bin\C1.Common.dll
+D:\Works\TWE\AWEPortal\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TWE\AWEPortal\IPCommon\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IPCommon.vbproj.GenerateResource.Cache
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IPCommon.dll
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IPCommon.xml
+D:\Works\TWE\AWEPortal\IPCommon\obj\Debug\IPCommon.pdb

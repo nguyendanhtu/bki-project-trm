@@ -1,0 +1,154 @@
+D:\Works\TRM\TRMPro\IPUserService\bin\IPUserService.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPUserService.pdb
+D:\Works\TRM\TRMPro\IPUserService\bin\IPUserService.xml
+D:\Works\TRM\TRMPro\IPUserService\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPBusinessService.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPCommon.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPData.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPException.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\C1.Common.dll
+D:\Works\TRM\TRMPro\IPUserService\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMPro\IPUserService\bin\IPBusinessService.xml
+D:\Works\TRM\TRMPro\IPUserService\bin\IPCommon.pdb
+D:\Works\TRM\TRMPro\IPUserService\bin\IPCommon.xml
+D:\Works\TRM\TRMPro\IPUserService\bin\IPData.pdb
+D:\Works\TRM\TRMPro\IPUserService\bin\IPData.xml
+D:\Works\TRM\TRMPro\IPUserService\bin\IPException.pdb
+D:\Works\TRM\TRMPro\IPUserService\bin\IPException.xml
+D:\Works\TRM\TRMPro\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPUserService\obj\Debug\IPUserService.dll
+D:\Works\TRM\TRMPro\IPUserService\obj\Debug\IPUserService.xml
+D:\Works\TRM\TRMPro\IPUserService\obj\Debug\IPUserService.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPUserService.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPUserService.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPUserService.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPBusinessService.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPCommon.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPData.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPException.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\C1.Common.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPBusinessService.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPCommon.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPCommon.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPData.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPData.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPException.pdb
+D:\Works\TRM\TRMSourceCode\IPUserService\bin\IPException.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPUserService\obj\Debug\IPUserService.dll
+D:\Works\TRM\TRMSourceCode\IPUserService\obj\Debug\IPUserService.xml
+D:\Works\TRM\TRMSourceCode\IPUserService\obj\Debug\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPData.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPData.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPData.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\obj\Debug\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\obj\Debug\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPUserService\obj\Debug\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\obj\Debug\IPUserService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPUserService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\C1.Common.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPBusinessService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPCommon.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPData.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPUserService\bin\IPException.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPUserService.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPUserService.pdb
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPUserService.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPBusinessService.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPCommon.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPData.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPException.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\C1.Common.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPBusinessService.pdb
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPBusinessService.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPCommon.pdb
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPData.pdb
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPData.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPException.pdb
+C:\Users\Administrator\Desktop\TRM\IPUserService\bin\IPException.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\TRM\IPUserService\obj\Debug\IPUserService.dll
+C:\Users\Administrator\Desktop\TRM\IPUserService\obj\Debug\IPUserService.xml
+C:\Users\Administrator\Desktop\TRM\IPUserService\obj\Debug\IPUserService.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPUserService.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPUserService.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPUserService.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\C1.Win.C1FlexGrid.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPBusinessService.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPCommon.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPData.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPException.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\C1.Common.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPBusinessService.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPBusinessService.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPCommon.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPCommon.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPData.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPData.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPException.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\bin\IPException.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\obj\Debug\IPUserService.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\obj\Debug\IPUserService.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPUserService\obj\Debug\IPUserService.pdb

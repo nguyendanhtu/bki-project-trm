@@ -1,0 +1,20 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPBusinessService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPBusinessService.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPBusinessService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPException.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPException.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\bin\IPException.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\obj\Debug\IPBusinessService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\obj\Debug\IPBusinessService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPBusinessService\obj\Debug\IPBusinessService.pdb
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPBusinessService.dll
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPBusinessService.pdb
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPBusinessService.xml
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPException.dll
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPException.pdb
+D:\Works\TWE\AWEPortal\IPBusinessService\bin\IPException.xml
+D:\Works\TWE\AWEPortal\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPBusinessService\obj\Debug\IPBusinessService.dll
+D:\Works\TWE\AWEPortal\IPBusinessService\obj\Debug\IPBusinessService.xml
+D:\Works\TWE\AWEPortal\IPBusinessService\obj\Debug\IPBusinessService.pdb

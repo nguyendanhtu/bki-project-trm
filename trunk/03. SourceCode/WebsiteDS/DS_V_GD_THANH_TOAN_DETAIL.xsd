@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_V_GD_THANH_TOAN_DETAIL" targetNamespace="http://tempuri.org/DS_V_GD_THANH_TOAN_DETAIL.xsd" xmlns:mstns="http://tempuri.org/DS_V_GD_THANH_TOAN_DETAIL.xsd" xmlns="http://tempuri.org/DS_V_GD_THANH_TOAN_DETAIL.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TRMConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TRMConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.TRMConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_GD_THANH_TOAN_DETAILTableAdapter" GeneratorDataComponentClassName="V_GD_THANH_TOAN_DETAILTableAdapter" Name="V_GD_THANH_TOAN_DETAIL" UserDataComponentName="V_GD_THANH_TOAN_DETAILTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_GD_THANH_TOAN_DETAIL" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, ID_GD_THANH_TOAN, DESCRIPTION, ID_HOP_DONG_KHUNG, ID_NOI_DUNG_THANH_TOAN, NOI_DUNG_THANH_TOAN, SO_LUONG_HE_SO, MA_DON_VI_TINH, DON_VI_TINH, MA_TAN_SUAT, TAN_SUAT, DON_GIA_TT, REFERENCE_CODE FROM dbo.V_GD_THANH_TOAN_DETAIL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ID_GD_THANH_TOAN" DataSetColumn="ID_GD_THANH_TOAN" />
+              <Mapping SourceColumn="DESCRIPTION" DataSetColumn="DESCRIPTION" />
+              <Mapping SourceColumn="ID_HOP_DONG_KHUNG" DataSetColumn="ID_HOP_DONG_KHUNG" />
+              <Mapping SourceColumn="ID_NOI_DUNG_THANH_TOAN" DataSetColumn="ID_NOI_DUNG_THANH_TOAN" />
+              <Mapping SourceColumn="NOI_DUNG_THANH_TOAN" DataSetColumn="NOI_DUNG_THANH_TOAN" />
+              <Mapping SourceColumn="SO_LUONG_HE_SO" DataSetColumn="SO_LUONG_HE_SO" />
+              <Mapping SourceColumn="MA_DON_VI_TINH" DataSetColumn="MA_DON_VI_TINH" />
+              <Mapping SourceColumn="DON_VI_TINH" DataSetColumn="DON_VI_TINH" />
+              <Mapping SourceColumn="MA_TAN_SUAT" DataSetColumn="MA_TAN_SUAT" />
+              <Mapping SourceColumn="TAN_SUAT" DataSetColumn="TAN_SUAT" />
+              <Mapping SourceColumn="DON_GIA_TT" DataSetColumn="DON_GIA_TT" />
+              <Mapping SourceColumn="REFERENCE_CODE" DataSetColumn="REFERENCE_CODE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_V_GD_THANH_TOAN_DETAIL" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_V_GD_THANH_TOAN_DETAIL" msprop:Generator_UserDSName="DS_V_GD_THANH_TOAN_DETAIL">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_GD_THANH_TOAN_DETAIL" msprop:Generator_TableClassName="V_GD_THANH_TOAN_DETAILDataTable" msprop:Generator_TableVarName="tableV_GD_THANH_TOAN_DETAIL" msprop:Generator_TablePropName="V_GD_THANH_TOAN_DETAIL" msprop:Generator_RowDeletingName="V_GD_THANH_TOAN_DETAILRowDeleting" msprop:Generator_UserTableName="V_GD_THANH_TOAN_DETAIL" msprop:Generator_RowChangingName="V_GD_THANH_TOAN_DETAILRowChanging" msprop:Generator_RowEvHandlerName="V_GD_THANH_TOAN_DETAILRowChangeEventHandler" msprop:Generator_RowDeletedName="V_GD_THANH_TOAN_DETAILRowDeleted" msprop:Generator_RowEvArgName="V_GD_THANH_TOAN_DETAILRowChangeEvent" msprop:Generator_RowChangedName="V_GD_THANH_TOAN_DETAILRowChanged" msprop:Generator_RowClassName="V_GD_THANH_TOAN_DETAILRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
+              <xs:element name="ID_GD_THANH_TOAN" msprop:Generator_ColumnVarNameInTable="columnID_GD_THANH_TOAN" msprop:Generator_ColumnPropNameInRow="ID_GD_THANH_TOAN" msprop:Generator_ColumnPropNameInTable="ID_GD_THANH_TOANColumn" msprop:Generator_UserColumnName="ID_GD_THANH_TOAN" type="xs:decimal" />
+              <xs:element name="DESCRIPTION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPTION" msprop:Generator_ColumnPropNameInRow="DESCRIPTION" msprop:Generator_ColumnPropNameInTable="DESCRIPTIONColumn" msprop:Generator_UserColumnName="DESCRIPTION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_HOP_DONG_KHUNG" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnID_HOP_DONG_KHUNG" msprop:Generator_ColumnPropNameInRow="ID_HOP_DONG_KHUNG" msprop:Generator_ColumnPropNameInTable="ID_HOP_DONG_KHUNGColumn" msprop:Generator_UserColumnName="ID_HOP_DONG_KHUNG" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ID_NOI_DUNG_THANH_TOAN" msprop:Generator_ColumnVarNameInTable="columnID_NOI_DUNG_THANH_TOAN" msprop:Generator_ColumnPropNameInRow="ID_NOI_DUNG_THANH_TOAN" msprop:Generator_ColumnPropNameInTable="ID_NOI_DUNG_THANH_TOANColumn" msprop:Generator_UserColumnName="ID_NOI_DUNG_THANH_TOAN" type="xs:decimal" />
+              <xs:element name="NOI_DUNG_THANH_TOAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNOI_DUNG_THANH_TOAN" msprop:Generator_ColumnPropNameInRow="NOI_DUNG_THANH_TOAN" msprop:Generator_ColumnPropNameInTable="NOI_DUNG_THANH_TOANColumn" msprop:Generator_UserColumnName="NOI_DUNG_THANH_TOAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SO_LUONG_HE_SO" msprop:Generator_ColumnVarNameInTable="columnSO_LUONG_HE_SO" msprop:Generator_ColumnPropNameInRow="SO_LUONG_HE_SO" msprop:Generator_ColumnPropNameInTable="SO_LUONG_HE_SOColumn" msprop:Generator_UserColumnName="SO_LUONG_HE_SO" type="xs:decimal" />
+              <xs:element name="MA_DON_VI_TINH" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMA_DON_VI_TINH" msprop:Generator_ColumnPropNameInRow="MA_DON_VI_TINH" msprop:Generator_ColumnPropNameInTable="MA_DON_VI_TINHColumn" msprop:Generator_UserColumnName="MA_DON_VI_TINH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DON_VI_TINH" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDON_VI_TINH" msprop:Generator_ColumnPropNameInRow="DON_VI_TINH" msprop:Generator_ColumnPropNameInTable="DON_VI_TINHColumn" msprop:Generator_UserColumnName="DON_VI_TINH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MA_TAN_SUAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMA_TAN_SUAT" msprop:Generator_ColumnPropNameInRow="MA_TAN_SUAT" msprop:Generator_ColumnPropNameInTable="MA_TAN_SUATColumn" msprop:Generator_UserColumnName="MA_TAN_SUAT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TAN_SUAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAN_SUAT" msprop:Generator_ColumnPropNameInRow="TAN_SUAT" msprop:Generator_ColumnPropNameInTable="TAN_SUATColumn" msprop:Generator_UserColumnName="TAN_SUAT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DON_GIA_TT" msprop:Generator_ColumnVarNameInTable="columnDON_GIA_TT" msprop:Generator_ColumnPropNameInRow="DON_GIA_TT" msprop:Generator_ColumnPropNameInTable="DON_GIA_TTColumn" msprop:Generator_UserColumnName="DON_GIA_TT" type="xs:decimal" />
+              <xs:element name="REFERENCE_CODE" msprop:Generator_ColumnVarNameInTable="columnREFERENCE_CODE" msprop:Generator_ColumnPropNameInRow="REFERENCE_CODE" msprop:Generator_ColumnPropNameInTable="REFERENCE_CODEColumn" msprop:Generator_UserColumnName="REFERENCE_CODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_GD_THANH_TOAN_DETAIL" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

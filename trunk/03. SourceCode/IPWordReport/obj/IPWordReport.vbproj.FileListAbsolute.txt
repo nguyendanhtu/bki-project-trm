@@ -1,0 +1,30 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\Interop.Word.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\Interop.VBIDE.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\Works\TWE\AWEPortal\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\Works\TWE\AWEPortal\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\Works\TWE\AWEPortal\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\Works\TWE\AWEPortal\IPWordReport\bin\Interop.Word.dll
+D:\Works\TWE\AWEPortal\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TWE\AWEPortal\IPWordReport\bin\Interop.VBIDE.dll
+D:\Works\TWE\AWEPortal\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\Works\TWE\AWEPortal\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
