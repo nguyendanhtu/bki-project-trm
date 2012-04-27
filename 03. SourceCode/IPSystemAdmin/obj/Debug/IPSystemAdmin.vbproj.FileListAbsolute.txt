@@ -1,0 +1,247 @@
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPSystemAdmin.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPSystemAdmin.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPSystemAdmin.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\C1.Common.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPBusinessService.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPCommon.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPData.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPException.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPUserService.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\SiSButton.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\SiSMenu.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPBusinessService.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPCommon.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPCommon.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPData.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPData.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPException.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPException.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPUserService.pdb
+D:\Works\TRM\TRMPro\IPSystemAdmin\bin\IPUserService.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+D:\Works\TRM\TRMPro\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPSystemAdmin.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPSystemAdmin.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPSystemAdmin.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\C1.Common.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPBusinessService.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPCommon.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPData.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPException.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPUserService.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\SiSButton.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\SiSMenu.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPBusinessService.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPCommon.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPCommon.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPData.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPData.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPException.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPException.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPUserService.pdb
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\bin\IPUserService.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+D:\Works\TRM\TRMSourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPSystemAdmin.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPSystemAdmin.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPSystemAdmin.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPData.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\SiSButton.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\SiSMenu.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPData.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPData.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\bin\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\SiSButton.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\SiSMenu.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\ResGen.read.1.tlog
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\ResGen.write.1.tlog
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPSystemAdmin.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Common.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\SiSButton.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\SiSMenu.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPBusinessService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPCommon.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPData.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPException.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPSystemAdmin\bin\IPUserService.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPSystemAdmin.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPSystemAdmin.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPSystemAdmin.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\C1.Common.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPBusinessService.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPCommon.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPData.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPException.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPUserService.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\SiSButton.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\SiSMenu.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPBusinessService.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPBusinessService.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPCommon.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPData.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPData.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPException.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPException.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPUserService.pdb
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\bin\IPUserService.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\ResGen.read.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.4.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\ResGen.write.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+C:\Users\Administrator\Desktop\TRM\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPSystemAdmin.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPSystemAdmin.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPSystemAdmin.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\C1.Common.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\C1.Win.C1FlexGrid.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPBusinessService.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPCommon.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPData.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPException.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPUserService.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\SiSButton.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\SiSMenu.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPBusinessService.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPBusinessService.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPCommon.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPCommon.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPData.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPData.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPException.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPException.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPUserService.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\bin\IPUserService.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f100_TuDien.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f101_Dang_Nhap.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f102_TuDien_DE.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IP.Core.IPSystemAdmin.f996_license.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\ResGen.read.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\GenerateResource-ResGen.write.4.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\ResGen.write.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPSystemAdmin\obj\Debug\IPSystemAdmin.pdb

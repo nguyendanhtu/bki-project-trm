@@ -1,0 +1,18 @@
+﻿using System;
+using System.Data;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+using IP.Core.IPCommon;
+using IP.Core.IPException;
+using IP.Core.IPData;
+using IP.Core.IPUserService;
+
+using AuctionDS;
+using AuctionUS;
+using AuctionDS.CDBNames;
+
+namespace AuctionForm
+{

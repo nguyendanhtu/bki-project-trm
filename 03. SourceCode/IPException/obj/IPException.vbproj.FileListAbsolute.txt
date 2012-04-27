@@ -1,0 +1,14 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\bin\IPException.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\bin\IPException.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\bin\IPException.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\obj\Debug\IPException.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\obj\Debug\IPException.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPException\obj\Debug\IPException.pdb
+D:\Works\TWE\AWEPortal\IPException\bin\IPException.dll
+D:\Works\TWE\AWEPortal\IPException\bin\IPException.pdb
+D:\Works\TWE\AWEPortal\IPException\bin\IPException.xml
+D:\Works\TWE\AWEPortal\IPException\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPException\obj\Debug\IPException.dll
+D:\Works\TWE\AWEPortal\IPException\obj\Debug\IPException.xml
+D:\Works\TWE\AWEPortal\IPException\obj\Debug\IPException.pdb

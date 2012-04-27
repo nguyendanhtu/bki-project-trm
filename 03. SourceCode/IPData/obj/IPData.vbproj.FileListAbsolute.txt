@@ -1,0 +1,14 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\bin\IPData.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\bin\IPData.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\bin\IPData.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\obj\Debug\IPData.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\obj\Debug\IPData.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPData\obj\Debug\IPData.pdb
+D:\Works\TWE\AWEPortal\IPData\bin\IPData.dll
+D:\Works\TWE\AWEPortal\IPData\bin\IPData.pdb
+D:\Works\TWE\AWEPortal\IPData\bin\IPData.xml
+D:\Works\TWE\AWEPortal\IPData\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPData\obj\Debug\IPData.dll
+D:\Works\TWE\AWEPortal\IPData\obj\Debug\IPData.xml
+D:\Works\TWE\AWEPortal\IPData\obj\Debug\IPData.pdb

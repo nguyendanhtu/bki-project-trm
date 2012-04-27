@@ -1,0 +1,6 @@
+D:\Works\TWE\AWEPortal\WebsiteDS\bin\Debug\WebDS.dll
+D:\Works\TWE\AWEPortal\WebsiteDS\bin\Debug\WebDS.pdb
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\WebDS.dll
+D:\Works\TWE\AWEPortal\WebsiteDS\obj\Debug\WebDS.pdb
+D:\Works\TWE\AWEPortal\WebsiteDS\bin\Debug\WebDS.dll.config

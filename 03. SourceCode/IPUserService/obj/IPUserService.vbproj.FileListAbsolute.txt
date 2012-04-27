@@ -1,0 +1,44 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPUserService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPUserService.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPUserService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\C1.Win.C1FlexGrid.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPBusinessService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPCommon.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPData.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPException.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\C1.Common.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPBusinessService.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPBusinessService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPCommon.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPCommon.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPData.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPData.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPException.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\bin\IPException.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\obj\Debug\IPUserService.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\obj\Debug\IPUserService.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPUserService\obj\Debug\IPUserService.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPUserService.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPUserService.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPUserService.xml
+D:\Works\TWE\AWEPortal\IPUserService\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPBusinessService.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPCommon.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPData.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPException.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\C1.Common.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPBusinessService.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPBusinessService.xml
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPCommon.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPCommon.xml
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPData.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPData.xml
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPException.pdb
+D:\Works\TWE\AWEPortal\IPUserService\bin\IPException.xml
+D:\Works\TWE\AWEPortal\IPUserService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPUserService\obj\Debug\IPUserService.dll
+D:\Works\TWE\AWEPortal\IPUserService\obj\Debug\IPUserService.xml
+D:\Works\TWE\AWEPortal\IPUserService\obj\Debug\IPUserService.pdb

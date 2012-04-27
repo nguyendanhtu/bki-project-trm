@@ -1,0 +1,34 @@
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPExcelReport.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPExcelReport.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPExcelReport.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\Interop.Excel.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\Interop.Office.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPCommon.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\C1.Common.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPCommon.pdb
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\bin\IPCommon.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\obj\Debug\IPExcelReport.dll
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\obj\Debug\IPExcelReport.xml
+D:\Works\2- Work_TNC\Projects\1.Auction\IPCoreWebsite\IPExcelReport\obj\Debug\IPExcelReport.pdb
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPExcelReport.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPExcelReport.pdb
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPExcelReport.xml
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\Interop.Excel.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\Interop.Office.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPCommon.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\C1.Common.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPCommon.pdb
+D:\Works\TWE\AWEPortal\IPExcelReport\bin\IPCommon.xml
+D:\Works\TWE\AWEPortal\IPExcelReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TWE\AWEPortal\IPExcelReport\obj\Debug\IPExcelReport.dll.licenses
+D:\Works\TWE\AWEPortal\IPExcelReport\obj\Debug\IPExcelReport.dll
+D:\Works\TWE\AWEPortal\IPExcelReport\obj\Debug\IPExcelReport.xml
+D:\Works\TWE\AWEPortal\IPExcelReport\obj\Debug\IPExcelReport.pdb

@@ -1,0 +1,214 @@
+D:\Works\TRM\TRMPro\IPCommon\bin\IPCommon.dll
+D:\Works\TRM\TRMPro\IPCommon\bin\IPCommon.pdb
+D:\Works\TRM\TRMPro\IPCommon\bin\IPCommon.xml
+D:\Works\TRM\TRMPro\IPCommon\bin\C1.Common.dll
+D:\Works\TRM\TRMPro\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMPro\IPCommon\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IPCommon.dll
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IPCommon.xml
+D:\Works\TRM\TRMPro\IPCommon\obj\Debug\IPCommon.pdb
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\IPCommon.dll
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\IPCommon.pdb
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\IPCommon.xml
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\C1.Common.dll
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\Works\TRM\TRMSourceCode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IPCommon.dll
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IPCommon.xml
+D:\Works\TRM\TRMSourceCode\IPCommon\obj\Debug\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.write.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPCommon\obj\Debug\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Common.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Win.C1FlexGrid.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\GenerateResource-ResGen.read.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\GenerateResource-ResGen.write.6.tlog
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\ResGen.read.1.tlog
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\ResGen.write.1.tlog
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\obj\Debug\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\IPCommon.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Common.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPCommon\bin\mscorcfg.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\IPCommon.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\IPCommon.pdb
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\C1.Common.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\C1.Win.C1FlexGrid.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalDecisions.Shared.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalDecisions.Web.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\bin\CrystalReportPluginLib.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IPCommon.dll
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IPCommon.xml
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\IPCommon.pdb
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\GenerateResource-ResGen.read.4.tlog
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\GenerateResource-ResGen.write.4.tlog
+C:\Users\Administrator\Desktop\TRM\IPCommon\obj\Debug\GenerateResource.read.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\IPCommon.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\IPCommon.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\IPCommon.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\C1.Common.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\C1.Win.C1FlexGrid.Classic.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\C1.Win.C1FlexGrid.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalDecisions.ReportSource.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalDecisions.Shared.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalDecisions.Web.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalDecisions.Windows.Forms.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\bin\CrystalReportPluginLib.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\ResolveAssemblyReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton2.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlButton3.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.ctlClock.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgButtonYes_No_Cancel.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBtn_Yes_No.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.DataGrid_Custom.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.f370_REPORT_VIEW.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmEditText.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmIcons.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchDate.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchNumeric.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.frmSearchString.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_Yes_No.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxFormYes_No_Cancel.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IP.Core.IPCommon.MessageForms.MsgBoxForm_OK.resources
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.read.4.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\GenerateResource.read.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\GenerateResource-ResGen.write.4.tlog
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IPCommon.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IPCommon.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPCommon\obj\Debug\IPCommon.pdb

@@ -1,0 +1,105 @@
+D:\Works\TRM\TRMPro\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\Works\TRM\TRMPro\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\Works\TRM\TRMPro\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\Works\TRM\TRMPro\IPWordReport\bin\Interop.Word.dll
+D:\Works\TRM\TRMPro\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMPro\IPWordReport\bin\Interop.VBIDE.dll
+D:\Works\TRM\TRMPro\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\Works\TRM\TRMPro\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\Interop.Word.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\Interop.VBIDE.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\Works\TRM\TRMSourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\IP.Core.IPWordReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\IP.Core.IPWordReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\Interop.VBIDE.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.VBIDE.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.VBIDE.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\IP.Core.IPWordReport.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Word.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.VBIDE.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.VBIDE.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\IP.Core.IPWordReport.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\IP.Core.IPWordReport.pdb
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\IP.Core.IPWordReport.xml
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\Interop.Word.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+C:\Users\Administrator\Desktop\TRM\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\IP.Core.IPWordReport.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\IP.Core.IPWordReport.pdb
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\IP.Core.IPWordReport.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\Interop.Word.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\Interop.VBIDE.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\Interop.Microsoft.Office.Core.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\bin\Interop.Microsoft.Office.Interop.Word.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\ResolveAssemblyReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\Interop.VBIDE.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\IPWordReport.vbproj.ResolveComReference.cache
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.dll
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.xml
+D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\IPWordReport\obj\Debug\IP.Core.IPWordReport.pdb
