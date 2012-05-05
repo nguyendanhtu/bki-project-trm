@@ -492,8 +492,8 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     {
         load_data_2_excel_search(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)
                     , CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue)
-                    ,CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue)
-                    ,m_txt_reference_code.Text.Trim()
+                    , CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue)
+                    , m_txt_reference_code.Text.Trim()
                     , CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue)
                     , CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
@@ -672,6 +672,17 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_cbo_trang_thai_thanh_toan_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            search_data_show_on_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
     protected void m_cbo_ten_giang_vien_SelectedIndexChanged(object sender, EventArgs e)
     {
         try
@@ -685,4 +696,5 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         }
     }
     #endregion
+   
 }

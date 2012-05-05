@@ -72,7 +72,8 @@
                 <td align="left" style="width:15%;">
               <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" CssClass="cssDorpdownlist" 
                         Width="90%" runat="server" 
-                        AutoPostBack="true">
+                        AutoPostBack="true" 
+                        onselectedindexchanged="m_cbo_trang_thai_thanh_toan_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
             </tr>
