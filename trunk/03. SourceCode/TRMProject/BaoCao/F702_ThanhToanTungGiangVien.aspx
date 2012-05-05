@@ -69,7 +69,7 @@
                 Text="Trạng thái thanh toán: " />
 			       
                 </td>
-                <td align="left" style="width:15%;">
+                <td align="left" colspan="2">
               <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" CssClass="cssDorpdownlist" 
                         Width="90%" runat="server" 
                         AutoPostBack="true" 
