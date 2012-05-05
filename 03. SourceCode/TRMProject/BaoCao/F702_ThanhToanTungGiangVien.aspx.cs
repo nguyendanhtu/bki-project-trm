@@ -61,12 +61,6 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         v_str_noi_dung += v_us_dm_hd_khung.strLOAI_HOP_DONG.Trim();
         return v_str_noi_dung;
     }
-    public string mapping_ma_giang_vien_id(decimal ip_dc_id_giang_vien)
-    {
-        US_V_DM_GIANG_VIEN v_us_dm_don_vi_tt = new US_V_DM_GIANG_VIEN(ip_dc_id_giang_vien);
-        if (!v_us_dm_don_vi_tt.IsIDNull()) return v_us_dm_don_vi_tt.strMA_GIANG_VIEN;
-        return "";
-    }
     public string mapping_don_vi_quan_ly(decimal ip_dc_id_don_vi_quan_ly)
     {
         US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_don_vi_quan_ly);
@@ -506,7 +500,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'> Mã giảng viên: " + mapping_ma_giang_vien_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)) + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'> Mã giảng viên: " + mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)) + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
