@@ -826,6 +826,8 @@ public class US_V_GD_THANH_TOAN : US_Object
     }
     public void fill_dataset_by_giang_vien_va_dv_thanh_toan(decimal ip_dc_id_giang_vien, 
                                                             decimal ip_dc_dv_thanh_toan, 
+                                                            decimal ip_dc_trang_thai_tt,
+                                                            string ip_str_reference_code,
                                                             string ip_str_loai_hop_dong, 
                                                             decimal ip_dc_thang_tt,
                                                             decimal ip_dc_nam_tt,
@@ -837,6 +839,8 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
         v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hop_dong);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+        v_cstore.addNVarcharInputParam("@REFERENCE_CODE", ip_str_reference_code);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
     public void fill_dataset_by_so_hop_dong(string ip_str_loai_hop_dong,
