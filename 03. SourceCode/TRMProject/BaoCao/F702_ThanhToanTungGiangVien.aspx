@@ -57,6 +57,28 @@
             <tr>
                 <td align="right" style="width:17%;height:30px;">			       
 			       
+			<asp:label id="Label8" CssClass="cssManField" runat="server" 
+                Text="Mã lớp môn (với TH vận hành): " />
+                </td>
+                <td align="left"  style="width:15%;">
+                    <asp:TextBox ID="m_txt_reference_code" Width="90%" runat="server"></asp:TextBox>
+                </td>
+                <td align="right" style="width:13%;">			       
+			       
+			<asp:label id="Label9" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Trạng thái thanh toán: " />
+			       
+                </td>
+                <td align="left" style="width:15%;">
+              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" CssClass="cssDorpdownlist" 
+                        Width="90%" runat="server" 
+                        AutoPostBack="true">
+               </asp:DropDownList>
+                         </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:17%;height:30px;">			       
+			       
 			<asp:label id="Label3" Enabled="false" CssClass="cssManField" runat="server" 
                 Text="Tháng thanh toán dự kiến: " />
 			       

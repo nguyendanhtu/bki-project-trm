@@ -23,6 +23,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
             load_data_2_cbo_don_vi_thanh_toan();
             load_data_2_nam_bd_hop_tac();
             load_data_2_cbo_giang_vien();
+            load_data_2_cbo_trang_thai_thanh_toan();
             m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
             //load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
             //if (m_cbo_dot_thanh_toan.Items.Count > 0)
@@ -140,6 +141,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     }
     public string mapping_magv_by_id(decimal ip_dc_id_gv)
     {
+        if (ip_dc_id_gv == 0) return "";
         US_V_DM_GIANG_VIEN v_dm_gv = new US_V_DM_GIANG_VIEN(ip_dc_id_gv);
         if (v_dm_gv.IsIDNull()) return "";
         return v_dm_gv.strMA_GIANG_VIEN;
@@ -191,6 +193,24 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     #endregion
 
     #region Private Methods
+    private void load_data_2_cbo_trang_thai_thanh_toan()
+    {
+        DS_CM_DM_TU_DIEN v_ds_trang_thai_thanh_toan = new DS_CM_DM_TU_DIEN();
+        US_CM_DM_TU_DIEN v_us_trang_thai_thanh_toan = new US_CM_DM_TU_DIEN();
+
+        DataRow v_dr_none = v_ds_trang_thai_thanh_toan.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+        v_ds_trang_thai_thanh_toan.EnforceConstraints = false;
+        v_dr_none[CM_DM_TU_DIEN.ID] = "0";
+        v_dr_none[CM_DM_TU_DIEN.MA_TU_DIEN] = "All";
+        v_dr_none[CM_DM_TU_DIEN.TEN] = "Tất cả";
+        v_ds_trang_thai_thanh_toan.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_none, 0);
+
+        v_us_trang_thai_thanh_toan.FillDataset(v_ds_trang_thai_thanh_toan," WHERE ID_LOAI_TU_DIEN = 15");
+        m_cbo_trang_thai_thanh_toan.DataTextField = CM_DM_TU_DIEN.TEN;
+        m_cbo_trang_thai_thanh_toan.DataValueField = CM_DM_TU_DIEN.ID;
+        m_cbo_trang_thai_thanh_toan.DataSource = v_ds_trang_thai_thanh_toan.CM_DM_TU_DIEN;
+        m_cbo_trang_thai_thanh_toan.DataBind();
+    }
     private void load_data_2_nam_bd_hop_tac()
     {
         m_cbo_nam_thanh_toan.Items.Add(new ListItem("Tất cả", CIPConvert.ToStr(0)));
@@ -252,6 +272,8 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         US_V_DM_GIANG_VIEN v_us_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
         v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM");
+        // Add thêm tất cả vào cbo
+        m_cbo_ten_giang_vien.Items.Add(new ListItem("Tất cả",CIPConvert.ToStr(0)));
         for (int v_i = 0; v_i < v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
             m_cbo_ten_giang_vien.Items.Add(new ListItem(v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() + " " + v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
@@ -274,8 +296,10 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private void load_data_2_grid_search(decimal ip_dc_id_giang_vien, 
-                                         decimal ip_dc_dv_thanh_toan, 
+                                         decimal ip_dc_dv_thanh_toan,
+                                         decimal ip_dc_trang_thai_thanh_toan,
                                          string ip_str_loai_hop_dong,
+                                         string ip_str_reference_code,
                                          decimal ip_dc_thang_tt, 
                                          decimal ip_dc_nam_tt)
     {
@@ -289,7 +313,14 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         }
         else m_str_loai_hd = "All";
 
-        m_us_v_gd_thanh_toan.fill_dataset_by_giang_vien_va_dv_thanh_toan(ip_dc_id_giang_vien, ip_dc_dv_thanh_toan, ip_str_loai_hop_dong,ip_dc_thang_tt,ip_dc_nam_tt, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_giang_vien_va_dv_thanh_toan(ip_dc_id_giang_vien,
+                                            ip_dc_dv_thanh_toan,
+                                            ip_dc_trang_thai_thanh_toan,
+                                            ip_str_reference_code,
+                                            ip_str_loai_hop_dong,
+                                            ip_dc_thang_tt,
+                                            ip_dc_nam_tt,
+                                            m_v_ds_gd_thanh_toan);
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -301,7 +332,12 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         m_grv_danh_sach_du_toan.DataBind();
         m_lbl_danh_sach_thanh_toan.Text = "Danh sách Thanh toán: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " thanh toán";
     }
-    private void load_data_2_excel_search(decimal ip_dc_id_giang_vien, decimal ip_dc_dv_thanh_toan, decimal ip_dc_thang_tt, decimal ip_dc_nam_tt)
+    private void load_data_2_excel_search(decimal ip_dc_id_giang_vien
+                                   , decimal ip_dc_dv_thanh_toan
+                                   , decimal ip_dc_trang_thai_tt
+                                   , string ip_str_reference_code
+                                   , decimal ip_dc_thang_tt
+                                   , decimal ip_dc_nam_tt)
     {
         //string v_str_ma_dot_tt = "";
         //if (ip_dc_id_dot_tt == 0) v_str_ma_dot_tt = "All";
@@ -320,7 +356,9 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         // Học liệu
         else m_str_loai_hd = "HL";
         m_us_v_gd_thanh_toan.fill_dataset_by_giang_vien_va_dv_thanh_toan(ip_dc_id_giang_vien, 
-                                                                         ip_dc_dv_thanh_toan, 
+                                                                         ip_dc_dv_thanh_toan,
+                                                                         ip_dc_trang_thai_tt,
+                                                                         ip_str_reference_code,
                                                                          m_str_loai_hd,
                                                                          ip_dc_thang_tt,
                                                                          ip_dc_nam_tt,
@@ -351,7 +389,9 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
        // if (ip_dc_id_dot_tt == 0) load_data_2_grid_search("All", v_str_loai_hd);
         load_data_2_grid_search(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue),
                                 CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue),
-                                v_str_loai_hd, 
+                                CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue),
+                                v_str_loai_hd,
+                                m_txt_reference_code.Text.Trim(),
                                 CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue),
                                 CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
     }
@@ -450,7 +490,12 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
 
     private void loadTieuDe(ref string strTable)
     {
-        load_data_2_excel_search(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
+        load_data_2_excel_search(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)
+                    , CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue)
+                    ,CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue)
+                    ,m_txt_reference_code.Text.Trim()
+                    , CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue)
+                    , CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
