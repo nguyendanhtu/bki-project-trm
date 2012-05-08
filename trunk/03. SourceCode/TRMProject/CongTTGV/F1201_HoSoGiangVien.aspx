@@ -14,7 +14,7 @@
 	<tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Giảng viên"/>
+                Text="Cập nhật thông tin Giảng viên"/>
 		</td>
 	</tr>
 	<tr>
@@ -32,7 +32,7 @@
                 Text="Mã giảng viên" />
                          </td>
                 <td style="width:30%" align="left" class="style3">
-			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox" Enabled="false" runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> (*)
@@ -45,7 +45,7 @@
 			       
 			    </td>
                 <td align="left" style="width:30%;">
-			        <asp:DropDownList ID="m_cbo_dm_don_vi_quan_ly" runat="server" 
+			        <asp:DropDownList ID="m_cbo_dm_don_vi_quan_ly" runat="server" Enabled="false"
                         CssClass="cssDorpdownlist" Width="96%" />
                          </td>
                 <td align="left" style="width:1%;"></td>
@@ -389,21 +389,11 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
-			<asp:label id="lblTrangThaiGiangVien" CssClass="cssManField" runat="server" 
-                Text="Trạng thái giảng viên" />
-                </td>
-                <td align="left" class="style3">
-		    <asp:DropDownList id="m_cbo_dm_trang_thai_giang_vien" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" class="style1">
                
 			<asp:label id="lblNgayCap1" CssClass="cssManField" runat="server" 
                 Text="Ngày bắt đầu hợp tác" />
-                    </td>
-                <td align="left">
+                </td>
+                <td align="left" class="style3">
 			
 			        <ew:calendarpopup ID="m_dat_ngay_bat_dau_hop_tac" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
@@ -436,16 +426,52 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:calendarpopup>
 			
+                         </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+               
+			<asp:label id="lblTrangThaiGiangVien" CssClass="cssManField" runat="server" Visible="false"
+                Text="Trạng thái giảng viên" />
+                    </td>
+                <td align="left">
+			
+		    <asp:DropDownList id="m_cbo_dm_trang_thai_giang_vien" runat="server" Width="96%" Visible="false"
+                        CssClass="cssDorpdownlist"  />
+			
                     </td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
-			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" 
-                Text="Hình thức cộng tác:" />
-		                    </td>
+			        <asp:Label ID="lblMaPoChinh" runat="server" CssClass="cssManField" 
+                        Text="PO phụ trách chính" />
+                    <br />
+                    <p>
+                        <asp:Label ID="lblMaPophu" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ" />
+                    </p>
+                </td>
                 <td align="left" class="style3">
-			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
+			        <asp:DropDownList ID="m_cbo_po_phu_trach_chinh" runat="server" 
+                        CssClass="cssDorpdownlist" Width="96%" />
+                    <br />
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                </td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" class="style1">
+			
+			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" Visible="false"
+                Text="Hình thức cộng tác:" />
+			
+                </td>
+                <td align="left" style="width:10%;">
+              
+                
+			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server" Visible="false">
                         <asp:ListItem>Hướng dẫn</asp:ListItem>
                         <asp:ListItem>Chuyên Môn</asp:ListItem>
                         <asp:ListItem>Viết Học Liệu</asp:ListItem>
@@ -454,29 +480,13 @@
                         <asp:ListItem>Quay học liệu</asp:ListItem>
                         <asp:ListItem>Hội Đồng Khoa Học</asp:ListItem>
                     </asp:CheckBoxList>
-                </td>
-                     <td align="left" style="width:1%;">&nbsp;</td>
-                <td align="right" class="style1">
-			<asp:label id="lblMaPoChinh" CssClass="cssManField" runat="server" 
-                Text="PO phụ trách chính" /><br />
-                <p>
-			<asp:label id="lblMaPophu" Text="PO phụ trách phụ" CssClass="cssManField" runat="server" 
-                Tex="" />
-                    </p>
-                </td>
-                <td align="left" style="width:10%;">
-                 <asp:DropDownList id="m_cbo_po_phu_trach_chinh" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                <br /><p>
-                <asp:DropDownList id="m_cbo_po_phu_trach_phu" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </p>
+              
                 
 			        </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>            
+			        &nbsp;</td>            
                          <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
@@ -484,19 +494,14 @@
                 <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
                 Text="Mô tả" />
 		                    </td>
-                <td align="left" class="style3">
+                <td align="left" class="style3" colspan="4">
                 <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
                TextMode="MultiLine" Rows="4" Width="96%" />
                 </td>
-                     <td align="left" style="width:1%;">&nbsp;</td>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>            
+			        &nbsp;</td>            
                          <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
