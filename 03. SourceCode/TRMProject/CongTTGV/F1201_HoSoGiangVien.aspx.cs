@@ -25,26 +25,32 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
             load_data_2_cbo_po_quan_ly_chinh_va_phu();
-            if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-            {
-                m_init_mode = DataEntryFormMode.UpdateDataState;
-                // Load data need to update - if mode = update
-                m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
-                load_data_2_us_by_id_and_show_on_form(m_dc_id);
-                m_txt_ma_giang_vien.Enabled = false;
-            }
+
+            string v_str_giang_vien_user = CIPConvert.ToStr(Session["UserName"]); // đây là mã giảng viên
+            m_dc_id = get_id_giang_vien_by_ma_gv(v_str_giang_vien_user);
+            load_data_2_us_by_id_and_show_on_form(m_dc_id);
+            m_txt_ma_giang_vien.Enabled = false;
+            // Dùng session để lấy được user name của giảng viên
+            // Từ username của giảng viên sẽ ra được id giang viên
+            // Hiện tại sử dụng mã giảng viên làm tên đăng nhập
+            //if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+            //{
+            //    //m_init_mode = DataEntryFormMode.UpdateDataState;
+            //    // Load data need to update - if mode = update
+               
+            //}
 
         }
-        if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-        {
-            m_init_mode = DataEntryFormMode.UpdateDataState;
-            m_txt_ma_giang_vien.Enabled = false;
-        }
-        else
-        {
-            m_init_mode = DataEntryFormMode.InsertDataState;
-            m_txt_ma_giang_vien.Enabled = true;
-        }
+        //if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+        //{
+        //    m_init_mode = DataEntryFormMode.UpdateDataState;
+        //    m_txt_ma_giang_vien.Enabled = false;
+        //}
+        //else
+        //{
+        //    m_init_mode = DataEntryFormMode.InsertDataState;
+        //    m_txt_ma_giang_vien.Enabled = true;
+        //}
     }
 
     #region Members
@@ -53,7 +59,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
 
     US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
     DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-    DataEntryFormMode m_init_mode;
+    //DataEntryFormMode m_init_mode;
     decimal m_dc_id = 0;
     #endregion
 
@@ -186,6 +192,12 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
         }
     }
 
+    private decimal get_id_giang_vien_by_ma_gv(string ip_str_ma_gv)
+    {
+        m_us_dm_giang_vien.FillDataset(m_ds_giang_vien, " WHERE MA_GIANG_VIEN = N'"+ip_str_ma_gv+"'");
+        if (m_us_dm_giang_vien.IsIDNull()) return 0;
+        return m_us_dm_giang_vien.dcID;
+    }
 
     private void reset_control()
     {
@@ -235,9 +247,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         try
         {
-            if (m_init_mode != DataEntryFormMode.UpdateDataState)
-                m_us_dm_giang_vien.Insert();
-            else m_us_dm_giang_vien.Update();
+            m_us_dm_giang_vien.Update();
         }
         catch (Exception v_e)
         {
