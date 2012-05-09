@@ -35,9 +35,8 @@
 			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox" Enabled="false" runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
-                         <td align="left" style="width:1%;"> (*)
-                             <asp:RequiredFieldValidator ID="m_rfv_ma_giang_vien" runat="server" 
-                        ControlToValidate="m_txt_ma_giang_vien" Text="*" ErrorMessage="Bạn phải nhập Mã Giảng viên"></asp:RequiredFieldValidator></td>
+                         <td align="left" style="width:1%;">
+                          </td>
                 <td align="left" class="style1">
 			       
 			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
@@ -395,7 +394,7 @@
                 </td>
                 <td align="left" class="style3">
 			
-			        <ew:calendarpopup ID="m_dat_ngay_bat_dau_hop_tac" runat="server" 
+			        <ew:calendarpopup ID="m_dat_ngay_bat_dau_hop_tac" runat="server" Enabled="false" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="50%" SelectedDate="" Text="" Culture="vi-VN" 
@@ -454,11 +453,11 @@
                 </td>
                 <td align="left" class="style3">
 			        <asp:DropDownList ID="m_cbo_po_phu_trach_chinh" runat="server" 
-                        CssClass="cssDorpdownlist" Width="96%" />
+                        CssClass="cssDorpdownlist" Width="96%" Enabled="false" />
                     <br />
                     <p>
                         <asp:DropDownList ID="m_cbo_po_phu_trach_phu" runat="server" 
-                            CssClass="cssDorpdownlist" Width="96%" />
+                            CssClass="cssDorpdownlist" Width="96%" Enabled="false" />
                     </p>
                 </td>
                      <td align="left" style="width:1%;">&nbsp;</td>
