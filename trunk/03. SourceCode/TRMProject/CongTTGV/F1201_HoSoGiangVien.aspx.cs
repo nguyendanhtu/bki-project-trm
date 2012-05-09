@@ -442,16 +442,13 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
         try
         {
             // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
-            if (m_init_mode == DataEntryFormMode.InsertDataState)
+            if (!check_ma_giang_vien())
             {
-                if (!check_ma_giang_vien())
-                {
-                    string someScript;
-                    someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                    // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
-                    return;
-                }
+                string someScript;
+                someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
+                return;
             }
             if (!check_check_loai_hop_dong())
             {
@@ -463,16 +460,17 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
             }
 
             form_2_us_object(m_us_dm_giang_vien);
-            if (m_init_mode == DataEntryFormMode.UpdateDataState)
-                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"]);
+             m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"]);
 
             // Lưu dữ liệu
             save_data();
+            // Thông báo về việc update thành công
+
             //reset_control();
             // Chuyển vể danh sách giảng viên
-            if (m_init_mode == DataEntryFormMode.UpdateDataState)
-                Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=ok", false);
-            else Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=add", false);
+            //if (m_init_mode == DataEntryFormMode.UpdateDataState
+            //Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=ok", false);
+            //else Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=add", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
