@@ -899,7 +899,30 @@ public class US_V_GD_THANH_TOAN : US_Object
          v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
          v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
      }
-    
+     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, string ip_str_so_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_so_HD");
+         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+         v_cstore.addNVarcharInputParam("@SO_HOP_DONG", ip_str_so_hd);
+         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+     }
+     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, string ip_str_so_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_like_so_HD");
+         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+         v_cstore.addNVarcharInputParam("@SO_HOP_DONG", ip_str_so_hd);
+         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+     }
+     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_id_hd_khung(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, decimal ip_str_id_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_Id_hd_khung");
+         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+         v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_str_id_hd);
+         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+     }
     #endregion
 }
 }

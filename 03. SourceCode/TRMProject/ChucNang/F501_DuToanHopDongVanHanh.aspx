@@ -506,6 +506,9 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Mã đợt thanh toán">
                     <ItemStyle Width="14%" HorizontalAlign="Left" />
                     </asp:BoundField>
@@ -545,9 +548,6 @@
                      <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
                         HeaderText="Tổng tiền thực nhận đợt này (VNĐ)">
                      <ItemStyle Width="7%" HorizontalAlign="Center" />
-                    </asp:BoundField>
-                     <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
-                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
                      <ItemStyle Width="15%" HorizontalAlign="Left" />

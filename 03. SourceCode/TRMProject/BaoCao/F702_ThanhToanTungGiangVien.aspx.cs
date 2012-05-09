@@ -265,7 +265,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     {
         US_V_DM_GIANG_VIEN v_us_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
-        v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM");
+        v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM,TEN_GIANG_VIEN");
         // Add thêm tất cả vào cbo
         m_cbo_ten_giang_vien.Items.Add(new ListItem("Tất cả",CIPConvert.ToStr(0)));
         for (int v_i = 0; v_i < v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
