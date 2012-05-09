@@ -395,6 +395,7 @@ public partial class BaoCao_F704_CacChungTuTonDong : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.SO_TIEN_THUE]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien_con_phai_tt(grv[V_GD_THANH_TOAN.CON_PHAI_THANH_TOAN], grv[V_GD_THANH_TOAN.LOAI_HOP_DONG], grv[V_GD_THANH_TOAN.REFERENCE_CODE]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_trang_thai_thanh_toan(CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID_TRANG_THAI_THANH_TOAN])) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(grv[V_GD_THANH_TOAN.PO_LAP_THANH_TOAN]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(grv[V_GD_THANH_TOAN.DESCRIPTION]) + "</td>";
             strTable += "\n</tr>";
@@ -458,6 +459,7 @@ public partial class BaoCao_F704_CacChungTuTonDong : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tiền thuế (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền thực nhận đợt này (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tiền còn phải thanh toán (VNĐ)</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Trạng thái thanh toán</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO lập thanh toán</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ghi chú</td>";
         strTable += "\n</tr>";
