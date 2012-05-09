@@ -25,6 +25,8 @@ public partial class CongTTGV_F1720_QuaTrinhThanhToanCuaGiangVien : System.Web.U
             load_data_2_cbo_giang_vien();
             load_data_2_cbo_trang_thai_thanh_toan();
             m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
+            m_cbo_ten_giang_vien.SelectedValue = CIPConvert.ToStr(get_id_giang_vien_by_ma(CIPConvert.ToStr(Session["UserName"])));
+            search_data_show_on_grid();
             //load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
             //if (m_cbo_dot_thanh_toan.Items.Count > 0)
             //{
@@ -434,6 +436,13 @@ public partial class CongTTGV_F1720_QuaTrinhThanhToanCuaGiangVien : System.Web.U
         if (ip_obj_str.GetType() != typeof(DBNull))
             return CIPConvert.ToStr(ip_obj_str);
         return "";
+    }
+    private decimal get_id_giang_vien_by_ma(string ip_str_ma_gv)
+    {
+        US_V_DM_GIANG_VIEN v_us_dm_gv = new US_V_DM_GIANG_VIEN();
+        DS_V_DM_GIANG_VIEN v_ds_dm_gv = new DS_V_DM_GIANG_VIEN();
+        v_us_dm_gv.FillDataset(v_ds_dm_gv, " WHERE MA_GIANG_VIEN = N'"+ip_str_ma_gv+"'");
+        return CIPConvert.ToDecimal(v_ds_dm_gv.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.ID]);
     }
     // Thông tin đợt thanh toán
     //private void fill_data_2_thong_tin_dot_tt(decimal ip_dc_id_dot)

@@ -9,7 +9,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Báo cáo chi tiết đợt thanh toán"/>
+                Text="Quá trình thanh toán của giảng viên"/>
 		</td>
 	</tr>
 	<tr>
@@ -27,10 +27,11 @@
 			       
                          </td>
                 <td align="left" colspan="2">
-              <asp:DropDownList ID="m_cbo_ten_giang_vien" CssClass="cssDorpdownlist" 
+              <asp:DropDownList ID="m_cbo_ten_giang_vien" CssClass="cssDorpdownlist" Enabled="false"
                         Width="90%" runat="server" 
                         AutoPostBack="true" 
-                        onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged">
+                        onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged" 
+                        Height="27px">
                </asp:DropDownList>
                          </td>
                 <td align="left" colspan="2">			       
