@@ -26,7 +26,7 @@
                 Text="&lt;U&gt;T&lt;/U&gt;ên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">
-		    <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" Enabled=false
+		    <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" Enabled="false"
                         Width="90%"></asp:TextBox>
                          </td>
                          <td align="left" style="width:1%;"> 
@@ -273,7 +273,7 @@
 	</tr>	
     <tr>
 		<td align="left">
-        &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" Enabled =false
+        &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" Visible="false"
                 runat="server" Width="98px" Text="Tạo mới(c)" 
                 Height="27px" onclick="cmd_them_moi_Click"/><br />
                 <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
@@ -293,14 +293,14 @@
                 onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                     <asp:TemplateField HeaderText="Xóa">
+                     <asp:TemplateField HeaderText="Xóa" Visible="false">
                     <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Sửa">
+                     <asp:TemplateField HeaderText="Sửa" Visible="false">
                     <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
@@ -350,7 +350,7 @@
                     <asp:TemplateField>
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
+                    <label><a href='/TRMProject/CongTTGV/F1201_HoSoGiangVien.aspx'>
                     <%# Eval("GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>

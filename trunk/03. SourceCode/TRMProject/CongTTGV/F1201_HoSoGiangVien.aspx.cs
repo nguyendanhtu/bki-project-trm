@@ -25,11 +25,14 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
             load_data_2_cbo_po_quan_ly_chinh_va_phu();
+            m_lbl_mess.Visible = false;
 
             string v_str_giang_vien_user = CIPConvert.ToStr(Session["UserName"]); // đây là mã giảng viên
             m_dc_id = get_id_giang_vien_by_ma_gv(v_str_giang_vien_user);
+            // Lưu mã giảng viên bằng Tool Tip của mã giảng viên
+            m_txt_ma_giang_vien.ToolTip = CIPConvert.ToStr(m_dc_id);
             load_data_2_us_by_id_and_show_on_form(m_dc_id);
-            m_txt_ma_giang_vien.Enabled = false;
+            //m_txt_ma_giang_vien.Enabled = false;
             // Dùng session để lấy được user name của giảng viên
             // Từ username của giảng viên sẽ ra được id giang viên
             // Hiện tại sử dụng mã giảng viên làm tên đăng nhập
@@ -196,7 +199,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         m_us_dm_giang_vien.FillDataset(m_ds_giang_vien, " WHERE MA_GIANG_VIEN = N'"+ip_str_ma_gv+"'");
         if (m_us_dm_giang_vien.IsIDNull()) return 0;
-        return m_us_dm_giang_vien.dcID;
+        return CIPConvert.ToDecimal(m_ds_giang_vien.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.ID]);
     }
 
     private void reset_control()
@@ -243,17 +246,6 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
         return true;
     }
 
-    private void save_data()
-    {
-        try
-        {
-            m_us_dm_giang_vien.Update();
-        }
-        catch (Exception v_e)
-        {
-            throw v_e;
-        }
-    }
     private void form_2_us_object(US_V_DM_GIANG_VIEN ip_us_giang_vien)
     {
         try
@@ -442,30 +434,30 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
         try
         {
             // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
-            if (!check_ma_giang_vien())
-            {
-                string someScript;
-                someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
-                return;
-            }
-            if (!check_check_loai_hop_dong())
-            {
-                string someScript;
-                someScript = "<script language='javascript'>alert('Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                // m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
-                return;
-            }
+            //if (!check_ma_giang_vien())
+            //{
+            //    string someScript;
+            //    someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //    // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
+            //    return;
+            //}
+            //if (!check_check_loai_hop_dong())
+            //{
+            //    string someScript;
+            //    someScript = "<script language='javascript'>alert('Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên');</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //    // m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
+            //    return;
+            //}
 
             form_2_us_object(m_us_dm_giang_vien);
-             m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"]);
-
-            // Lưu dữ liệu
-            save_data();
+             m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(m_txt_ma_giang_vien.ToolTip);
+            // Update dữ liệu
+            m_us_dm_giang_vien.Update();
             // Thông báo về việc update thành công
-
+            m_lbl_mess.Text = "Dữ liệu được cập nhật thành công";
+            m_lbl_mess.Visible = true;
             //reset_control();
             // Chuyển vể danh sách giảng viên
             //if (m_init_mode == DataEntryFormMode.UpdateDataState
@@ -483,7 +475,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx", false);
+            Response.Redirect("/TRMProject", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
