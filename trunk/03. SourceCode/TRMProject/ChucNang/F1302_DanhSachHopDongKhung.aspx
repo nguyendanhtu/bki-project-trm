@@ -14,7 +14,7 @@
   <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label1" runat="server" CssClass="cssPageTitle" 
-                Text="Bộ lọc hợp đồng khung"/>
+                Text="Bộ lọc hợp đồng khung giảng viên"/>
 		</td>
 	</tr>	
   <tr>
@@ -307,7 +307,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Phụ lục hợp đồng">
                     <ItemTemplate> <asp:HyperLink ToolTip="Phụ lục hợp đồng" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F307_PhuLucHopDong.aspx?id_hd="+Eval("ID") %>'></asp:HyperLink>
+                     NavigateUrl='<%# "/TRMProject/CongTTGV/F1307_PhuLucHopDong.aspx?id_hd="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
