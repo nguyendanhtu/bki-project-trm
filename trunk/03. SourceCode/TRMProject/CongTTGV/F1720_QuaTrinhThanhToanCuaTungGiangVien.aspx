@@ -280,6 +280,10 @@
                        <ItemTemplate><%# mapping_so_tien_con_phai_tt(Eval("CON_PHAI_THANH_TOAN"), Eval("LOAI_HOP_DONG"), Eval("REFERENCE_CODE"))%></ItemTemplate>
                         <ItemStyle Width="5%"></ItemStyle>
                     </asp:TemplateField> 
+                     <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="Trạng thái thanh toán">
+                       <ItemTemplate><%# mapping_trang_thai_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_THANH_TOAN"))) %></ItemTemplate>
+                        <ItemStyle Width="5%"></ItemStyle>
+                    </asp:TemplateField> 
                      <asp:BoundField DataField="PO_LAP_THANH_TOAN" HeaderText="PO lập thanh toán">
                      <ItemStyle Width="4%" HorizontalAlign="Left" />
                     </asp:BoundField>

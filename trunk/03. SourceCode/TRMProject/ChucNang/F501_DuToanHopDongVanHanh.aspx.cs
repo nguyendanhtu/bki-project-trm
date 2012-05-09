@@ -101,7 +101,8 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT = "+get_id_trang_thai_dot_tt_da_lap_dot()+" ORDER BY ID DESC");
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_dot_tt_da_lap_dot(), v_ds_dot_thanh_toan);
+        //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT = "+get_id_trang_thai_dot_tt_da_lap_dot()+" ORDER BY ID DESC");
         for (int i = 0; i < v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count; i++)
         {
             if (CIPConvert.ToDecimal(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.ID]) != get_id_of_dot_tt_kho())

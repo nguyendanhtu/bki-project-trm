@@ -121,13 +121,15 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
         // Nếu ko search theo trạng thái thanh toán
-        if (ip_dc_id_trang_thai_tt == 0)
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG like N'%" + m_txt_so_hd_search.Text.Trim() + "%' ORDER BY ID");
-        else if (ip_str_so_hd == "")
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN = " + ip_dc_id_trang_thai_tt + " ORDER BY ID");
-        else
-            // Số phiếu thanh toán là mã đợt thanh toán
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG like N'%" + m_txt_so_hd_search.Text.Trim() + "%' AND ID_TRANG_THAI_THANH_TOAN = " + ip_dc_id_trang_thai_tt + " ORDER BY ID");
+        v_us_gd_thanh_toan.f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(ip_str_ma_dot_tt, ip_dc_id_trang_thai_tt, m_txt_so_hd_search.Text.Trim(), v_ds_gd_thanh_toan);
+
+        //if (ip_dc_id_trang_thai_tt == 0)
+        //    v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG like N'%" + m_txt_so_hd_search.Text.Trim() + "%' ORDER BY ID");
+        //else if (ip_str_so_hd == "")
+        //    v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN = " + ip_dc_id_trang_thai_tt + " ORDER BY ID");
+        //else
+        //    // Số phiếu thanh toán là mã đợt thanh toán
+        //    v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG like N'%" + m_txt_so_hd_search.Text.Trim() + "%' AND ID_TRANG_THAI_THANH_TOAN = " + ip_dc_id_trang_thai_tt + " ORDER BY ID");
 
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -142,7 +144,8 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_thanh_toan());
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_da_thanh_toan(), v_ds_dot_thanh_toan);
+        //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_thanh_toan());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;

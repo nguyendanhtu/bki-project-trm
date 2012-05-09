@@ -88,7 +88,8 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_dot_thanh_toan_da_duoc_duyet());
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_dot_thanh_toan_da_duoc_duyet(), v_ds_dot_thanh_toan);
+        //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_dot_thanh_toan_da_duoc_duyet());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
@@ -141,7 +142,8 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE N'%" + ip_str_so_hd + "%' AND ID_TRANG_THAI_THANH_TOAN = " + lblUser.ToolTip + " ORDER BY ID");
+        v_us_gd_thanh_toan.f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(ip_str_ma_dot_tt, CIPConvert.ToDecimal(lblUser.ToolTip), ip_str_so_hd, m_v_ds_gd_thanh_toan);
+        //v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE N'%" + ip_str_so_hd + "%' AND ID_TRANG_THAI_THANH_TOAN = " + lblUser.ToolTip + " ORDER BY ID");
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
