@@ -16,38 +16,32 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
         try
         {
-            try
+            cmd_them_moi.Visible = false;
+            m_grv_dm_danh_sach_hop_dong_khung.Columns[0].Visible = false;
+            m_grv_dm_danh_sach_hop_dong_khung.Columns[1].Visible = false;
+            m_lbl_thong_bao.Text = "";
+            //m_txt_ten_giang_vien.Focus();
+            if (!IsPostBack)
             {
-                cmd_them_moi.Visible = false;
-                m_grv_dm_danh_sach_hop_dong_khung.Columns[0].Visible = false;
-                m_grv_dm_danh_sach_hop_dong_khung.Columns[1].Visible = false;
-                m_lbl_thong_bao.Text = "";
-                m_txt_ten_giang_vien.Focus();
-                if (!IsPostBack)
+                m_txt_ten_giang_vien.Text = get_ten_giang_vien_by_ma_gv(CIPConvert.ToStr(Session["UserName"]));
+                load_2_cbo_don_vi_quan_ly();
+                load_data_2_loai_hop_dong();
+                load_data_2_trang_thai_hop_dong();
+                load_data_2_nam_bd_hop_tac();
+                if (Session["Snamekhung"] != null)
                 {
-                    load_2_cbo_don_vi_quan_ly();
-                    load_data_2_loai_hop_dong();
-                    load_data_2_trang_thai_hop_dong();
-                    load_data_2_nam_bd_hop_tac();
-                    if (Session["Snamekhung"] != null)
-                    {
-                        session_2_form();
-                        search_using_session();
-                    }
-                    if (Request.QueryString["edit"] != null)
-                    {
-                        if (Request.QueryString["edit"].ToString().Equals("ok"))
-                            m_lbl_thong_bao.Text = "Cập nhật dữ liệu thành công";
-                        else m_lbl_thong_bao.Text = "Thêm dữ liệu thành công";
-                    }
+                    session_2_form();
+                    search_using_session();
                 }
-            }
-            catch (Exception v_e)
-            {
-                CSystemLog_301.ExceptionHandle(this, v_e);
+                else get_form_search_data_and_load_to_grid();
+                //if (Request.QueryString["edit"] != null)
+                //{
+                //    if (Request.QueryString["edit"].ToString().Equals("ok"))
+                //        m_lbl_thong_bao.Text = "Cập nhật dữ liệu thành công";
+                //    else m_lbl_thong_bao.Text = "Thêm dữ liệu thành công";
+                //}
             }
         }
         catch (Exception v_e)
@@ -262,6 +256,14 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
 
             throw v_e;
         }
+    }
+
+    private string get_ten_giang_vien_by_ma_gv(string ip_str_ma_gv)
+    {
+        DS_V_DM_GIANG_VIEN v_ds_dm_gv = new DS_V_DM_GIANG_VIEN();
+        US_V_DM_GIANG_VIEN v_us_dm_gv = new US_V_DM_GIANG_VIEN();
+        v_us_dm_gv.FillDataset(v_ds_dm_gv," WHERE MA_GIANG_VIEN = N'"+ip_str_ma_gv.Trim()+"'");
+        return v_ds_dm_gv.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().Trim() + " " + v_ds_dm_gv.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString().Trim();
     }
 
     private void session_2_form()
