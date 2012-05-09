@@ -871,6 +871,35 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_store.addDecimalInputParam("@id_hop_dong_khung", ip_dc_id_hop_dong);
         v_store.fillDataSetByCommand(this, ip_v_ds_gd_thanh_toan);
     }
+
+    // LinhDH 09/05/2012
+    public void f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(string ip_str_ma_dot_tt,string ip_str_loai_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
+        v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+        v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", 0);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+    }
+    // LinhDH 09/05/2012
+     public void f501_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt(string ip_str_ma_dot_tt,decimal ip_dc_trang_thai_tt, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
+        v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+        v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", "");
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+    }
+     // LinhDH 09/05/2012
+     public void f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt,string ip_str_loai_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
+         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
+         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
+         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
+     }
+    
     #endregion
 }
 }
