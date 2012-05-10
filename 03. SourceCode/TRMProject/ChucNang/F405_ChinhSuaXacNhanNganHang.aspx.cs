@@ -24,8 +24,8 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
         m_grv_danh_sach_du_toan.Visible = true;
         if (!IsPostBack)
         {
-            lblUser.ToolTip =CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_thanh_cong());
-            m_lbl_thong_bao0.ToolTip = CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong());
+            lblUser.ToolTip =CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG);
+            m_lbl_thong_bao0.ToolTip = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG);
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
@@ -89,7 +89,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_da_thanh_toan(),v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(ID_TRANG_THAI_DOT_TT.DA_THANH_TOAN,v_ds_dot_thanh_toan);
         //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_thanh_toan());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;

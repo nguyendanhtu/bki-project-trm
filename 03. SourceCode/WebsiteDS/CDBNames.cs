@@ -24,6 +24,15 @@ namespace WebDS.CDBNames
         , TRANG_THAI_THANH_TOAN = 15
     }
 
+    public enum e_user_group
+    {
+        TESTER=1
+        ,PM_TD = 2
+        ,TRUONG_NHOM_PO = 3
+        ,PO = 4
+        , ADMIN = 5
+        ,GIANG_VIEN = 6
+    }
 
  public class TRANG_THAI_DOT_TT
     {

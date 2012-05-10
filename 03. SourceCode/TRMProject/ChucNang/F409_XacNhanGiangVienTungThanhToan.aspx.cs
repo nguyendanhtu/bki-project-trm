@@ -108,7 +108,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         v_dr[CM_DM_TU_DIEN.MA_TU_DIEN] = "All";
         v_dr[CM_DM_TU_DIEN.TEN] = "Tất cả";
         v_dr[CM_DM_TU_DIEN.TEN_NGAN] = "Tất cả";
-        v_dr[CM_DM_TU_DIEN.ID_LOAI_TU_DIEN] = 0;
+        v_dr[CM_DM_TU_DIEN.ID_LOAI_TU_DIEN] = HANG_SO_UNG_TEXT.TAT_CA;
         m_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr, 0);
 
         m_cbo_trang_thai_tt_search.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -144,7 +144,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_da_thanh_toan(), v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(ID_TRANG_THAI_DOT_TT.DA_THANH_TOAN, v_ds_dot_thanh_toan);
         //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_thanh_toan());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
