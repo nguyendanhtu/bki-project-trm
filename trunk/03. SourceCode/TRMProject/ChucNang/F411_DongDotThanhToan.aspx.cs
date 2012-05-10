@@ -32,8 +32,8 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
                 m_cmd_dong_dot_tt.Enabled = false;
                 m_lbl_thong_bao1.Text = "Chưa có đợt thanh toán nào";
             }
-            hdf_id_trang_thai_da_co_xac_nhan_gv.Value = CIPConvert.ToStr(get_id_trang_thai_da_co_xac_nhan_cua_giang_vien());
-            hdf_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong.Value = CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong());
+            hdf_id_trang_thai_da_co_xac_nhan_gv.Value = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN);
+            hdf_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong.Value = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG);
         }
     }
 
@@ -167,7 +167,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_dot_tt_da_thanh_toan(),v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(ID_TRANG_THAI_DOT_TT.DA_THANH_TOAN,v_ds_dot_thanh_toan);
         //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT = " + get_id_trang_thai_dot_tt_da_thanh_toan());
         // Không load đợt thanh toán kho lên
         for (int i = 0; i < v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count; i++)
@@ -175,22 +175,6 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             if (CIPConvert.ToDecimal(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.ID]) != get_id_of_dot_tt_kho())
                 m_cbo_dot_thanh_toan.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.TEN_DOT_TT]), CIPConvert.ToStr(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.ID])));
         }
-    }
-    private decimal get_id_trang_thai_dot_tt_da_thanh_toan()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_THANH_TOAN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 505;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
-    private decimal get_id_trang_thai_dot_tt_da_lap_bang_ke()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 504;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     /// <summary>
     /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
@@ -246,22 +230,6 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             return 25;
         return CIPConvert.ToDecimal(v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.ID]);
     }
-    private decimal get_id_trang_thai_da_co_xac_nhan_cua_giang_vien()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%DA_CO_XAC_NHAN_CUA_GIANG_VIEN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 519;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
-    private decimal get_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 516;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
     // Hiển thị toàn bộ các thanh toán của đợt thanh toán này
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
@@ -292,6 +260,10 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             }
         }
     }
+    /// <summary>
+    ///  Hàm này load các thanh toán chưa có xác nhận của giảng viên và bind lên lưới
+    /// </summary>
+    /// <param name="ip_str_ma_dot_tt">Mã đợt thanh toán</param>
     private void load_cac_thanh_toan_chua_duoc_xac_nhan_gv(string ip_str_ma_dot_tt)
     {
         m_us_gd_thanh_toan.FillDataset(m_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN='" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN <> " + hdf_id_trang_thai_da_co_xac_nhan_gv.Value + " ORDER BY ID DESC");

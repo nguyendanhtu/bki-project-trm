@@ -106,7 +106,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         DS_CM_DM_TU_DIEN v_ds_trang_thai_hd = new DS_CM_DM_TU_DIEN();
         try
         {
-            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN ="+ (int)e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG);
+            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN ="+ (int)e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG +" ORDER BY GHI_CHU");
             m_cbo_dm_trang_thai_hop_dong.DataSource = v_ds_trang_thai_hd.CM_DM_TU_DIEN;
             m_cbo_dm_trang_thai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
             m_cbo_dm_trang_thai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -125,7 +125,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
          try
          {
-             v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY TEN_GIANG_VIEN");
+             v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM, TEN_GIANG_VIEN");
              for (int v_i = 0; v_i < v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
              {
                  m_cbo_gvien.Items.Add(new ListItem(v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() +" "+ v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
@@ -166,7 +166,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              US_HT_NGUOI_SU_DUNG v_us_nguoi_su_dung = new US_HT_NGUOI_SU_DUNG();
              DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
              // Đổ dữ liệu vào DS 
-             v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
+             v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung, " WHERE ID_USER_GROUP <> "+ (int)e_user_group.GIANG_VIEN+" ORDER BY TEN_TRUY_CAP");
 
              //TReo dữ liệu vào Dropdownlist loại hợp đồng
              // Đây là giá trị thực

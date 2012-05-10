@@ -25,8 +25,8 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         m_grv_danh_sach_du_toan.Visible = true;
         if (!IsPostBack)
         {
-            lblUser.ToolTip = CIPConvert.ToStr(get_id_trang_thai_da_co_xac_nhan_cua_giang_vien());
-            m_lbl_thong_bao0.ToolTip = CIPConvert.ToStr(get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien());
+            lblUser.ToolTip = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN);
+            m_lbl_thong_bao0.ToolTip = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN);
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
@@ -108,7 +108,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(get_id_trang_thai_da_thanh_toan(),v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(ID_TRANG_THAI_DOT_TT.DA_THANH_TOAN,v_ds_dot_thanh_toan);
         //v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_thanh_toan());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
@@ -278,7 +278,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         if (Request.QueryString["id_tt"] != null)
             m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         else
-            m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien());
+            m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ID_TRANG_THAI_THANH_TOAN.CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN);
         // Lưu lại id_trang_thai_thanh_toan_cuc
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
@@ -312,30 +312,6 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         }
 
     }   
-    private decimal get_id_trang_thai_da_thanh_toan()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_THANH_TOAN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 505;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
-    private decimal get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 517;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
-    private decimal get_id_trang_thai_da_co_xac_nhan_cua_giang_vien()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%DA_CO_XAC_NHAN_CUA_GIANG_VIEN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 519;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
     private string get_ma_trang_thai_thanh_toan_by_id(decimal ip_dc_id_tt)
     {
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
