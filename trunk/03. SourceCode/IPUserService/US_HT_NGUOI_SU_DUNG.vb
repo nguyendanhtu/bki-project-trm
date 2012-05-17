@@ -245,6 +245,15 @@ Public Class US_HT_NGUOI_SU_DUNG
         End If
         Return True
     End Function
+
+    '' Created by LinhDH 2012.05.17
+    Public Function change_pass_word(ByVal ip_str_ten_dang_nhap As String, ByVal ip_str_new_password As String) As Integer
+        Dim v_cstore As New CStoredProc("pr_HT_NGUOI_SU_DUNG_Change_Password")
+        v_cstore.addNVarcharInputParam("@v_str_mat_khau_moi", ip_str_new_password)
+        v_cstore.addNVarcharInputParam("@v_str_ten_dang_nhap", ip_str_ten_dang_nhap)
+        v_cstore.ExecuteCommand(Me)
+    End Function
+
     Public Sub check_user(ByVal i_strTenTruyCap As String, _
                                     ByVal i_strMatKhau As String, _
                                     ByRef o_logonResult As LogonResult)
