@@ -227,8 +227,16 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         m_txt_ghi_chu.Text = ip_us_noi_dung_thanh_toan.strGHI_CHU;
         m_ddl_ma_tan_xuat.SelectedValue = ip_us_noi_dung_thanh_toan.strMA_TAN_SUAT;
         m_txt_so_luong_he_so_default.Text = CIPConvert.ToStr(ip_us_noi_dung_thanh_toan.dcSO_LUONG_HE_SO_DEFAULT);
-        if (ip_us_noi_dung_thanh_toan.strSU_DUNG_YN.Equals("Y")) m_rdl_su_dung_yn.Items[0].Selected = true;
-        else m_rdl_su_dung_yn.Items[1].Selected = true;
+        if (ip_us_noi_dung_thanh_toan.strSU_DUNG_YN.Equals("Y"))
+        {
+            m_rdl_su_dung_yn.Items[0].Selected = true;
+            m_rdl_su_dung_yn.Items[1].Selected = false;
+        }
+        else
+        {
+            m_rdl_su_dung_yn.Items[0].Selected = false;
+            m_rdl_su_dung_yn.Items[1].Selected = true;
+        }
     }
     private void load_data_2_us_by_id(int ip_i_id)
     {
