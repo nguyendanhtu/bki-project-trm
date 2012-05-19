@@ -254,6 +254,12 @@
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Sử dụng YN?">
+                    <ItemTemplate>
+                    <label><%# mapping_YN(Eval("SU_DUNG_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
