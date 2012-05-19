@@ -83,6 +83,8 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_HE_SO_DEFAULT = "SO_LUONG_HE_SO_DEFAULT";
         public const string DON_VI_TINH = "DON_VI_TINH";
         public const string TAN_SUAT = "TAN_SUAT";
+        public const string SU_KIEN_YN = "SU_KIEN_YN";
+        public const string SU_DUNG_YN = "SU_DUNG_YN";
     }
     public class DM_MON_HOC
     {
