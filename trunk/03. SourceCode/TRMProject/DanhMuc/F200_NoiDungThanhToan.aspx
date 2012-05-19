@@ -139,6 +139,19 @@
 	</tr>	
 	<tr>
 		<td align="right">
+			<asp:label id="lbl_hoc_lieu1" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;C&lt;/U&gt;ó sử dụng?" />
+		</td>
+		<td valign="top" colspan="2">
+		    <asp:RadioButtonList ID="m_rdl_su_dung_yn" runat="server" 
+                RepeatDirection="Horizontal" Width="115px">
+                <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
+                <asp:ListItem Value="N">Không</asp:ListItem>
+            </asp:RadioButtonList>
+        </td>
+	</tr>	
+	<tr>
+		<td align="right">
 			<asp:label id="lbl_ghi_chu" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;G&lt;/U&gt;hi chú" />
 		</td>
@@ -251,6 +264,12 @@
                     <asp:TemplateField HeaderText="Vận hành YN?">
                     <ItemTemplate>
                     <label><%# mapping_YN(Eval("VAN_HANH_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Sử dụng YN?">
+                    <ItemTemplate>
+                    <label><%# mapping_YN(Eval("SU_DUNG_YN").ToString())%></label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
