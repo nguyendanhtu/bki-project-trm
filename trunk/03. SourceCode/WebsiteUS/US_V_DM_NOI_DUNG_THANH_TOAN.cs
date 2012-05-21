@@ -311,6 +311,50 @@ public class US_V_DM_NOI_DUNG_THANH_TOAN : US_Object
 		pm_objDR["TEN_NGAN"] = System.Convert.DBNull;
 	}
 
+
+    public string strSU_KIEN_YN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "SU_KIEN_YN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["SU_KIEN_YN"] = value;
+        }
+    }
+
+    public bool IsSU_KIEN_YNNull()
+    {
+        return pm_objDR.IsNull("SU_KIEN_YN");
+    }
+
+    public void SetSU_KIEN_YNNull()
+    {
+        pm_objDR["SU_KIEN_YN"] = System.Convert.DBNull;
+    }
+
+    public string strSU_DUNG_YN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "SU_DUNG_YN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["SU_DUNG_YN"] = value;
+        }
+    }
+
+    public bool IsSU_DUNG_YNNull()
+    {
+        return pm_objDR.IsNull("SU_DUNG_YN");
+    }
+
+    public void SetSU_DUNG_YNNull()
+    {
+        pm_objDR["SU_DUNG_YN"] = System.Convert.DBNull;
+    }
 #endregion
 #region "Init Functions"
 	public US_V_DM_NOI_DUNG_THANH_TOAN() 
