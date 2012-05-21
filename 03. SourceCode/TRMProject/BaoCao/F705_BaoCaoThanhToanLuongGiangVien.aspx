@@ -216,7 +216,7 @@
                      <ItemStyle Width="8%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="NỘI DUNG" >
-                       <ItemTemplate><%# getting_noi_dung_collumn(Eval("ID_HOP_DONG_KHUNG"), Eval("LOAI_HOP_DONG"), Eval("GHI_CHU_CAC_MON_PHU_TRACH"), Eval("SO_HOP_DONG"), Eval("TEN_GIANG_VIEN"), Eval("THOI_GIAN"))%></ItemTemplate>
+                       <ItemTemplate><%# getting_noi_dung_collumn(Eval("ID_HOP_DONG_KHUNG"), Eval("LOAI_HOP_DONG"), Eval("GHI_CHU_CAC_MON_PHU_TRACH"), Eval("SO_HOP_DONG"), Eval("TEN_GIANG_VIEN"), Eval("GHI_CHU_THOI_GIAN_LOP_MON"))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="44%"></ItemStyle>
                     </asp:TemplateField>
                 </Columns>
