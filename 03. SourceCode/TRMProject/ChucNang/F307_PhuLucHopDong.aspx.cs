@@ -391,4 +391,16 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             throw v_e;
         }
     }
+    protected void m_grv_gd_hop_dong_noi_dung_tt_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_gd_hop_dong_noi_dung_tt.PageIndex = e.NewPageIndex;
+            load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
