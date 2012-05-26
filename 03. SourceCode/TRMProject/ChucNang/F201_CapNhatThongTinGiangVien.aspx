@@ -464,7 +464,11 @@
 			<asp:label id="lblMaPoChinh" CssClass="cssManField" runat="server" 
                 Text="PO phụ trách chính" /><br />
                 <p>
-			<asp:label id="lblMaPophu" Text="PO phụ trách phụ" CssClass="cssManField" runat="server" 
+			<asp:label id="lblMaPophu" Text="PO phụ trách phụ 1" CssClass="cssManField" runat="server" 
+                Tex="" />
+                    </p>
+                     <p>
+			<asp:label id="Label1" Text="PO phụ trách phụ 2" CssClass="cssManField" runat="server" 
                 Tex="" />
                     </p>
                 </td>
@@ -475,7 +479,10 @@
                 <asp:DropDownList id="m_cbo_po_phu_trach_phu" runat="server" Width="96%" 
                         CssClass="cssDorpdownlist"  />
                          </p>
-                
+                <p>
+                <asp:DropDownList id="m_cbo_po_phu_trach_phu2" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </p>
 			        </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
@@ -494,9 +501,24 @@
                 </td>
                      <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" class="style1">
-                    &nbsp;</td>
+                    &nbsp; <p>
+			<asp:label id="Label2" Text="PO phụ trách phụ 3" CssClass="cssManField" runat="server" 
+                Tex="" />
+                    </p>
+                     <p>
+			<asp:label id="Label3" Text="PO phụ trách phụ 4" CssClass="cssManField" runat="server" 
+                Tex="" />
+                    </p></td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu3" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu4" runat="server" CssClass="cssDorpdownlist" 
+                            Width="96%" />
+                    </p>
+                </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="left" style="width:10%;">

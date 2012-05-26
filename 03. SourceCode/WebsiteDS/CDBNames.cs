@@ -177,6 +177,9 @@ namespace WebDS.CDBNames
         public const string NGAY_BD_HOP_TAC = "NGAY_BD_HOP_TAC";
         public const string PO_PHU_TRACH_CHINH = "PO_PHU_TRACH_CHINH";
         public const string PO_PHU_TRACH_PHU = "PO_PHU_TRACH_PHU";
+        public const string PO_PHU_TRACH_PHU2 = "PO_PHU_TRACH_PHU2";
+        public const string PO_PHU_TRACH_PHU3 = "PO_PHU_TRACH_PHU3";
+        public const string PO_PHU_TRACH_PHU4 = "PO_PHU_TRACH_PHU4";
         public const string DIA_CHI = "DIA_CHI";
     }
 

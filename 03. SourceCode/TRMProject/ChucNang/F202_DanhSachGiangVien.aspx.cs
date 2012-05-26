@@ -571,6 +571,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.TRANG_THAI_GIANG_VIEN]).ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_CHINH]).ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU]).ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU2]).ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU3]).ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU4]).ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_GIANG_VIEN.NGAY_BD_HOP_TAC]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hd(grv[V_DM_GIANG_VIEN.GVHD_YN].ToString()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_cm(grv[V_DM_GIANG_VIEN.GVCM_YN].ToString()) + "</td>";
@@ -685,7 +688,10 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Chức vụ cao nhất</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Trạng thái giảng viên</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách chính</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách phụ</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách phụ 1</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách phụ 2</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách phụ 3</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO phụ trách phụ 4</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ngày bắt đầu hợp tác</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV hướng dẫn?</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV chuyên môn?</td>";

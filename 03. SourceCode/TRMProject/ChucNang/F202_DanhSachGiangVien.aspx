@@ -169,7 +169,7 @@
             <tr>
                 <td align="right" style="width:5%;">
                     <asp:label id="Label15" CssClass="cssManField" runat="server" 
-                Text="PO phụ trách phụ" /></td>
+                Text="PO phụ trách phụ 1" /></td>
                 <td align="left" colspan="3">
                      <asp:TextBox ID="m_txt_po_phu_trach_phu" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
@@ -446,9 +446,27 @@
                     </ItemTemplate>
                     </asp:TemplateField> 
                     <asp:TemplateField>
-                    <HeaderTemplate>PO phụ trách phụ</HeaderTemplate>
+                    <HeaderTemplate>PO phụ trách phụ 1</HeaderTemplate>
                     <ItemTemplate>
                     <label><%# Eval("PO_PHU_TRACH_PHU").ToString() %></label>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>PO phụ trách phụ 2</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# Eval("PO_PHU_TRACH_PHU2").ToString() %></label>
+                    </ItemTemplate>
+                    </asp:TemplateField> 
+                     <asp:TemplateField>
+                    <HeaderTemplate>PO phụ trách phụ 3</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# Eval("PO_PHU_TRACH_PHU3").ToString() %></label>
+                    </ItemTemplate>
+                    </asp:TemplateField> 
+                     <asp:TemplateField>
+                    <HeaderTemplate>PO phụ trách phụ 4</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# Eval("PO_PHU_TRACH_PHU4").ToString() %></label>
                     </ItemTemplate>
                     </asp:TemplateField> 
                        <asp:BoundField DataField="NGAY_BD_HOP_TAC" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày bắt đầu hợp tác" />
