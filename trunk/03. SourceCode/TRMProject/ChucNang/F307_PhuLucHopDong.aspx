@@ -292,7 +292,8 @@
             AllowSorting="True" 
                 
                 onselectedindexchanging="m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging" 
-                onrowdeleting="m_grv_gd_hop_dong_noi_dung_tt_RowDeleting" >
+                onrowdeleting="m_grv_gd_hop_dong_noi_dung_tt_RowDeleting" 
+                onpageindexchanging="m_grv_gd_hop_dong_noi_dung_tt_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
