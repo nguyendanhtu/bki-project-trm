@@ -175,12 +175,34 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             v_dr_none[HT_NGUOI_SU_DUNG.TRANG_THAI] = "0";
 
             v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows.InsertAt(v_dr_none, 0);
-            m_cbo_po_phu_trach_phu.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
 
+            // Cbo phụ 1
+            m_cbo_po_phu_trach_phu.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
             m_cbo_po_phu_trach_phu.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
             m_cbo_po_phu_trach_phu.DataTextField = HT_NGUOI_SU_DUNG.TEN;
             m_cbo_po_phu_trach_phu.SelectedIndex = 0;
             m_cbo_po_phu_trach_phu.DataBind();
+
+            // Cbo phụ 2
+            m_cbo_po_phu_trach_phu2.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu2.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu2.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu2.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu2.DataBind();
+
+            // Cbo phụ 3
+            m_cbo_po_phu_trach_phu3.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu3.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu3.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu3.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu3.DataBind();
+
+            // Cbo phụ 4
+            m_cbo_po_phu_trach_phu4.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu4.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu4.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu4.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu4.DataBind();
         }
         catch (Exception v_e)
         {
@@ -333,6 +355,9 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                     
             ip_us_giang_vien.strPO_PHU_TRACH_CHINH = m_cbo_po_phu_trach_chinh.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU = m_cbo_po_phu_trach_phu.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU2 = m_cbo_po_phu_trach_phu2.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU3 = m_cbo_po_phu_trach_phu3.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU4 = m_cbo_po_phu_trach_phu4.SelectedValue;
         }
         catch (Exception v_e)
         {
@@ -384,6 +409,9 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
 
             m_cbo_po_phu_trach_chinh.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_CHINH;
             m_cbo_po_phu_trach_phu.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU;
+            m_cbo_po_phu_trach_phu2.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU2;
+            m_cbo_po_phu_trach_phu3.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU3;
+            m_cbo_po_phu_trach_phu4.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU4;
             m_txt_dia_chi_gv.Text = ip_us_giang_vien.strDIA_CHI;
             
             //calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);

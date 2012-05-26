@@ -862,6 +862,72 @@ public class US_V_DM_GIANG_VIEN : US_Object
 		pm_objDR["PO_PHU_TRACH_PHU"] = System.Convert.DBNull;
 	}
 
+    public string strPO_PHU_TRACH_PHU2
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU2", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU2"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU2Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU2");
+    }
+
+    public void SetPO_PHU_TRACH_PHU2Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU2"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU3
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU3", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU3"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU3Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU3");
+    }
+
+    public void SetPO_PHU_TRACH_PHU3Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU3"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU4
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU4", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU4"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU4Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU4");
+    }
+
+    public void SetPO_PHU_TRACH_PHU4Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU4"] = System.Convert.DBNull;
+    }
+
 	public string strDIA_CHI 
 	{
 		get 
