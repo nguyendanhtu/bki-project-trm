@@ -1,0 +1,7 @@
+/*----------------------------Cong viec - Giang Vien -----------------------------*/
+1.
+
+CREATE PROCEDURE [dbo].[pr_DM_HOP_DONG_KHUNG_check_so_hop_dong]
+	@So_Hop_dong NVARCHAR (100)
+AS
+	SELECT * FROM DM_HOP_DONG_KHUNG hdk WHERE hdk.SO_HOP_DONG = @So_Hop_dong
