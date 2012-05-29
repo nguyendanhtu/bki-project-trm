@@ -5,3 +5,80 @@ CREATE PROCEDURE [dbo].[pr_DM_HOP_DONG_KHUNG_check_so_hop_dong]
 	@So_Hop_dong NVARCHAR (100)
 AS
 	SELECT * FROM DM_HOP_DONG_KHUNG hdk WHERE hdk.SO_HOP_DONG = @So_Hop_dong
+
+2. 
+
+CREATE PROCEDURE [dbo].[pr_GD_GV_CONG_VIEC_MOI_Update]
+	@ID numeric(18, 0),
+	@ID_HOP_DONG_KHUNG numeric(18, 0),
+	@ID_NOI_DUNG_TT numeric(18, 0),
+	@SO_LUONG_HE_SO numeric(21, 3),
+	@DON_GIA numeric(21, 3),
+	@NGAY_DAT_HANG datetime,
+	@NGAY_NGHIEM_THU datetime,
+	@ID_TRANG_THAI numeric(18, 0),
+	@ID_USER_NHAP numeric(18, 0),
+	@GHI_CHU nvarchar(250)
+AS
+UPDATE [dbo].[GD_GV_CONG_VIEC_MOI]
+SET 
+	[ID_HOP_DONG_KHUNG] = @ID_HOP_DONG_KHUNG,
+	[ID_NOI_DUNG_TT] = @ID_NOI_DUNG_TT,
+	[SO_LUONG_HE_SO] = @SO_LUONG_HE_SO,
+	[DON_GIA] = @DON_GIA,
+	[NGAY_DAT_HANG] = @NGAY_DAT_HANG,
+	[NGAY_NGHIEM_THU] = @NGAY_NGHIEM_THU,
+	[ID_TRANG_THAI] = @ID_TRANG_THAI,
+	[ID_USER_NHAP] = @ID_USER_NHAP,
+	[GHI_CHU] = @GHI_CHU
+WHERE
+	[ID] = @ID
+
+3.
+
+CREATE PROCEDURE [dbo].[pr_GD_GV_CONG_VIEC_MOI_Delete]
+	@ID numeric(18, 0)
+AS
+DELETE FROM [dbo].[GD_GV_CONG_VIEC_MOI]
+WHERE
+	[ID] = @ID
+
+4. 
+
+CREATE PROCEDURE [dbo].[pr_GD_GV_CONG_VIEC_MOI_Insert]
+	@ID_HOP_DONG_KHUNG numeric(18, 0),
+	@ID_NOI_DUNG_TT numeric(18, 0),
+	@SO_LUONG_HE_SO numeric(21, 3),
+	@DON_GIA numeric(21, 3),
+	@NGAY_DAT_HANG datetime,
+	@NGAY_NGHIEM_THU datetime,
+	@ID_TRANG_THAI numeric(18, 0),
+	@ID_USER_NHAP numeric(18, 0),
+	@GHI_CHU nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+AS
+INSERT [dbo].[GD_GV_CONG_VIEC_MOI]
+(
+	[ID_HOP_DONG_KHUNG],
+	[ID_NOI_DUNG_TT],
+	[SO_LUONG_HE_SO],
+	[DON_GIA],
+	[NGAY_DAT_HANG],
+	[NGAY_NGHIEM_THU],
+	[ID_TRANG_THAI],
+	[ID_USER_NHAP],
+	[GHI_CHU]
+)
+VALUES
+(
+	@ID_HOP_DONG_KHUNG,
+	@ID_NOI_DUNG_TT,
+	@SO_LUONG_HE_SO,
+	@DON_GIA,
+	@NGAY_DAT_HANG,
+	@NGAY_NGHIEM_THU,
+	@ID_TRANG_THAI,
+	@ID_USER_NHAP,
+	@GHI_CHU
+)
+SELECT @ID=SCOPE_IDENTITY()
