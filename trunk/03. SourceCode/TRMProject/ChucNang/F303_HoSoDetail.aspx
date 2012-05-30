@@ -1,265 +1,407 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F303_HoSoDetail.aspx.cs" Inherits="ChucNang_F303_HoSoDetail" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <style>
+ .cssTextBoxnumber
+ {
+     text-align:right;
+ }
+        .style1
+        {
+            width: 11%;
+        }
+        .style2
+        {
+            width: 478px;
+        }
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <script language="javascript" type="text/javascript">
-        function confirm_delete() {
-            if (confirm("Are you sure you want to delete the contact?") == true)
-                return true;
-            else
-                return false;
-        }
+    <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+    <tr>
+		<td class="cssPageTitleBG">
+		    <asp:label id="m_lbl_thong_tin_ho_so" runat="server" CssClass="cssPageTitle" 
+                Text="Thông tin hồ sơ"/>
+		</td>
+	</tr>
+    <tr>
+		<td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+            <tr>
+                <td align="right" style="width:7%;">
+			<asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Tên hồ Sơ: " /></td>
+                <td align="left" style="width:10%;"> &nbsp;
+			<asp:Label id="m_lbl_ten_ho_so"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="Label5" CssClass="cssManField" runat="server" 
+                Text="Ngày cập nhật: " />
+			       
+			    </td>
+                <td align="left" style="width:10%;"> &nbsp;
+			        <asp:label id="m_lbl_dat_ngay_cap_nhat" runat="server" /></td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Loại hồ sơ: " />
+			       
+                         </td>
+                <td align="left" style="width:10%;">
+                    &nbsp;<asp:Label ID="m_lbl_loai_ho_so" runat = "server"></asp:Label></td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="m_lbl_dv_thanh_toan" CssClass="cssManField" runat="server" 
+                Text="Ghi chú: " />
+			       
+			    </td>
+                <td align="left" colspan="3">	
+                    &nbsp;<asp:label id="m_lbl_ghi_chu" runat="server" /></td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="Label2" Enabled="False" CssClass="cssManField" runat="server" 
+                Text="Hồ sơ đính kèm: " />
+			       
+                </td>
+                <td align="left" style="width:10%;">
+                 &nbsp;
+			<asp:Label id="m_lbl_ho_so_dinh_kem" runat="server" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> 
+                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>
+            </tr>
+            </table>
 
-        function OpenSiteFromUrl(siteUrl) {
-            var name = 'ProfileForm';
-            var appearence = 'dependent=yes,menubar=no,resizable=yes,' +
-                        'status=no,toolbar=no,titlebar=no, scrollbars=1' +
-                        'left=100,top=50,width=800px,height=600px';
-            var openWindow = window.open(siteUrl, name, appearence);
-            openWindow.focus();
-        }
-    </script>
-    <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
-        <tr>
-            <td class="cssPageTitleBG" colspan="3">
-                <asp:Label ID="lblUser" runat="server" CssClass="cssPageTitle" 
-                    Text="Hồ sơ detail" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <asp:ValidationSummary ID="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
-                <asp:Label ID="m_lbl_mess" runat="server" CssClass="cssManField" />
-            </td>
-        </tr>
-        <tr>
-            <td align="right" style="width: 15%;">
-                &nbsp;
-            </td>
-            <td style="width: 30%;">
-                &nbsp;
-            </td>
-            <td style="width: 5%;">
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblHoSo" CssClass="cssManField" runat="server" Text="&lt;U&gt;T&lt;/U&gt;ên hồ sơ"
-                    AccessKey="L" />
-            </td>
-            <td align="left">
-                <asp:DropDownList ID="m_cbo_ho_so" runat="server" Width="323px">
+		</td>
+	</tr>
+	<tr>
+		<td class="cssPageTitleBG">
+		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
+                Text="Hồ sơ detail "/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
+		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		</td>
+	</tr>
+    <tr>
+		<td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+                    <tr>
+                <td align="right" class="style1">
+			       
+			<asp:label id="lbTenHoSo" CssClass="cssManField" runat="server" 
+                Text="Tên hồ sơ : " />
+			       
+                </td>
+                <td align="left" class="style2">
+                <asp:DropDownList ID="m_cbo_ten_ho_so" runat="server" Width="323px">
                 </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblLoaiHoSo" CssClass="cssManField" runat="server" 
-                    Text="&lt;U&gt;L&lt;/U&gt;oại hồ sơ" />
-            </td>
-            <td align="left">
-                <asp:DropDownList ID="m_cbo_loai_ho_so" runat="server" Width="323px">
-                </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblHoSoDinhKem" CssClass="cssManField" runat="server" 
-                    Text="&lt;U&gt;H&lt;/U&gt;ồ sơ đính kèm" />
-            </td>
-            <td valign="top" colspan="2">
-                <asp:DropDownList ID="m_cbo_ho_so_dinh_kem" runat="server" Width="323px" 
-                    AccessKey="M">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblGhiChu" CssClass="cssManField" runat="server" Text="&lt;U&gt;G&lt;/U&gt;hi chú " />
-            </td>
-            <td valign="top" colspan="2">
+                        </td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+        </table>
+
+
+		</td>
+	</tr>
+    <tr>
+		<td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+                    <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblLoaiHoSo" CssClass="cssManField" runat="server" 
+                Text="Loại hồ sơ : " />
+			       
+                </td>
+                <td align="left" style="width:10%;">
+                <ew:NumericBox ID="m_txt_loai_ho_so" Width="65%" 
+                        runat="server" TextAlign= "Right"></ew:NumericBox>
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+                    <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblHoSoDinhKem" CssClass="cssManField" runat="server" 
+                Text="Hồ sơ đính kèm : " />
+			       
+                </td>
+                <td align="left" style="width:10%;">
+                <ew:NumericBox ID="m_txt_ho_so_dinh_kem" Width="64%" 
+                        runat="server" TextAlign= "Right"></ew:NumericBox>
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+                    <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblNgayCapNhat" CssClass="cssManField" runat="server" 
+                Text="Ngày cập nhật : " />
+			       
+                </td>
+                <td align="left" style="width:10%;">
+                    <ew:CalendarPopup ID="m_dat_ngay_cap_nhat" runat="server" 
+                        ControlDisplay="TextBoxImage" Culture="vi-VN" DisableTextboxEntry="False" 
+                        GoToTodayText="Hôm nay:" ImageUrl="~/Images/cal.gif" Nullable="True" 
+                        NullableLabelText="" SelectedDate="" ShowGoToToday="True" Text="" Width="93%">
+                        <WeekdayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <WeekendStyle BackColor="LightGray" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <OffMonthStyle BackColor="AntiqueWhite" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Gray" />
+                        <SelectedDateStyle BackColor="Yellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <MonthHeaderStyle BackColor="Yellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <ClearDateStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <GoToTodayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <HolidayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                    </ew:CalendarPopup>
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+                    <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblGhiChu" CssClass="cssManField" runat="server" 
+                Text="Ghi Chú : " />
+			       
+                </td>
+                <td align="left" style="width:10%;">
                 <asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode="MultiLine" Width="495px"
                     Height="83px"></asp:TextBox>
-            </td>
-        </tr>
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+                    <tr>
+                <td align="right" style="width:7%;">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Tạo phụ lục" 
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			       
+                     <asp:Button ID="m_cmd_cap_nhat_pl" runat="server" accessKey="s" 
+                         CssClass="cssButton" Height="24px" 
+                         Text="Cập nhật phụ lục" Width="98px" onclick="m_cmd_cap_nhat_pl_Click" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="m_cmd_thoat0" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px" onclick="m_cmd_thoat_Click" Text="Xóa trắng" 
+                        Width="98px" />
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+                     &nbsp;</td>
+                <td align="right" style="width:7%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+        </table>
+
+
+		</td>
+	</tr>
+
+
+
+    <tr>
+		<td class="cssPageTitleBG" colspan="2">
+		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
+                Text="Lọc hồ sơ detail"/>
+		</td>
+	</tr>
         <tr>
-            <td align="right">
-                &nbsp;
+		<td align="left">
+                <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
+                          Height="24px" Text="Thoát" Width="98px" CausesValidation="false" 
+                          onclick="m_cmd_exit_Click" /><br />
+                          <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
+                <asp:HiddenField ID="hdf_id_gv" runat="server" />
+        </td>
+        <td >
+		    &nbsp;</td>
+	</tr>	
+	<tr>
+		<td align="center" colspan="2" style="height:450px;" valign="top">
+		    &nbsp;
+   <asp:GridView ID="m_grv_gd_ho_so_detail" AllowPaging="True" 
+                runat="server" AutoGenerateColumns="False" 
+                Width="100%" DataKeyNames="ID"
+                CellPadding="4" ForeColor="#333333" 
+            AllowSorting="True" 
+                
+                onselectedindexchanging="m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging" 
+                onrowdeleting="m_grv_gd_hop_dong_noi_dung_tt_RowDeleting" 
+                onpageindexchanging="m_grv_gd_hop_dong_noi_dung_tt_PageIndexChanging" >
+                  <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                <asp:TemplateField HeaderText="Xóa">
+                    <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
+                     CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    <ItemStyle Width="3%" />
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Sửa">
+                    <ItemTemplate>
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Sửa" ID = "lbt_edit" runat="server">
+                    <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
+                    </asp:LinkButton>
+                    </ItemTemplate>
+                    <ItemStyle Width="3%" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="TEN_HO_SO" HeaderText="Tên hồ sơ ">
+                    <ItemStyle Width="15%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Loại hồ sơ" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0.00")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:BoundField HeaderText="Hồ sơ đính kèm">
+                     <ItemStyle Width="20%" HorizontalAlign="Center" />
+                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Ngày cập nhật">
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:TemplateField HeaderText="Ghi chú">
+                       <ItemTemplate><%# "Theo " + Eval("TAN_SUAT")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                    </asp:TemplateField>  
+                </Columns>
+                  <EditRowStyle BackColor="#7C6F57" />
+                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                  <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                  <RowStyle BackColor="#E3EAEB" />
+                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
+                      ForeColor="#333333"></SelectedRowStyle>
+            </asp:GridView>
             </td>
-            <td valign="top" colspan="2">
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td colspan="2" align="left">
-                <asp:Button ID="m_cmd_tao_moi" AccessKey="c" CssClass="cssButton" runat="server"
-                    Width="98px" Text="Tạo mới(c)" />&nbsp;
-                <asp:Button ID="m_cmd_cap_nhat" AccessKey="u" CssClass="cssButton" runat="server"
-                    Width="98px" Text="Cập nhật(u)" />&nbsp;
-                <asp:Button ID="btnCancel" AccessKey="r" CssClass="cssButton" runat="server" Width="98px"
-                    Text="Xóa trắng(r)" />
-                <asp:HiddenField ID="hdf_id" runat="server" Value="" />
-            </td>
-        </tr>
-        <tr>
-            <td class="cssPageTitleBG" colspan="3">
-                <asp:Label ID="Label11" runat="server" CssClass="cssPageTitle" 
-                    Text="Danh sách hồ sơ detail" />
-            </td>
-        </tr>
-        <tr>
-            <td align="left">
-                <asp:Label ID="m_lbl_thong_bao" Visible="false" runat="server" CssClass="cssManField" />
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblLocTenHoSo" CssClass="cssManField" runat="server" 
-                    Text="&lt;U&gt;T&lt;/U&gt;ên hồ sơ " />
-            </td>
-            <td>
-                <asp:DropDownList ID="m_cbo_loc_ten_ho_so" runat="server" Width="310px" 
-                    AutoPostBack="True" />
-                &nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblLocLoaiHoSo" CssClass="cssManField" runat="server" 
-                    Text="&lt;U&gt;L&lt;/U&gt;oại hồ sơ" />
-                <asp:DropDownList ID="m_cbo_loc_loai_ho_so" runat="server" Width="310px" 
-                    AutoPostBack="True" />
-            </td>
-        </tr>
-        <tr>
-            <td align="right" valign="baseline">
-                <asp:Label ID="lblLocNgayCapNhat" CssClass="cssManField" runat="server" Text="&lt;U&gt;N&lt;/U&gt;gày cập nhật " />
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="Label1" CssClass="cssManField" runat="server" Text="Từ ngày" />
-                &nbsp;
-            </td>
-            <td>
-                <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" ControlDisplay="TextBoxImage"
-                    GoToTodayText="Hôm nay:" ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText=""
-                    ShowGoToToday="True" Width="30%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
-                    <WeekdayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <WeekendStyle BackColor="LightGray" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <OffMonthStyle BackColor="AntiqueWhite" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Gray" />
-                    <SelectedDateStyle BackColor="Yellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <MonthHeaderStyle BackColor="Yellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <ClearDateStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <GoToTodayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <TodayDayStyle BackColor="LightGoldenrodYellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <HolidayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                </ew:CalendarPopup>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" CssClass="cssManField" runat="server" Text="Đến ngày" />&nbsp;
-                <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" ControlDisplay="TextBoxImage"
-                    GoToTodayText="Hôm nay:" ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText=""
-                    ShowGoToToday="True" Width="30%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
-                    <WeekdayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <WeekendStyle BackColor="LightGray" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <OffMonthStyle BackColor="AntiqueWhite" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Gray" />
-                    <SelectedDateStyle BackColor="Yellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <MonthHeaderStyle BackColor="Yellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <ClearDateStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <GoToTodayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                    <TodayDayStyle BackColor="LightGoldenrodYellow" Font-Names="Verdana,Helvetica,Tahoma,Arial"
-                        Font-Size="XX-Small" ForeColor="Black" />
-                    <HolidayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
-                        ForeColor="Black" />
-                </ew:CalendarPopup>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblLocHoSoDinhKem" CssClass="cssManField" runat="server" 
-                    Text="&lt;U&gt;H&lt;/U&gt;ồ sơ đính kèm" />
-            </td>
-            <td>
-                <asp:DropDownList ID="m_cbo_loc_ho_so_dinh_kem" runat="server" Width="310px" 
-                    AutoPostBack="True" />
-            </td>
-        </tr>
-        <tr>
-            <td align="center" colspan="3" style="height: 450px;" valign="top">
-                &nbsp;
-                <asp:GridView ID="m_grv_ho_so_detail" AllowPaging="True" runat="server" AutoGenerateColumns="False"
-                    Width="100%" DataKeyNames="ID" CellPadding="4" ForeColor="#333333" 
-                    AllowSorting="True">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lbt_delete" runat="server" CommandName="Delete" Text="Xóa" ToolTip="Xóa"
-                                    OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
-                        <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <%# Container.DataItemIndex + 1 %></ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" Visible="False">
-                            <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="HO_SO" HeaderText="Hồ sơ" />
-                        <asp:BoundField DataField="LOAI_HO_SO" HeaderText="Loại hồ sơ" />
-                        <asp:BoundField DataField="NGAY_CAP_NHAT" DataFormatString="{0:N1}" HeaderText="Ngày cập nhật"
-                            ItemStyle-HorizontalAlign="Center">
-                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="HO_SO_DINH_KEM" HeaderText="Hồ sơ đính kèm" 
-                            ItemStyle-HorizontalAlign="Center">
-                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="GHI_CHU" DataFormatString="{0:N0}" HeaderText="Ghi chú" />
-                    </Columns>
-                    <EditRowStyle BackColor="#7C6F57" />
-                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#E3EAEB" />
-                    <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-                        ForeColor="#333333"></SelectedRowStyle>
-                </asp:GridView>
-            </td>
-        </tr>
-    </table>
+	</tr>
+
+</table>
 
 </asp:Content>
 
