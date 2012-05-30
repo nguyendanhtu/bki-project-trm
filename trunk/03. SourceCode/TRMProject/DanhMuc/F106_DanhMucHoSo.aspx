@@ -60,23 +60,23 @@
         </tr>
         <tr>
             <td align="right">
-                <asp:Label ID="lblDonViThanhToan" CssClass="cssManField" runat="server" Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị thanh toán " />
-            </td>
-            <td align="left">
-                <asp:DropDownList ID="m_cbo_don_vi_thanh_toan" runat="server" Width="323px">
-                </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
                 <asp:Label ID="lblTrangThai" CssClass="cssManField" runat="server" Text="&lt;U&gt;T&lt;/U&gt;rạng thái " />
             </td>
             <td valign="top" colspan="2">
                 <asp:DropDownList ID="m_cbo_trang_thai" runat="server" Width="323px" AccessKey="M">
                 </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:Label ID="lblDonViThanhToan" CssClass="cssManField" runat="server" Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị thanh toán " />
+            </td>
+            <td align="left">
+                <asp:DropDownList ID="m_cbo_don_vi_thanh_toan" runat="server" Width="495px">
+                </asp:DropDownList>
+            </td>
+            <td>
+                &nbsp;
             </td>
         </tr>
         <tr>
