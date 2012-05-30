@@ -171,7 +171,7 @@
             <td>
                 <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" ControlDisplay="TextBoxImage"
                     GoToTodayText="Hôm nay:" ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText=""
-                    ShowGoToToday="True" Width="30%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
+                    ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
                     <WeekdayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
                         ForeColor="Black" />
                     <WeekendStyle BackColor="LightGray" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
@@ -197,7 +197,7 @@
                 <asp:Label ID="Label2" CssClass="cssManField" runat="server" Text="Đến ngày" />&nbsp;
                 <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" ControlDisplay="TextBoxImage"
                     GoToTodayText="Hôm nay:" ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText=""
-                    ShowGoToToday="True" Width="30%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
+                    ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" DisableTextboxEntry="False">
                     <WeekdayStyle BackColor="White" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
                         ForeColor="Black" />
                     <WeekendStyle BackColor="LightGray" Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small"
