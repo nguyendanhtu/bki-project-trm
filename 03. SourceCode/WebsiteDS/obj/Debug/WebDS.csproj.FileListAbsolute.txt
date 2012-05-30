@@ -40,3 +40,8 @@ D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0
 D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\WebsiteDS\obj\Debug\ResolveAssemblyReference.cache
 D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\WebsiteDS\obj\Debug\WebDS.dll
 D:\00. BKIndex\01. Project\Projects\01. Web projects\TRM\03. SourceCode\TRM.v2.0\03. SourceCode\WebsiteDS\obj\Debug\WebDS.pdb
+F:\01. BKIndex\02.Project\08. TRM 02\03. SourceCode\WebsiteDS\bin\Debug\WebDS.dll.config
+F:\01. BKIndex\02.Project\08. TRM 02\03. SourceCode\WebsiteDS\bin\Debug\WebDS.dll
+F:\01. BKIndex\02.Project\08. TRM 02\03. SourceCode\WebsiteDS\bin\Debug\WebDS.pdb
+F:\01. BKIndex\02.Project\08. TRM 02\03. SourceCode\WebsiteDS\obj\Debug\WebDS.dll
+F:\01. BKIndex\02.Project\08. TRM 02\03. SourceCode\WebsiteDS\obj\Debug\WebDS.pdb
