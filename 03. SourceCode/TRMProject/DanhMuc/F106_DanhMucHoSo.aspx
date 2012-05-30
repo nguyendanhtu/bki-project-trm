@@ -127,10 +127,24 @@
                 <asp:Label ID="lblLocGiangVien" CssClass="cssManField" runat="server" Text="&lt;U&gt;G&lt;/U&gt;iảng viên " />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_loc_giang_vien" runat="server" Width="310px" AutoPostBack="True" />
-                &nbsp;&nbsp;&nbsp;
+                <asp:DropDownList ID="m_cbo_loc_giang_vien" runat="server" Width="310px" AutoPostBack="True" />                            
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:Label ID="lblLocTrangThai" CssClass="cssManField" runat="server" Text="&lt;U&gt;T&lt;/U&gt;rạng thái " />
+            </td>
+            <td>
+                <asp:DropDownList ID="m_cbo_loc_trang_thai" runat="server" Width="310px" AutoPostBack="True" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
                 <asp:Label ID="lblLocDonViThanhToan" CssClass="cssManField" runat="server" Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị thanh toán " />
-                <asp:DropDownList ID="m_cbo_loc_don_vi_thanh_toan" runat="server" Width="310px" AutoPostBack="True" />
+            </td>
+            <td>
+                <asp:DropDownList ID="m_cbo_loc_don_vi_thanh_toan" runat="server" Width="495px" 
+                    AutoPostBack="True" />
             </td>
         </tr>
         <tr>
@@ -196,14 +210,7 @@
                 </ew:CalendarPopup>
             </td>
         </tr>
-        <tr>
-            <td align="right">
-                <asp:Label ID="lblLocTrangThai" CssClass="cssManField" runat="server" Text="&lt;U&gt;T&lt;/U&gt;rạng thái " />
-            </td>
-            <td>
-                <asp:DropDownList ID="m_cbo_loc_trang_thai" runat="server" Width="310px" AutoPostBack="True" />
-            </td>
-        </tr>
+        
         <tr>
             <td align="center" colspan="3" style="height: 450px;" valign="top">
                 &nbsp;
