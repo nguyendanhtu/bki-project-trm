@@ -79,9 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_NOI_DUNG_THANH_TOAN.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DS_DM_SU_KIEN.Designer.cs" />
-    <Compile Include="DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.Designer.cs" />
-    <Compile Include="DS_GD_GV_CONG_VIEC_MOI.Designer.cs" />
     <Compile Include="DS_GD_LOP_MON.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,27 +221,6 @@
     </None>
     <None Include="DS_DM_NOI_DUNG_THANH_TOAN.xss">
       <DependentUpon>DS_DM_NOI_DUNG_THANH_TOAN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_DM_SU_KIEN.xsc">
-      <DependentUpon>DS_DM_SU_KIEN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_DM_SU_KIEN.xsd" />
-    <None Include="DS_DM_SU_KIEN.xss">
-      <DependentUpon>DS_DM_SU_KIEN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.xsc">
-      <DependentUpon>DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.xsd" />
-    <None Include="DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.xss">
-      <DependentUpon>DS_GD_ASSIGN_SU_KIEN_GIANG_VIEN.xsd</DependentUpon>
-    </None>
-    <None Include="DS_GD_GV_CONG_VIEC_MOI.xsc">
-      <DependentUpon>DS_GD_GV_CONG_VIEC_MOI.xsd</DependentUpon>
-    </None>
-    <None Include="DS_GD_GV_CONG_VIEC_MOI.xsd" />
-    <None Include="DS_GD_GV_CONG_VIEC_MOI.xss">
-      <DependentUpon>DS_GD_GV_CONG_VIEC_MOI.xsd</DependentUpon>
     </None>
     <None Include="DS_GD_LOP_MON.xsc">
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
