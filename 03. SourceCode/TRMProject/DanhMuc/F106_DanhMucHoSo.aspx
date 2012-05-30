@@ -123,31 +123,6 @@
                 &nbsp;
             </td>
         </tr>
-        <%--    <tr>
-		<td>
-			<asp:label id="lblLocGiangVien" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;G&lt;/U&gt;iảng viên " />
-		</td>
-        <td >
-		    <asp:DropDownList id="m_cbo_loc_giang_vien" runat="server" Width="200px" 
-                AutoPostBack="True" 
-                onselectedindexchanged="m_cbo_loai_hop_dong_SelectedIndexChanged" />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <asp:label id="lblLocDonViThanhToan" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị thanh toán " />
-            <asp:DropDownList id="m_cbo_loc_don_vi_thanh_toan" runat="server" Width="200px" 
-                AutoPostBack="True" 
-                onselectedindexchanged="m_cbo_loai_hop_dong_SelectedIndexChanged" />
-
-            <asp:label id="lblLocTrangThai" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;rạng thái " />
-            <asp:DropDownList id="m_cbo_loc_trang_thai" runat="server" Width="200px" 
-                AutoPostBack="True" 
-                onselectedindexchanged="m_cbo_loai_hop_dong_SelectedIndexChanged" />
-        </td>
-
-	</tr>--%>
         <tr>
             <td align="right">
                 <asp:Label ID="lblLocGiangVien" CssClass="cssManField" runat="server" Text="&lt;U&gt;G&lt;/U&gt;iảng viên " />
