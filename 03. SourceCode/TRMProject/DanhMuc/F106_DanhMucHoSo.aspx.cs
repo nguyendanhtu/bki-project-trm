@@ -8,6 +8,7 @@ using WebDS;
 using WebDS.CDBNames;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
+using IP.Core.IPCommon;
 
 public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
 {
@@ -39,8 +40,7 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-
-            throw v_e;
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
 
@@ -49,14 +49,21 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
     {
         US_DM_DON_VI_THANH_TOAN v_dm_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
         DS_DM_DON_VI_THANH_TOAN v_ds_dm_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
-        v_dm_don_vi_thanh_toan.FillDataset(v_ds_dm_don_vi_thanh_toan);
+        try
+        {
+            v_dm_don_vi_thanh_toan.FillDataset(v_ds_dm_don_vi_thanh_toan);
 
-        m_cbo_don_vi_thanh_toan.DataSource = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
+            m_cbo_don_vi_thanh_toan.DataSource = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
 
-        m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
-        m_cbo_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
+            m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
+            m_cbo_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
 
-        m_cbo_don_vi_thanh_toan.DataBind();        
+            m_cbo_don_vi_thanh_toan.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
     }
 
    // load dữ liệu lên combo trạng thái
@@ -64,12 +71,20 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
     {
         US_CM_DM_TU_DIEN v_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, "WHERE ID_LOAI_TU_DIEN = 23");
+        try
+        {
+            v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, "WHERE ID_LOAI_TU_DIEN = 23");
 
-        m_cbo_trang_thai.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+            m_cbo_trang_thai.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
 
-        m_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
-        m_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
+            m_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_cbo_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+        
     }
 
   // load dữ liệu lên combo lọc theo giảng viên
@@ -88,7 +103,7 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
         catch (Exception v_e)
         {
 
-            throw v_e;
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
 
@@ -97,14 +112,22 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
     {
         US_DM_DON_VI_THANH_TOAN v_dm_loc_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
         DS_DM_DON_VI_THANH_TOAN v_ds_dm_loc_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
-        v_dm_loc_don_vi_thanh_toan.FillDataset(v_ds_dm_loc_don_vi_thanh_toan);
+        try
+        {
+            v_dm_loc_don_vi_thanh_toan.FillDataset(v_ds_dm_loc_don_vi_thanh_toan);
 
-        m_cbo_loc_don_vi_thanh_toan.DataSource = v_ds_dm_loc_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
+            m_cbo_loc_don_vi_thanh_toan.DataSource = v_ds_dm_loc_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
 
-        m_cbo_loc_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
-        m_cbo_loc_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
+            m_cbo_loc_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
+            m_cbo_loc_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
 
-        m_cbo_loc_don_vi_thanh_toan.DataBind();
+            m_cbo_loc_don_vi_thanh_toan.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);        
+        }
+        
     }
 
   // load dữ liệu lên combo lọc trạng thái
@@ -112,11 +135,19 @@ public partial class DanhMuc_F106_DanhMucHoSo : System.Web.UI.Page
     {
         US_CM_DM_TU_DIEN v_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, "WHERE ID_LOAI_TU_DIEN = 23");
+        try
+        {
+            v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, "WHERE ID_LOAI_TU_DIEN = 23");
 
-        m_cbo_loc_trang_thai.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+            m_cbo_loc_trang_thai.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
 
-        m_cbo_loc_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
-        m_cbo_loc_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
+            m_cbo_loc_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_cbo_loc_trang_thai.DataValueField = CM_DM_TU_DIEN.ID;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+        
     }
 }
