@@ -961,7 +961,7 @@ SELECT ID, ID_LOAI_SU_KIEN, TEN_SU_KIEN, NGAY_DIEN_RA, ID_TRANG_THAI, MO_TA FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString3;
+            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

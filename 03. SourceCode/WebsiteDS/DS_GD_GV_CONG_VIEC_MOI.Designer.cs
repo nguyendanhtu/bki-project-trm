@@ -1138,7 +1138,7 @@ SELECT ID, ID_HOP_DONG_KHUNG, ID_NOI_DUNG_TT, SO_LUONG_HE_SO, DON_GIA, NGAY_DAT_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString3;
+            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
