@@ -343,7 +343,7 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" 
+            AllowSorting="True" />
                 
                 
                   <AlternatingRowStyle BackColor="White" />
