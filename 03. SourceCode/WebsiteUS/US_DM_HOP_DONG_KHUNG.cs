@@ -477,5 +477,13 @@ public class US_DM_HOP_DONG_KHUNG : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
+    #region Additional funtions
+    public void check_so_hop_dong(DS_DM_HOP_DONG_KHUNG ip_ds_dm_hop_dong_khung, string ip_str_so_hop_dong)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_DM_HOP_DONG_KHUNG_check_so_hop_dong");
+        v_cstore.addNVarcharInputParam("@So_Hop_dong", ip_str_so_hop_dong);
+        v_cstore.fillDataSetByCommand(this, ip_ds_dm_hop_dong_khung);
+    }
+    #endregion
 	}
 }
