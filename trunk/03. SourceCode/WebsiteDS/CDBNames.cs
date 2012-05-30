@@ -451,4 +451,40 @@ namespace WebDS.CDBNames
        public const string HD_HUONG_DAN_ELC = "HD_HUONG_DAN_ELC";
        public const string HD_HOC_LIEU_ELC = "HD_HOC_LIEU_ELC";
    }
+   public class GD_GV_CONG_VIEC_MOI
+   {
+       public const string ID = "ID";
+       public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+       public const string ID_NOI_DUNG_TT = "ID_NOI_DUNG_TT";
+       public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+       public const string DON_GIA = "DON_GIA";
+       public const string NGAY_DAT_HANG = "NGAY_DAT_HANG";
+       public const string NGAY_NGHIEM_THU = "NGAY_NGHIEM_THU";
+       public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+       public const string ID_USER_NHAP = "ID_USER_NHAP";
+       public const string GHI_CHU = "GHI_CHU";
+   }
+   public class DM_SU_KIEN
+   {
+       public const string ID = "ID";
+       public const string ID_LOAI_SU_KIEN = "ID_LOAI_SU_KIEN";
+       public const string TEN_SU_KIEN = "TEN_SU_KIEN";
+       public const string NGAY_DIEN_RA = "NGAY_DIEN_RA";
+       public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+       public const string MO_TA = "MO_TA";
+   }
+
+   public class GD_ASSIGN_SU_KIEN_GIANG_VIEN
+   {
+       public const string ID = "ID";
+       public const string ID_SU_KIEN = "ID_SU_KIEN";
+       public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
+       public const string SO_TIEN_GV_HUONG = "SO_TIEN_GV_HUONG";
+       public const string ID_VAI_TRO_GV = "ID_VAI_TRO_GV";
+       public const string ID_HOP_DONG = "ID_HOP_DONG";
+       public const string THANH_TOAN_NGAY_YN = "THANH_TOAN_NGAY_YN";
+       public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+       public const string GHI_CHU = "GHI_CHU";
+       public const string ID_USER_LAP = "ID_USER_LAP";
+   }
 }
