@@ -51,7 +51,8 @@
                     AccessKey="L" />
             </td>
             <td align="left">
-                <asp:DropDownList ID="m_cbo_giang_vien" runat="server" Width="323px">
+                <asp:DropDownList ID="m_cbo_giang_vien" runat="server" Width="323px" 
+                    onselectedindexchanged="m_cbo_giang_vien_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
             <td>
