@@ -173,7 +173,7 @@
                        <ItemTemplate><%# mapping_loai_hop_dong_gv(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="5%"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:BoundField HeaderText="Thời gian thực hiện" DataField="THOI_GIAN">
+                      <asp:BoundField HeaderText="Thời gian thực hiện lớp môn" DataField="GHI_CHU_THOI_GIAN_LOP_MON">
                     <ItemStyle Width="5%" HorizontalAlign="Left" />
                     </asp:BoundField>
                       <asp:TemplateField HeaderText="Đơn vị quản lý" ItemStyle-HorizontalAlign="Left">
