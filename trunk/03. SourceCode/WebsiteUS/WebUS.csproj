@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="US_DM_DON_VI_THANH_TOAN.cs" />
     <Compile Include="US_DM_HOP_DONG_KHUNG.cs" />
+    <Compile Include="US_DM_HO_SO_GIANG_VIEN.cs" />
     <Compile Include="US_DM_MON_HOC.cs" />
     <Compile Include="US_DM_NOI_DUNG_THANH_TOAN.cs" />
     <Compile Include="US_DM_SU_KIEN.cs" />
