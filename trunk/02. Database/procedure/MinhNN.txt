@@ -1,0 +1,126 @@
+GO
+ALTER PROCEDURE [dbo].[pr_DM_HO_SO_GIANG_VIEN_Delete]
+	@ID numeric(18, 0)
+AS
+DELETE FROM [dbo].[DM_HO_SO_GIANG_VIEN]
+WHERE
+	[ID] = @ID
+
+GO
+ALTER procedure [dbo].[pr_DM_HO_SO_GIANG_VIEN_Fill_By_Search](
+			@ip_id_giang_vien numeric(18,0)
+			,@ip_id_don_vi_tt numeric(18,0)
+			,@ip_id_trang_thai numeric(18,0)
+			,@ip_ngay_bat_dau_tu datetime
+			,@ip_ngay_ket_thuc_tu datetime
+)
+AS
+SELECT * FROM DM_HO_SO_GIANG_VIEN dhsgv
+WHERE (dhsgv.ID_GIANG_VIEN=@ip_id_giang_vien OR @ip_id_giang_vien=0 ) 
+AND (dhsgv.ID_DON_VI_THANH_TOAN=@ip_id_don_vi_tt OR @ip_id_don_vi_tt=0)
+AND (dhsgv.ID_TRANG_THAI=@ip_id_trang_thai)
+AND ((convert(datetime,dhsgv.NGAY_CAP_NHAT,103) 
+		between convert(datetime,@ip_ngay_bat_dau_tu,103) and convert(datetime,@ip_ngay_ket_thuc_tu,103)) 
+		or (@ip_ngay_bat_dau_tu = convert(varchar,'01/01/1900',103) 
+		and @ip_ngay_ket_thuc_tu = convert(varchar,'01/01/1900',103)))
+
+GO
+ALTER PROCEDURE [dbo].[pr_DM_HO_SO_GIANG_VIEN_Insert]
+	@ID_GIANG_VIEN numeric(18, 0),
+	@ID_DON_VI_THANH_TOAN numeric(18, 0),
+	@ID_TRANG_THAI numeric(18, 0),
+	@NGAY_CAP_NHAT datetime,
+	@GHI_CHU nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+AS
+INSERT [dbo].[DM_HO_SO_GIANG_VIEN]
+(
+	[ID_GIANG_VIEN],
+	[ID_DON_VI_THANH_TOAN],
+	[NGAY_CAP_NHAT],
+	[ID_TRANG_THAI],
+	[GHI_CHU]
+)
+VALUES
+(
+	@ID_GIANG_VIEN,
+	@ID_DON_VI_THANH_TOAN,
+	GETDATE(),
+	@ID_TRANG_THAI,
+	@GHI_CHU
+)
+SELECT @ID=SCOPE_IDENTITY()
+
+GO
+
+ALTER PROCEDURE [dbo].[pr_DM_HO_SO_GIANG_VIEN_Update]
+	@ID numeric(18, 0),
+	@ID_GIANG_VIEN numeric(18, 0),
+	@ID_DON_VI_THANH_TOAN numeric(18, 0),
+	@NGAY_CAP_NHAT datetime,
+	@ID_TRANG_THAI numeric(18, 0),
+	@GHI_CHU nvarchar(250)
+AS
+UPDATE [dbo].[DM_HO_SO_GIANG_VIEN]
+SET 
+	[ID_GIANG_VIEN] = @ID_GIANG_VIEN,
+	[ID_DON_VI_THANH_TOAN] = @ID_DON_VI_THANH_TOAN,
+	[NGAY_CAP_NHAT] = GETDATE(),
+	[ID_TRANG_THAI] = @ID_TRANG_THAI,
+	[GHI_CHU] = @GHI_CHU
+WHERE
+	[ID] = @ID
+
+GO
+ALTER PROCEDURE [dbo].[pr_DM_SU_KIEN_Delete]
+	@ID numeric(18, 0)
+AS
+DELETE FROM [dbo].[DM_SU_KIEN]
+WHERE
+	[ID] = @ID
+
+GO
+ALTER PROCEDURE [dbo].[pr_DM_SU_KIEN_Insert]
+	@ID_LOAI_SU_KIEN numeric(18, 0),
+	@TEN_SU_KIEN nvarchar(250),
+	@NGAY_DIEN_RA datetime,
+	@ID_TRANG_THAI numeric(18, 0),
+	@MO_TA nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+AS
+INSERT [dbo].[DM_SU_KIEN]
+(
+	[ID_LOAI_SU_KIEN],
+	[TEN_SU_KIEN],
+	[NGAY_DIEN_RA],
+	[ID_TRANG_THAI],
+	[MO_TA]
+)
+VALUES
+(
+	@ID_LOAI_SU_KIEN,
+	@TEN_SU_KIEN,
+	@NGAY_DIEN_RA,
+	@ID_TRANG_THAI,
+	@MO_TA
+)
+SELECT @ID=SCOPE_IDENTITY()
+
+GO
+ALTER PROCEDURE [dbo].[pr_DM_SU_KIEN_Update]
+	@ID numeric(18, 0),
+	@ID_LOAI_SU_KIEN numeric(18, 0),
+	@TEN_SU_KIEN nvarchar(250),
+	@NGAY_DIEN_RA datetime,
+	@ID_TRANG_THAI numeric(18, 0),
+	@MO_TA nvarchar(250)
+AS
+UPDATE [dbo].[DM_SU_KIEN]
+SET 
+	[ID_LOAI_SU_KIEN] = @ID_LOAI_SU_KIEN,
+	[TEN_SU_KIEN] = @TEN_SU_KIEN,
+	[NGAY_DIEN_RA] = @NGAY_DIEN_RA,
+	[ID_TRANG_THAI] = @ID_TRANG_THAI,
+	[MO_TA] = @MO_TA
+WHERE
+	[ID] = @ID
