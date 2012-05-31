@@ -206,7 +206,7 @@
                        <ItemTemplate><%# mapping_don_vi_quan_ly(CIPConvert.ToDecimal(Eval("ID_DON_VI_QUAN_LY")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="4%"></ItemStyle>
                     </asp:TemplateField> 
-                      <asp:BoundField HeaderText="Thời gian thực hiện HĐ" DataField="THOI_GIAN">
+                      <asp:BoundField HeaderText="Thời gian thực hiện lớp môn" DataField="GHI_CHU_THOI_GIAN_LOP_MON">
                     <ItemStyle Width="5%" HorizontalAlign="Left" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
