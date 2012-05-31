@@ -41,8 +41,7 @@
                 <td align="right" style="width:7%;">
 			       
 			<asp:label id="Label5" CssClass="cssManField" runat="server" 
-                Text="Ngày cập nhật: " />
-			       
+                Text="Ngày cập nhật: " />  
 			    </td>
                 <td align="left" style="width:10%;"> &nbsp;
 			        <asp:label id="m_lbl_dat_ngay_cap_nhat" runat="server" /></td>
@@ -52,21 +51,17 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:7%;">
-			       
+                <td align="right" style="width:7%;">       
 			<asp:label id="Label4" CssClass="cssManField" runat="server" 
                 Text="Loại hồ sơ: " />
-			       
-                         </td>
+			              </td>
                 <td align="left" style="width:10%;">
                     &nbsp;<asp:Label ID="m_lbl_loai_ho_so" runat = "server"></asp:Label></td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
-                <td align="right" style="width:5%;">
-			       
+                <td align="right" style="width:5%;">      
 			<asp:label id="m_lbl_dv_thanh_toan" CssClass="cssManField" runat="server" 
-                Text="Ghi chú: " />
-			       
+                Text="Ghi chú: " />  
 			    </td>
                 <td align="left" colspan="3">	
                     &nbsp;<asp:label id="m_lbl_ghi_chu" runat="server" /></td>
@@ -74,11 +69,9 @@
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:7%;">
-			       
+                <td align="right" style="width:7%;">  
 			<asp:label id="Label2" Enabled="False" CssClass="cssManField" runat="server" 
                 Text="Hồ sơ đính kèm: " />
-			       
                 </td>
                 <td align="left" style="width:10%;">
                  &nbsp;
@@ -121,14 +114,9 @@
                     <tr>
                 <td align="right" class="style1">
 			       
-			<asp:label id="lbTenHoSo" CssClass="cssManField" runat="server" 
-                Text="Tên hồ sơ : " />
-			       
-                </td>
+			        &nbsp;</td>
                 <td align="left" class="style2">
-                <asp:DropDownList ID="m_cbo_ten_ho_so" runat="server" Width="323px">
-                </asp:DropDownList>
-                        </td>
+                    &nbsp;</td>
                 <td align="right" style="width:7%;">
 			
 			        &nbsp;</td>
@@ -142,29 +130,23 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
         </table>
-
-
 		</td>
 	</tr>
     <tr>
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
                     <tr>
-                <td align="right" style="width:7%;">
-			       
+                <td align="right" style="width:7%;">     
 			<asp:label id="lblLoaiHoSo" CssClass="cssManField" runat="server" 
                 Text="Loại hồ sơ : " />
-			       
                 </td>
                 <td align="left" style="width:10%;">
                 <ew:NumericBox ID="m_txt_loai_ho_so" Width="65%" 
                         runat="server" TextAlign= "Right"></ew:NumericBox>
                         </td>
                 <td align="right" style="width:5%;">
-			       
 			        &nbsp;</td>
                 <td align="right" style="width:7%;">
-			
 			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
@@ -180,22 +162,18 @@
 			       
 			<asp:label id="lblHoSoDinhKem" CssClass="cssManField" runat="server" 
                 Text="Hồ sơ đính kèm : " />
-			       
                 </td>
                 <td align="left" style="width:10%;">
                 <ew:NumericBox ID="m_txt_ho_so_dinh_kem" Width="64%" 
                         runat="server" TextAlign= "Right"></ew:NumericBox>
                         </td>
                 <td align="right" style="width:5%;">
-			       
 			        &nbsp;</td>
                 <td align="right" style="width:7%;">
-			
 			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
-			       
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
 		            &nbsp;</td>
@@ -206,7 +184,6 @@
 			       
 			<asp:label id="lblNgayCapNhat" CssClass="cssManField" runat="server" 
                 Text="Ngày cập nhật : " />
-			       
                 </td>
                 <td align="left" style="width:10%;">
                     <ew:CalendarPopup ID="m_dat_ngay_cap_nhat" runat="server" 
@@ -240,15 +217,12 @@
                     </ew:CalendarPopup>
                         </td>
                 <td align="right" style="width:5%;">
-			       
 			        &nbsp;</td>
                 <td align="right" style="width:7%;">
-			
 			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
-			       
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
 		            &nbsp;</td>
@@ -259,22 +233,18 @@
 			       
 			<asp:label id="lblGhiChu" CssClass="cssManField" runat="server" 
                 Text="Ghi Chú : " />
-			       
                 </td>
                 <td align="left" style="width:10%;">
                 <asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode="MultiLine" Width="495px"
                     Height="83px"></asp:TextBox>
                         </td>
                 <td align="right" style="width:5%;">
-			       
 			        &nbsp;</td>
                 <td align="right" style="width:7%;">
-			
 			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
-			       
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
 		            &nbsp;</td>
@@ -282,7 +252,6 @@
             </tr>
                     <tr>
                 <td align="right" style="width:7%;">
-			       
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
@@ -299,27 +268,20 @@
                         Width="98px" />
                         </td>
                 <td align="right" style="width:5%;">
-			       
                      &nbsp;</td>
                 <td align="right" style="width:7%;">
-			
 			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
-			       
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
         </table>
-
-
 		</td>
 	</tr>
-
-
 
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
