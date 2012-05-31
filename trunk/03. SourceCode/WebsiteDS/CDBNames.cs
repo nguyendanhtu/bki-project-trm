@@ -33,7 +33,15 @@ namespace WebDS.CDBNames
         , ADMIN = 5
         ,GIANG_VIEN = 6
     }
-
+    public class SU_KIEN
+    {
+         public const string ID = "ID";
+         public const string ID_LOAI_SU_KIEN = "ID_LOAI_SU_KIEN";
+         public const string TEN_SU_KIEN = "TEN_SU_KIEN";
+         public const string NGAY_DIEN_RA = "NGAY_DIEN_RA";
+         public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+         public const string MO_TA = "MO_TA";
+    }
  public class TRANG_THAI_DOT_TT
     {
         public const string DA_LAP_DOT = "1_DA_LAP_DOT";
