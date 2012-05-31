@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F303_HoSoDetail.aspx.cs" Inherits="ChucNang_F303_HoSoDetail" %>
 <%@ Register Assembly="eWorld.UI" Namespace="eWorld.UI" TagPrefix="ew" %>
+<%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style>
  .cssTextBoxnumber
@@ -343,23 +344,21 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" />
-                
-                
+            AllowSorting="True">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
-                    <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
+                    <ItemTemplate> 
+                    <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
-                    </asp:TemplateField>
+                 </asp:TemplateField>
                      <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate>
                      <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Sửa" ID = "lbt_edit" runat="server">
-                    <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
