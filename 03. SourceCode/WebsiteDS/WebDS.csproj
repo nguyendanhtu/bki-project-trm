@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_HOP_DONG_KHUNG.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_DM_HO_SO_GIANG_VIEN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_HO_SO_GIANG_VIEN.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_DM_MON_HOC.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,6 +220,17 @@
     </None>
     <None Include="DS_DM_HOP_DONG_KHUNG.xss">
       <DependentUpon>DS_DM_HOP_DONG_KHUNG.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_HO_SO_GIANG_VIEN.xsc">
+      <DependentUpon>DS_DM_HO_SO_GIANG_VIEN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_HO_SO_GIANG_VIEN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_HO_SO_GIANG_VIEN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_HO_SO_GIANG_VIEN.xss">
+      <DependentUpon>DS_DM_HO_SO_GIANG_VIEN.xsd</DependentUpon>
     </None>
     <None Include="DS_DM_MON_HOC.xsc">
       <DependentUpon>DS_DM_MON_HOC.xsd</DependentUpon>
