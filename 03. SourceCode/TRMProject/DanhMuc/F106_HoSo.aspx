@@ -275,7 +275,7 @@
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="Giảng viên" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <%# get_mapping_ma_giang_vien(Eval("ID_GIANG_VIEN"))%></ItemTemplate>
+                                    <%# get_mapping_ten_giang_vien(Eval("ID_GIANG_VIEN"))%></ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Đơn vị thanh toán" ItemStyle-HorizontalAlign="Center">
