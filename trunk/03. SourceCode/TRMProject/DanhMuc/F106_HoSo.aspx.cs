@@ -89,27 +89,16 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         try
         {
-            v_us_dm_giang_vien.FillDataset(v_ds_dm_giang_vien, " ORDER BY MA_GIANG_VIEN");
-            //Load len combo giang vien de insert
-            m_cbo_giang_vien.DataSource = v_ds_dm_giang_vien.V_DM_GIANG_VIEN;
-            m_cbo_giang_vien.DataValueField = V_DM_GIANG_VIEN.ID;
-            m_cbo_giang_vien.DataTextField = V_DM_GIANG_VIEN.MA_GIANG_VIEN;
-            m_cbo_giang_vien.DataBind();
-            //add item Tat Ca
-            DataRow v_dr_all = v_ds_dm_giang_vien.V_DM_GIANG_VIEN.NewV_DM_GIANG_VIENRow();
-            v_dr_all[V_DM_GIANG_VIEN.ID] = 0;
-            v_dr_all[V_DM_GIANG_VIEN.MA_GIANG_VIEN] = "Tất cả";
-            v_ds_dm_giang_vien.EnforceConstraints = false;
-            v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows.InsertAt(v_dr_all, 0);
-            //Load len bo loc giang vien
-            m_cbo_loc_giang_vien.DataSource = v_ds_dm_giang_vien.V_DM_GIANG_VIEN;
-            m_cbo_loc_giang_vien.DataValueField = V_DM_GIANG_VIEN.ID;
-            m_cbo_loc_giang_vien.DataTextField = V_DM_GIANG_VIEN.MA_GIANG_VIEN;
-            m_cbo_loc_giang_vien.DataBind();
+            v_us_dm_giang_vien.FillDataset(v_ds_dm_giang_vien, " ORDER BY HO_VA_TEN_DEM, TEN_GIANG_VIEN");
+            for (int v_i = 0; v_i < v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
+            {
+                m_cbo_giang_vien.Items.Add(new ListItem(v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() + " " + v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
+                m_cbo_loc_giang_vien.Items.Add(new ListItem(v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() + " " + v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
+            }
         }
         catch (Exception v_e)
         {
-            throw v_e;
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
     private void load_2_cbo_don_vi_thanh_toan()
@@ -124,12 +113,6 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             m_cbo_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
             m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
             m_cbo_don_vi_thanh_toan.DataBind();
-            //add item Tat Ca
-            DataRow v_dr_all = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.NewDM_DON_VI_THANH_TOANRow();
-            v_dr_all[DM_DON_VI_THANH_TOAN.ID] = 0;
-            v_dr_all[DM_DON_VI_THANH_TOAN.TEN_DON_VI] = "Tất cả";
-            v_ds_dm_don_vi_thanh_toan.EnforceConstraints = false;
-            v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.Rows.InsertAt(v_dr_all, 0);
             //Load len bo loc don vi tt
             m_cbo_loc_don_vi_thanh_toan.DataSource = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
             m_cbo_loc_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
@@ -168,19 +151,19 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             throw v_e;
         }
     }
-    public string get_mapping_ma_giang_vien(object i_dc_id_giang_vien)
+    public string get_mapping_ten_giang_vien(object i_dc_id_giang_vien)
     {
-        string v_str_ma_giang_vien = "";
+        string v_str_ten_giang_vien = "";
         try
         {
             US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(CIPConvert.ToDecimal(i_dc_id_giang_vien));
-            v_str_ma_giang_vien= v_us_dm_giang_vien.strMA_GIANG_VIEN;
+            v_str_ten_giang_vien = v_us_dm_giang_vien.strHO_VA_TEN_DEM.TrimEnd()+" "+v_us_dm_giang_vien.strTEN_GIANG_VIEN;
         }
         catch (Exception v_e)
         {
             throw v_e;
         }
-        return v_str_ma_giang_vien;
+        return v_str_ten_giang_vien;
     }
     public string get_mapping_ten_don_vi_thanh_toan(object i_dc_id_don_vi_thanh_toan)
     {
