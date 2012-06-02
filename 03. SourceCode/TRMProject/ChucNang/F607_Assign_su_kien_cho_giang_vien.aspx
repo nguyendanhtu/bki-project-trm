@@ -150,18 +150,20 @@
                 runat="server" Width="98px" Height="25px"  Text="Lọc dữ liệu(l)" 
                 />&nbsp;&nbsp;
 			<asp:button id="m_cmd_tao_moi" accessKey="l" CssClass="cssButton" 
-                runat="server" Width="98px" Height="25px"  Text="Tạo mới(c)" 
+                runat="server" Width="98px" Height="25px"  Text="Tạo mới(c)" onclick="m_cmd_tao_moi_Click" 
                 />&nbsp;&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
-                runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" 
+                runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_cap_nhat_Click" 
                  />&nbsp;&nbsp;
 			        <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
-                        Width="98px"/>
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
-                Width="98px" Height="25px"  Text="Xóa trắng(r)" CausesValidation="false" />
-		</td>
+                Width="98px" Height="25px"  Text="Xóa trắng(r)" CausesValidation="false" 
+                onclick="btnCancel_Click" />
+		    <asp:HiddenField ID="hdf_id" runat="server" Value="" />
+        </td>
 	</tr>
             </table>        
         </td>
@@ -179,7 +181,8 @@
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="20" 
-                onrowupdating="m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating">
+                onrowupdating="m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating" 
+                onrowdeleting="m_grv_gd_assign_su_kien_cho_giang_vien_RowDeleting">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -187,6 +190,7 @@
 
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
+                
                     <asp:TemplateField HeaderText="Sự kiện">
                         <ItemTemplate>
                             <%# mapping_ten_su_kien_by_id(Eval("ID_SU_KIEN"))%>
@@ -194,7 +198,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Giảng viên">
                         <ItemTemplate>
-                            <%# mapping_ten_giang_vien_by_id(Eval("ID_GIANG_VIEN"))%>
+                            <%# (Eval("HO_VA_TEN_GIANG_VIEN"))%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="Số tiền hưởng" ItemStyle-HorizontalAlign="Right" DataField="SO_TIEN_GV_HUONG" DataFormatString="{0:N0}"/>
@@ -203,11 +207,12 @@
                             <%# mapping_vai_tro_giang_vien_by_id(Eval("ID_VAI_TRO_GV"))%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Số hợp đồng">
+                    <asp:BoundField HeaderText="Số hợp đồng" DataField="SO_HOP_DONG" />
+                    <%--<asp:TemplateField HeaderText="Số hợp đồng">
                         <ItemTemplate>
                             <%# mapping_so_hop_dong_by_id(Eval("ID_HOP_DONG"))%>
                         </ItemTemplate>
-                    </asp:TemplateField>
+                    </asp:TemplateField>--%>
                     <asp:TemplateField HeaderText="Thanh toán ngay">
                         <ItemTemplate>
                             <%# mapping_thanh_toan_ngay(Eval("THANH_TOAN_NGAY_YN").ToString())%>
