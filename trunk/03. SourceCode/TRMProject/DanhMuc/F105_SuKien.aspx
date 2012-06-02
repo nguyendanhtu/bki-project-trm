@@ -152,18 +152,26 @@
             <td align="center" colspan="3" style="height: 450px;" valign="top">
                 &nbsp;
                 <asp:GridView ID="m_grv_dm_su_kien" AllowPaging="True" runat="server" AutoGenerateColumns="False"
-                    Width="100%" DataKeyNames="ID" OnRowDeleting="m_grv_dm_tu_dien_RowDeleting" OnSelectedIndexChanging="m_grv_dm_su_kien_SelectedIndexChanging"
-                    CellPadding="4" ForeColor="#333333" AllowSorting="True" OnPageIndexChanging="m_grv_dm_su_kien_PageIndexChanging">
+                    Width="100%" DataKeyNames="ID" 
+                    OnRowDeleting="m_grv_dm_tu_dien_RowDeleting" OnSelectedIndexChanging="m_grv_dm_su_kien_SelectedIndexChanging"
+                    CellPadding="4" ForeColor="#333333" AllowSorting="True" 
+                    OnPageIndexChanging="m_grv_dm_su_kien_PageIndexChanging" 
+                    onrowediting="m_grv_dm_su_kien_RowEditing">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:TemplateField HeaderText="Xóa">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lbt_delete" runat="server" CommandName="Delete" Text="Xóa" ToolTip="Xóa"
+                                <asp:LinkButton ToolTip="Xóa" ID="lbt_delete" runat="server" CommandName="Delete"
                                     OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                                 </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField SelectText="Sửa" ShowSelectButton="True"  HeaderText="Sửa" />
+                        <asp:TemplateField HeaderText="Sửa">
+                            <ItemTemplate>
+                                <asp:LinkButton ToolTip="Sửa" ID="lbt_edit" CommandName="Edit" runat="server"><img src="/TRMProject/Images/Button/edit.png" alt="Delete" /></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
                                 <%# Container.DataItemIndex + 1 %></ItemTemplate>
