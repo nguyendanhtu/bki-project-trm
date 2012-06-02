@@ -362,7 +362,7 @@ public class US_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN : US_Object
                                                                                 string ip_dc_thanh_toan_ngay_yn,
                                                                                 string ip_str_tu_khoa)
     {
-        CStoredProc v_cstore = new CStoredProc("pr_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Search");
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Search");
         v_cstore.addDecimalInputParam("@ID_SU_KIEN", ip_dc_id_su_kien);
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.addDecimalInputParam("@ID_VAI_TRO", ip_dc_id_vai_tro);
