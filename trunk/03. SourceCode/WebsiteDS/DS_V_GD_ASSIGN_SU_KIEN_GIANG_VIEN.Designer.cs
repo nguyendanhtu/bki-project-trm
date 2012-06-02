@@ -1237,7 +1237,7 @@ namespace WebDS.DS_V_GD_ASSIGN_SU_KIEN_GIANG_VIENTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString3;
+            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
