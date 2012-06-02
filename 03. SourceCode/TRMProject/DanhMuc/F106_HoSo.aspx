@@ -287,7 +287,7 @@
                                 ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="Đơn vị thanh toán" ItemStyle-HorizontalAlign="Center">
+                            <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <%# get_mapping_ma_to_ten(Eval("ID_TRANG_THAI")) %></ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
