@@ -1,0 +1,145 @@
+﻿CREATE VIEW [dbo].[V_GD_ASSIGN_SU_KIEN_GIANG_VIEN]
+AS
+
+SELECT 
+	skgv.ID,
+	sk.ID_LOAI_SU_KIEN,
+	skgv.ID_SU_KIEN,
+	skgv.ID_GIANG_VIEN,
+	skgv.ID_VAI_TRO_GV,
+	skgv.ID_HOP_DONG,
+	skgv.ID_TRANG_THAI,
+	skgv.ID_USER_LAP,
+	skgv.SO_TIEN_GV_HUONG,
+	skgv.GHI_CHU,
+	skgv.THANH_TOAN_NGAY_YN,
+	case ID_HOP_DONG
+	when 0 then 'Không có HĐ'
+	else (select hdk.SO_HOP_DONG from DM_HOP_DONG_KHUNG hdk 
+			where hdk.ID = skgv.ID_HOP_DONG) end SO_HOP_DONG,
+	gv.HO_VA_TEN_DEM +' ' + gv.TEN_GIANG_VIEN 'HO_VA_TEN_GIANG_VIEN',
+	nsd.TEN_TRUY_CAP,
+	nsd.TEN as TEN_USER_LAP
+	
+
+FROM GD_ASSIGN_SU_KIEN_GIANG_VIEN skgv,DM_GIANG_VIEN gv
+,HT_NGUOI_SU_DUNG nsd,DM_SU_KIEN sk ,CM_DM_TU_DIEN td
+where gv.ID = skgv.ID_GIANG_VIEN								
+and nsd.ID = skgv.ID_USER_LAP
+and skgv.ID_SU_KIEN = sk.ID 
+and skgv.ID_TRANG_THAI=td.ID
+
+
+--SEARCH
+
+ALTER PROCEDURE [dbo].[pr_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Search]
+	
+	@ID_SU_KIEN DECIMAL,
+	@ID_GIANG_VIEN DECIMAL,
+	@ID_VAI_TRO DECIMAL,
+	@ID_HOP_DONG DECIMAL,
+	@ID_TRANG_THAI DECIMAL,
+	@THANH_TOAN_NGAY_YN NVARCHAR(1),
+	@TU_KHOA NVARCHAR (150)
+AS
+	SELECT * FROM V_GD_ASSIGN_SU_KIEN_GIANG_VIEN skgv
+	WHERE 
+	(
+		
+	(skgv.ID_SU_KIEN = @ID_SU_KIEN)
+AND (skgv.ID_GIANG_VIEN = @ID_GIANG_VIEN )
+AND (skgv.ID_VAI_TRO_GV = @ID_VAI_TRO )
+AND (skgv.ID_HOP_DONG = @ID_HOP_DONG OR @ID_HOP_DONG = 0)
+AND (skgv.ID_TRANG_THAI = @ID_TRANG_THAI )
+AND (skgv.THANH_TOAN_NGAY_YN like '%'+@THANH_TOAN_NGAY_YN+'%' )
+	AND  
+		( upper(skgv.HO_VA_TEN_GIANG_VIEN) LIKE N'%'+upper(@TU_KHOA)+'%'
+	
+		OR @TU_KHOA = ''
+		)	
+	)
+
+--Delete
+CREATE PROCEDURE [dbo].[pr_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Delete]
+	@ID numeric(18, 0)
+AS
+DELETE FROM [dbo].[GD_ASSIGN_SU_KIEN_GIANG_VIEN]
+WHERE
+	[ID] = @ID
+
+--insert 
+CREATE PROCEDURE [dbo].[pr_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Insert]
+	@ID_LOAI_SU_KIEN numeric(18,0),
+	@ID_SU_KIEN numeric(18, 0),
+	@ID_GIANG_VIEN numeric(18, 0),
+	@SO_TIEN_GV_HUONG numeric(21, 3),
+	@ID_VAI_TRO_GV numeric(18, 0),
+	@ID_HOP_DONG numeric(18, 0),
+	@THANH_TOAN_NGAY_YN nvarchar(1),
+	@ID_TRANG_THAI numeric(18, 0),
+	@GHI_CHU nvarchar(250),
+	@ID_USER_LAP numeric(18, 0),
+	@SO_HOP_DONG nvarchar(35),
+	@HO_VA_TEN_GIANG_VIEN nvarchar(101),
+	@TEN_TRUY_CAP nvarchar(35),
+	@TEN_USER_LAP nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+
+AS
+INSERT [dbo].[GD_ASSIGN_SU_KIEN_GIANG_VIEN]
+(
+	[ID_SU_KIEN],
+	[ID_GIANG_VIEN],
+	[SO_TIEN_GV_HUONG],
+	[ID_VAI_TRO_GV],
+	[ID_HOP_DONG],
+	[THANH_TOAN_NGAY_YN],
+	[ID_TRANG_THAI],
+	[GHI_CHU],
+	[ID_USER_LAP]
+)
+VALUES
+(
+	@ID_SU_KIEN,
+	@ID_GIANG_VIEN,
+	@SO_TIEN_GV_HUONG,
+	@ID_VAI_TRO_GV,
+	@ID_HOP_DONG,
+	@THANH_TOAN_NGAY_YN,
+	@ID_TRANG_THAI,
+	@GHI_CHU,
+	@ID_USER_LAP
+)
+SELECT @ID=SCOPE_IDENTITY()
+--update
+
+CREATE PROCEDURE [dbo].[pr_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN_Update]
+	@ID_LOAI_SU_KIEN numeric(18,0),
+	@ID_SU_KIEN numeric(18, 0),
+	@ID_GIANG_VIEN numeric(18, 0),
+	@SO_TIEN_GV_HUONG numeric(21, 3),
+	@ID_VAI_TRO_GV numeric(18, 0),
+	@ID_HOP_DONG numeric(18, 0),
+	@THANH_TOAN_NGAY_YN nvarchar(1),
+	@ID_TRANG_THAI numeric(18, 0),
+	@GHI_CHU nvarchar(250),
+	@ID_USER_LAP numeric(18, 0),
+	@SO_HOP_DONG nvarchar(35),
+	@HO_VA_TEN_GIANG_VIEN nvarchar(101),
+	@TEN_TRUY_CAP nvarchar(35),
+	@TEN_USER_LAP nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+AS
+UPDATE [dbo].[GD_ASSIGN_SU_KIEN_GIANG_VIEN]
+SET 
+	[ID_SU_KIEN] = @ID_SU_KIEN,
+	[ID_GIANG_VIEN] = @ID_GIANG_VIEN,
+	[SO_TIEN_GV_HUONG] = @SO_TIEN_GV_HUONG,
+	[ID_VAI_TRO_GV] = @ID_VAI_TRO_GV,
+	[ID_HOP_DONG] = @ID_HOP_DONG,
+	[THANH_TOAN_NGAY_YN] = @THANH_TOAN_NGAY_YN,
+	[ID_TRANG_THAI] = @ID_TRANG_THAI,
+	[GHI_CHU] = @GHI_CHU,
+	[ID_USER_LAP] = @ID_USER_LAP
+WHERE
+	[ID] = @ID
