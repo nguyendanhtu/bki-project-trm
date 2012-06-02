@@ -90,6 +90,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         try
         {
             v_us_dm_giang_vien.FillDataset(v_ds_dm_giang_vien, " ORDER BY HO_VA_TEN_DEM, TEN_GIANG_VIEN");
+            m_cbo_loc_giang_vien.Items.Add(new ListItem("Tất cả", "0"));
             for (int v_i = 0; v_i < v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
             {
                 m_cbo_giang_vien.Items.Add(new ListItem(v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() + " " + v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
@@ -113,6 +114,13 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             m_cbo_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
             m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
             m_cbo_don_vi_thanh_toan.DataBind();
+            //thêm tất cả
+            DataRow v_dr_all = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.NewDM_DON_VI_THANH_TOANRow();
+            v_dr_all[DM_DON_VI_THANH_TOAN.ID] = 0;
+            v_dr_all[DM_DON_VI_THANH_TOAN.TEN_DON_VI] = "Tất cả";
+            v_ds_dm_don_vi_thanh_toan.EnforceConstraints = false;
+            v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.Rows.InsertAt(v_dr_all, 0);
+
             //Load len bo loc don vi tt
             m_cbo_loc_don_vi_thanh_toan.DataSource = v_ds_dm_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN;
             m_cbo_loc_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
