@@ -495,4 +495,23 @@ namespace WebDS.CDBNames
        public const string GHI_CHU = "GHI_CHU";
        public const string ID_USER_LAP = "ID_USER_LAP";
    }
+   public class V_GD_ASSIGN_SU_KIEN_GIANG_VIEN
+   {
+       public const string ID = "ID";
+       public const string ID_LOAI_SU_KIEN = "ID_LOAI_SU_KIEN";
+       public const string ID_SU_KIEN = "ID_SU_KIEN";
+       public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
+       public const string ID_VAI_TRO_GV = "ID_VAI_TRO_GV";
+       public const string ID_HOP_DONG = "ID_HOP_DONG";
+       public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+       public const string ID_USER_LAP = "ID_USER_LAP";
+       public const string SO_TIEN_GV_HUONG = "SO_TIEN_GV_HUONG";
+       public const string GHI_CHU = "GHI_CHU";
+       public const string THANH_TOAN_NGAY_YN = "THANH_TOAN_NGAY_YN";
+       public const string SO_HOP_DONG = "SO_HOP_DONG";
+       public const string HO_VA_TEN_GIANG_VIEN = "HO_VA_TEN_GIANG_VIEN";
+       public const string TEN_TRUY_CAP = "TEN_TRUY_CAP";
+       public const string TEN_USER_LAP = "TEN_USER_LAP";
+   }
+
 }
