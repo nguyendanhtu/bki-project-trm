@@ -116,8 +116,7 @@
         </tr>
         <tr>
             <td align="left">
-                <asp:Label ID="m_lbl_thong_bao" Visible="False" runat="server" 
-                    CssClass="cssManField" />
+                <asp:Label ID="m_lbl_thong_bao" Visible="False" runat="server" CssClass="cssManField" />
             </td>
             <td>
                 &nbsp;
@@ -153,7 +152,7 @@
                 <asp:Label ID="lblLocGiangVien" CssClass="cssManField" runat="server" Text="&lt;U&gt;G&lt;/U&gt;iảng viên " />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_loc_giang_vien" runat="server" Width="310px"  />
+                <asp:DropDownList ID="m_cbo_loc_giang_vien" runat="server" Width="310px" />
                 &nbsp;&nbsp;&nbsp;
             </td>
         </tr>
@@ -162,7 +161,7 @@
                 <asp:Label ID="lblLocDonViThanhToan" CssClass="cssManField" runat="server" Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị thanh toán " />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_loc_don_vi_thanh_toan" runat="server" Width="310px"  />
+                <asp:DropDownList ID="m_cbo_loc_don_vi_thanh_toan" runat="server" Width="310px" />
             </td>
         </tr>
         <tr>
@@ -233,7 +232,7 @@
                 <asp:Label ID="lblLocTrangThai" CssClass="cssManField" runat="server" Text="&lt;U&gt;T&lt;/U&gt;rạng thái " />
             </td>
             <td>
-                <asp:DropDownList ID="m_cbo_loc_trang_thai" runat="server" Width="310px"  />
+                <asp:DropDownList ID="m_cbo_loc_trang_thai" runat="server" Width="310px" />
             </td>
         </tr>
         <tr>
@@ -247,62 +246,79 @@
                 <asp:Button ID="m_cmd_xuat_excel" AccessKey="x" CssClass="cssButton" runat="server"
                     Width="98px" Text="Xuất Excel (x)" Height="22px" OnClick="m_cmd_xuat_excel_Click" />
             </td>
-            </tr>
-            <tr>
-                <td align="center" colspan="3" style="height: 450px;" valign="top">
-                    &nbsp;
-                    <asp:GridView ID="m_grv_dm_ho_so" AllowPaging="True" runat="server" AutoGenerateColumns="False"
-                        Width="100%" DataKeyNames="ID" CellPadding="4" ForeColor="#333333" AllowSorting="True"
-                        OnPageIndexChanging="m_grv_dm_ho_so_PageIndexChanging" OnRowDeleting="m_grv_dm_ho_so_RowDeleting"
-                        OnSelectedIndexChanging="m_grv_dm_ho_so_SelectedIndexChanging">
-                        <AlternatingRowStyle BackColor="White" />
-                        <Columns>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lbt_delete" runat="server" CommandName="Delete" Text="Xóa" ToolTip="Xóa"
-                                        OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
-                            <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %></ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" Visible="False">
-                                <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:TemplateField HeaderText="Giảng viên" ItemStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <%# get_mapping_ten_giang_vien(Eval("ID_GIANG_VIEN"))%></ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Đơn vị thanh toán" ItemStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <%# get_mapping_ten_don_vi_thanh_toan(Eval("ID_DON_VI_THANH_TOAN"))%></ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="NGAY_CAP_NHAT" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày cập nhật"
-                                ItemStyle-HorizontalAlign="Center">
-                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <%# get_mapping_ma_to_ten(Eval("ID_TRANG_THAI")) %></ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="GHI_CHU" DataFormatString="{0:N0}" HeaderText="Ghi chú" />
-                        </Columns>
-                        <EditRowStyle BackColor="#7C6F57" />
-                        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#E3EAEB" />
-                        <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
-                            ForeColor="#333333"></SelectedRowStyle>
-                    </asp:GridView>
-                </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="3" style="height: 450px;" valign="top">
+                &nbsp;
+                <asp:GridView ID="m_grv_dm_ho_so" AllowPaging="True" runat="server" AutoGenerateColumns="False"
+                    Width="100%" DataKeyNames="ID" CellPadding="4" ForeColor="#333333" AllowSorting="True"
+                    OnPageIndexChanging="m_grv_dm_ho_so_PageIndexChanging" OnRowDeleting="m_grv_dm_ho_so_RowDeleting"
+                    OnSelectedIndexChanging="m_grv_dm_ho_so_SelectedIndexChanging" 
+                    onrowediting="m_grv_dm_ho_so_RowEditing">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="Xóa">
+                            <ItemTemplate>
+                                <asp:LinkButton ToolTip="Xóa" ID="lbt_delete" runat="server" CommandName="Delete"
+                                    OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                                </asp:LinkButton>
+                                
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Sửa">
+                            <ItemTemplate>
+                                <asp:LinkButton ToolTip="Sửa"  ID="lbt_edit" CommandName="Edit"
+                                    runat="server" ><img src="/TRMProject/Images/Button/edit.png" alt="Delete" /></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Hồ sơ chi tiết">
+                            <ItemTemplate>
+                                <asp:HyperLink ToolTip="Hồ sơ chi tiết" ImageUrl="/TRMProject/Images/Button/detail.png"
+                                    ID="lbt_ho_so_detail" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F303_HoSodetail.aspx?id_hs="+Eval("ID") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <%# Container.DataItemIndex + 1 %></ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" Visible="False">
+                            <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Giảng viên" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <%# get_mapping_ten_giang_vien(Eval("ID_GIANG_VIEN"))%></ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Đơn vị thanh toán" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <%# get_mapping_ten_don_vi_thanh_toan(Eval("ID_DON_VI_THANH_TOAN"))%></ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="NGAY_CAP_NHAT" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày cập nhật"
+                            ItemStyle-HorizontalAlign="Center">
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <%# get_mapping_ma_to_ten(Eval("ID_TRANG_THAI")) %></ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="GHI_CHU" DataFormatString="{0:N0}" HeaderText="Ghi chú" />
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True"
+                        ForeColor="#333333"></SelectedRowStyle>
+                </asp:GridView>
+            </td>
         </tr>
     </table>
 </asp:Content>

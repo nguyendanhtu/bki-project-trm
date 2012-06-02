@@ -371,4 +371,18 @@ public partial class DanhMuc_F105_SuKien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_dm_su_kien_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        try
+        {
+            m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_cmd_tao_moi.Enabled = false;
+            m_lbl_mess.Text = "";
+            load_data_2_us_by_id(e.NewEditIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }

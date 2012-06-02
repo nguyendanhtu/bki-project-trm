@@ -408,4 +408,18 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         }
 
     }
+    protected void m_grv_dm_ho_so_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        try
+        {
+            m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_cmd_tao_moi.Enabled = false;
+            m_lbl_mess.Text = "";
+            load_data_2_us_by_id(e.NewEditIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
