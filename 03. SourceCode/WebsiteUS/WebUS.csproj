@@ -67,6 +67,7 @@
     <Compile Include="US_DM_SU_KIEN.cs" />
     <Compile Include="US_GD_ASSIGN_SU_KIEN_GIANG_VIEN.cs" />
     <Compile Include="US_GD_GV_CONG_VIEC_MOI.cs" />
+    <Compile Include="US_GD_HO_SO_GV_DETAIL.cs" />
     <Compile Include="US_GD_LOP_MON.cs" />
     <Compile Include="US_GD_LOP_MON_DETAIL.cs" />
     <Compile Include="US_HT_CHUC_NANG.cs" />
