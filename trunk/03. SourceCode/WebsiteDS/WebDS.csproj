@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_GD_GV_CONG_VIEC_MOI.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_GD_HO_SO_GV_DETAIL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_HO_SO_GV_DETAIL.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_GD_LOP_MON.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -290,6 +295,17 @@
     </None>
     <None Include="DS_GD_GV_CONG_VIEC_MOI.xss">
       <DependentUpon>DS_GD_GV_CONG_VIEC_MOI.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_HO_SO_GV_DETAIL.xsc">
+      <DependentUpon>DS_GD_HO_SO_GV_DETAIL.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_HO_SO_GV_DETAIL.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_HO_SO_GV_DETAIL.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_HO_SO_GV_DETAIL.xss">
+      <DependentUpon>DS_GD_HO_SO_GV_DETAIL.xsd</DependentUpon>
     </None>
     <None Include="DS_GD_LOP_MON.xsc">
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
