@@ -182,7 +182,17 @@
                             <asp:Label ID="lblHoSoDinhKem" CssClass="cssManField" runat="server" Text="Hồ sơ đính kèm : " />
                         </td>
                         <td align="left" style="width: 10%;">
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                            <asp:FileUpload ID="m_up_ho_so" runat="server" />
+                            <br />
+                            <br />
+                            <asp:Label ID="lblHoSoDinhKem0" CssClass="cssManField" runat="server" 
+                                Text="Đổi tên hồ sơ đính kèm : " />
+                            <asp:TextBox ID="m_txt_ten_hs_dinh_kem" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button1" runat="server" onclick="Upload_Click" Text="Upload" />
+                            <asp:Label ID="m_lbl_ten_hs_dinh_kem" runat="server" Text="Label" 
+                                Visible="False"></asp:Label>
+                            <asp:Label ID="m_lbl_id_ho_so" runat="server" Text="Label" Visible="False"></asp:Label>
                         </td>
                         <td align="right" style="width: 5%;">
                             &nbsp;
@@ -236,13 +246,15 @@
                         </td>
                         <td align="left" style="width: 10%;">
                             <asp:Button ID="m_cmd_luu_du_lieu" AccessKey="s" CssClass="cssButton" runat="server"
-                                Width="98px" Text="Tạo phụ lục" Height="24px" />
+                                Width="98px" Text="Tạo phụ lục" Height="24px" 
+                                onclick="m_cmd_luu_du_lieu_Click" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="m_cmd_cap_nhat_pl" runat="server" AccessKey="s" CssClass="cssButton"
-                                Height="24px" Text="Cập nhật phụ lục" Width="98px" />
+                                Height="24px" Text="Cập nhật phụ lục" Width="98px" 
+                                onclick="m_cmd_cap_nhat_pl_Click" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="m_cmd_thoat0" runat="server" CausesValidation="False" CssClass="cssButton"
-                                Height="25px" Text="Xóa trắng" Width="98px" />
+                                Height="25px" Text="Xóa trắng" Width="98px" onclick="m_cmd_thoat_Click" />
                         </td>
                         <td align="right" style="width: 5%;">
                             &nbsp;
@@ -274,7 +286,8 @@
         <tr>
             <td align="left">
                 <asp:Button ID="m_cmd_exit" runat="server" AccessKey="s" CssClass="cssButton" Height="24px"
-                    Text="Thoát" Width="98px" CausesValidation="false" /><br />
+                    Text="Thoát" Width="98px" CausesValidation="false" 
+                    onclick="m_cmd_exit_Click" /><br />
                 <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
             </td>
@@ -289,7 +302,11 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True">
+            AllowSorting="True" onload="Page_Load" 
+                    onpageindexchanged="m_cbo_loai_ho_so_SelectedIndexChanged" 
+                    onrowdeleting="m_grv_gd_ho_so_gv_detail_RowDeleting" 
+                    onselectedindexchanged="m_cbo_loai_ho_so_SelectedIndexChanged" 
+                    onselectedindexchanging="m_grv_gd_ho_so_gv_detail_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
@@ -312,12 +329,12 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="ID_LOAI_HO_SO" HeaderText="Loại hồ sơ">
+                    <asp:BoundField DataField="TEN_LOAI_HO_SO" HeaderText="Tên loại hồ sơ">
                     <ItemStyle Width="30%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:BoundField DataField="HO_SO_DINH_KEM" HeaderText="Hồ sơ đính kèm">
                     </asp:BoundField>
-                     <asp:BoundField DataField="NGAY_CAP_NHAT" HeaderText="Ngày cập nhật">
+                     <asp:BoundField DataField="NGAY_CAP_NHAT" HeaderText="Ngày cập nhật" DataFormatString="{0:dd/MM/yyyy}">
                     <ItemStyle HorizontalAlign="Center" Width="10%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
