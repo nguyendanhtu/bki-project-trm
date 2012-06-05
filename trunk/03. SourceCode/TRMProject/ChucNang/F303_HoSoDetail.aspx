@@ -183,17 +183,8 @@
                         </td>
                         <td align="left" style="width: 10%;">
                             <asp:FileUpload ID="m_up_ho_so" runat="server" />
-                            <br />
-                            <br />
-                            <asp:Label ID="lblHoSoDinhKem0" CssClass="cssManField" runat="server" 
-                                Text="Đổi tên hồ sơ đính kèm : " />
-                            <asp:TextBox ID="m_txt_ten_hs_dinh_kem" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button1" runat="server" onclick="Upload_Click" Text="Upload" />
-                            <asp:Label ID="m_lbl_ten_hs_dinh_kem" runat="server" Text="Label" 
-                                Visible="False"></asp:Label>
-                            <asp:Label ID="m_lbl_id_ho_so" runat="server" Text="Label" Visible="False"></asp:Label>
-                        </td>
+                            </td>
                         <td align="right" style="width: 5%;">
                             &nbsp;
                         </td>
@@ -212,6 +203,31 @@
                         <td align="left" style="width: 1%;">
                             &nbsp;
                         </td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="width: 7%;">
+                            &nbsp;</td>
+                        <td align="left" style="width: 10%;">
+                            <asp:Label ID="lblHoSoDinhKem0" CssClass="cssManField" runat="server" 
+                                Text="Đổi tên hồ sơ đính kèm : " />
+                            <asp:TextBox ID="m_txt_ten_hs_dinh_kem" runat="server"></asp:TextBox>
+                            <asp:Button ID="Button1" runat="server" onclick="Upload_Click" Text="Upload" />
+                            <asp:Label ID="m_lbl_ten_hs_dinh_kem" runat="server" 
+                                Visible="False"></asp:Label>
+                            <asp:Label ID="m_lbl_id_ho_so" runat="server" Text="0" Visible="False"></asp:Label>
+                        </td>
+                        <td align="right" style="width: 5%;">
+                            &nbsp;</td>
+                        <td align="right" style="width: 7%;">
+                            &nbsp;</td>
+                        <td align="left" style="width: 1%;">
+                            &nbsp;</td>
+                        <td align="right" style="width: 5%;">
+                            &nbsp;</td>
+                        <td align="left" style="width: 10%;">
+                            &nbsp;</td>
+                        <td align="left" style="width: 1%;">
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td align="right" style="width: 7%;">
