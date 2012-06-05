@@ -1,4 +1,58 @@
 GO
+ALTER PROCEDURE [dbo].[pr_GD_HO_SO_GV_DETAIL_Update]
+	@ID numeric(18, 0),
+	@ID_HO_SO numeric(18, 0),
+	@TEN_LOAI_HO_SO nvarchar(250),
+	@HO_SO_DINH_KEM nvarchar(250),
+	@NGAY_CAP_NHAT datetime,
+	@GHI_CHU nvarchar(250)
+AS
+UPDATE [dbo].[GD_HO_SO_GV_DETAIL]
+SET 
+	[ID_HO_SO] = @ID_HO_SO,
+	[TEN_LOAI_HO_SO] = @TEN_LOAI_HO_SO,
+	[HO_SO_DINH_KEM] = @HO_SO_DINH_KEM,
+	[NGAY_CAP_NHAT] = GETDATE(),
+	[GHI_CHU] = @GHI_CHU
+WHERE
+	[ID] = @ID
+
+GO
+ALTER PROCEDURE [dbo].[pr_GD_HO_SO_GV_DETAIL_Insert]
+	@ID_HO_SO numeric(18, 0),
+	@TEN_LOAI_HO_SO nvarchar(250),
+	@HO_SO_DINH_KEM nvarchar(250),
+	@NGAY_CAP_NHAT datetime,
+	@GHI_CHU nvarchar(250),
+	@ID numeric(18, 0) OUTPUT
+AS
+INSERT [dbo].[GD_HO_SO_GV_DETAIL]
+(
+	[ID_HO_SO],
+	[TEN_LOAI_HO_SO],
+	[HO_SO_DINH_KEM],
+	[NGAY_CAP_NHAT],
+	[GHI_CHU]
+)
+VALUES
+(
+	@ID_HO_SO,
+	@TEN_LOAI_HO_SO,
+	@HO_SO_DINH_KEM,
+	GETDATE(),
+	@GHI_CHU
+)
+SELECT @ID=SCOPE_IDENTITY()
+GO
+ALTER PROCEDURE [dbo].[pr_GD_HO_SO_GV_DETAIL_Delete]
+	@ID numeric(18, 0)
+AS
+DELETE FROM [dbo].[GD_HO_SO_GV_DETAIL]
+WHERE
+	[ID] = @ID
+
+
+GO
 ALTER PROCEDURE [dbo].[pr_DM_HO_SO_GIANG_VIEN_Delete]
 	@ID numeric(18, 0)
 AS
