@@ -300,9 +300,9 @@
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Sửa" Visible="false">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                     <asp:TemplateField HeaderText="Chi tiết">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
+                     NavigateUrl='<%# "/TRMProject/CongTTGV/F1301_ChiTietHopDong.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Phụ lục hợp đồng">
