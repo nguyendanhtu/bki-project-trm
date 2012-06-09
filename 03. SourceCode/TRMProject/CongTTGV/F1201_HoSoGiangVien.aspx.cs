@@ -475,7 +475,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject", false);
+            Response.Redirect("/TRMProject/CongTTGV/Welcome.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
