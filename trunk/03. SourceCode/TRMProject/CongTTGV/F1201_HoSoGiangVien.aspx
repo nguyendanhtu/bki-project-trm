@@ -55,7 +55,7 @@
                 Text="Họ và Tên đệm" />
                          </td>
                 <td align="left" class="style3">
-			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> (*)
@@ -67,8 +67,8 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:1%;">
-			<asp:textbox id="m_txt_last_name" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+			<asp:textbox id="m_txt_last_name" CssClass="cssTextBox"  runat="server" Enabled="false"
+                Width="96%" />
                          </td>
                  <td align="right" class="style1"> (*)
                              <asp:RequiredFieldValidator Text="*" ID="m_rfv_teacher_name0" runat="server" 
@@ -81,7 +81,7 @@
                 Text="Ngày sinh" />
                          </td>
                 <td align="left" class="style3">
-			        <ew:calendarpopup ID="m_dat_ngay_sinh_gv" runat="server" 
+			        <ew:calendarpopup ID="m_dat_ngay_sinh_gv" runat="server" Enabled="false"
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="50%" SelectedDate="" Text="" Culture="vi-VN" 
@@ -122,7 +122,7 @@
                          </td>
                 <td align="left" style="width:1%;">
 			        <asp:RadioButtonList ID="rb_sex" runat="server" 
-                       
+                       Enabled="false"
                         RepeatDirection="Horizontal" Width="167px">
                         <asp:ListItem Selected="True" Value="Male">Nam</asp:ListItem>
                         <asp:ListItem Value="Female">Nữ</asp:ListItem>
@@ -136,7 +136,7 @@
                 Text="Địa chỉ giảng viên" />
                 </td>
                 <td align="left" class="style3" colspan="4">
-                       <asp:textbox id="m_txt_dia_chi_gv" CssClass="cssTextBox"  runat="server" 
+                       <asp:textbox id="m_txt_dia_chi_gv" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="1000" Width="98%" />
                          </td>
                 <td align="left" style="width:1%;">
@@ -148,7 +148,7 @@
                 Text="Tên cơ quan công tác" />
                 </td>
                 <td align="left" class="style3">
-                       <asp:textbox id="m_txt_co_quan_cong_tac" CssClass="cssTextBox"  runat="server" 
+                       <asp:textbox id="m_txt_co_quan_cong_tac" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="1000" Width="96%" />
                          </td>
                 <td align="left" style="width:1%;">
@@ -160,7 +160,7 @@
                 </td>
                 <td align="left" style="width:10%;">
 			
-                     <asp:TextBox ID="m_txt_tel_office" runat="server" CssClass="cssTextBox" 
+                     <asp:TextBox ID="m_txt_tel_office" runat="server" CssClass="cssTextBox" Enabled="false"
                         MaxLength="64" Width="96%" />
 			
 		                    </td>
@@ -173,7 +173,7 @@
                 Text="SĐT Di động" />
                 </td>
                 <td align="left" class="style3">
-                    <asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" 
+                    <asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
@@ -185,7 +185,7 @@
                     </td>
                       <td align="left" align="left">
 			
-			        <asp:textbox id="m_txt_tel_home" CssClass="cssTextBox"  runat="server" 
+			        <asp:textbox id="m_txt_tel_home" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
 			
                     </td>
@@ -200,7 +200,7 @@
                     </td>
                 <td align="left">
 			
-			<asp:textbox id="m_txt_so_cmnd" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_so_cmnd" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
 			
                          </td>
@@ -213,7 +213,7 @@
                     </td>
                 <td align="left" style="width:10%;">
 			
-			        <ew:calendarpopup ID="m_dat_ngay_cap" runat="server" 
+			        <ew:calendarpopup ID="m_dat_ngay_cap" runat="server" Enabled="false"
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="50%" SelectedDate="" Text="" Culture="vi-VN" 
@@ -256,7 +256,7 @@
                     </td>
                 <td align="left">
 			
-			<asp:textbox id="m_txt_noi_cap" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_noi_cap" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
 			
                          </td>
@@ -273,7 +273,7 @@
                 <td align="right" class="style3">
                     <asp:Label ID="lblEmail" runat="server" CssClass="cssManField" Text="Email" /></td>
                 <td align="left">
-                    <asp:TextBox ID="m_txt_email" runat="server" CssClass="cssTextBox" 
+                    <asp:TextBox ID="m_txt_email" runat="server" CssClass="cssTextBox" Enabled="false"
                         MaxLength="64" Width="96%" /></td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
@@ -282,7 +282,7 @@
                 Text="Email Topica" />
                 </td>
                 <td align="left" style="width:10%;">
-                    <asp:textbox id="m_txt_email_topica" CssClass="cssTextBox"  runat="server" 
+                    <asp:textbox id="m_txt_email_topica" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
                 <td align="left" style="width:1%;">
@@ -294,7 +294,7 @@
                 Text="Số Tài Khoản" />
                 </td>
                 <td align="left" class="style3">
-                    <asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" 
+                    <asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                 </td>
                 <td align="left" style="width:1%;">
@@ -304,7 +304,7 @@
                 Text="Tên ngân hàng" />
                 </td>
                 <td align="left" colspan="1">
-                <asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" 
+                <asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="640" Width="96%" />
 			        </td>
              
@@ -315,7 +315,7 @@
                 Text="Mã số thuế" />
                 </td>
                 <td align="left" class="style3">
-                <asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
+                <asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" /> 
                          </td>
                      <td align="left" style="width:1%;">
@@ -330,7 +330,7 @@
                     <asp:Label ID="lblHocVi" runat="server" CssClass="cssManField" Text="Học vị" />
                 </td>
                 <td align="left" class="style3">
-		            <asp:DropDownList ID="m_cbo_hoc_vi" runat="server" CssClass="cssDorpdownlist" 
+		            <asp:DropDownList ID="m_cbo_hoc_vi" runat="server" CssClass="cssDorpdownlist" Enabled="false"
                         Width="96%" />
                 </td>
                      <td align="left" style="width:1%;">
@@ -340,7 +340,7 @@
                         Text="Học hàm" />
                 </td>
                 <td align="left" style="width:10%;">
-                    <asp:DropDownList ID="m_cbo_hoc_ham" runat="server" CssClass="cssDorpdownlist" 
+                    <asp:DropDownList ID="m_cbo_hoc_ham" runat="server" CssClass="cssDorpdownlist" Enabled="false" 
                         Width="96%" />
                     </td>
                       <td align="left" style="width:1%;">
@@ -352,7 +352,7 @@
                 Text="Trường đào tạo" />
                 </td>
                 <td align="left" class="style3">
-                <asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" 
+                <asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
@@ -362,7 +362,7 @@
                 Text="Chuyên ngành chính" />
                 </td>
                 <td align="left" >
-			<asp:textbox id="m_txt_chuyen_nganh_chinh" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_chuyen_nganh_chinh" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
             </tr>
@@ -372,7 +372,7 @@
                 Text="Chức vụ hiện tại" />
                 </td>
                 <td align="left" class="style3">
-                    <asp:textbox id="m_txt_chuc_vu_hien_tai" CssClass="cssTextBox"  runat="server" 
+                    <asp:textbox id="m_txt_chuc_vu_hien_tai" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="640" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
@@ -382,7 +382,7 @@
                 Text="Chức vụ cao nhất" />
                 </td>
                 <td align="left" >
-                <asp:textbox id="m_txt_chuc_vu_cao_nhat" CssClass="cssTextBox"  runat="server" 
+                <asp:textbox id="m_txt_chuc_vu_cao_nhat" CssClass="cssTextBox"  runat="server" Enabled="false"
                 MaxLength="64" Width="96%" />
                          </td>
             </tr>
@@ -490,11 +490,11 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
-                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
+                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" Visible="false"
                 Text="Mô tả" />
 		                    </td>
                 <td align="left" class="style3" colspan="4">
-                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
+                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" Visible="false"
                TextMode="MultiLine" Rows="4" Width="96%" />
                 </td>
                      <td align="left" style="width:1%;">
@@ -509,16 +509,16 @@
                 <td align="left" class="style3">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lưu dữ liệu" 
-                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" Visible="false" />
+                 <asp:button id="m_cmd_thoat" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Thoát"
+                      CausesValidation="false"  Height="25px" onclick="m_cmd_thoat_Click"  />
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" class="style1">
                      &nbsp;</td>
                 <td align="left" style="width:10%;">
-                 <asp:button id="m_cmd_thoat" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Thoát"
-                      CausesValidation="false"  Height="25px" onclick="m_cmd_thoat_Click"  />
-                 </td>     
+                    &nbsp;</td>     
                 <td align="left" style="width:1%;"></td>
             </tr>
         </table>
