@@ -18,8 +18,15 @@ public partial class CongTTGV_Welcome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
-            m_lbl_ten_giang_vien.Text = get_ten_giang_vien_by_ma_gv(CIPConvert.ToStr(Session["UserName"]));
+        if (!IsPostBack)
+        {
+            if (Session["UserName"]== null)
+                Response.Redirect("/TRMProject/Account/Login.aspx");
+            else
+            {
+                m_lbl_ten_giang_vien.Text = get_ten_giang_vien_by_ma_gv(CIPConvert.ToStr(Session["UserName"]));
+            }
+        }
     }
 
     #region Members

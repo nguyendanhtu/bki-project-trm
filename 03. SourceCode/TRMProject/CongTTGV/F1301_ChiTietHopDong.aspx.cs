@@ -551,7 +551,7 @@ public partial class CongTTGV_F1301_ChiTietHopDong : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx", false);
+            Response.Redirect("/TRMProject/ChucNang/F1302_DanhSachHopDongKhung.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
