@@ -6,12 +6,17 @@ using System.Web.UI.WebControls;
 using IP.Core.IPCommon;
 using IP.Core.IPData;
 using IP.Core.IPUserService;
+
+using WebUS;
+
 public partial class Account_Login : System.Web.UI.Page
 {
     #region Data structure
     #endregion
 
     #region Members
+    US_HT_NGUOI_SU_DUNG m_us_ht_nguoi_su_dung;
+    DS_HT_NGUOI_SU_DUNG m_ds_ht_nguoi_su_dung;
     #endregion
 
     #region Private methods
@@ -43,12 +48,22 @@ public partial class Account_Login : System.Web.UI.Page
             }
             Session["AccounLogin"] = "Y";
             Session["Username"] = strUserName;
-            Response.Redirect("../Default.aspx");
+            if (load_user_quyen(strUserName) == LOAI_USER_QUYEN.GIANG_VIEN) Response.Redirect("/TRMProject/CongTTGV/Welcome.aspx",false);
+            else Response.Redirect("../Default.aspx",false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         else
         {
             this.ctvLogin.IsValid = false;
         }
+    }
+
+    private decimal load_user_quyen(string ip_str_user_name)
+    {
+        m_us_ht_nguoi_su_dung = new US_HT_NGUOI_SU_DUNG();
+        m_ds_ht_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
+        m_us_ht_nguoi_su_dung.FillDataset(m_ds_ht_nguoi_su_dung, " WHERE TEN_TRUY_CAP = N'"+ip_str_user_name+"'");
+        return CIPConvert.ToDecimal(m_ds_ht_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows[0]["ID_USER_GROUP"]);
     }
     #endregion
 

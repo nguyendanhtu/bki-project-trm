@@ -12,7 +12,7 @@ namespace WebUS
         public const decimal DA_KET_THUC = 506;
     }
 
-     public class ID_TRANG_THAI_THANH_TOAN
+    public class ID_TRANG_THAI_THANH_TOAN
     {
          public const decimal DA_LEN_BANG_KE = 511;
          public const decimal CHUNG_TU_DA_DUOC_DUYET = 512;
@@ -33,5 +33,12 @@ namespace WebUS
         public const decimal CHUAN_BI_KY = 436;
         public const decimal DA_KY = 458;
         public const decimal DA_THANH_LY = 4346;
+    }
+    public class LOAI_USER_QUYEN
+    {
+        public const decimal GIANG_VIEN = 6;
+        public const decimal ADMIN = 5;
+        public const decimal TRUONG_NHOM_PO = 3;
+        public const decimal PO_VAN_HANH = 4;
     }
 }

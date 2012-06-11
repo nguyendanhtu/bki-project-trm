@@ -321,7 +321,7 @@ public partial class CongTTGV_F1720_QuaTrinhThanhToanCuaGiangVien : System.Web.U
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
-            m_lbl_thong_bao.Text = "Không có Thanh toán nào phù hợp";
+            m_lbl_thong_bao.Text = "Chưa có thanh toán nào cho giảng viên này!";
         }
         else m_lbl_thong_bao.Text = "";
         m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;

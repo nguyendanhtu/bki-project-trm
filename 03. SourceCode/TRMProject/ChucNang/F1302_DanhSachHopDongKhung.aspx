@@ -300,7 +300,7 @@
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Chi tiết">
+                       <asp:TemplateField HeaderText="Chi tiết">
                     <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
                      NavigateUrl='<%# "/TRMProject/CongTTGV/F1301_ChiTietHopDong.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
@@ -318,7 +318,9 @@
                      <asp:TemplateField>
                     <HeaderTemplate>Số hợp đồng</HeaderTemplate>
                     <ItemTemplate>
+                    <a href='<%# "/TRMProject/CongTTGV/F1301_ChiTietHopDong.aspx?mode=edit&id="+Eval("ID") %>'>
                     <asp:Label ID="m_lbl_so_hop_dong" runat="server" Text='<%# Eval("SO_HOP_DONG").ToString() %>' ></asp:Label>
+                    </a>                    
                     </ItemTemplate>
                      <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
