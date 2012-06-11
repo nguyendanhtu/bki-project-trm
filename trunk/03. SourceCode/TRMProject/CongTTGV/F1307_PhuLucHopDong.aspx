@@ -139,7 +139,7 @@
             AllowSorting="True">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                <asp:TemplateField HeaderText="Xóa">
+                <asp:TemplateField HeaderText="Xóa" Visible="false">
                     <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
@@ -147,7 +147,7 @@
                     </ItemTemplate>
                     <ItemStyle Width="5%" />
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Sửa">
+                     <asp:TemplateField HeaderText="Sửa" Visible="false">
                     <ItemTemplate>
                      <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Sửa" ID = "lbt_edit" runat="server">
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
