@@ -33,17 +33,6 @@ public partial class CongTTGV_F1307_PhuLucHopDong : System.Web.UI.Page
                 //load_2_cbo_noi_dung_tt(get_id_loai_hd_hop_dong_id(m_dc_id_hd));
                 load_data_2_grid(m_dc_id_hd);
             }
-            //if (m_cbo_noi_dung_tt.Items.Count > 0)
-            //{
-            //    decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_tt.SelectedValue);
-            //    US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_V_DM_NOI_DUNG_THANH_TOAN(v_dc_id_noi_dung_tt);
-            //    m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT, "#,###0");
-            //    m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,###00");
-            //    m_lbl_don_vi_tinh.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            //    if (!v_us_dm_noi_dung_tt.IsTAN_SUATNull())
-            //        m_lbl_tan_suat.Text = "Theo " + v_us_dm_noi_dung_tt.strTAN_SUAT;
-            //    else m_lbl_tan_suat.Text = "";
-            //}
         }
         load_data_2_basic_control();
     }

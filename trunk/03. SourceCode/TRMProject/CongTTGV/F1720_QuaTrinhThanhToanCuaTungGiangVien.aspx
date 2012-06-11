@@ -121,6 +121,24 @@
             <tr>
                 <td align="right" style="width:5%;height:35px;">
 			       
+			<asp:label id="Label10" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Đợt thanh toán: " />
+			       
+                </td>
+                <td align="left" colspan="3">    
+			
+              <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" 
+                        Width="95%" runat="server" 
+                        AutoPostBack="true" 
+                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
+               </asp:DropDownList>
+                         </td> 
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;height:35px;">
+			       
 			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
                 Text="Loại hợp đồng" />
 			       

@@ -26,34 +26,17 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
             load_cbo_trang_thai_giang_vien();
             load_data_2_cbo_po_quan_ly_chinh_va_phu();
             m_lbl_mess.Visible = false;
-
-            string v_str_giang_vien_user = CIPConvert.ToStr(Session["UserName"]); // đây là mã giảng viên
-            m_dc_id = get_id_giang_vien_by_ma_gv(v_str_giang_vien_user);
-            // Lưu mã giảng viên bằng Tool Tip của mã giảng viên
-            m_txt_ma_giang_vien.ToolTip = CIPConvert.ToStr(m_dc_id);
-            load_data_2_us_by_id_and_show_on_form(m_dc_id);
-            //m_txt_ma_giang_vien.Enabled = false;
-            // Dùng session để lấy được user name của giảng viên
-            // Từ username của giảng viên sẽ ra được id giang viên
-            // Hiện tại sử dụng mã giảng viên làm tên đăng nhập
-            //if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-            //{
-            //    //m_init_mode = DataEntryFormMode.UpdateDataState;
-            //    // Load data need to update - if mode = update
-               
-            //}
-
+            if (Session["UserName"] == null)
+                Response.Redirect("/TRMProject/Account/Login.aspx");
+            else
+            {
+                string v_str_giang_vien_user = CIPConvert.ToStr(Session["UserName"]); // đây là mã giảng viên
+                m_dc_id = get_id_giang_vien_by_ma_gv(v_str_giang_vien_user);
+                // Lưu mã giảng viên bằng Tool Tip của mã giảng viên
+                m_txt_ma_giang_vien.ToolTip = CIPConvert.ToStr(m_dc_id);
+                load_data_2_us_by_id_and_show_on_form(m_dc_id);
+            }
         }
-        //if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-        //{
-        //    m_init_mode = DataEntryFormMode.UpdateDataState;
-        //    m_txt_ma_giang_vien.Enabled = false;
-        //}
-        //else
-        //{
-        //    m_init_mode = DataEntryFormMode.InsertDataState;
-        //    m_txt_ma_giang_vien.Enabled = true;
-        //}
     }
 
     #region Members
