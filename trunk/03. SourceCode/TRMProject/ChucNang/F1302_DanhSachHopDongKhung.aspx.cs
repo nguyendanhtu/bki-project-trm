@@ -19,8 +19,6 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
         try
         {
             cmd_them_moi.Visible = false;
-            m_grv_dm_danh_sach_hop_dong_khung.Columns[0].Visible = false;
-            m_grv_dm_danh_sach_hop_dong_khung.Columns[1].Visible = false;
             m_lbl_thong_bao.Text = "";
             //m_txt_ten_giang_vien.Focus();
             if (!IsPostBack)

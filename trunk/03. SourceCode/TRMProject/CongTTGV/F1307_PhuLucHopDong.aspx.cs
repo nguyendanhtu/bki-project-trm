@@ -170,7 +170,7 @@ public partial class CongTTGV_F1307_PhuLucHopDong : System.Web.UI.Page
                 m_grv_gd_hop_dong_noi_dung_tt.DataSource = m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
                 m_grv_gd_hop_dong_noi_dung_tt.DataBind();
                 string someScript;
-                someScript = "<script language='javascript'>alert('Chưa có nội dung thanh toán ứng với loại hơp đồng này!');</script>";
+                someScript = "<script language='javascript'>alert('Không có phụ lục hợp đồng cho hợp đồng này!');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
             }
             else

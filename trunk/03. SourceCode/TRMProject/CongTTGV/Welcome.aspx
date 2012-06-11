@@ -14,6 +14,11 @@
 {
    text-decoration:none;
 }
+.lbl-welcome-content
+{
+    font-size:1.2em;
+    text-align:center;
+}
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
