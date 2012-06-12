@@ -48,8 +48,13 @@ public partial class Account_Login : System.Web.UI.Page
             }
             Session["AccounLogin"] = "Y";
             Session["Username"] = strUserName;
-            if (load_user_quyen(strUserName) == LOAI_USER_QUYEN.GIANG_VIEN) Response.Redirect("/TRMProject/CongTTGV/Welcome.aspx",false);
-            else Response.Redirect("../Default.aspx",false);
+            if (load_user_quyen(strUserName) == LOAI_USER_QUYEN.GIANG_VIEN)
+            {
+                Response.Redirect("/TRMProject/CongTTGV/Welcome.aspx", false);
+                Session["QuyenGV"] = load_user_quyen(strUserName);
+            }
+            else Response.Redirect("../Default.aspx", false);
+            
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         else

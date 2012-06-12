@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
-
+<%@ Import Namespace ="IP.Core.IPCommon" %>
+<%@ Import Namespace ="WebUS" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
@@ -59,9 +60,23 @@
                 </asp:Repeater> 
                 <li><a href='#'>Trợ giúp</a>
                     <ul>
+                    <%
+                        if (Session["QuyenGV"] != null)
+                        {
+                            if (CIPConvert.ToDecimal(Session["QuyenGV"]) == LOAI_USER_QUYEN.GIANG_VIEN)
+                            {
+                    %> 
+                         <li><a href='/TRMProject/Help/'>Tài liệu hướng dẫn sử dụng</a></li>
+                    <%
+                            }
+                        }
+                        else
+                        {
+                    %>
                         <li><a href='https://docs.google.com/a/topica.edu.vn/spreadsheet/ccc?key=0Agnkt26l1vAndHhBRVZWQTg4Y1l3M3JMMEV4RXBxTnc#gid=2'>01. Comment, yêu cầu phát sinh</a></li>
                         <li><a href='/TRMProject/Help/TRM_Helpv2012.05.09.doc'>02. Tài liệu hướng dẫn sử dụng</a></li>
                         <li><a href='#'>03. Quy trình luân chuyển chứng từ, trạng thái đợt thanh toán và trạng thái chứng từ</a></li>
+                        <% } %>
                     </ul>
                 </li>
              </ul>

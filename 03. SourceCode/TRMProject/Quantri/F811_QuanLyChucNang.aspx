@@ -166,7 +166,7 @@
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate>
-                     <asp:LinkButton ID = "lbt_update"  runat="server"
+                     <asp:LinkButton ID = "lbt_update"  runat="server" CausesValidation="false"
                      CommandName="Select" ToolTip="Sửa">
                      <img alt="Sửa" src="../Images/Button/edit.png" />
                      </asp:LinkButton>
