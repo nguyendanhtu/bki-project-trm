@@ -70,6 +70,22 @@ namespace WebDS.CDBNames
      public const string CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN = "4_CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN";
      public const string DA_CO_XAC_NHAN_CUA_GIANG_VIEN = "5_DA_CO_XAC_NHAN_CUA_GIANG_VIEN";
  }
+ public class TRANG_THAI_CONG_VIEC_GVCM
+ {
+     public const string DA_LAP_KE_HOACH = "10_DA_LAP_KE_HOACH";
+     public const string DA_DUYET_KE_HOACH = "20_DA_DUYET_KE_HOACH";
+     public const string DA_NGHIEM_THU = "30_DA_NGHIEM_THU";
+     public const string DA_DUYET_CHUYEN_THANH_TOAN = "40_DA_DUYET_CHUYEN_THANH_TOAN";
+     public const string DA_CHUYEN_THANH_TOAN = "50_DA_CHUYEN_THANH_TOAN";
+     public const string DA_THANH_TOAN = "60_DA_THANH_TOAN";
+ }
+ public class TRANG_THAI_SU_KIEN_GVCM
+ {
+     public const string DA_ASSIGN_SU_KIEN = "10_DA_ASSIGN_SU_KIEN";
+     public const string DA_DUYET_CHUYEN_THANH_TOAN = "20_DA_DUYET_CHUYEN_THANH_TOAN";
+     public const string DA_CHUYEN_THANH_TOAN = "30_DA_CHUYEN_THANH_TOAN";
+     public const string DA_THANH_TOAN = "40_DA_THANH_TOAN";
+ }
     public class CM_DM_TU_DIEN
     {
         public const string ID = "ID";
