@@ -32,7 +32,8 @@ public partial class DanhMuc_F105_SuKien : System.Web.UI.Page
             load_data_2_cbo_loai_su_kien();
             load_data_2_cbo_trang_thai();
             load_cbo_loai_su_kien();
-            load_data_to_grid();
+            if(m_cbo_loai_su_kien.Items.Count >0)
+                load_data_to_grid();
         }
     }
 
