@@ -84,6 +84,7 @@
     <Compile Include="US_V_DM_HOP_DONG_KHUNG.cs" />
     <Compile Include="US_V_DM_NOI_DUNG_THANH_TOAN.cs" />
     <Compile Include="US_V_GD_ASSIGN_SU_KIEN_GIANG_VIEN.cs" />
+    <Compile Include="US_V_GD_GV_CONG_VIEC_MOI.cs" />
     <Compile Include="US_V_GD_HOP_DONG_NOI_DUNG_TT.cs" />
     <Compile Include="US_V_GD_THANH_TOAN.cs" />
     <Compile Include="US_V_GD_THANH_TOAN_DETAIL.cs" />
