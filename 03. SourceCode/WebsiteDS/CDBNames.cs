@@ -510,6 +510,25 @@ namespace WebDS.CDBNames
        public const string ID_USER_NHAP = "ID_USER_NHAP";
        public const string GHI_CHU = "GHI_CHU";
    }
+   public class V_GD_GV_CONG_VIEC_MOI
+   {
+       public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+       public const string SO_HOP_DONG = "SO_HOP_DONG";
+       public const string ID_NOI_DUNG_TT = "ID_NOI_DUNG_TT";
+       public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
+       public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+       public const string DON_GIA = "DON_GIA";
+       public const string NGAY_DAT_HANG = "NGAY_DAT_HANG";
+       public const string NGAY_NGHIEM_THU = "NGAY_NGHIEM_THU";
+       public const string ID_TRANG_THAI = "ID_TRANG_THAI";
+       public const string TEN_TRANG_THAI = "TEN_TRANG_THAI";
+       public const string ID_USER_NHAP = "ID_USER_NHAP";
+       public const string GHI_CHU = "GHI_CHU";
+       public const string HO_VA_TEN_GIANG_VIEN = "HO_VA_TEN_GIANG_VIEN";
+       public const string TEN_TRUY_CAP = "TEN_TRUY_CAP";
+       public const string TEN = "TEN";
+   }
+
    public class DM_SU_KIEN
    {
        public const string ID = "ID";
