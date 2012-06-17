@@ -22,6 +22,13 @@ namespace WebDS.CDBNames
         , HINH_THUC_CONG_TAC = 13
         , TRANG_THAI_DOT_THANH_TOAN = 14
         , TRANG_THAI_THANH_TOAN = 15
+        , TRANG_THAI_TT_HOP_DONG = 17
+        , VAI_TRO_GV = 18
+        , LOAI_SU_KIEN = 19
+        , TRANG_THAI_SU_KIEN = 20
+        , TRANG_THAI_CONG_VIEC_GV = 21
+        , TRANG_THAI_HO_SO_GV = 23
+        , TRANG_THAI_SU_KIEN_GV = 24
     }
 
     public enum e_user_group
@@ -85,6 +92,11 @@ namespace WebDS.CDBNames
      public const string DA_DUYET_CHUYEN_THANH_TOAN = "20_DA_DUYET_CHUYEN_THANH_TOAN";
      public const string DA_CHUYEN_THANH_TOAN = "30_DA_CHUYEN_THANH_TOAN";
      public const string DA_THANH_TOAN = "40_DA_THANH_TOAN";
+ }
+ public class TRANG_THAI_SU_KIEN
+ {
+     public const string DA_TAO_SU_KIEN = "10_DA_TAO_SU_KIEN";
+     public const string DA_KET_THUC_SU_KIEN = "20_DA_KET_THUC_SU_KIEN";
  }
     public class CM_DM_TU_DIEN
     {

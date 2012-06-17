@@ -1,13 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F606_Assign_cong_viec_cho_giang_vien.aspx.cs" Inherits="ChucNang_F606_Assign_cong_viec_cho_giang_vien" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<script type="text/javascript">
+    function check_empty_hop_dong
+    {
+        var v_str_so_hd = document.getElementById('<%= m_txt_so_hop_dong.ClientID%>').value;
+        if(v_str_so_hd =="") document.getElementById('<%= m_lbl_thong_bao_so_hd.ClientID%>').innerHTML = "Bạn chưa nhập số hợp đồng!";
+    }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
     <tr>
 		<td class="cssPageTitleBG" colspan="4">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách công việc mới - giảng viên"/>
+                Text="Lập kế hoạch công việc cho GVCM"/>
 		</td>
 	</tr>
     <tr>
@@ -31,8 +38,8 @@
                     </td>
                 <td align="left" style="width:12%;">
                     			<asp:button id="m_btn_check" accessKey="l" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Kiểm tra" 
-                        Height="23px" onclick="m_btn_check_Click" />
+                runat="server" Width="98px" Text="Kiểm tra" CausesValidation="false"
+                        Height="23px" onclick="m_btn_check_Click"/>
 		            </td>
                 <td align="left" style="width:38%;">
                      <asp:label id="m_lbl_thong_bao_so_hd" runat="server" CssClass="cssManField" />
@@ -45,7 +52,8 @@
                          </td>
                 <td align="left" colspan="3" style="width:88%;">
                 &nbsp;<asp:DropDownList id="m_cbo_noi_dung_thanh_toan" runat="server" 
-                        CssClass="cssDorpdownlist" Width="93%"  >
+                        CssClass="cssDorpdownlist" Width="93%" 
+                        onselectedindexchanged="m_cbo_noi_dung_thanh_toan_SelectedIndexChanged" AutoPostBack="true">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -55,19 +63,31 @@
                 Text="&lt;U&gt;S&lt;/U&gt;ố lượng" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:TextBox ID="m_txt_so_luong" runat="server" CssClass="cssTextBox" 
-                        Width="20%" ></asp:TextBox>
-		            &nbsp;<asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
+                &nbsp;<asp:TextBox  ID="m_txt_so_luong" CssClass="csscurrency" Width="20%" 
+                        runat="server"></asp:TextBox> 
+		            &nbsp;
+                     <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
+                         ErrorMessage="Bạn phải nhập số lượng công việc" Text="*" 
+                        ControlToValidate="m_txt_so_luong" CssClass="cssManField"> </asp:RequiredFieldValidator>
+                    <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_luong" Text="*" ErrorMessage = "Số lượng nhập không đúng định dạng" CssClass="cssManField" />
+                    &nbsp;<asp:Label ID="m_lbl_don_vi" runat="server"></asp:Label>
                     </td>
                     <td align="right" style="width:12%;">
 			<asp:label id="lbl_don_gia" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;Đ&lt;/U&gt;ơn giá" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:TextBox ID="m_txt_don_gia" runat="server" CssClass="cssTextBox" 
+                &nbsp;<asp:TextBox ID="m_txt_don_gia" runat="server" CssClass="csscurrency" 
                         Width="40%"></asp:TextBox>
-		            &nbsp;<asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThanEqual" Type="Currency"
+		            &nbsp;
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" 
+                        ControlToValidate="m_txt_don_gia"> </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_don_gia"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+                    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_don_gia" Text="*" ErrorMessage = "Đơn giá nhập không đúng định dạng" CssClass="cssManField"/>
                     </td>
             </tr>
@@ -109,11 +129,11 @@
                     </ew:CalendarPopup>
                  </td>
                  <td align="right" style="width:12%;">
-			<asp:label id="lbl_ngay_nghiem_thu" CssClass="cssManField" runat="server" 
+			<asp:label id="lbl_ngay_nghiem_thu" CssClass="cssManField" runat="server" Visible="false"
                 Text="&lt;U&gt;N&lt;/U&gt;gày nghiệm thu" />
                          </td>
                  <td align="left" style="width:38%;"> &nbsp;
-                     <ew:CalendarPopup ID="m_dat_ngay_nghiem_thu" runat="server" 
+                     <ew:CalendarPopup ID="m_dat_ngay_nghiem_thu" runat="server" Visible="false"
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
@@ -196,16 +216,17 @@
             <asp:button id="m_cmd_loc_du_lieu" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Height="25px"  Text="Lọc dữ liệu(l)" onclick="m_cmd_loc_du_lieu_Click" 
                 />&nbsp;&nbsp;
+                    <asp:button id="m_cmd_tao_moi" accessKey="l" CssClass="cssButton" 
+                runat="server" Width="98px" Height="25px"  Text="Tạo mới(c)" onclick="m_cmd_tao_moi_Click" 
+                />&nbsp;&nbsp;
                 <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
-                        Width="98px"/>
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
 			&nbsp;&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" Visible="false"
                 runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_cap_nhat_Click" 
-                 />&nbsp;&nbsp;
-			        <asp:button id="m_cmd_tao_moi" accessKey="l" CssClass="cssButton" 
-                runat="server" Width="98px" Height="25px"  Text="Tạo mới(c)" onclick="m_cmd_tao_moi_Click" 
-                />&nbsp;&nbsp;
+                 />
+			        &nbsp;&nbsp;
 			<asp:button id="m_cmd_xoa_trang" accessKey="r" CssClass="cssButton" runat="server" 
                 Width="98px" Height="25px"  Text="Xóa trắng(r)" CausesValidation="false" 
                 onclick="btnCancel_Click" />&nbsp;&nbsp;
@@ -220,6 +241,7 @@
           <tr>
         <td colspan="4" align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
+           <asp:HiddenField runat="server" ID="m_hdf_check_hd" />
 		</td>
     </tr> 
     <tr>

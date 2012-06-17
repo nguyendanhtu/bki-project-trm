@@ -41,4 +41,15 @@ namespace WebUS
         public const decimal TRUONG_NHOM_PO = 3;
         public const decimal PO_VAN_HANH = 4;
     }
+    public class LOAI_HOP_DONG
+    {
+        public const decimal EDUTOP64_VH_GVHD_HN = 417;
+        public const decimal EDUTOP64_VH_GVCM = 418;
+        public const decimal EDUTOP64_HL_GVV = 420;
+        public const decimal EDUTOP64_HL_GVD = 421;
+        public const decimal EDUTOP64_HL_GVTD = 422;
+        public const decimal ELC_VH_GVHD = 429;
+        public const decimal ELC_VH_GVCM = 430;
+        public const decimal EDUTOP64_HL_GV_QUAY_VIDEO = 455;
+    }
 }

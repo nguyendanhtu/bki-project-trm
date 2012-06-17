@@ -26,6 +26,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
             load_2_cbo_trang_thai_sk();
             load_2_cbo_su_kien();
             load_2_cbo_so_hop_dong();
+            m_cbo_trang_thai_sk.Enabled = false;
         }
     }
 
@@ -93,7 +94,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
 
-        v_us_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN=19");
+        v_us_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.LOAI_SU_KIEN);
 
         m_cbo_loai_su_kien.DataTextField = CM_DM_TU_DIEN.TEN;
         m_cbo_loai_su_kien.DataValueField = CM_DM_TU_DIEN.ID;
@@ -124,7 +125,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         US_DM_SU_KIEN v_us_su_kien = new US_DM_SU_KIEN();
         DS_DM_SU_KIEN v_ds_su_kien = new DS_DM_SU_KIEN();
 
-        v_us_su_kien.FillDataset(v_ds_su_kien, " WHERE ID_LOAI_SU_KIEN=" + CIPConvert.ToDecimal(m_cbo_loai_su_kien.SelectedValue));
+        v_us_su_kien.FillDataset(v_ds_su_kien, " WHERE ID_LOAI_SU_KIEN=" + CIPConvert.ToDecimal(m_cbo_loai_su_kien.SelectedValue) +" ORDER BY ID DESC");
 
         m_cbo_su_kien.DataTextField = DM_SU_KIEN.TEN_SU_KIEN;
         m_cbo_su_kien.DataValueField = DM_SU_KIEN.ID;
@@ -137,7 +138,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
 
-        v_us_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN=18");
+        v_us_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int) e_loai_tu_dien.VAI_TRO_GV);
 
         m_cbo_vai_tro_gv.DataTextField = CM_DM_TU_DIEN.TEN;
         m_cbo_vai_tro_gv.DataValueField = CM_DM_TU_DIEN.ID;
@@ -150,7 +151,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
 
-        v_us_tu_dien.FillDataset(v_ds_tu_dien, "WHERE ID_LOAI_TU_DIEN=20");
+        v_us_tu_dien.FillDataset(v_ds_tu_dien, "WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_SU_KIEN_GV);
 
         m_cbo_trang_thai_sk.DataTextField = CM_DM_TU_DIEN.TEN;
         m_cbo_trang_thai_sk.DataValueField = CM_DM_TU_DIEN.ID;
@@ -227,7 +228,9 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         m_txt_ghi_chu.Text = "";
         m_txt_so_tien_gv_huong.Text = "";
         m_txt_tu_khoa.Text = "";
-        m_cbo_so_hd.SelectedValue = CIPConvert.ToStr(0);
+        m_cbo_so_hd.SelectedIndex = 0;
+        m_cbo_su_kien.SelectedIndex = 0;
+        m_cbo_loai_su_kien.SelectedIndex = 0;
         m_lbl_mess.Text = "";
         m_lbl_ds_gv_sk.Text = "";
         m_rdl_thanh_toan_ngay.Items[0].Selected = true;
@@ -264,63 +267,7 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
 
     }
     #endregion
-
-    protected void m_cbo_ten_giang_vien_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            load_2_cbo_so_hop_dong();
-        }
-        catch (Exception v_e)
-        {
-            this.Response.Write(v_e.ToString());
-        }
-    }
-    protected void m_cbo_su_kien_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void m_cbo_loai_su_kien_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            load_2_cbo_su_kien();
-        }
-        catch (Exception v_e)
-        {
-            this.Response.Write(v_e.ToString());
-        }
-    }
-    protected void m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    {
-        try
-        {
-            load_data_2_us_update(e.RowIndex);
-            us_object_2_form(m_us_v_gd_assign_su_kien_giang_vien);
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-
-        }
-    }
-    protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            form_2_us_object();
-            m_us_v_gd_assign_su_kien_giang_vien.Insert();
-            m_lbl_mess.Text = "Lưu dữ liệu thành công!";
-            load_data_2_grv();
-            clear_form();
-        }
-        catch (Exception v_e)
-        {
-
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-
-    }
+   
     #region Export Excel
     private void loadDSExprort(ref string strTable)
     {
@@ -413,6 +360,64 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
         }
     }
     #endregion
+
+    #region Events
+    protected void m_cbo_ten_giang_vien_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            load_2_cbo_so_hop_dong();
+        }
+        catch (Exception v_e)
+        {
+            this.Response.Write(v_e.ToString());
+        }
+    }
+    protected void m_cbo_su_kien_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void m_cbo_loai_su_kien_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            load_2_cbo_su_kien();
+        }
+        catch (Exception v_e)
+        {
+            this.Response.Write(v_e.ToString());
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        try
+        {
+            load_data_2_us_update(e.RowIndex);
+            us_object_2_form(m_us_v_gd_assign_su_kien_giang_vien);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+
+        }
+    }
+    protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            form_2_us_object();
+            m_us_v_gd_assign_su_kien_giang_vien.Insert();
+            m_lbl_mess.Text = "Lưu dữ liệu thành công!";
+            load_data_2_grv();
+            clear_form();
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+
+    }
     protected void m_cmd_cap_nhat_Click(object sender, EventArgs e)
     {
         try
@@ -486,4 +491,6 @@ public partial class ChucNang_F607_Assign_su_kien_cho_giang_vien : System.Web.UI
     {
         clear_form();
     }
+    #endregion
+    
 }
