@@ -7,7 +7,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="4">
 		    <asp:label id="m_lbl_ds_gv_sk" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách Giảng viên - Sự kiện"/>
+                Text="Assign sự kiện cho giảng viên"/>
 		</td>
 	</tr>
     <tr>
@@ -50,7 +50,7 @@
 		            </td>
                 <td align="left" style="width:38%;">
                      <asp:DropDownList id="m_cbo_ten_giang_vien" runat="server" 
-                        CssClass="cssDorpdownlist" Width="85%" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="65%" AutoPostBack="true"
                          onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged"  >
                     </asp:DropDownList>
                 </td>
@@ -61,8 +61,8 @@
                 Text="&lt;U&gt;S&lt;/U&gt;ố tiền GV hưởng" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:TextBox ID="m_txt_so_tien_gv_huong" runat="server" CssClass="cssTextBox" 
-                        Width="84%"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="m_txt_so_tien_gv_huong" runat="server" CssClass="csscurrency" 
+                        Width="40%"></asp:TextBox>
                  &nbsp;<asp:CompareValidator runat="server" id="CompareValidator2" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_gv_huong" Text="*" ErrorMessage = "Số tiền nhập không đúng định dạng" CssClass="cssManField" />
                     </td>
@@ -74,7 +74,7 @@
 		            </td>
                 <td align="left" style="width:38%;">
                      <asp:DropDownList id="m_cbo_vai_tro_gv" runat="server" 
-                        CssClass="cssDorpdownlist" Width="85%"  >
+                        CssClass="cssDorpdownlist" Width="65%"  >
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -93,8 +93,8 @@
                 Text="&lt;U&gt;T&lt;/U&gt;hanh toán ngay" />
                          </td>
                 <td align="left" style="width:38%;"><asp:RadioButtonList ID="m_rdl_thanh_toan_ngay" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
-                <asp:ListItem Value="N">Không</asp:ListItem>
+                <asp:ListItem Value="N" Selected="True">Không</asp:ListItem>
+                <asp:ListItem Value="Y">Có</asp:ListItem>
             </asp:RadioButtonList>
                     </td>
             </tr>
@@ -104,7 +104,7 @@
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:DropDownList id="m_cbo_trang_thai_sk" runat="server" 
+                &nbsp;<asp:DropDownList id="m_cbo_trang_thai_sk" runat="server" Width="85%"
                         CssClass="cssDorpdownlist"  >
                     </asp:DropDownList>
                     </td>
@@ -141,6 +141,13 @@
 			<asp:label id="Label2" CssClass="cssLabel" runat="server" 
                 Text="(Từ khóa tìm kiếm: Tên sự kiện, tên giảng viên, vai trò của giảng viên, trạng thái...)" />
 		</td> 
+            </tr>
+            <tr>
+               <td align="right" style="width:12%;">
+			
+                         &nbsp;</td>
+		<td colspan="3" align="left">
+			&nbsp;</td> 
             </tr>
             <tr>
 	    <td></td>

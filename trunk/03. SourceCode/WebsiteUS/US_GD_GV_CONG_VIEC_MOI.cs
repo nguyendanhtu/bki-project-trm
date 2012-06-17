@@ -110,6 +110,28 @@ namespace WebUS
             pm_objDR["SO_LUONG_HE_SO"] = System.Convert.DBNull;
         }
 
+        public decimal dcSO_LUONG_NGHIEM_THU
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "SO_LUONG_NGHIEM_THU", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["SO_LUONG_NGHIEM_THU"] = value;
+            }
+        }
+
+        public bool IsSO_LUONG_NGHIEM_THUNull()
+        {
+            return pm_objDR.IsNull("SO_LUONG_NGHIEM_THU");
+        }
+
+        public void SetSO_LUONG_NGHIEM_THUNull()
+        {
+            pm_objDR["SO_LUONG_NGHIEM_THU"] = System.Convert.DBNull;
+        }
+
         public decimal dcDON_GIA
         {
             get
