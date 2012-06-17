@@ -189,22 +189,22 @@ namespace WebDS
                     break;
                 case TRANG_THAI_SU_KIEN_GVCM.DA_DUYET_CHUYEN_THANH_TOAN:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_SU_KIEN_GVCM.DA_DUYET_CHUYEN_THANH_TOAN;
-                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN;
-                    trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[1] = TRANG_THAI_SU_KIEN_GVCM.DA_CHUYEN_THANH_TOAN;
+                    trang_thai_chuyen_duoc[2] = "";
                     break;
                 case TRANG_THAI_SU_KIEN_GVCM.DA_CHUYEN_THANH_TOAN:
                     // Đã duyệt luôn chứng từ
-                    trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
-                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN;
+                    trang_thai_chuyen_duoc[0] = TRANG_THAI_SU_KIEN_GVCM.DA_DUYET_CHUYEN_THANH_TOAN;
+                    trang_thai_chuyen_duoc[1] = TRANG_THAI_SU_KIEN_GVCM.DA_CHUYEN_THANH_TOAN;
+                    trang_thai_chuyen_duoc[2] = TRANG_THAI_SU_KIEN_GVCM.DA_THANH_TOAN;
                     // Có thể quay trở lại đã được lên bảng kê
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE;
                     trang_thai_chuyen_duoc[3] = "";
                     break;
                 case TRANG_THAI_SU_KIEN_GVCM.DA_THANH_TOAN:
-                    trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[0] = TRANG_THAI_SU_KIEN_GVCM.DA_THANH_TOAN;
                     trang_thai_chuyen_duoc[1] = "";
                     trang_thai_chuyen_duoc[2] = "";
-                    trang_thai_chuyen_duoc[3] = "";
                     break;
             }
         }
