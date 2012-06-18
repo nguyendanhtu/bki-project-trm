@@ -517,6 +517,7 @@ namespace WebDS.CDBNames
        public const string ID_NOI_DUNG_TT = "ID_NOI_DUNG_TT";
        public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
        public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+       public const string SO_LUONG_NGHIEM_THU = "SO_LUONG_NGHIEM_THU";
        public const string DON_GIA = "DON_GIA";
        public const string NGAY_DAT_HANG = "NGAY_DAT_HANG";
        public const string NGAY_NGHIEM_THU = "NGAY_NGHIEM_THU";
