@@ -1040,6 +1040,11 @@ public class US_V_DM_GIANG_VIEN : US_Object
         v_sp_advance_search.addDecimalInputParam("@SO_HOP_DONG", ip_dc_so_hop_dong);
         v_sp_advance_search.fillDataSetByCommand(this, op_ds_giang_vien);
     }
+    public void load_giang_vien_CM_da_thuc_hien_cong_viec(DS_V_DM_GIANG_VIEN ip_ds_v_dm_giang_vien)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Load_data_2_cbo");
+        v_cstore.fillDataSetByCommand(this,ip_ds_v_dm_giang_vien);
+    }
     #endregion
 	}
 }
