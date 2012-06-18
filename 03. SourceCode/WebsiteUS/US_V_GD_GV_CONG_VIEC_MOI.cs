@@ -358,5 +358,15 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
-	}
+
+    #region Additional Functions
+    public void loc_du_lieu_gv_cong_viec_moi(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_hop_dong_khung, decimal ip_dc_trang_thai)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Search");
+        v_cstore.addNVarcharInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
+    #endregion
+}
 }
