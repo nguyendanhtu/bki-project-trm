@@ -18,7 +18,7 @@
 		</td>
     </tr>	
     <tr>
-        <td> 
+        <td colspan="3"> 
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:12%;">
@@ -154,7 +154,7 @@
         </td>
     </tr> 
           <tr>
-        <td colspan="4" align="left">
+        <td colspan="3" align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
            <asp:HiddenField runat="server" ID="m_hdf_check_hd" />
 		</td>
@@ -164,7 +164,41 @@
 		    <asp:label id="m_lbl_ket_qua_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Kết quả lọc dữ liệu"/>
 		</td>
-	</tr>		
+	</tr>
+    <tr>
+         <td align="right" style="width:12%;"><asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Tên giảng viên" />
+        </td>
+        <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" Enabled="false"
+                        CssClass="cssDorpdownlist" Width="60%">
+                    </asp:DropDownList>
+                    </td>
+    </tr>
+    <tr>
+         <td align="right" style="width:12%;"><asp:label id="Label2" CssClass="cssManField" runat="server" 
+                Text="Số hơp đồng" />
+        </td>
+        <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" Enabled="false"
+                        CssClass="cssDorpdownlist" Width="60%">
+                    </asp:DropDownList>
+                    </td>
+    </tr>
+    <tr>
+         <td align="right" style="width:12%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
+                Text="Trạng thái công việc" />
+        </td>
+        <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_trang_thai_cv_loc" runat="server" Enabled="false"
+                        CssClass="cssDorpdownlist" Width="60%">
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <asp:button id="m_cmd_loc" accessKey="u" CssClass="cssButton" Visible="false"
+                runat="server" Width="98px" Height="25px" Text="Lọc dữ liệu" 
+                onclick="m_cmd_loc_Click" />
+                    </td>
+            </tr>
 	<tr>
 		<td align="center" colspan="4" style="height:450px;" valign="top">
 		    &nbsp;
@@ -172,10 +206,17 @@
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="20" 
-                onrowdeleting="m_grv_gd_assign_su_kien_cho_giang_vien_RowDeleting" 
-                onrowupdating="m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating">
+                onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                  <asp:TemplateField HeaderText="Duyệt kế hoạch">
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="m_lbt_duyet" CommandName="Select" 
+                            ToolTip="Duyệt kế hoạch" CausesValidation="false">
+                            <center><img src="../Images/Button/edit.png" width="20px" height="20px" alt="Sửa" /></center>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
 
@@ -183,12 +224,12 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng">
                         <ItemTemplate>
-                            <%# mapping_so_hop_dong_by_id(Eval("ID_HOP_DONG_KHUNG"))%>
+                            <%# Eval("SO_HOP_DONG")%>
                         </ItemTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Công việc">
                         <ItemTemplate>
-                            <%# mapping_noi_dung_thanh_toan_by_id(Eval("ID_NOI_DUNG_TT"))%>
+                            <%# Eval("TEN_NOI_DUNG")%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     
@@ -198,20 +239,10 @@
                     <asp:BoundField HeaderText="Ngày nghiệm thu" DataField="NGAY_NGHIEM_THU" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center" />
                      <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
-                            <%# mapping_trang_thai_by_id(Eval("ID_TRANG_THAI"))%>
+                            <%# Eval("TEN_TRANG_THAI")%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="Ghi chú" DataField="GHI_CHU" />
-                    <asp:TemplateField HeaderText="Xóa">
-                         <ItemTemplate>
-                            <asp:LinkButton runat="server" ID="m_lbt_xoa" CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa ?')" ToolTip="Xóa" CausesValidation="false"><center><img src="../Images/Button/deletered.png" width="20px" height="20px" alt="Xóa" /></center></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sửa">
-                        <ItemTemplate>
-                            <asp:LinkButton runat="server" ID="m_lbt_sua" CommandName="Update" ToolTip="Sửa" CausesValidation="false"><center><img src="../Images/Button/edit.png" width="20px" height="20px" alt="Sửa" /></center></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

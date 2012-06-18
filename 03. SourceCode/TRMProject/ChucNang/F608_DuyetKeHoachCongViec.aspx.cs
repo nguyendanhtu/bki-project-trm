@@ -19,9 +19,11 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            load_data_2_grv();
             load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
+            load_data_2_cbo_ten_giang_vien();
+            load_data_2_cbo_hop_dong_loc();
+            load_data_2_grv();
             m_hdf_check_hd.Value = "";
             m_cbo_trang_thai_cv_gv.Enabled = false;
             // Load thông tin về nội dung thanh toán
@@ -38,24 +40,25 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
     }
 
     #region Members
-    US_GD_GV_CONG_VIEC_MOI m_us_cong_viec_moi = new US_GD_GV_CONG_VIEC_MOI();
-    DS_GD_GV_CONG_VIEC_MOI m_ds_cong_viec_moi = new DS_GD_GV_CONG_VIEC_MOI();
+    US_V_GD_GV_CONG_VIEC_MOI m_us_cong_viec_moi = new US_V_GD_GV_CONG_VIEC_MOI();
+    DS_V_GD_GV_CONG_VIEC_MOI m_ds_cong_viec_moi = new DS_V_GD_GV_CONG_VIEC_MOI();
     #endregion
 
     #region Private Methods
     private void load_data_2_grv()
     {
-        m_us_cong_viec_moi.FillDataset(m_ds_cong_viec_moi);
-        m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI;
+        m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue));
+        m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
+        m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
     }
     private void load_data_2_us_update(int ip_i_stt_row)
     {
         decimal v_dc_id_cong_viec_gv = CIPConvert.ToDecimal(m_grv_gd_assign_su_kien_cho_giang_vien.DataKeys[ip_i_stt_row].Value);
         m_txt_so_hop_dong.ToolTip = CIPConvert.ToStr(v_dc_id_cong_viec_gv);
-        m_us_cong_viec_moi = new US_GD_GV_CONG_VIEC_MOI(v_dc_id_cong_viec_gv);
+        m_us_cong_viec_moi = new US_V_GD_GV_CONG_VIEC_MOI(v_dc_id_cong_viec_gv);
     }
-    private void us_object_2_form(US_GD_GV_CONG_VIEC_MOI ip_us_v_gd_cv_moi)
+    private void us_object_2_form(US_V_GD_GV_CONG_VIEC_MOI ip_us_v_gd_cv_moi)
     {
         m_txt_so_hop_dong.Text = mapping_so_hop_dong_by_id(ip_us_v_gd_cv_moi.dcID_HOP_DONG_KHUNG);
         m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
@@ -133,6 +136,36 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         m_cbo_trang_thai_cv_gv.DataSource = v_ds_tu_dien.CM_DM_TU_DIEN;
         m_cbo_trang_thai_cv_gv.DataBind();
         m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
+
+        m_cbo_trang_thai_cv_loc.Items.Add(new ListItem("Tất cả","0"));
+        for (int v_i = 0; v_i < v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count; v_i++)
+        {
+            m_cbo_trang_thai_cv_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[v_i][CM_DM_TU_DIEN.TEN]),CIPConvert.ToStr(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[v_i][CM_DM_TU_DIEN.ID])));
+        }
+    }
+    private void load_data_2_cbo_ten_giang_vien()
+    {
+        US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
+        DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
+
+        v_us_v_dm_giang_vien.load_giang_vien_CM_da_thuc_hien_cong_viec(v_ds_v_dm_giang_vien);
+        m_cbo_ten_giang_vien_loc.Items.Add(new ListItem("Tất cả", "0"));
+        for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
+        {
+            m_cbo_ten_giang_vien_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM]).Trim()+" "+CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN]).Trim(),CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID])));
+        }
+    }
+    private void load_data_2_cbo_hop_dong_loc()
+    {
+        US_V_DM_HOP_DONG_KHUNG v_us_v_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
+        DS_V_DM_HOP_DONG_KHUNG v_ds_v_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
+        v_us_v_dm_hop_dong_khung.load_hop_dong_by_id_giang_vien(CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), v_ds_v_dm_hop_dong_khung);
+
+        m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả", "0"));
+        for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+        {
+            m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]),CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+        }
     }
     /// <summary>
     /// Kiểm tra xem số hợp đồng này đã có hay chưa
@@ -180,10 +213,10 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         decimal v_dc_id_trang_thai = CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue);
         // Search
         //m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi(m_ds_cong_viec_moi, v_str_so_hd, v_dc_noi_dung, v_dc_id_trang_thai);
-        m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI;
+        m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
-        m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: Có " + m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi phù hợp.";
-        if (m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count == 0)
+        m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: Có " + m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi phù hợp.";
+        if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count == 0)
         {
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu";
             m_lbl_thong_bao_sau_cap_nhat.Text = "* Không có bản ghi nào phù hợp.";
@@ -242,34 +275,6 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         m_cmd_xuat_excel.Visible = true;
         m_cmd_cap_nhat.Visible = false;
         m_cmd_huy.Visible = false;
-    }
-    protected void m_grv_gd_assign_su_kien_cho_giang_vien_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        try
-        {
-            decimal v_dc_id_cv_gv = CIPConvert.ToDecimal(m_grv_gd_assign_su_kien_cho_giang_vien.DataKeys[e.RowIndex].Value);
-            m_us_cong_viec_moi.DeleteByID(v_dc_id_cv_gv);
-            m_lbl_thong_bao_sau_cap_nhat.Text = " * Xóa bản ghi thành công !";
-            load_data_2_grv();
-            m_txt_so_hop_dong.ToolTip = "";
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    {
-        try
-        {
-            load_data_2_us_update(e.RowIndex);
-            us_object_2_form(m_us_cong_viec_moi);
-            An_form_click_Sua();
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
     }
     protected void m_cmd_cap_nhat_Click(object sender, EventArgs e)
     {
@@ -349,6 +354,28 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
             m_txt_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT, "#,###");
             m_txt_so_luong.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,#");
             m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_loc_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+           
         }
         catch (Exception v_e)
         {
