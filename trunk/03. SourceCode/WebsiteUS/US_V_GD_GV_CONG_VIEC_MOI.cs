@@ -408,6 +408,13 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
     }
+    public void cap_nhat_trang_thai_cong_viec(decimal ip_dc_trang_thai_moi)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Cap_Nhat_Trang_Thai");
+        v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai_moi);
+        v_cstore.ExecuteCommand(this);
+    }
     #endregion
 }
 }

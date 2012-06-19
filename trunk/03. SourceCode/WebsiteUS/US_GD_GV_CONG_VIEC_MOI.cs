@@ -301,7 +301,13 @@ namespace WebUS
             v_cstore.addNVarcharInputParam("@TU_KHOA", ip_str_tu_khoa);
             v_cstore.fillDataSetByCommand(this, op_ds_gd_cv_moi);
         }
-
+        public void loc_du_lieu_giang_vien_cong_viec_moi(DS_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_hop_dong_khung, decimal ip_dc_trang_thai)
+        {
+            CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Loc_Duyet_Ke_Hoach");
+            v_cstore.addNVarcharInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
+            v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
+            v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+        }
         #endregion
     }
 }

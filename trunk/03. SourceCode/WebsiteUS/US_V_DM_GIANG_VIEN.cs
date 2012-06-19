@@ -1045,6 +1045,11 @@ public class US_V_DM_GIANG_VIEN : US_Object
         CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Load_data_2_cbo");
         v_cstore.fillDataSetByCommand(this,ip_ds_v_dm_giang_vien);
     }
+    public void load_all_giang_vien_CM(DS_V_DM_GIANG_VIEN ip_ds_v_dm_giang_vien)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Load_data_2_cbo_CM");
+        v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_giang_vien);
+    }
     #endregion
 	}
 }

@@ -52,4 +52,15 @@ namespace WebUS
         public const decimal ELC_VH_GVCM = 430;
         public const decimal EDUTOP64_HL_GV_QUAY_VIDEO = 455;
     }
+
+    public class ID_TRANG_THAI_CONG_VIEC_GVCM
+    {
+        public const decimal DA_LAP_KE_HOACH = 531;
+        public const decimal DA_DUYET_KE_HOACH = 532;
+        public const decimal DA_NGHIEM_THU = 533;
+        public const decimal DA_DUYET_NGHIEM_THU = 534;
+        public const decimal DA_DUYET_CHUYEN_THANH_TOAN = 535;
+        public const decimal DA_CHUYEN_THANH_TOAN = 536;
+        public const decimal DA_THANH_TOAN = 548;
+    }
 }
