@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F608_DuyetKeHoachCongViec.aspx.cs" Inherits="ChucNang_F608_DuyetKeHoachCongViec" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
+<%@ Import Namespace="WebDS" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -44,7 +45,7 @@
             <tr>
                     <td align="right" style="width:12%;">
 			<asp:label id="lbl_so_luong" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;S&lt;/U&gt;ố lượng" />
+                Text="&lt;U&gt;S&lt;/U&gt;ố lượng đặt hàng" />
                          </td>
                 <td align="left" style="width:38%;">
                 &nbsp;<asp:TextBox  ID="m_txt_so_luong" CssClass="csscurrency" Width="20%" 
@@ -62,7 +63,7 @@
                 Text="&lt;U&gt;Đ&lt;/U&gt;ơn giá" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:TextBox ID="m_txt_don_gia" runat="server" CssClass="csscurrency" Enabled="false"
+                &nbsp;<asp:TextBox ID="m_txt_don_gia" runat="server" CssClass="csscurrency"
                         Width="40%"></asp:TextBox>
 		            &nbsp;
                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
@@ -138,7 +139,7 @@
 	    <td></td>
 		<td colspan="3" align="left">
 			&nbsp;&nbsp;
-            <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" Visible="false"
+            <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_cap_nhat_Click"/>
                  &nbsp;&nbsp;
                 <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
@@ -146,7 +147,7 @@
                         Width="98px" onclick="m_cmd_xuat_excel_Click"/>
 			        &nbsp;&nbsp;
 			        <asp:Button ID="m_cmd_huy" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px"  Text="Hủy" Visible="false"
+                        CssClass="cssButton" Height="25px"  Text="Hủy" 
                         Width="98px" onclick="m_cmd_huy_Click"/>
 		</td>
 	</tr>
@@ -170,8 +171,9 @@
                 Text="Tên giảng viên" />
         </td>
         <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" Enabled="false"
-                        CssClass="cssDorpdownlist" Width="60%">
+            <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="60%" 
+                onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
     </tr>
@@ -180,8 +182,9 @@
                 Text="Số hơp đồng" />
         </td>
         <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" Enabled="false"
-                        CssClass="cssDorpdownlist" Width="60%">
+            <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="60%" 
+                onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
     </tr>
@@ -190,8 +193,9 @@
                 Text="Trạng thái công việc" />
         </td>
         <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_trang_thai_cv_loc" runat="server" Enabled="false"
-                        CssClass="cssDorpdownlist" Width="60%">
+            <asp:DropDownList id="m_cbo_trang_thai_cv_loc" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="60%" 
+                onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        <asp:button id="m_cmd_loc" accessKey="u" CssClass="cssButton" Visible="false"
@@ -211,20 +215,23 @@
                 <Columns>
                   <asp:TemplateField HeaderText="Duyệt kế hoạch">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" ID="m_lbt_duyet" CommandName="Select" 
-                            ToolTip="Duyệt kế hoạch" CausesValidation="false">
-                            <center><img src="../Images/Button/edit.png" width="20px" height="20px" alt="Sửa" /></center>
-                            </asp:LinkButton>
-                        </ItemTemplate>
+                        <asp:LinkButton runat='server' ID='m_lbt_duyet'
+                         CommandName='Select' ToolTip='Duyệt kế hoạch' CausesValidation='false'>  
+                         <center><img src='../Images/Button/edit.png' width='20px' height='20px' alt='Sửa' /></center>
+                         </asp:LinkButton></ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng">
                         <ItemTemplate>
                             <%# Eval("SO_HOP_DONG")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Họ tên giảng viên">
+                        <ItemTemplate>
+                            <%# Eval("HO_VA_TEN_GIANG_VIEN")%>
                         </ItemTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Công việc">
@@ -236,7 +243,6 @@
                     <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
                     <asp:BoundField HeaderText="Ngày đặt hàng" DataField="NGAY_DAT_HANG" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
-                    <asp:BoundField HeaderText="Ngày nghiệm thu" DataField="NGAY_NGHIEM_THU" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center" />
                      <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
                             <%# Eval("TEN_TRANG_THAI")%>

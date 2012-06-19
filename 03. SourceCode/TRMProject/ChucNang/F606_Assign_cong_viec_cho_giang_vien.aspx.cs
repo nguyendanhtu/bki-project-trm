@@ -225,7 +225,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     {
         US_DM_HOP_DONG_KHUNG v_us_hop_dong = new US_DM_HOP_DONG_KHUNG();
         DS_DM_HOP_DONG_KHUNG v_ds_hop_dong = new DS_DM_HOP_DONG_KHUNG();
-        v_us_hop_dong.FillDataset(v_ds_hop_dong);
+        v_us_hop_dong.FillDataset(v_ds_hop_dong, " WHERE SO_HOP_DONG = N'"+ip_so_hop_dong+"'");
         return CIPConvert.ToDecimal(v_ds_hop_dong.DM_HOP_DONG_KHUNG.Rows[0][DM_HOP_DONG_KHUNG.ID]);
     }
     #endregion
