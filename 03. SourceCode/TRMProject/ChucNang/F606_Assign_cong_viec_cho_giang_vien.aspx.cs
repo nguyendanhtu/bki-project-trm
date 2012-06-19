@@ -31,6 +31,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
                 decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
                 US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
                 m_txt_so_luong.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO, "#,#");
+                m_lbl_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD);
                 m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
             }
             else m_lbl_mess.Text = "Hợp đồng này không có phụ lục hợp đồng!";
@@ -113,7 +114,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         }
         m_us_cong_viec_moi.SetNGAY_NGHIEM_THUNull();
         m_us_cong_viec_moi.SetSO_LUONG_NGHIEM_THUNull();
-        m_us_cong_viec_moi.SetDON_GIANull();
+        m_us_cong_viec_moi.dcDON_GIA = CIPConvert.ToDecimal(m_lbl_don_gia.Text);
         m_us_cong_viec_moi.dcID_TRANG_THAI = CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue);
         m_us_cong_viec_moi.strGHI_CHU = m_txt_ghi_chu.Text;
         m_us_cong_viec_moi.dcID_USER_NHAP = get_id_user_by_username(CIPConvert.ToStr(Session["Username"]));
@@ -136,6 +137,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
             US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
             m_txt_so_luong.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO, "#,#");
+            m_lbl_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD);
             m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
             m_lbl_mess.Text = "";
         }
@@ -349,6 +351,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
             m_txt_so_luong.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO, "#,#");
             m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
+            m_lbl_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD);
         }
         catch (Exception v_e)
         {
