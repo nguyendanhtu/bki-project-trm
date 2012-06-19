@@ -297,7 +297,7 @@
 	</tr>
     <tr>
         <td>
-            <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
+            <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton" CausesValidation="false"
                 runat="server" Width="98px" Height="25px"  Text="Duyệt" 
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
         </td>
