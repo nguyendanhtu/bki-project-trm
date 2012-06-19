@@ -3,6 +3,22 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <script type="text/javascript">
+        function SelectAllCheckboxes(spanChk) {
+            // Added as ASPX uses SPAN for checkbox
+            var oItem = spanChk.children;
+            var theBox = (spanChk.type == "checkbox") ? spanChk : spanChk.children.item[0];
+            xState = theBox.checked;
+            elm = theBox.form.elements;
+
+            for (i = 0; i < elm.length; i++)
+                if (elm[i].type == "checkbox" && elm[i].id != theBox.id) {
+                    if (elm[i].checked != xState)
+                        elm[i].click();
+                }
+        }
+ 
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -23,12 +39,62 @@
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:12%;">
+			        <asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Tên giảng viên" />
+                         </td>
+                <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_ten_giang_vien" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="90%">
+                    </asp:DropDownList>
+                    </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:12%;">
 			<asp:label id="lbl_so_hop_dong" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;S&lt;/U&gt;ố hợp đồng" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:TextBox ID="m_txt_so_hop_dong" runat="server" CssClass="cssTextBox" Enabled="false"
-                        Width="85%"></asp:TextBox>
+                    <asp:DropDownList id="m_cbo_so_hop_dong" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="90%">
+                    </asp:DropDownList>
+                    </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:12%;">
+			<asp:label id="lbl_ngay_dat_hang" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;N&lt;/U&gt;gày đặt hàng" />
+                         </td>
+                <td align="left" colspan="2" style="width:88%;">
+                       <ew:CalendarPopup ID="m_dat_ngay_bat_dau" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
                     </td>
             </tr>
             <tr>
@@ -75,44 +141,6 @@
                     <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_don_gia" Text="*" ErrorMessage = "Đơn giá nhập không đúng định dạng" CssClass="cssManField"/>
                     </td>
-            </tr>
-            <tr>
-                <td align="right" style="width:12%;">
-			<asp:label id="lbl_ngay_dat_hang" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;N&lt;/U&gt;gày đặt hàng" />
-                         </td>
-                 <td align="left" style="width:38%;">&nbsp;
-                       <ew:CalendarPopup ID="m_dat_ngay_bat_dau" runat="server" 
-                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
-                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
-                        DisableTextboxEntry="False">
-                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <offmonthstyle backcolor="AntiqueWhite" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Gray" />
-                        <selecteddatestyle backcolor="Yellow" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Black" />
-                        <monthheaderstyle backcolor="Yellow" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Black" />
-                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
-                            Font-Size="XX-Small" ForeColor="Black" />
-                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
-                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
-                            ForeColor="Black" />
-                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                    </ew:CalendarPopup>
-                 </td>
             </tr>
              <tr>
                 <td align="right" style="width:12%;">
@@ -197,26 +225,32 @@
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
                     </asp:DropDownList>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       <asp:button id="m_cmd_loc" accessKey="u" CssClass="cssButton" Visible="false"
-                runat="server" Width="98px" Height="25px" Text="Lọc dữ liệu" 
-                onclick="m_cmd_loc_Click" />
                     </td>
             </tr>
 	<tr>
-		<td align="center" colspan="4" style="height:450px;" valign="top">
+		<td align="center" colspan="4" valign="top">
 		    &nbsp;
-            <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False" 
+            <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="20" 
                 onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                  <asp:TemplateField HeaderText="Duyệt kế hoạch">
+                 <asp:TemplateField>
+                  <HeaderTemplate>
+                   <input type="checkbox" id="chkAll" onclick="javascript:SelectAllCheckboxes(this)" runat="server" />
+                  </HeaderTemplate>                 
+                  <ItemTemplate>
+                    <asp:CheckBox runat="server" ID="chkItem" ToolTip='<%# Eval("Id") %>' />
+                    <asp:CheckBox runat="server" ID="chkTrangThai" ToolTip='<%# Eval("ID_TRANG_THAI") %>' Visible="false" />
+                  </ItemTemplate>
+                  <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>  
+                  <asp:TemplateField HeaderText="Chỉnh sửa">
                         <ItemTemplate>
                         <asp:LinkButton runat='server' ID='m_lbt_duyet'
-                         CommandName='Select' ToolTip='Duyệt kế hoạch' CausesValidation='false'>  
+                         CommandName='Select' ToolTip='Chỉnh sửa' CausesValidation='false'>  
                          <center><img src='../Images/Button/edit.png' width='20px' height='20px' alt='Sửa' /></center>
                          </asp:LinkButton></ItemTemplate>
                     </asp:TemplateField>
@@ -261,6 +295,13 @@
             </asp:GridView>
             </td>
 	</tr>
+    <tr>
+        <td>
+            <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Duyệt" 
+                onclick="m_cmd_duyet_ke_hoach_Click"/>
+        </td>
+    </tr>
 </table>
 </asp:Content>
 

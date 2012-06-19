@@ -1058,6 +1058,12 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.fillDataSetByCommand(this,ip_ds_v_dm_hop_dong_khung);
     }
+    public void load_hop_dong_by_id_giang_vien_cm_da_ky(decimal ip_dc_id_giang_vien, DS_V_DM_HOP_DONG_KHUNG ip_ds_v_dm_hop_dong_khung)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_HOP_DONG_KHUNG_Load_data_2_cbo_by_Id_Giang_Vien_CM_da_ky");
+        v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
+        v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_hop_dong_khung);
+    }
     #endregion
 }
 }
