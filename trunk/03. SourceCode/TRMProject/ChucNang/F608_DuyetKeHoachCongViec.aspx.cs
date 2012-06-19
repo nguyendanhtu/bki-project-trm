@@ -19,22 +19,12 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            load_data_2_cbo_noi_dung_tt();
+            //load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_ten_giang_vien();
             load_data_2_cbo_hop_dong_loc();
             load_data_2_grv();
             m_hdf_check_hd.Value = "";
-            // Load thông tin về nội dung thanh toán
-            if (m_cbo_noi_dung_thanh_toan.Items.Count > 0)
-            {
-                decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
-                US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_V_DM_NOI_DUNG_THANH_TOAN(v_dc_id_noi_dung_tt);
-                m_txt_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT, "#,###");
-                m_txt_so_luong.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,#");
-                m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            }
-            else m_lbl_mess.Text = "Hợp đồng này không có phụ lục hợp đồng";
         }
     }
 
@@ -57,13 +47,14 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         m_cbo_so_hop_dong.ToolTip = CIPConvert.ToStr(v_dc_id_cong_viec_gv);
         m_us_cong_viec_moi = new US_V_GD_GV_CONG_VIEC_MOI(v_dc_id_cong_viec_gv);
         US_DM_HOP_DONG_KHUNG v_us_dm_hop_dong_khung = new US_DM_HOP_DONG_KHUNG(m_us_cong_viec_moi.dcID_HOP_DONG_KHUNG);
-        m_cbo_ten_giang_vien.SelectedValue = CIPConvert.ToStr(v_us_dm_hop_dong_khung.dcID_GIANG_VIEN);
+        m_cbo_ten_giang_vien.SelectedValue = CIPConvert.ToStr(v_us_dm_hop_dong_khung.dcID_GIANG_VIEN);        
     }
     private void us_object_2_form(US_V_GD_GV_CONG_VIEC_MOI ip_us_v_gd_cv_moi)
     {
         m_cbo_so_hop_dong.SelectedValue =CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_HOP_DONG_KHUNG);
+        load_data_2_cbo_noi_dung_tt();
         m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
-        US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_V_DM_NOI_DUNG_THANH_TOAN(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
         m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
         m_cbo_noi_dung_thanh_toan.Enabled = false;
         m_cbo_so_hop_dong.Enabled = false;
@@ -106,15 +97,15 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
     }
     private void load_data_2_cbo_noi_dung_tt()
     {
-        US_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_DM_NOI_DUNG_THANH_TOAN();
-        DS_DM_NOI_DUNG_THANH_TOAN v_ds_dm_noi_dung_tt = new DS_DM_NOI_DUNG_THANH_TOAN();
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT();
+        DS_V_GD_HOP_DONG_NOI_DUNG_TT v_ds_gd_hop_dong_noi_dung_tt = new DS_V_GD_HOP_DONG_NOI_DUNG_TT();
 
-        v_us_dm_noi_dung_tt.FillDataset(v_ds_dm_noi_dung_tt, " WHERE ID_LOAI_HOP_DONG = " + LOAI_HOP_DONG.EDUTOP64_VH_GVCM + " AND SU_DUNG_YN ='Y' AND SU_KIEN_YN = 'N'");
+        // Lấy tất cả các nội dung thanh toán từ phụ lục hợp đồng
+        v_us_gd_hop_dong_noi_dung_tt.FillDataset(v_ds_gd_hop_dong_noi_dung_tt, " WHERE ID_HOP_DONG_KHUNG = " + CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue));
+        m_cbo_noi_dung_thanh_toan.DataTextField = V_GD_HOP_DONG_NOI_DUNG_TT.NOI_DUNG_THANH_TOAN;
+        m_cbo_noi_dung_thanh_toan.DataValueField = V_GD_HOP_DONG_NOI_DUNG_TT.ID;
 
-        m_cbo_noi_dung_thanh_toan.DataTextField = DM_NOI_DUNG_THANH_TOAN.TEN_NOI_DUNG;
-        m_cbo_noi_dung_thanh_toan.DataValueField = DM_NOI_DUNG_THANH_TOAN.ID;
-
-        m_cbo_noi_dung_thanh_toan.DataSource = v_ds_dm_noi_dung_tt.DM_NOI_DUNG_THANH_TOAN;
+        m_cbo_noi_dung_thanh_toan.DataSource = v_ds_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
         m_cbo_noi_dung_thanh_toan.DataBind();
     }
     private void load_data_2_cbo_trang_thai_cv_gv()

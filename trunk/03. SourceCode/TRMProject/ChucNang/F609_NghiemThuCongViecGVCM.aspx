@@ -208,7 +208,7 @@
             <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Nghiệm thu" onclick="m_cmd_cap_nhat_Click"/>
                  &nbsp;&nbsp;
-                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False"
                         CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
                         Width="98px" onclick="m_cmd_xuat_excel_Click"/>
 			        &nbsp;&nbsp;

@@ -119,6 +119,7 @@
                     &nbsp;<asp:Label ID="m_lbl_don_vi" runat="server"></asp:Label>
                     </td>
                     <td align="right" style="width:12%;">
+                     <asp:label id="m_lbl_don_gia" runat="server" Visible="false"/>
                          </td>
                 <td align="left" style="width:38%;">
                     </td>

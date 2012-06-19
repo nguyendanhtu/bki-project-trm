@@ -43,7 +43,7 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_ten_giang_vien" runat="server" AutoPostBack="true"
+            <asp:DropDownList id="m_cbo_ten_giang_vien" runat="server" AutoPostBack="true" Enabled="false"
                         CssClass="cssDorpdownlist" Width="90%">
                     </asp:DropDownList>
                     </td>

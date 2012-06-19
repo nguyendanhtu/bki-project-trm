@@ -19,7 +19,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            load_data_2_cbo_noi_dung_tt();
+            //load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_ten_giang_vien();
             load_data_2_cbo_hop_dong_loc();
@@ -62,8 +62,9 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     private void us_object_2_form(US_V_GD_GV_CONG_VIEC_MOI ip_us_v_gd_cv_moi)
     {
         m_cbo_so_hop_dong.SelectedValue = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_HOP_DONG_KHUNG);
+        load_data_2_cbo_noi_dung_tt();
         m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
-        US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_V_DM_NOI_DUNG_THANH_TOAN(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
         m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
         m_cbo_noi_dung_thanh_toan.Enabled = false;
         m_cbo_so_hop_dong.Enabled = false;
@@ -106,15 +107,15 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     }
     private void load_data_2_cbo_noi_dung_tt()
     {
-        US_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_DM_NOI_DUNG_THANH_TOAN();
-        DS_DM_NOI_DUNG_THANH_TOAN v_ds_dm_noi_dung_tt = new DS_DM_NOI_DUNG_THANH_TOAN();
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT();
+        DS_V_GD_HOP_DONG_NOI_DUNG_TT v_ds_gd_hop_dong_noi_dung_tt = new DS_V_GD_HOP_DONG_NOI_DUNG_TT();
 
-        v_us_dm_noi_dung_tt.FillDataset(v_ds_dm_noi_dung_tt, " WHERE ID_LOAI_HOP_DONG = " + LOAI_HOP_DONG.EDUTOP64_VH_GVCM + " AND SU_DUNG_YN ='Y' AND SU_KIEN_YN = 'N'");
+        // Lấy tất cả các nội dung thanh toán từ phụ lục hợp đồng
+        v_us_gd_hop_dong_noi_dung_tt.FillDataset(v_ds_gd_hop_dong_noi_dung_tt, " WHERE ID_HOP_DONG_KHUNG = " + CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue));
+        m_cbo_noi_dung_thanh_toan.DataTextField = V_GD_HOP_DONG_NOI_DUNG_TT.NOI_DUNG_THANH_TOAN;
+        m_cbo_noi_dung_thanh_toan.DataValueField = V_GD_HOP_DONG_NOI_DUNG_TT.ID;
 
-        m_cbo_noi_dung_thanh_toan.DataTextField = DM_NOI_DUNG_THANH_TOAN.TEN_NOI_DUNG;
-        m_cbo_noi_dung_thanh_toan.DataValueField = DM_NOI_DUNG_THANH_TOAN.ID;
-
-        m_cbo_noi_dung_thanh_toan.DataSource = v_ds_dm_noi_dung_tt.DM_NOI_DUNG_THANH_TOAN;
+        m_cbo_noi_dung_thanh_toan.DataSource = v_ds_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
         m_cbo_noi_dung_thanh_toan.DataBind();
     }
     private void load_data_2_cbo_trang_thai_cv_gv()
@@ -173,6 +174,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         m_txt_ghi_chu.Text = "";
         m_dat_ngay_bat_dau.Clear();
         m_lbl_mess.Text = "";
+        m_txt_so_luong_nghiem_thu.Text = "";
         m_cbo_noi_dung_thanh_toan.SelectedIndex = 0;
         m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
     }
