@@ -32,7 +32,7 @@ cvm.ID_HOP_DONG_KHUNG,
 hdk.SO_HOP_DONG,
 RTRIM(LTRIM(gv.HO_VA_TEN_DEM)) + ' ' + RTRIM(LTRIM(gv.TEN_GIANG_VIEN)) AS HO_VA_TEN_GIANG_VIEN,
 cvm.ID_NOI_DUNG_TT,
-ndtt.TEN_NOI_DUNG,
+ghdndt.NOI_DUNG_THANH_TOAN AS TEN_NOI_DUNG,
 cvm.SO_LUONG_HE_SO,
 cvm.SO_LUONG_NGHIEM_THU,
 cvm.DON_GIA,
@@ -43,13 +43,14 @@ cdtd.TEN AS TEN_TRANG_THAI,
 cvm.ID_USER_NHAP,
 nsd.TEN_TRUY_CAP,
 cvm.GHI_CHU
-FROM GD_GV_CONG_VIEC_MOI cvm, DM_HOP_DONG_KHUNG hdk, DM_NOI_DUNG_THANH_TOAN ndtt,
+FROM GD_GV_CONG_VIEC_MOI cvm, DM_HOP_DONG_KHUNG hdk, V_GD_HOP_DONG_NOI_DUNG_TT ghdndt,
 	DM_GIANG_VIEN gv, HT_NGUOI_SU_DUNG nsd, CM_DM_TU_DIEN cdtd
 where cvm.ID_HOP_DONG_KHUNG = hdk.ID
-AND cvm.ID_NOI_DUNG_TT = ndtt.ID
+AND cvm.ID_NOI_DUNG_TT = ghdndt.ID
 AND gv.ID = hdk.ID_GIANG_VIEN
 AND nsd.ID = cvm.ID_USER_NHAP
 AND cvm.ID_TRANG_THAI = cdtd.ID
+
 
 
 GO
@@ -119,3 +120,41 @@ WHERE (dhdk.ID_GIANG_VIEN = @ID_GIANG_VIEN OR @ID_GIANG_VIEN = 0)
 AND dhdk.ID_LOAI_HOP_DONG = @v_id_loai_hd_gvcm
 AND dhdk.ID IN(SELECT DISTINCT ggcvm.ID_HOP_DONG_KHUNG
                  FROM GD_GV_CONG_VIEC_MOI ggcvm)
+Go
+
+CREATE PROCEDURE pr_V_DM_GIANG_VIEN_Load_data_2_cbo_CM
+AS
+SELECT * FROM DM_GIANG_VIEN dgv
+WHERE dgv.GVCM_YN ='Y'
+AND dgv.ID_TRANG_THAI_GIANG_VIEN = (SELECT ID FROM CM_DM_TU_DIEN cdtd
+									 WHERE cdtd.ID_LOAI_TU_DIEN = 9 AND cdtd.MA_TU_DIEN LIKE '%DANG_CONG_TAC%')
+ORDER BY dgv.HO_VA_TEN_DEM,dgv.TEN_GIANG_VIEN
+
+Go
+CREATE PROCEDURE pr_V_DM_HOP_DONG_KHUNG_Load_data_2_cbo_by_Id_Giang_Vien_CM_da_ky
+@ID_GIANG_VIEN DECIMAL
+AS
+DECLARE @v_id_loai_hd_gvcm DECIMAL
+DECLARE @v_id_trang_thai_hd_da_ky DECIMAL
+SET @v_id_loai_hd_gvcm = (SELECT cdtd.ID
+                            FROM CM_DM_TU_DIEN cdtd 
+                          WHERE cdtd.ID_LOAI_TU_DIEN =5 AND cdtd.MA_TU_DIEN LIKE '%EDUTOP64_VH_GVCM%') 
+SET @v_id_trang_thai_hd_da_ky = (SELECT cdtd.ID
+                            FROM CM_DM_TU_DIEN cdtd 
+                          WHERE cdtd.ID_LOAI_TU_DIEN =8 AND cdtd.MA_TU_DIEN LIKE '%DA_KY%')
+SELECT * FROM DM_HOP_DONG_KHUNG dhdk
+WHERE (dhdk.ID_GIANG_VIEN = @ID_GIANG_VIEN OR @ID_GIANG_VIEN = 0)
+AND dhdk.ID_LOAI_HOP_DONG = @v_id_loai_hd_gvcm
+AND dhdk.ID_TRANG_THAI_HOP_DONG = @v_id_trang_thai_hd_da_ky
+ORDER BY dhdk.ID desc
+
+Go
+CREATE PROCEDURE [dbo].[pr_V_GD_GV_CONG_VIEC_MOI_Cap_Nhat_Trang_Thai]
+	@ID_TRANG_THAI DECIMAL,
+	@ID DECIMAL
+AS
+	UPDATE GD_GV_CONG_VIEC_MOI
+	SET ID_TRANG_THAI = @ID_TRANG_THAI
+	WHERE ID = @ID 
+
+Go
