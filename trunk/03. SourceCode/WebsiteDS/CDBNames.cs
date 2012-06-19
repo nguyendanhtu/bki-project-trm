@@ -82,6 +82,7 @@ namespace WebDS.CDBNames
      public const string DA_LAP_KE_HOACH = "10_DA_LAP_KE_HOACH";
      public const string DA_DUYET_KE_HOACH = "20_DA_DUYET_KE_HOACH";
      public const string DA_NGHIEM_THU = "30_DA_NGHIEM_THU";
+     public const string DA_DUYET_NGHIEM_THU = "35_DA_DUYET_NGHIEM_THU";
      public const string DA_DUYET_CHUYEN_THANH_TOAN = "40_DA_DUYET_CHUYEN_THANH_TOAN";
      public const string DA_CHUYEN_THANH_TOAN = "50_DA_CHUYEN_THANH_TOAN";
      public const string DA_THANH_TOAN = "60_DA_THANH_TOAN";

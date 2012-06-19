@@ -132,11 +132,16 @@ namespace WebDS
                     // Đã duyệt luôn chứng từ
                     trang_thai_cv_chuyen_duoc[0] = TRANG_THAI_CONG_VIEC_GVCM.DA_NGHIEM_THU;
                     trang_thai_cv_chuyen_duoc[1] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN;
-                    trang_thai_cv_chuyen_duoc[2] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH;
+                    trang_thai_cv_chuyen_duoc[2] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU;
+                    break;
+                case TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU:
+                    trang_thai_cv_chuyen_duoc[0] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU;
+                    trang_thai_cv_chuyen_duoc[1] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN;
+                    trang_thai_cv_chuyen_duoc[2] = "";
                     break;
                 case TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN:
                     trang_thai_cv_chuyen_duoc[0] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN;
-                    trang_thai_cv_chuyen_duoc[1] = TRANG_THAI_CONG_VIEC_GVCM.DA_NGHIEM_THU;
+                    trang_thai_cv_chuyen_duoc[1] = TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU;
                     trang_thai_cv_chuyen_duoc[2] = TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN;
                     break;
                 case TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN:
