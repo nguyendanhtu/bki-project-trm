@@ -33,7 +33,8 @@
                 <td align="left" style="width:12%;">
                     			&nbsp;</td>
                 <td align="left" style="width:38%;">
-                     &nbsp;</td>
+                     <asp:label id="m_lbl_thong_bao_giang_vien" runat="server" CssClass="cssManField" />
+                </td>
             </tr>
             <tr>
                 <td align="right" style="width:12%;">
@@ -130,8 +131,9 @@
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server" 
-                        CssClass="cssDorpdownlist"  >
+                &nbsp;<asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server"  AutoPostBack="true"
+                        CssClass="cssDorpdownlist" 
+                        onselectedindexchanged="m_cbo_trang_thai_cv_gv_SelectedIndexChanged"  >
                     </asp:DropDownList>
                     </td>
             </tr>

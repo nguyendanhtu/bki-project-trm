@@ -24,7 +24,6 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_grv();
-            m_cbo_trang_thai_cv_gv.Enabled = false;
             // Load thông tin về nội dung thanh toán
             if (m_cbo_noi_dung_thanh_toan.Items.Count > 0)
             {
@@ -46,7 +45,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     #region Private Methods
     private void load_data_2_grv()
     {
-        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue));
+        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_all_gv(m_ds_cong_viec_moi,CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
@@ -55,7 +54,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     {
         US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
-
+        m_cbo_ten_giang_vien_loc.Items.Add(new ListItem("Tất cả", "0"));
         v_us_v_dm_giang_vien.load_all_giang_vien_CM(v_ds_v_dm_giang_vien);
         for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
@@ -80,6 +79,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         decimal v_dc_id_cong_viec_gv = CIPConvert.ToDecimal(m_grv_gd_assign_su_kien_cho_giang_vien.DataKeys[ip_i_stt_row].Value);
         m_cbo_so_hop_dong_loc.ToolTip = CIPConvert.ToStr(v_dc_id_cong_viec_gv);
         m_us_cong_viec_moi = new US_GD_GV_CONG_VIEC_MOI(v_dc_id_cong_viec_gv);
+        m_cbo_trang_thai_cv_gv.Enabled = false;
     }
     private void us_object_2_form(US_GD_GV_CONG_VIEC_MOI ip_us_v_gd_cv_moi)
     {
@@ -264,6 +264,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             m_us_cong_viec_moi.Update();
             load_data_2_grv();
             clear_form();
+            m_cbo_trang_thai_cv_gv.Enabled = true;
 
             m_lbl_thong_bao_sau_cap_nhat.Text = " * Cập nhật thành công !";
             m_cbo_noi_dung_thanh_toan.Enabled = true;
@@ -296,6 +297,11 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
                 m_lbl_thong_bao_so_hd.Text = "  Công việc này đã được lên cho hợp đồng GVCM!";
                 return;
             }
+            if (m_cbo_ten_giang_vien_loc.SelectedValue.Equals("0"))
+            {
+                m_lbl_thong_bao_giang_vien.Text = "Bạn chưa chọn giảng viên cho công việc!";
+                return;
+            }
             form_2_us_object();
             m_us_cong_viec_moi.Insert();
             m_lbl_thong_bao_sau_cap_nhat.Text = " * Thêm thành công một bản ghi !";
@@ -303,6 +309,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             m_hdf_check_hd.Value = "";
             load_data_2_grv();
             clear_form();
+            m_cbo_trang_thai_cv_gv.Enabled = true;
         }
         catch (Exception v_e)
         {
@@ -375,6 +382,17 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         try
         {
             load_data_2_cbo_noi_dung_tt();
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_trang_thai_cv_gv_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
             load_data_2_grv();
         }
         catch (Exception v_e)
