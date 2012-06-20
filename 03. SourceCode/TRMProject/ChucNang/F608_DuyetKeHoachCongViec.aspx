@@ -25,7 +25,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="4">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
-                Text="Duyệt kế hoạch công việc cho GVCM"/>
+                Text="Duyệt đăng ký công việc cho GVCM"/>
 		</td>
 	</tr>
     <tr>
