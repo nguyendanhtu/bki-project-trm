@@ -87,6 +87,28 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         pm_objDR["SO_HOP_DONG"] = System.Convert.DBNull;
     }
 
+    public decimal dcID_GIANG_VIEN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "ID_GIANG_VIEN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["ID_GIANG_VIEN"] = value;
+        }
+    }
+
+    public bool IsID_GIANG_VIENNull()
+    {
+        return pm_objDR.IsNull("ID_GIANG_VIEN");
+    }
+
+    public void SetID_GIANG_VIENNull()
+    {
+        pm_objDR["ID_GIANG_VIEN"] = System.Convert.DBNull;
+    }
+
     public string strHO_VA_TEN_GIANG_VIEN
     {
         get
