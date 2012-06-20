@@ -172,7 +172,7 @@
 	    <td></td>
 		<td colspan="3" align="left">
 			&nbsp;&nbsp;
-            <asp:button id="m_cmd_loc_du_lieu" accessKey="c" CssClass="cssButton" 
+            <asp:button id="m_cmd_loc_du_lieu" accessKey="c" CssClass="cssButton" CausesValidation="false"
                 runat="server" Width="98px" Height="25px"  Text="Lọc dữ liệu(l)" onclick="m_cmd_loc_du_lieu_Click" 
                 />&nbsp;&nbsp;
                     <asp:button id="m_cmd_tao_moi" accessKey="l" CssClass="cssButton" 

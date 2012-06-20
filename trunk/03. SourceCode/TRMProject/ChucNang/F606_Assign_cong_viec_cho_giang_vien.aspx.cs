@@ -311,7 +311,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     }
     protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
     {
-        search_gv_cong_viec_moi_and_load_2_grv();
+        load_data_2_grv();
     }
     /*
    Kiểm tra các việc sau:
