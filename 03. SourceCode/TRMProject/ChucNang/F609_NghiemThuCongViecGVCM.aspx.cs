@@ -73,6 +73,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
 
         m_cbo_noi_dung_thanh_toan.ToolTip = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
         m_txt_so_luong.Text = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcSO_LUONG_HE_SO, "#");
+        m_txt_so_luong_nghiem_thu.Text = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcSO_LUONG_NGHIEM_THU,"#");
         m_txt_don_gia.Text = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcDON_GIA, "#,###");
         if (!m_us_cong_viec_moi.IsNGAY_DAT_HANGNull()) m_dat_ngay_bat_dau.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(m_us_cong_viec_moi.datNGAY_DAT_HANG, "dd/MM/yyyy"), "dd/MM/yyyy");
         m_cbo_trang_thai_cv_gv.SelectedValue = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_TRANG_THAI);
@@ -374,38 +375,12 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    protected void m_cmd_duyet_ke_hoach_Click(object sender, EventArgs e)
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         try
         {
-            int v_i_count = 0;
-            foreach (GridViewRow row in m_grv_gd_assign_su_kien_cho_giang_vien.Rows)
-            {
-                bool isChecked = ((CheckBox)row.FindControl("chkItem")).Checked;
-                if (isChecked)
-                {
-                    v_i_count += 1;
-                    // Lấy id của công việc
-                    decimal v_dc_id_cong_viec = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkItem")).ToolTip);
-                    decimal v_dc_id_trang_thai_hien_tai = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkTrangThai")).ToolTip);
-                    if (!check_trang_thai_chuyen(v_dc_id_trang_thai_hien_tai, ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH))
-                        continue;
-                    m_us_cong_viec_moi.dcID = v_dc_id_cong_viec;
-                    // Chuyển trạng thái của công việc sang đã duyệt
-                    m_us_cong_viec_moi.cap_nhat_trang_thai_cong_viec(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH);
-                }
-            }
-            // Neu so items duoc check lớn hơn 0
-            if (v_i_count > 0)
-            {
-                // Load lại dữ liêụ
-                load_data_2_grv();
-            }
-            // Nếu ko
-            else
-            {
-                m_lbl_mess.Text = "Bạn chưa chọn công việc nào để duyệt!";
-            }
+            m_grv_gd_assign_su_kien_cho_giang_vien.PageIndex = e.NewPageIndex;
+            load_data_2_grv();
         }
         catch (Exception v_e)
         {

@@ -17,9 +17,9 @@ public partial class ChucNang_F612_DuyetNghiemThuCongViec : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_lbl_thong_bao_sau_cap_nhat.Text = "";
         if (!IsPostBack)
         {
-            //load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_ten_giang_vien();
             load_data_2_cbo_hop_dong_loc();
@@ -217,6 +217,14 @@ public partial class ChucNang_F612_DuyetNghiemThuCongViec : System.Web.UI.Page
             return false;
         return true;
     }
+    public string get_so_tien_thanh_toan(object ip_obj_so_luong_nghiem_thu, object ip_obj_don_gia)
+    {
+        string v_str_so_tien_thanh_toan = "";
+        if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
+            v_str_so_tien_thanh_toan = "";
+        else v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu),"#,###");
+        return v_str_so_tien_thanh_toan;
+    }
     #endregion
 
     #region Events
@@ -239,7 +247,7 @@ public partial class ChucNang_F612_DuyetNghiemThuCongViec : System.Web.UI.Page
             load_data_2_grv();
             m_cbo_so_hop_dong.ToolTip = "";
             clear_form();
-            m_lbl_thong_bao_sau_cap_nhat.Text = " * Cập nhật thành công !";
+            m_lbl_thong_bao_sau_cap_nhat.Text = " *Duyệt nghiệm thu công việc thành công !";
         }
         catch (Exception v_e)
         {
@@ -391,12 +399,25 @@ public partial class ChucNang_F612_DuyetNghiemThuCongViec : System.Web.UI.Page
             {
                 // Load lại dữ liêụ
                 load_data_2_grv();
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Duyệt nghiệm thu các công việc thành công!";
             }
             // Nếu ko
             else
             {
                 m_lbl_mess.Text = "Bạn chưa chọn công việc nào để duyệt!";
             }
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_gd_assign_su_kien_cho_giang_vien.PageIndex = e.NewPageIndex;
+            load_data_2_grv();
         }
         catch (Exception v_e)
         {

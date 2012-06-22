@@ -61,6 +61,6 @@ namespace WebUS
         public const decimal DA_DUYET_NGHIEM_THU = 534;
         public const decimal DA_DUYET_CHUYEN_THANH_TOAN = 535;
         public const decimal DA_CHUYEN_THANH_TOAN = 536;
-        public const decimal DA_THANH_TOAN = 548;
+        public const decimal DA_THANH_TOAN = 547;
     }
 }

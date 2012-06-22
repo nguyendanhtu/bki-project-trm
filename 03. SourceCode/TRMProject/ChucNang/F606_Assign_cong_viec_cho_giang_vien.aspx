@@ -30,9 +30,7 @@
                 onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
-                <td align="left" style="width:12%;">
-                    			&nbsp;</td>
-                <td align="left" style="width:38%;">
+                <td align="left" colspan="2">
                      <asp:label id="m_lbl_thong_bao_giang_vien" runat="server" CssClass="cssManField" />
                 </td>
             </tr>
@@ -47,9 +45,7 @@
                 onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
-                <td align="left" style="width:12%;">
-                    			&nbsp;</td>
-                <td align="left" style="width:38%;">
+                <td align="left" colspan="2">
                      <asp:label id="m_lbl_thong_bao_so_hd" runat="server" CssClass="cssManField" />
                 </td>
             </tr>
@@ -136,6 +132,9 @@
                         onselectedindexchanged="m_cbo_trang_thai_cv_gv_SelectedIndexChanged"  >
                     </asp:DropDownList>
                     </td>
+                    <td colspan="2">
+                     <asp:label id="m_lbl_thong_bao_trang_thai" runat="server" CssClass="cssManField" />
+                 </td>
             </tr>
             <tr>
                 <td align="right" style="width:12%;">
@@ -219,7 +218,8 @@
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="20" 
                 onrowdeleting="m_grv_gd_assign_su_kien_cho_giang_vien_RowDeleting" 
-                onrowupdating="m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating">
+                onrowupdating="m_grv_gd_assign_su_kien_cho_giang_vien_RowUpdating" 
+                onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -232,14 +232,18 @@
                             <%# Eval("SO_HOP_DONG")%>
                         </ItemTemplate>
                     </asp:TemplateField>
+                      <asp:TemplateField HeaderText="Tên giảng viên">
+                        <ItemTemplate>
+                            <%# Eval("HO_VA_TEN_GIANG_VIEN")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                      <asp:TemplateField HeaderText="Công việc">
                         <ItemTemplate>
                             <%# Eval("TEN_NOI_DUNG")%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    
-                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
+                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField HeaderText="Ngày đặt hàng" DataField="NGAY_DAT_HANG" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
                      <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
