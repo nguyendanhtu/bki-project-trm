@@ -389,12 +389,25 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
             {
                 // Load lại dữ liêụ
                 load_data_2_grv();
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Duyệt công việc đã chọn thành công!";
             }
             // Nếu ko
             else
             {
                 m_lbl_mess.Text = "Bạn chưa chọn công việc nào để duyệt!";
             }
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_gd_assign_su_kien_cho_giang_vien.PageIndex = e.NewPageIndex;
+            load_data_2_grv();
         }
         catch (Exception v_e)
         {

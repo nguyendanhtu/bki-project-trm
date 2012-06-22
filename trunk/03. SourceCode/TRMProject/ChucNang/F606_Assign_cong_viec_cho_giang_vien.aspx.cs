@@ -68,11 +68,11 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         DS_V_DM_HOP_DONG_KHUNG v_ds_v_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
         v_us_v_dm_hop_dong_khung.load_hop_dong_by_id_giang_vien_cm_da_ky(CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), v_ds_v_dm_hop_dong_khung);
 
-        m_cbo_so_hop_dong_loc.DataTextField = V_DM_HOP_DONG_KHUNG.SO_HOP_DONG;
-        m_cbo_so_hop_dong_loc.DataValueField = V_DM_HOP_DONG_KHUNG.ID;
-
-        m_cbo_so_hop_dong_loc.DataSource = v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
-        m_cbo_so_hop_dong_loc.DataBind();
+        m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả","0"));
+        for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+        {
+            m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+        }
     }
     private void load_data_2_us_update(int ip_i_stt_row)
     {
@@ -149,13 +149,11 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
 
         v_us_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_CONG_VIEC_GV);
-
-        m_cbo_trang_thai_cv_gv.DataTextField = CM_DM_TU_DIEN.TEN;
-        m_cbo_trang_thai_cv_gv.DataValueField = CM_DM_TU_DIEN.ID;
-
-        m_cbo_trang_thai_cv_gv.DataSource = v_ds_tu_dien.CM_DM_TU_DIEN;
-        m_cbo_trang_thai_cv_gv.DataBind();
-        m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
+        m_cbo_trang_thai_cv_gv.Items.Add(new ListItem("Tất cả", "0"));
+        for (int v_i = 0; v_i < v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count; v_i++)
+        {
+            m_cbo_trang_thai_cv_gv.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[v_i][CM_DM_TU_DIEN.TEN]),CIPConvert.ToStr(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[v_i][CM_DM_TU_DIEN.ID])));
+        }
     }
     /// <summary>
     /// Kiểm tra xem số hợp đồng này đã có hay chưa
@@ -302,6 +300,16 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
                 m_lbl_thong_bao_giang_vien.Text = "Bạn chưa chọn giảng viên cho công việc!";
                 return;
             }
+            if (m_cbo_so_hop_dong_loc.SelectedValue.Equals("0"))
+            {
+                m_lbl_thong_bao_so_hd.Text = "Bạn chưa chọn số hợp đồng!";
+                return;
+            }
+            if (m_cbo_trang_thai_cv_gv.SelectedValue.Equals("0"))
+            {
+                m_lbl_thong_bao_trang_thai.Text = "Bạn chưa chọn trạng thái của công việc!";
+                return;
+            }
             form_2_us_object();
             m_us_cong_viec_moi.Insert();
             m_lbl_thong_bao_sau_cap_nhat.Text = " * Thêm thành công một bản ghi !";
@@ -318,7 +326,14 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     }
     protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
     {
-        load_data_2_grv();
+        try
+        {
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
     }
     /*
    Kiểm tra các việc sau:
@@ -371,6 +386,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         {
             load_data_2_cbo_hop_dong_loc();
             load_data_2_cbo_noi_dung_tt();
+            load_data_2_grv();
         }
         catch (Exception v_e)
         {
@@ -393,6 +409,18 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     {
         try
         {
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_gd_assign_su_kien_cho_giang_vien.PageIndex = e.NewPageIndex;
             load_data_2_grv();
         }
         catch (Exception v_e)

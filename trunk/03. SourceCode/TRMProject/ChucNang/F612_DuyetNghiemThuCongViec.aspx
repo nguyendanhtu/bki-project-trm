@@ -25,7 +25,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="4">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
-                Text="Duyệt kế hoạch công việc cho GVCM"/>
+                Text="Duyệt nghiệm thu công việc của GVCM"/>
 		</td>
 	</tr>
     <tr>
@@ -249,7 +249,9 @@
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="20" 
-                onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging">
+                
+                onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
+                onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                  <asp:TemplateField>
@@ -306,6 +308,12 @@
                         DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" >
                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
+                      <asp:TemplateField HeaderText="Số tiền nghiệm thu">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_NGHIEM_THU")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right"/>
+                    </asp:TemplateField>
                      <asp:BoundField HeaderText="Ngày nghiệm thu" DataField="NGAY_NGHIEM_THU" 
                         DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" 
                         ItemStyle-HorizontalAlign="Center">
