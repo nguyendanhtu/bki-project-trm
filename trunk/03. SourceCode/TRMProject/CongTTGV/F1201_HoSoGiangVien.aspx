@@ -509,7 +509,8 @@
                 <td align="left" class="style3">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lưu dữ liệu" 
-                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" Visible="false" />
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thoát"
                       CausesValidation="false"  Height="25px" onclick="m_cmd_thoat_Click"  />

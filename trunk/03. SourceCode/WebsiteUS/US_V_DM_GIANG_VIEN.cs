@@ -949,6 +949,27 @@ public class US_V_DM_GIANG_VIEN : US_Object
 		pm_objDR["DIA_CHI"] = System.Convert.DBNull;
 	}
 
+    public string strCO_LOI_YN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "CO_LOI_YN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["CO_LOI_YN"] = value;
+        }
+    }
+
+    public bool IsCO_LOI_YNNull()
+    {
+        return pm_objDR.IsNull("CO_LOI_YN");
+    }
+
+    public void SetCO_LOI_YNNull()
+    {
+        pm_objDR["CO_LOI_YN"] = System.Convert.DBNull;
+    }
 #endregion
 
     #region "Init Functions"

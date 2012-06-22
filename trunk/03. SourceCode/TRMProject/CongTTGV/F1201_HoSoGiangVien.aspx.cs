@@ -416,36 +416,13 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         try
         {
-            // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
-            //if (!check_ma_giang_vien())
-            //{
-            //    string someScript;
-            //    someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-            //    // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
-            //    return;
-            //}
-            //if (!check_check_loai_hop_dong())
-            //{
-            //    string someScript;
-            //    someScript = "<script language='javascript'>alert('Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-            //    // m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
-            //    return;
-            //}
-
             form_2_us_object(m_us_dm_giang_vien);
-             m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(m_txt_ma_giang_vien.ToolTip);
+                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(m_txt_ma_giang_vien.ToolTip);
             // Update dữ liệu
             m_us_dm_giang_vien.Update();
             // Thông báo về việc update thành công
             m_lbl_mess.Text = "Dữ liệu được cập nhật thành công";
             m_lbl_mess.Visible = true;
-            //reset_control();
-            // Chuyển vể danh sách giảng viên
-            //if (m_init_mode == DataEntryFormMode.UpdateDataState
-            //Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=ok", false);
-            //else Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?edit=add", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
