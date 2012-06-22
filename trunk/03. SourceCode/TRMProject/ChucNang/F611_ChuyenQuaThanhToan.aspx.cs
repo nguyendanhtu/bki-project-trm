@@ -43,13 +43,18 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
     #region Private Methods
     private void load_data_2_grv()
     {
-        m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue));
+        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_all_gv(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ds_cv_gv.Text = "Chuyển chứng từ con qua thanh toán: " + m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
         if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count == 0)
             m_cmd_chuyen_qua_thanh_toan.Visible = false;
-        else m_cmd_chuyen_qua_thanh_toan.Visible = true;
+        else
+        {
+            m_cmd_chuyen_qua_thanh_toan.Visible = true;
+            decimal v_dc_tong_tien = get_sum_tien(m_ds_cong_viec_moi);
+            m_grv_gd_assign_su_kien_cho_giang_vien.FooterRow.Cells[9].Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###");
+        }
     }
     // Chỉ load đợt thanh toán đã lập đợt và không load các thanh toán của KHO lên
     private void load_data_2_cbo_dot_thanh_toan()
@@ -83,7 +88,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
         US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
 
-        v_us_v_dm_giang_vien.load_giang_vien_CM_da_thuc_hien_cong_viec(v_ds_v_dm_giang_vien);
+        v_us_v_dm_giang_vien.load_all_giang_vien_CM(v_ds_v_dm_giang_vien);
         m_cbo_ten_giang_vien_loc.Items.Add(new ListItem("Tất cả", "0"));
         for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
@@ -104,15 +109,25 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
         }
     }
-    //private bool check_hop_dong_noi_dung_cong_viec_unique()
+    #endregion
+
+    #region Public Interfaces
     public string get_ma_trang_thai_by_id(decimal ip_dc_id_trang_thai)
     {
         US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_trang_thai);
         return v_us_dm_tu_dien.strMA_TU_DIEN;
     }
-    #endregion
-
-    #region Public Interfaces
+    public decimal get_sum_tien(DS_V_GD_GV_CONG_VIEC_MOI ip_ds_gd_gv_cong_viec)
+    {
+        decimal v_dc_sum_tien = 0;
+        for (int v_i = 0; v_i < ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows.Count; v_i++)
+        {
+            if (ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU].GetType() == typeof(DBNull) || ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.DON_GIA].GetType() == typeof(DBNull))
+                v_dc_sum_tien += 0;
+            else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.DON_GIA]);
+        }
+        return v_dc_sum_tien;
+    }
     public bool check_trang_thai_chuyen(decimal ip_obj_trang_thai_hien_tai, decimal ip_obj_trang_thai_huong_toi)
     {
         // Kiểm tra xem dòng đó có được phép chỉnh sửa trạng thái nữa không? (duyệt nữa không?)

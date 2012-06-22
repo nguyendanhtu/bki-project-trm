@@ -185,7 +185,7 @@
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái" />
                          </td>
                 <td align="left" colspan="2" style="width:88%;">
-                    <asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server" AutoPostBack="true"
+                    <asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server"
                         CssClass="cssDorpdownlist" 
                         onselectedindexchanged="m_cbo_trang_thai_cv_gv_SelectedIndexChanged"  >
                     </asp:DropDownList>
