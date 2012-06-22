@@ -228,6 +228,7 @@ namespace WebDS.CDBNames
         public const string PO_PHU_TRACH_PHU3 = "PO_PHU_TRACH_PHU3";
         public const string PO_PHU_TRACH_PHU4 = "PO_PHU_TRACH_PHU4";
         public const string DIA_CHI = "DIA_CHI";
+        public const string CO_LOI_YN = "CO_LOI_YN";
     }
 
    public  class V_DM_HOP_DONG_KHUNG
