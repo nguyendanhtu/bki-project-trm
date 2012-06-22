@@ -70,9 +70,9 @@
 		<td align="center" colspan="4" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
-                Width="100%" DataKeyNames="ID" 
+                Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
-                AllowPaging="True" AllowSorting="True" PageSize="20" 
+                AllowPaging="True" AllowSorting="True" PageSize="30" 
                 
                 onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
                 onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
@@ -122,10 +122,11 @@
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                        <asp:BoundField HeaderText="Số lượng nghiệm thu" DataField="SO_LUONG_NGHIEM_THU" 
-                        DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" >
+                        DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" FooterText="Tổng tiền: " FooterStyle-HorizontalAlign="Right">
                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số tiền nghiệm thu">
+                        <FooterStyle HorizontalAlign="Right" />
                         <ItemTemplate>
                             <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_NGHIEM_THU")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
                         </ItemTemplate>
@@ -144,7 +145,7 @@
                     <asp:BoundField HeaderText="Ghi chú" DataField="GHI_CHU" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White"  />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerSettings Position="TopAndBottom" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />

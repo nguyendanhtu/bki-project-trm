@@ -133,7 +133,7 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
 
-        v_us_v_dm_giang_vien.load_giang_vien_CM_da_thuc_hien_cong_viec(v_ds_v_dm_giang_vien);
+        v_us_v_dm_giang_vien.load_all_giang_vien_CM(v_ds_v_dm_giang_vien);
         m_cbo_ten_giang_vien_loc.Items.Add(new ListItem("Tất cả", "0"));
         for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {

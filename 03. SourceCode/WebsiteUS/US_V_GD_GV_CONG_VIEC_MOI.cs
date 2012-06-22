@@ -438,6 +438,13 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
     }
+    public void loc_du_lieu_gv_cong_viec_moi_theo_trang_thai_nghiem_thu(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_hop_dong_khung, decimal ip_dc_id_giang_vien)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Loc_theo_cbo_trang_thai_nghiem_thu");
+        v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
+        v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
     public void cap_nhat_trang_thai_cong_viec(decimal ip_dc_trang_thai_moi)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Cap_Nhat_Trang_Thai");

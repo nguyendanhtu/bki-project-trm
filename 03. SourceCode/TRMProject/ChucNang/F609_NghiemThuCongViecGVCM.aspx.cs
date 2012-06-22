@@ -34,6 +34,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
                 m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
             }
             else m_lbl_mess.Text = "Hợp đồng này không có phụ lục hợp đồng";
+            m_cbo_trang_thai_cv_gv.SelectedValue =CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_NGHIEM_THU);
         }
     }
 
@@ -45,7 +46,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     #region Private Methods
     private void load_data_2_grv()
     {
-        m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi_theo_cbo_trang_thai_nghiem_thu(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue),CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
+        m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi_theo_trang_thai_nghiem_thu(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue), CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count > 0)
@@ -129,7 +130,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
 
-        v_us_v_dm_giang_vien.load_giang_vien_CM_da_thuc_hien_cong_viec(v_ds_v_dm_giang_vien);
+        v_us_v_dm_giang_vien.load_all_giang_vien_CM(v_ds_v_dm_giang_vien);
         m_cbo_ten_giang_vien.Items.Add(new ListItem("Tất cả", "0"));
         for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
@@ -223,7 +224,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         m_lbl_mess.Text = "";
         m_txt_so_luong_nghiem_thu.Text = "";
         m_cbo_noi_dung_thanh_toan.SelectedIndex = 0;
-        m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
+        //m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
     }
     private decimal get_id_user_by_username(string ip_strsusername)
     {
@@ -322,7 +323,6 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
                 m_us_cong_viec_moi.Update();
             }
             else m_us_cong_viec_moi.Insert();
-            //m_cbo_trang_thai_cv_gv.SelectedIndex = 0;
             US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hd_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
             m_txt_don_gia.Text = CIPConvert.ToStr(v_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"#");
             load_data_2_grv();
