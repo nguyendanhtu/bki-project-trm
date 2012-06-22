@@ -3,7 +3,7 @@
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <%@ Import Namespace="WebDS" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-<script type="text/javascript">
+    <script type="text/javascript">
     function formatCurrency(num) {
         num = num.toString().replace(/\$|\,/g, '');
         if (isNaN(num))
@@ -37,21 +37,21 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+    <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
     <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
                 Text="Nghiệm thu công việc cho GVCM"/>
 		</td>
 	</tr>
     <tr>
-        <td colspan="4" align="left">
+        <td align="left">
 		   <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
 		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
 		</td>
     </tr>	
     <tr>
-        <td colspan="3"> 
+        <td> 
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:12%;">
@@ -60,7 +60,8 @@
                          </td>
                 <td align="left" style="width:30%;">
             <asp:DropDownList id="m_cbo_ten_giang_vien" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="90%">
+                        CssClass="cssDorpdownlist" Width="90%" 
+                        onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -71,7 +72,8 @@
                          </td>
                 <td align="left" style="width:30%;">
                     <asp:DropDownList id="m_cbo_so_hop_dong" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="90%">
+                        CssClass="cssDorpdownlist" Width="90%" 
+                        onselectedindexchanged="m_cbo_so_hop_dong_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -119,8 +121,9 @@
                 Text="&lt;U&gt;C&lt;/U&gt;ông việc" />
                          </td>
                 <td align="left" colspan="3" style="width:88%;">
-                &nbsp;<asp:DropDownList id="m_cbo_noi_dung_thanh_toan" runat="server" Enabled="false"
-                        CssClass="cssDorpdownlist" Width="80%">
+                &nbsp;<asp:DropDownList id="m_cbo_noi_dung_thanh_toan" runat="server"
+                        CssClass="cssDorpdownlist" Width="80%" AutoPostBack="true"
+                        onselectedindexchanged="m_cbo_noi_dung_thanh_toan_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -132,10 +135,6 @@
                 <td align="left" style="width:30%;">
                 &nbsp;<asp:TextBox  ID="m_txt_so_luong" CssClass="csscurrency" Width="20%" 
                         runat="server"></asp:TextBox> 
-		            &nbsp;
-                     <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
-                         ErrorMessage="Bạn phải nhập số lượng công việc" Text="*" 
-                        ControlToValidate="m_txt_so_luong" CssClass="cssManField"> </asp:RequiredFieldValidator>
                     <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_luong" Text="*" ErrorMessage = "Số lượng nhập không đúng định dạng" CssClass="cssManField" />
                     &nbsp;<asp:Label ID="m_lbl_don_vi" runat="server"></asp:Label>
@@ -185,11 +184,16 @@
 			<asp:label id="lbl_trang_thai" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái" />
                          </td>
-                <td align="left" colspan="3" style="width:88%;">
-                    <asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server" 
-                        CssClass="cssDorpdownlist"  >
+                <td align="left" colspan="2" style="width:88%;">
+                    <asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" 
+                        onselectedindexchanged="m_cbo_trang_thai_cv_gv_SelectedIndexChanged"  >
                     </asp:DropDownList>
                     </td>
+                    <td>
+			<asp:label id="m_lbl_thong_bao_tthai" CssClass="cssManField" runat="server" 
+                Text="" />
+                         </td>
             </tr>
             <tr>
                 <td align="right" style="width:12%;">
@@ -221,69 +225,27 @@
         </td>
     </tr>
           <tr>
-        <td colspan="3" align="left">
+        <td align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
            <asp:HiddenField runat="server" ID="m_hdf_check_hd" />
 		</td>
     </tr> 
     <tr>
-		<td class="cssPageTitleBG" colspan="3">
+		<td class="cssPageTitleBG">
 		    <asp:label id="m_lbl_ket_qua_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Kết quả lọc dữ liệu"/>
 		</td>
 	</tr>
-    <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label1" CssClass="cssManField" runat="server" 
-                Text="Tên giảng viên" />
-        </td>
-        <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="60%" 
-                onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-    </tr>
-    <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label2" CssClass="cssManField" runat="server" 
-                Text="Số hơp đồng" />
-        </td>
-        <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="60%" 
-                onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-    </tr>
-    <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
-                Text="Trạng thái công việc" />
-        </td>
-        <td align="left" style="width:38%;">
-            <asp:DropDownList id="m_cbo_trang_thai_cv_loc" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="60%" 
-                onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
-                    </asp:DropDownList>
-                    </td>
-            </tr>
 	<tr>
-		<td align="center" colspan="4" valign="top">
+		<td align="center" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
-                Width="100%" DataKeyNames="ID" 
+                Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
-                AllowPaging="True" AllowSorting="True" PageSize="20" 
-                
-                onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
+                AllowPaging="True" AllowSorting="True" PageSize="35"
                 onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                  <asp:TemplateField HeaderText="Nghiệm thu">
-                        <ItemTemplate>
-                        <asp:LinkButton runat='server' ID='m_lbt_duyet'
-                         CommandName='Select' ToolTip='Nghiệm thu' CausesValidation='false'>  
-                         <center><img src='../Images/Button/edit.png' width='20px' height='20px' alt='Sửa' /></center>
-                         </asp:LinkButton></ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -307,7 +269,15 @@
                     <asp:BoundField HeaderText="Số lượng đặt hàng" DataField="SO_LUONG_HE_SO" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
                     <asp:BoundField HeaderText="Ngày đặt hàng" DataField="NGAY_DAT_HANG" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
-                    <asp:BoundField HeaderText="Số lượng nghiệm thu" DataField="SO_LUONG_NGHIEM_THU" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField HeaderText="Số lượng nghiệm thu" DataField="SO_LUONG_NGHIEM_THU" 
+                    DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" FooterText="Tổng tiền: " FooterStyle-HorizontalAlign="Right"/>
+                     <asp:TemplateField HeaderText="Số tiền nghiệm thu">
+                        <FooterStyle HorizontalAlign="Right"/>
+                        <ItemTemplate>
+                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_NGHIEM_THU")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right"/>
+                    </asp:TemplateField>
                      <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
                             <%# Eval("TEN_TRANG_THAI")%>
@@ -316,7 +286,7 @@
                     <asp:BoundField HeaderText="Ghi chú" DataField="GHI_CHU" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White"  />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerSettings Position="TopAndBottom" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />

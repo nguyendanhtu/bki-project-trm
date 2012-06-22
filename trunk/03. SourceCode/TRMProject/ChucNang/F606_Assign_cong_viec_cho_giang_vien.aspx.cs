@@ -49,6 +49,11 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
+        if (m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count > 0)
+        {
+            decimal v_dc_tong_tien = get_sum_tien(m_ds_cong_viec_moi);
+            m_grv_gd_assign_su_kien_cho_giang_vien.FooterRow.Cells[6].Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###");
+        }
     }
     private void load_data_2_cbo_ten_giang_vien()
     {
@@ -169,8 +174,13 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     }
     private bool check_hop_dong_noi_dung_cong_viec_unique()
     {
-        
-        return true; // nghĩa là chưa lập
+        // Lấy công việc theo số HĐ và ID công việc
+        m_us_cong_viec_moi.FillDataset(m_ds_cong_viec_moi, " WHERE ID_HOP_DONG_KHUNG = " + CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue) + " AND ID_NOI_DUNG_TT = " + CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
+        if (m_ds_cong_viec_moi.GD_GV_CONG_VIEC_MOI.Rows.Count > 0)
+        {
+            return true; // Đã tồn tại
+        }
+        return false; // chưa tồn tại
     }
     private decimal get_id_user_by_username(string ip_strsusername)
     {
@@ -201,6 +211,25 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
     #endregion
 
     #region Public Interfaces
+    public decimal get_sum_tien(DS_GD_GV_CONG_VIEC_MOI ip_ds_gd_gv_cong_viec)
+    {
+        decimal v_dc_sum_tien = 0;
+        for (int v_i = 0; v_i < ip_ds_gd_gv_cong_viec.GD_GV_CONG_VIEC_MOI.Rows.Count; v_i++)
+        {
+            if (ip_ds_gd_gv_cong_viec.GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO].GetType() == typeof(DBNull) || ip_ds_gd_gv_cong_viec.GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.DON_GIA].GetType() == typeof(DBNull))
+                v_dc_sum_tien += 0;
+            else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.DON_GIA]);
+        }
+        return v_dc_sum_tien;
+    }
+    public string get_so_tien_thanh_toan(object ip_obj_so_luong_nghiem_thu, object ip_obj_don_gia)
+    {
+        string v_str_so_tien_thanh_toan = "";
+        if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
+            v_str_so_tien_thanh_toan = "";
+        else v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu), "#,###");
+        return v_str_so_tien_thanh_toan;
+    }
     public string mapping_so_hop_dong_by_id(object ip_obj_id_hop_dong)
     {
         US_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_DM_HOP_DONG_KHUNG(CIPConvert.ToDecimal(ip_obj_id_hop_dong));
@@ -290,7 +319,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         try
         {
             // Nếu nội dung CV này ứng với HĐ này đã tồn tại
-            if (!check_hop_dong_noi_dung_cong_viec_unique())
+            if (check_hop_dong_noi_dung_cong_viec_unique())
             {
                 m_lbl_thong_bao_so_hd.Text = "  Công việc này đã được lên cho hợp đồng GVCM!";
                 return;
