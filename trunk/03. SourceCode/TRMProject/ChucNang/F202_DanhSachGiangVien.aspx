@@ -114,7 +114,7 @@
                     </td>
                 <td align="right" style="width:7%;">
                     &nbsp;</td>
-                <td align="left" colspan="3" style="margin-left: 40px" rowspan="6">
+                <td align="left" colspan="3" style="margin-left: 40px" rowspan="7">
 			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hinh_thuc_cong_tac" runat="server">
                         <asp:ListItem>Hướng dẫn</asp:ListItem>
                         <asp:ListItem>Chuyên Môn</asp:ListItem>
@@ -144,16 +144,22 @@
             </tr>                   
             <tr>
                 <td align="right" style="width:5%;">
-                    &nbsp; <asp:label id="Label4" CssClass="cssManField" runat="server" 
-                Text="Từ khóa tìm kiếm" /></td>
+                    <asp:label id="Label17" CssClass="cssManField" runat="server" 
+                Text="Trạng thái thông tin GV" /></td>
                 <td align="left" colspan="3">
-                     &nbsp;<asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
-                        Width="85%"></asp:TextBox></td>
-                <td align="left" style="width:7%;">
-                    &nbsp;</td>
+                        <asp:DropDownList ID="m_cbo_trang_thai_thong_tin" runat="server" AutoPostBack="true"
+                            CssClass="cssDorpdownlist" Width="85%" 
+                            onselectedindexchanged="m_cbo_trang_thai_thong_tin_SelectedIndexChanged" >
+                            <asp:ListItem Value="A">Tất cả</asp:ListItem>
+                            <asp:ListItem Value="Y">Thông tin đầy đủ, chính xác</asp:ListItem>
+                            <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                <td align="right" style="width:7%;">
+			        &nbsp;</td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
-            </tr>
+            </tr>                   
             <tr>
                 <td align="right" style="width:5%;">
                     <asp:label id="Label14" CssClass="cssManField" runat="server" 
@@ -172,6 +178,18 @@
                 Text="PO phụ trách phụ 1" /></td>
                 <td align="left" colspan="3">
                      <asp:TextBox ID="m_txt_po_phu_trach_phu" runat="server" CssClass="cssTextBox" 
+                        Width="85%"></asp:TextBox></td>
+                <td align="left" style="width:7%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Từ khóa tìm kiếm" /></td>
+                <td align="left" colspan="3">
+                     <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
                 <td align="left" style="width:7%;">
                     &nbsp;</td>

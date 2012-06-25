@@ -358,6 +358,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strPO_PHU_TRACH_PHU2 = m_cbo_po_phu_trach_phu2.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU3 = m_cbo_po_phu_trach_phu3.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU4 = m_cbo_po_phu_trach_phu4.SelectedValue;
+            ip_us_giang_vien.strCO_LOI_YN = m_cbo_trang_thai_thong_tin.SelectedValue;
         }
         catch (Exception v_e)
         {
@@ -421,6 +422,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                 m_dat_ngay_cap.SelectedDate = ip_us_giang_vien.datNGAY_CAP;
             if (!ip_us_giang_vien.IsNGAY_BD_HOP_TACNull() || ip_us_giang_vien.datNGAY_BD_HOP_TAC != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
                 m_dat_ngay_bat_dau_hop_tac.SelectedDate = ip_us_giang_vien.datNGAY_BD_HOP_TAC;
+            m_cbo_trang_thai_thong_tin.SelectedValue = ip_us_giang_vien.strCO_LOI_YN;
         }
         catch (Exception v_e)
         {

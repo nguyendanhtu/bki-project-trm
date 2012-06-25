@@ -505,10 +505,28 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
+                <asp:label id="m_lbl_" CssClass="cssManField" runat="server"
+                Text="Tình trạng thông tin" />
+		                    </td>
+                <td align="left" class="style3" colspan="1">
+                        <asp:DropDownList ID="m_cbo_trang_thai_thong_tin" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%">
+                            <asp:ListItem Value="Y">Thông tin đầy đủ, chính xác</asp:ListItem>
+                            <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="left" style="width:10%;">
+			        &nbsp;</td>            
+                         <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
 			        &nbsp;</td>
                 <td align="left" class="style3">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Lưu dữ liệu" 
+                runat="server" Width="98px" Text="Phản hồi" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 

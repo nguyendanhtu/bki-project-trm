@@ -248,7 +248,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                     , string ip_str_gv_quay_hl
                                     , string ip_str_hdkh
                                     , string ip_str_po_phu_trach_chinh
-                                    , string ip_str_po_phu_trach_phu)
+                                    , string ip_str_po_phu_trach_phu
+                                    , string ip_str_trang_thai_thong_tin)
     {
         Session["Sname"] = ip_str_name;
         Session["Skey"] = ip_str_keyword;
@@ -267,6 +268,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         Session["Shdkh"] = ip_str_hdkh;
         Session["Spochinh"] = ip_str_po_phu_trach_chinh;
         Session["Spophu"] = ip_str_po_phu_trach_phu;
+        Session["Strangthaitt"] = ip_str_trang_thai_thong_tin;
     }
     private void get_form_search_data_and_load_to_grid()
     {
@@ -317,7 +319,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             string v_str_po_phu_trach_chinh, v_str_po_phu_trach_phu;
             v_str_po_phu_trach_chinh = m_txt_po_phu_trach_chinh.Text.Trim();
             v_str_po_phu_trach_phu = m_txt_po_phu_trach_phu.Text.Trim();
-
+            string v_str_trang_thai_thong_tin_gv = m_cbo_trang_thai_thong_tin.SelectedValue;
 
             // Thu thập dữ liệu và cho vào Session
             collect_data_2_search(v_str_ten_giang_vien
@@ -333,10 +335,11 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                   , v_str_gv_viet_hl
                                                   , v_str_gv_tham_dinh_hl
                                                   , v_str_duyet_hl
-                                                  ,v_str_gv_quay_hl
-                                                  ,v_str_hdkh
+                                                  , v_str_gv_quay_hl
+                                                  , v_str_hdkh
                                                   , v_str_po_phu_trach_chinh
-                                                  , v_str_po_phu_trach_phu);
+                                                  , v_str_po_phu_trach_phu
+                                                  , v_str_trang_thai_thong_tin_gv);
             // Thực hiện Search
 
             m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
@@ -356,7 +359,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,v_str_gv_quay_hl
                                                 ,v_str_hdkh
                                                 ,v_str_po_phu_trach_chinh
-                                                ,v_str_po_phu_trach_phu);
+                                                ,v_str_po_phu_trach_phu
+                                                ,v_str_trang_thai_thong_tin_gv);
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -422,7 +426,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         string v_str_po_phu_trach_chinh, v_str_po_phu_trach_phu;
         v_str_po_phu_trach_chinh = m_txt_po_phu_trach_chinh.Text.Trim();
         v_str_po_phu_trach_phu = m_txt_po_phu_trach_phu.Text.Trim();
-
+        string v_str_trang_thai_thong_tin_gv = m_cbo_trang_thai_thong_tin.SelectedValue;
         // Thực hiện Search
         m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
                                             , v_str_search_key_word
@@ -441,7 +445,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                             , v_str_gv_quay_hl
                                             , v_str_hdkh
                                             , v_str_po_phu_trach_chinh
-                                            , v_str_po_phu_trach_phu);
+                                            , v_str_po_phu_trach_phu
+                                            , v_str_trang_thai_thong_tin_gv);
     }
     /// <summary>
     /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
@@ -481,7 +486,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                , CIPConvert.ToStr(Session["Squayhl"])
                                                , CIPConvert.ToStr(Session["Shdkh"])
                                                , CIPConvert.ToStr(Session["Spochinh"])
-                                               , CIPConvert.ToStr(Session["Spophu"]));
+                                               , CIPConvert.ToStr(Session["Spophu"])
+                                               , CIPConvert.ToStr(Session["Strangthaitt"]));
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -896,6 +902,18 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         catch (Exception v_e)
         {
             
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_trang_thai_thong_tin_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            m_grv_dm_danh_sach_giang_vien.PageSize = 30;
+            get_form_search_data_and_load_to_grid();
+        }
+        catch (Exception v_e)
+        {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }

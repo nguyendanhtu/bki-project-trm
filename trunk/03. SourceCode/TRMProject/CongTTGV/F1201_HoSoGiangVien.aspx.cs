@@ -416,14 +416,11 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
     {
         try
         {
-            form_2_us_object(m_us_dm_giang_vien);
-                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(m_txt_ma_giang_vien.ToolTip);
-            // Update dữ liệu
-            m_us_dm_giang_vien.Update();
-            // Thông báo về việc update thành công
-            m_lbl_mess.Text = "Dữ liệu được cập nhật thành công";
-            m_lbl_mess.Visible = true;
-            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            string v_str_trang_thai_thong_ket = m_cbo_trang_thai_thong_tin.SelectedValue;
+            m_us_dm_giang_vien.strCO_LOI_YN = v_str_trang_thai_thong_ket;
+            m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(m_txt_ma_giang_vien.ToolTip);
+            m_us_dm_giang_vien.thay_doi_trang_thai_thong_tin_ho_so();
+            m_lbl_mess.Text = "Đã phản hồi thành công trạng thái của hồ sơ!";
         }
         catch (Exception v_e)
         {
