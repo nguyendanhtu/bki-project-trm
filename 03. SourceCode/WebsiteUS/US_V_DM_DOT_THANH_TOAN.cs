@@ -349,6 +349,15 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
          v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_id_dv_tt);
          v_cstore.fillDataSetByCommand(this, ip_ds_dm_dot_tt);
      }
+     public void load_data_2_dot_tt_by_thang_nam_and_giang_vien(decimal ip_dc_giang_vien,decimal ip_dc_thang_tt, decimal ip_dc_nam_tt, decimal ip_dc_id_dv_tt, DS_V_DM_DOT_THANH_TOAN ip_ds_dm_dot_tt)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_DM_DOT_THANH_TOAN_LoadTheoThoiGian_va_giangvien");
+         v_cstore.addDecimalInputParam("@GIANG_VIEN", ip_dc_giang_vien);
+         v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
+         v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
+         v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_id_dv_tt);
+         v_cstore.fillDataSetByCommand(this, ip_ds_dm_dot_tt);
+     }
     #endregion
 }
 }
