@@ -46,6 +46,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     #region Private Methods
     private void load_data_2_grv()
     {
+        m_ds_cong_viec_moi.Clear();
         m_us_cong_viec_moi.loc_du_lieu_gv_cong_viec_moi_theo_trang_thai_nghiem_thu(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue), CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
@@ -144,10 +145,12 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         DS_V_DM_HOP_DONG_KHUNG v_ds_v_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
         m_cbo_so_hop_dong.Items.Clear();
         v_us_v_dm_hop_dong_khung.load_hop_dong_by_id_giang_vien_cm_da_ky(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue), v_ds_v_dm_hop_dong_khung);
-
-        for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+        if (v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count > 0)
         {
-            m_cbo_so_hop_dong.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+            for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+            {
+                m_cbo_so_hop_dong.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+            }
         }
     }
     private void load_thong_tin_co_ban_cong_viec(decimal ip_dc_id_cong_viec)
@@ -158,6 +161,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     }
     private void load_data_2_cbo_noi_dung_tt()
     {
+        m_lbl_mess.Text = "";
         US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT();
         DS_V_GD_HOP_DONG_NOI_DUNG_TT v_ds_gd_hop_dong_noi_dung_tt = new DS_V_GD_HOP_DONG_NOI_DUNG_TT();
 
@@ -173,9 +177,6 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
             decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
             US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
             m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            m_txt_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD, "#,###");
-            m_txt_don_gia.Enabled = false;
-            m_lbl_mess.Text = "";
         }
         else m_lbl_mess.Text = "Hợp đồng này không có phụ lục hợp đồng!";
     }
@@ -185,6 +186,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         {
             // Lấy công việc theo số HĐ và ID công việc
             m_us_cong_viec_moi.FillDataset(m_ds_cong_viec_moi, " WHERE ID_HOP_DONG_KHUNG = " + CIPConvert.ToDecimal(m_cbo_so_hop_dong.SelectedValue) + " AND ID_NOI_DUNG_TT = " + CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
+            // Nếu đã tồn tại công việc đó rồi thì load theo đơn giá như công việc đã nhập
             if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count > 0)
             {
                 if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.NGAY_DAT_HANG].GetType() != typeof(DBNull))
@@ -192,14 +194,20 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
                 if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO].GetType() != typeof(DBNull))
                     m_txt_so_luong.Text = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO], "#");
                 m_txt_so_luong.Enabled = false;
-                m_cbo_trang_thai_cv_gv.SelectedValue = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.ID_TRANG_THAI]);
+                //m_cbo_trang_thai_cv_gv.SelectedValue = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.ID_TRANG_THAI]);
                 if (m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU].GetType() != typeof(DBNull))
                     m_txt_so_luong_nghiem_thu.Text = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU], "#");
                 m_cbo_trang_thai_cv_gv.ToolTip = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.ID_TRANG_THAI]);
                 m_cbo_so_hop_dong.ToolTip = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.ID]);
+                m_txt_don_gia.Text = CIPConvert.ToStr(m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows[0][V_GD_GV_CONG_VIEC_MOI.DON_GIA], "#,###");
             }
+                // Còn nếu công việc này ko có trong kế hoạch
             else
             {
+                decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
+                US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
+                m_txt_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD, "#,###");
+                m_lbl_mess.Text = "";
                 m_cbo_trang_thai_cv_gv.ToolTip = "-1";
                 m_cbo_so_hop_dong.ToolTip = "-1";
             }
@@ -400,9 +408,12 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         try
         {
             load_data_2_cbo_hop_dong_loc();
-            load_data_2_cbo_noi_dung_tt();
-            load_data_2_control_cong_viec();
-            load_data_2_grv();
+            if (m_cbo_so_hop_dong.Items.Count > 0)
+            {
+                load_data_2_cbo_noi_dung_tt();
+                load_data_2_control_cong_viec();
+                load_data_2_grv();
+            }
         }
         catch (Exception v_e)
         {

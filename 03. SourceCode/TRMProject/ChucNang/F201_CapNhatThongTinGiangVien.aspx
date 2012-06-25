@@ -492,12 +492,24 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
+                <p>
                 <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
-                Text="Mô tả" />
+                Text="Mô tả" /></p><p></p>
+                  <p>
+                <asp:label id="m_lbl_trang_tahi" CssClass="cssManField" runat="server" 
+                Text="Tình trạng thông tin" /></p>
 		                    </td>
                 <td align="left" class="style3">
+                <p>
                 <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
-               TextMode="MultiLine" Rows="4" Width="96%" />
+               TextMode="MultiLine" Rows="4" Width="96%" /></p>
+               <p>
+                        <asp:DropDownList ID="m_cbo_trang_thai_thong_tin" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%">
+                            <asp:ListItem Value="Y">Thông tin đầy đủ, chính xác</asp:ListItem>
+                            <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
+                        </asp:DropDownList>
+                    </p>
                 </td>
                      <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" class="style1">
