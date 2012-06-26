@@ -843,20 +843,7 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addNVarcharInputParam("@REFERENCE_CODE", ip_str_reference_code);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
-    // Created by Ninh 2012/06/14
-    public void fill_dataset_tonghop_by_giang_vien_thang_nam_va_dv_thanh_toan(decimal ip_dc_id_giang_vien,
-                                                            decimal ip_dc_dv_thanh_toan,                                                            
-                                                            decimal ip_dc_thang_tt,
-                                                            decimal ip_dc_nam_tt,
-                                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
-    {
-        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetTongHopThanhToanByGiangVienvaDVThanhToan");
-        v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
-        v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_dv_thanh_toan);
-        v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
-        v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);        
-        v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
-    }
+    
     // Created by LinhDH 2012/06/11
     public void fill_dataset_by_id_giang_vien_thang_nam_dot_va_dv_thanh_toan(decimal ip_dc_id_giang_vien,
                                                            decimal ip_dc_dv_thanh_toan,
