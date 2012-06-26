@@ -213,10 +213,11 @@
 		<td align="center" colspan="2" style="height:450px;" valign="top">
 		    &nbsp;
        <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
-                runat="server" AutoGenerateColumns="False" 
+                runat="server" AutoGenerateColumns="False" ShowFooter="True"
                 Width="150%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" PageSize="30" >
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
+                PageSize="30" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT">
@@ -275,18 +276,29 @@
                        <ItemTemplate><%# mapping_item_field_ten_cac_mon(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")), Eval("GHI_CHU_CAC_MON_PHU_TRACH"))%></ItemTemplate>
                         <ItemStyle  Width="5%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField HeaderText="Đã thanh toán" DataField="DA_THANH_TOAN" DataFormatString="{0:N0}">
+                     <asp:BoundField HeaderText="Đã thanh toán" DataField="DA_THANH_TOAN" 
+                        DataFormatString="{0:N0}" FooterText="Tổng tiền:">
+                        <FooterStyle HorizontalAlign="Right" />
                         <ItemStyle HorizontalAlign="Right" Width="4%"></ItemStyle>
                      </asp:BoundField>
-                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng thanh toán đợt này (VNĐ)">
-                     <ItemStyle Width="4%" HorizontalAlign="Right" />
-                    </asp:BoundField>
-                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Số tiền còn phải thanh toán">
+                     <asp:TemplateField HeaderText="Tông tiền thanh toán đợt này(VNĐ)">
+                         <FooterStyle HorizontalAlign="Left" />
+                         <ItemStyle ForeColor="Black" HorizontalAlign="Center" Width="4%" />
+                          <FooterTemplate>
+                             <%#string.Format("{0:N0}", get_tong_tien_dot_TT()) %>
+                         </FooterTemplate>
+                       <ItemTemplate><%# Eval("TONG_TIEN_THANH_TOAN") %></ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField ItemStyle-HorizontalAlign="Right" 
+                        HeaderText="Số tiền còn phải thanh toán" FooterText="Thuế:">
                        <ItemTemplate><%# mapping_so_tien_con_phai_tt(Eval("CON_PHAI_THANH_TOAN"), Eval("LOAI_HOP_DONG"), Eval("REFERENCE_CODE"))%></ItemTemplate>
+                        <FooterStyle HorizontalAlign="Right" />
                         <ItemStyle Width="5%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:TemplateField ItemStyle-HorizontalAlign="Left" HeaderText="Trạng thái thanh toán">
+                         <FooterTemplate>
+                             <%# string.Format("{0:N0}",(get_tong_tien_dot_TT() > 1000000)? double.Parse(CIPConvert.ToStr( get_tong_tien_dot_TT()))*0.1 : 0)  %>
+                         </FooterTemplate>
                        <ItemTemplate><%# mapping_trang_thai_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_THANH_TOAN"))) %></ItemTemplate>
                         <ItemStyle Width="5%"></ItemStyle>
                     </asp:TemplateField> 
@@ -298,7 +310,7 @@
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                   <RowStyle BackColor="#E3EAEB" />

@@ -42,7 +42,7 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
     DS_CM_DM_TU_DIEN m_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
     US_V_GD_THANH_TOAN m_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
     DS_V_GD_THANH_TOAN m_v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-    public string m_str_loai_hd = "";
+    public string m_str_loai_hd = "";    
     #endregion 
 
     #region Public Interfaces
@@ -135,6 +135,30 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
         if (CIPConvert.ToDecimal(ip_obj_nghiem_thu_thuc_te) == 0)
             return CIPConvert.ToStr(0);
         return CIPConvert.ToStr(ip_obj_nghiem_thu_thuc_te, "#,###");
+    }    
+    public decimal get_tong_tien_dot_TT()
+    {
+        decimal v_tong_tien = 0;
+        string v_str_loai_hd = "";
+        if (m_rdl_loai_hop_dong.Items[0].Selected)
+            v_str_loai_hd = "All";
+        else if (m_rdl_loai_hop_dong.Items[1].Selected)
+            v_str_loai_hd = "VH";
+        else v_str_loai_hd = "HL";
+
+        m_us_v_gd_thanh_toan.fill_dataset_by_id_giang_vien_thang_nam_dot_va_dv_thanh_toan(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue),
+                                CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue),
+                                CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue),
+                                v_str_loai_hd,
+                                m_txt_reference_code.Text.Trim(),
+                                CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue),
+                                CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),
+                                m_cbo_dot_thanh_toan.SelectedValue,m_v_ds_gd_thanh_toan);
+        foreach (DataRow item in m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN)
+        {
+            v_tong_tien += CIPConvert.ToDecimal(item["TONG_TIEN_THANH_TOAN"]);
+        }
+        return v_tong_tien;
     }
     #endregion
 
@@ -340,6 +364,27 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(grv[V_GD_THANH_TOAN.DESCRIPTION]) + "</td>";
             strTable += "\n</tr>";
         }
+
+        strTable += "\n<tr>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền: </td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>" + string.Format("{0:N0}", get_tong_tien_dot_TT()) + "</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Thuế: </td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>" + string.Format("{0:N0}", (get_tong_tien_dot_TT() > 1000000) ? double.Parse(CIPConvert.ToStr(get_tong_tien_dot_TT())) * 0.1 : 0) + "</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'></td>";
+        strTable += "\n</tr>";
     }
 
     private void loadTieuDe(ref string strTable)
