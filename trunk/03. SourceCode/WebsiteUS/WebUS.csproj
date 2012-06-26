@@ -79,6 +79,7 @@
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.cs" />
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.cs" />
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.cs" />
+    <Compile Include="US_TBL_GD_THANH_TOAN.cs" />
     <Compile Include="US_V_DM_DOT_THANH_TOAN.cs" />
     <Compile Include="US_V_DM_GIANG_VIEN.cs" />
     <Compile Include="US_V_DM_HOP_DONG_KHUNG.cs" />
