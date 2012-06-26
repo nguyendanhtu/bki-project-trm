@@ -317,6 +317,12 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
          v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_THANH_TOAN", ip_dc_trang_thai_dot);
          v_cstore.fillDataSetByCommand(this, op_ds_dm_dot_thanh_toan);
      }
+     public void load_dot_thanh_toan_by_trang_thai_tru_kho(decimal ip_dc_trang_thai_dot, DS_V_DM_DOT_THANH_TOAN op_ds_dm_dot_thanh_toan)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Load_Dot_Thanh_Toan_by_Trang_thai_tru_kho");
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_THANH_TOAN", ip_dc_trang_thai_dot);
+         v_cstore.fillDataSetByCommand(this, op_ds_dm_dot_thanh_toan);
+     }
      public void duyet_toan_bo_chung_tu()
      {
          CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Duyet_Tat_Ca_Chung_Tu");
