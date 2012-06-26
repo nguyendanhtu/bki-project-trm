@@ -23,17 +23,17 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
             load_data_2_cbo_don_vi_thanh_toan();
             load_data_2_nam_bd_hop_tac();
             load_data_2_cbo_giang_vien();
-            load_data_2_cbo_trang_thai_thanh_toan();
-            load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue),CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
-            m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
+            load_data_2_cbo_trang_thai_thanh_toan();          
+            m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));            
             if (Session["UserName"] == null)
                 Response.Redirect("/TRMProject/Account/Login.aspx");
             else
             {
                 m_cbo_ten_giang_vien.SelectedValue = CIPConvert.ToStr(get_id_giang_vien_by_ma(CIPConvert.ToStr(Session["UserName"])));
                 m_lbl_ma_gv.Text = CIPConvert.ToStr(Session["UserName"]);
+                load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue), CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
                 search_data_show_on_grid();
-            }
+            }            
         }
     }
 
