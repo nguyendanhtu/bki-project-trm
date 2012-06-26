@@ -273,9 +273,7 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
         // Load đợt thanh toán dựa vào tháng và năm thanh toán
         v_us_dot_thanh_toan.load_data_2_dot_tt_by_thang_nam_and_giang_vien(ip_dc_giang_vien,ip_dc_thang_tt, ip_dc_nam_tt, ip_dc_id_don_vi_tt, v_ds_dot_thanh_toan);
-        DataRow v_dr = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.NewV_DM_DOT_THANH_TOANRow();               
-        v_ds_dot_thanh_toan.EnforceConstraints = false;
-        v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.InsertAt(v_dr, 0);
+        DataRow v_dr = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.NewV_DM_DOT_THANH_TOANRow();                       
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.MA_DOT_TT;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
