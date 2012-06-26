@@ -159,6 +159,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_TBL_GD_THANH_TOAN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_TBL_GD_THANH_TOAN.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_DOT_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -432,6 +437,17 @@
     </None>
     <None Include="DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xss">
       <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_TBL_GD_THANH_TOAN.xsc">
+      <DependentUpon>DS_TBL_GD_THANH_TOAN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_TBL_GD_THANH_TOAN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_TBL_GD_THANH_TOAN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_TBL_GD_THANH_TOAN.xss">
+      <DependentUpon>DS_TBL_GD_THANH_TOAN.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_DOT_THANH_TOAN.xsc">
       <DependentUpon>DS_V_DM_DOT_THANH_TOAN.xsd</DependentUpon>
