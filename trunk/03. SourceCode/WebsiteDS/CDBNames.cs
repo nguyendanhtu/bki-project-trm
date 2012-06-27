@@ -576,17 +576,9 @@ namespace WebDS.CDBNames
    }
    public class TBL_GD_THANH_TOAN
    {
-       public const string ID = "ID";
        public const string SO_PHIEU_THANH_TOAN = "SO_PHIEU_THANH_TOAN";
-       public const string NGAY_THANH_TOAN = "NGAY_THANH_TOAN";
-       public const string ID_DON_VI_QUANLY = "ID_DON_VI_QUANLY";
        public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
-       public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
-       public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
-       public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
-       public const string MA_SO_THUE = "MA_SO_THUE";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
-       public const string CON_PHAI_THANH_TOAN = "CON_PHAI_THANH_TOAN";
    }
 
 }
