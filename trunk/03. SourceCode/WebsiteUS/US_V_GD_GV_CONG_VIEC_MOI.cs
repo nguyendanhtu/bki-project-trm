@@ -452,11 +452,10 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai_moi);
         v_cstore.ExecuteCommand(this);
     }
-    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec, decimal ip_dc_id_dot_thanh_toan, string ip_str_id_hop_dong_khung, string ip_str_user_lap_thanh_toan)
+    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec, decimal ip_dc_id_dot_thanh_toan, string ip_str_user_lap_thanh_toan)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Chuyen_Qua_Thanh_Toan");
         v_cstore.addDecimalInputParam("@ID_DOT_THANH_TOAN", ip_dc_id_dot_thanh_toan);
-        v_cstore.addNVarcharInputParam("@ID_HOP_DONG_KHUNG", ip_str_id_hop_dong_khung);
         v_cstore.addNVarcharInputParam("@USER_LAP_THANH_TOAN", ip_str_user_lap_thanh_toan);
         v_cstore.addNVarcharInputParam("@ID_CAC_CONG_VIEC", ip_str_id_cac_cong_viec);
         v_cstore.ExecuteCommand(this);

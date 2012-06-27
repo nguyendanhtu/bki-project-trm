@@ -243,6 +243,13 @@
                     </td>
             </tr>
 	<tr>
+        <td>
+            <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Duyệt" CausesValidation="false"
+                onclick="m_cmd_duyet_ke_hoach_Click"/>
+        </td>
+    </tr>
+    <tr>
 		<td align="center" colspan="4" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
@@ -338,13 +345,6 @@
             </asp:GridView>
             </td>
 	</tr>
-    <tr>
-        <td>
-            <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
-                runat="server" Width="98px" Height="25px"  Text="Duyệt" CausesValidation="false"
-                onclick="m_cmd_duyet_ke_hoach_Click"/>
-        </td>
-    </tr>
 </table>
 </asp:Content>
 
