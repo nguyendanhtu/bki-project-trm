@@ -507,7 +507,7 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
         try
         {
             string html = loadExport();
-            string strNamFile = "BaoCaoDSThanhToanTheoGiangVien" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
+            string strNamFile = "BaoCaoDSThanhToanTheoGiangVienVaDotThanhToan" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
             Response.Cache.SetExpires(DateTime.Now.AddSeconds(1));
             Response.Clear();
             Response.AppendHeader("content-disposition", "attachment;filename=" + strNamFile);
