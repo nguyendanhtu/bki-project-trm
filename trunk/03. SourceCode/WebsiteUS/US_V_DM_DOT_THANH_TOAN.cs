@@ -288,14 +288,11 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
         if (v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count > 0) return true;
         return false;
     }
-    public void search_dot_tt(string ip_str_ma_dot_tt
-                             , decimal ip_dc_id_don_vi_tt
-                             , decimal ip_dc_id_trang_thai_dot_tt
+    public void search_dot_tt_by_ma(string ip_str_ma_dot_tt
+                            
                              , DS_V_DM_DOT_THANH_TOAN op_ds_v_dm_dot_thanh_toan)
     {
-        CStoredProc v_cstore = new CStoredProc("pr_V_DM_DOT_THANH_TOAN_Search");
-        v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_id_don_vi_tt);
-        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_TT", ip_dc_id_trang_thai_dot_tt);
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_DOT_THANH_TOAN_Search");       
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
         v_cstore.fillDataSetByCommand(this, op_ds_v_dm_dot_thanh_toan);
     }
