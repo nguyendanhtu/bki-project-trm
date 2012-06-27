@@ -114,6 +114,21 @@ namespace WebUS
             this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
             pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
         }
+        // Created by NinhVH 2012/06/27
+        public void fill_dataset_tongho_thanhtaon_by_id_giang_vien_thang_nam_dot_va_dv_thanh_toan(decimal ip_dc_id_giang_vien,
+                                                               decimal ip_dc_dv_thanh_toan,
+                                                               decimal ip_dc_thang_tt,
+                                                               decimal ip_dc_nam_tt,
+                                                               DS_TBL_GD_THANH_TOAN ip_ds_tbl_gd_thanh_toan)
+        {
+            CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetTongHopThanhToanByGiangVienvaDVThanhToan");
+            v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
+            v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_dv_thanh_toan);
+            v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
+            v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
+            v_cstore.fillDataSetByCommand(this, ip_ds_tbl_gd_thanh_toan);
+        }
+        
         #endregion
     }
 }
