@@ -23,19 +23,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
      <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label4" runat="server" CssClass="cssPageTitle" 
                 Text="Thông tin đợt thanh toán được chuyển qua"/>
 		</td>
 	</tr>
     <tr>
-        <td colspan="4" align="left">
+        <td colspan="2" align="left">
 		   <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
 		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
 		</td>
     </tr>	
     <tr>
-        <td colspan="3"> 
+        <td colspan="2"> 
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:16%;">
@@ -105,13 +105,13 @@
         </td>
     </tr> 
     <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
                 Text="Chuyển chứng từ con qua thanh toán"/>
 		</td>
 	</tr>
           <tr>
-        <td colspan="3" align="left">
+        <td colspan="2" align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
 		</td>
     </tr> 
@@ -148,8 +148,15 @@
                     </asp:DropDownList>
                     </td>
             </tr>
+            <tr>
+                <td>
+            <asp:button id="m_cmd_chuyen_qua_thanh_toan" accessKey="u" CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Chuyển qua TT" 
+                CausesValidation="false" onclick="m_cmd_chuyen_qua_thanh_toan_Click"/>
+                </td>
+            </tr>
 	<tr>
-		<td align="center" colspan="4" valign="top">
+		<td align="center" colspan="2" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" ShowFooter="true"
@@ -237,14 +244,6 @@
             </asp:GridView>
             </td>
 	</tr>
-    <tr>
-        <td>
-            <asp:button id="m_cmd_chuyen_qua_thanh_toan" accessKey="u" CssClass="cssButton"
-                runat="server" Width="98px" Height="25px"  Text="Chuyển qua TT" CausesValidation="false"/>
-        </td>
-               <td>
-        </td>
-    </tr>
-</table>
+    </table>
 </asp:Content>
 

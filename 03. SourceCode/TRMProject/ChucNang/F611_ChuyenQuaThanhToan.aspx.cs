@@ -56,13 +56,12 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             m_grv_gd_assign_su_kien_cho_giang_vien.FooterRow.Cells[9].Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###");
         }
     }
-    // Chỉ load đợt thanh toán đã lập đợt và không load các thanh toán của KHO lên
     private void load_data_2_cbo_dot_thanh_toan()
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
         // Vì đợt thanh toán kho có trạng thái là đã lập đợt
-        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai(ID_TRANG_THAI_DOT_TT.DA_LAP_DOT, v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.load_dot_thanh_toan_by_trang_thai_tru_kho(ID_TRANG_THAI_DOT_TT.DA_LAP_DOT, v_ds_dot_thanh_toan);
 
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
@@ -103,7 +102,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
         DS_V_DM_HOP_DONG_KHUNG v_ds_v_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
         v_us_v_dm_hop_dong_khung.load_hop_dong_by_id_giang_vien_cm_da_ky(CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), v_ds_v_dm_hop_dong_khung);
 
-        m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả", "0"));
+        //m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả", "0"));
         for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
         {
             m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
@@ -213,51 +212,6 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    protected void m_cmd_duyet_ke_hoach_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            int v_i_count = 0;
-            string v_str_id_cac_cong_viec_chuyen = "";
-            // Cái này sẽ lấy các HĐ đc chọn
-            string v_str_id_cac_hop_dong = "";
-            foreach (GridViewRow row in m_grv_gd_assign_su_kien_cho_giang_vien.Rows)
-            {
-                bool isChecked = ((CheckBox)row.FindControl("chkItem")).Checked;
-                if (isChecked)
-                {
-                    v_i_count += 1;
-                    // Lấy id của công việc
-                    decimal v_dc_id_cong_viec = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkItem")).ToolTip);
-                    decimal v_dc_id_trang_thai_hien_tai = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkTrangThai")).ToolTip);
-                    if (!check_trang_thai_chuyen(v_dc_id_trang_thai_hien_tai, ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU))
-                        continue;
-                    //m_us_cong_viec_moi.dcID = v_dc_id_cong_viec;
-                    // thực hiện công việc
-                    //m_us_cong_viec_moi.cap_nhat_trang_thai_cong_viec(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU);
-                    // cho tất cả ID của công việc vào 1 string
-                    v_str_id_cac_cong_viec_chuyen += CIPConvert.ToStr(v_dc_id_cong_viec);
-                }
-            }
-            // Neu so items duoc check lớn hơn 0
-            if (v_i_count > 0)
-            {
-                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec_chuyen,CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue),v_str_id_cac_hop_dong,CIPConvert.ToStr(Session["UserName"]));
-                // Load lại dữ liêụ
-                load_data_2_grv();
-                m_lbl_thong_bao_sau_cap_nhat.Text = "Đã chuyển qua thanh toán thành công!";
-            }
-            // Nếu ko
-            else
-            {
-                m_lbl_mess.Text = "Bạn chưa chọn công việc nào để chuyển qua thanh toán!";
-            }
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
     protected void m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         try
@@ -277,6 +231,72 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             m_us_dm_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
             m_dat_ngay_thanh_toan.SelectedDate = m_us_dm_dot_thanh_toan.datNGAY_TT_DU_KIEN;
             m_lbl_don_vi_thanh_toan.Text = m_us_dm_dot_thanh_toan.strDON_VI_THANH_TOAN;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    
+    // Thực hiện các công việc như sau:
+    // - Uncheck các công việc không đủ điều kiện
+    // - Lấy các hợp đồng và cho vào 1 string (lấy distinct)
+    // - Lấy các id công việc và cho vào string
+    
+    protected void m_cmd_chuyen_qua_thanh_toan_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int v_i_count = 0;
+            int v_i_count_check_khong_chuyen_duoc = 0;
+            string v_str_id_cac_cong_viec = "";
+            // Duyệt từng dòng và làm 3 việc sau
+            // 1. Check xem: dòng này có đc chuyển qua thanh toán không? nếu không thì uncheck
+            // 2. Lấy ID của công việc và cho vào string
+
+            foreach (GridViewRow row in m_grv_gd_assign_su_kien_cho_giang_vien.Rows)
+            {
+                bool isChecked = ((CheckBox)row.FindControl("chkItem")).Checked;
+                if (isChecked)
+                {
+                    v_i_count += 1;
+                    // Lấy id của công việc
+                    decimal v_dc_id_cong_viec = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkItem")).ToolTip);
+                    decimal v_dc_id_trang_thai_hien_tai = CIPConvert.ToDecimal(((CheckBox)row.FindControl("chkTrangThai")).ToolTip);
+                    // Nếu check trạng thái không chuyển được thì
+                    if (!check_trang_thai_chuyen(v_dc_id_trang_thai_hien_tai, ID_TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN))
+                    {
+                        // Bỏ check công việc đó
+                        CheckBox v_checkbox = (CheckBox)row.FindControl("chkTrangThai");
+                        v_checkbox.Checked = false;
+                        // Tăng bộ đếm các công việc đã đc check chuyển qua thanh toán mà ko đủ điểu kiện
+                        v_i_count_check_khong_chuyen_duoc += 1;
+                        // Tiếp tục vòng lặp
+                        continue;
+                    }
+                    // Nếu đc thì cho vào trong string các công việc
+                    v_str_id_cac_cong_viec += CIPConvert.ToStr(v_dc_id_cong_viec) + "," ;
+                }
+            }
+            if (v_i_count_check_khong_chuyen_duoc > 0)
+            {
+                BaseMessages.MsgBox_Warning(1);
+                return;
+            }
+            // Neu so items duoc check lớn hơn 0
+            if (v_i_count > 0)
+            {
+                // Chuyển qua thanh toán
+                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec, CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue), CIPConvert.ToStr(Session["UserName"]));
+                // Load lại dữ liêụ
+                load_data_2_grv();
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Chuyển thanh toán các công việc thành công!";
+            }
+            // Nếu ko
+            else
+            {
+                m_lbl_mess.Text = "Bạn chưa chọn công việc nào để chuyển thanh toán!";
+            }
         }
         catch (Exception v_e)
         {
