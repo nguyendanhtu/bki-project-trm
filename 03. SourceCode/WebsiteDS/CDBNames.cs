@@ -577,7 +577,7 @@ namespace WebDS.CDBNames
    }
    public class TBL_GD_THANH_TOAN
    {
-       public const string SO_PHIEU_THANH_TOAN = "SO_PHIEU_THANH_TOAN";
+       public const string ID_DOT_THANH_TOAN = "ID_DOT_THANH_TOAN";
        public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
    }
