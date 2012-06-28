@@ -361,6 +361,7 @@ namespace WebDS.CDBNames
    public class V_GD_THANH_TOAN
    {
        public const string ID = "ID";
+       public const string ID_DOT_THANH_TOAN = "ID_DOT_THANH_TOAN";
        public const string SO_PHIEU_THANH_TOAN = "SO_PHIEU_THANH_TOAN";
        public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
        public const string LOAI_HOP_DONG = "LOAI_HOP_DONG";

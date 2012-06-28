@@ -66,6 +66,28 @@ public class US_V_GD_THANH_TOAN : US_Object
         pm_objDR["SO_PHIEU_THANH_TOAN"] = System.Convert.DBNull;
     }
 
+    public decimal dcID_DOT_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "ID_DOT_THANH_TOAN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["ID_DOT_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsID_DOT_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("ID_DOT_THANH_TOAN");
+    }
+
+    public void SetID_DOT_THANH_TOANNull()
+    {
+        pm_objDR["ID_DOT_THANH_TOAN"] = System.Convert.DBNull;
+    }
+
     public decimal dcID_HOP_DONG_KHUNG
     {
         get
