@@ -152,7 +152,7 @@
 		    &nbsp;
        <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" ShowFooter="True"
-                Width="150%" DataKeyNames="SO_PHIEU_THANH_TOAN"
+                Width="150%" DataKeyNames="ID_DOT_THANH_TOAN"
                 CellPadding="4" ForeColor="#333333" 
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
                 PageSize="30" >
@@ -172,12 +172,12 @@
                     </asp:TemplateField> 
 
                      <asp:TemplateField HeaderText="Mã đợt thanh toán">
-                       <ItemTemplate><%# Eval("SO_PHIEU_THANH_TOAN")%></ItemTemplate>
+                       <ItemTemplate><%# mapping_sophieutt_by_ID(CIPConvert.ToDecimal(Eval("ID_DOT_THANH_TOAN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
                     </asp:TemplateField>
 
                       <asp:TemplateField HeaderText="Đơn vị quản lý">
-                       <ItemTemplate><%# mapping_dvtt_by_so_phieu(CIPConvert.ToStr(Eval("SO_PHIEU_THANH_TOAN")))%></ItemTemplate>
+                       <ItemTemplate><%# mapping_dvtt_by_ID(CIPConvert.ToDecimal(Eval("ID_DOT_THANH_TOAN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Số tài khoản">

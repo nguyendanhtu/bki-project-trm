@@ -56,24 +56,25 @@ public partial class CongTTGV_F1722_TongHopThanhToanGV : System.Web.UI.Page
             return CIPConvert.ToStr(ip_obj_str);
         return "";
     }
-    public string mapping_dvtt_by_so_phieu(string ip_str_sp_dtt)
+    public string mapping_sophieutt_by_ID(decimal ip_dc_id_dtt)
     {
-        if (ip_str_sp_dtt.Equals("")) return "";
-        else
-        {
-            DS_V_DM_DOT_THANH_TOAN v_ds_dm_dtt = new DS_V_DM_DOT_THANH_TOAN();
-            US_V_DM_DOT_THANH_TOAN v_dm_dtt = new US_V_DM_DOT_THANH_TOAN();
-            v_dm_dtt.search_dot_tt_by_ma(ip_str_sp_dtt, v_ds_dm_dtt);
-            if (v_ds_dm_dtt.V_DM_DOT_THANH_TOAN != null)
-                return CIPConvert.ToStr(v_ds_dm_dtt.V_DM_DOT_THANH_TOAN.Rows[0]["DON_VI_THANH_TOAN"]);
-            else return "";
-        }
+        if (ip_dc_id_dtt == 0) return "";
+        US_V_DM_DOT_THANH_TOAN v_dm_dtt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dtt);
+        if (v_dm_dtt.IsMA_DOT_TTNull()) return "";
+        return v_dm_dtt.strMA_DOT_TT;
+    }
+    public string mapping_dvtt_by_ID(decimal ip_dc_id_dtt)
+    {
+        if (ip_dc_id_dtt == 0) return "";
+        US_V_DM_DOT_THANH_TOAN v_dm_dtt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dtt);
+        if (v_dm_dtt.IsDON_VI_THANH_TOANNull()) return "";
+        return v_dm_dtt.strDON_VI_THANH_TOAN;
     }
     public string mapping_magv_by_id(decimal ip_dc_id_gv)
     {
         if (ip_dc_id_gv == 0) return "";
         US_V_DM_GIANG_VIEN v_dm_gv = new US_V_DM_GIANG_VIEN(ip_dc_id_gv);
-        if (v_dm_gv.IsIDNull()) return "";
+        if (v_dm_gv.IsMA_GIANG_VIENNull()) return "";
         return v_dm_gv.strMA_GIANG_VIEN;
     }
     public string mapping_tengv_by_id(decimal ip_dc_id_gv)
