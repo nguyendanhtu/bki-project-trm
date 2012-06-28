@@ -32,7 +32,14 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
                 m_cbo_ten_giang_vien.SelectedValue = CIPConvert.ToStr(get_id_giang_vien_by_ma(CIPConvert.ToStr(Session["UserName"])));
                 m_lbl_ma_gv.Text = CIPConvert.ToStr(Session["UserName"]);
                 load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue), CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
-                search_data_show_on_grid();
+                if (Request.QueryString["id_dtt"] != null)
+                {
+                    decimal v_dc_id_dtt = CIPConvert.ToDecimal(Request.QueryString["id_dtt"]);
+                    US_V_DM_DOT_THANH_TOAN v_dm_dtt = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dtt);
+                    if (!v_dm_dtt.IsMA_DOT_TTNull())
+                        m_cbo_dot_thanh_toan.SelectedValue = v_dm_dtt.strMA_DOT_TT;
+                }
+                search_data_show_on_grid();                
             }            
         }
     }
