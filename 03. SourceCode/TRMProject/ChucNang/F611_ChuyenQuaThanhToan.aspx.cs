@@ -280,7 +280,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             }
             if (v_i_count_check_khong_chuyen_duoc > 0)
             {
-                BaseMessages.MsgBox_Warning(1);
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Một số công việc chưa đủ điều kiện để chuyển qua thanh toán!";
                 return;
             }
             // Neu so items duoc check lớn hơn 0
@@ -295,7 +295,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             // Nếu ko
             else
             {
-                m_lbl_mess.Text = "Bạn chưa chọn công việc nào để chuyển thanh toán!";
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Bạn chưa chọn công việc nào để chuyển thanh toán!";
             }
         }
         catch (Exception v_e)
