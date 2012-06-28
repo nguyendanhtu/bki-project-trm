@@ -218,8 +218,8 @@ public partial class CongTTGV_F1722_TongHopThanhToanGV : System.Web.UI.Page
         {
             strTable += "\n<tr>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ++v_i_so_thu_tu + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_PHIEU_THANH_TOAN]) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_dvtt_by_so_phieu(CIPConvert.ToStr(grv[TBL_GD_THANH_TOAN.SO_PHIEU_THANH_TOAN])) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_sophieutt_by_ID( CIPConvert.ToDecimal(grv[TBL_GD_THANH_TOAN.ID_DOT_THANH_TOAN])) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_dvtt_by_ID(CIPConvert.ToDecimal(grv[TBL_GD_THANH_TOAN.ID_DOT_THANH_TOAN])) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "'" + mapping_string(mapping_sotaikhoan_by_id(CIPConvert.ToDecimal(grv[TBL_GD_THANH_TOAN.ID_GIANG_VIEN]))) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(mapping_tennganhang_by_id(CIPConvert.ToDecimal(grv[TBL_GD_THANH_TOAN.ID_GIANG_VIEN]))) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "'" + mapping_string(mapping_masothue_by_id(CIPConvert.ToDecimal(grv[TBL_GD_THANH_TOAN.ID_GIANG_VIEN]))) + "</td>";

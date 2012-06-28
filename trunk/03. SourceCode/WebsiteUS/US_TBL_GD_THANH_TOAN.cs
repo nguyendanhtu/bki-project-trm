@@ -123,7 +123,7 @@ namespace WebUS
                                             DS_TBL_GD_THANH_TOAN op_ds_tbl_gd_thanh_toan)
         {
             CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetTongHopThanhToanByGiangVienvaDVThanhToan");
-            v_cstore.addDecimalInputParam("@GIANG_VIEN", ip_dc_id_giang_vien);
+            v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
             v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_id_dv_tt);
             v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
             v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);            

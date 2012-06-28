@@ -162,6 +162,12 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="1%"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Xem chi Tiết">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Xem chi tiết đợt thanh toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                     NavigateUrl='<%# "/TRMProject/CongTTGV/F1721_ThanhToanGVTheoDot.aspx?id_dtt="+Eval("ID_DOT_THANH_TOAN") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                         <ItemStyle Width="2%" />
+                    </asp:TemplateField>
                     <asp:TemplateField Visible="false" HeaderText="Mã giảng viên">
                        <ItemTemplate><%# Eval("ID_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
