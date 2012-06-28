@@ -158,3 +158,346 @@ AS
 	WHERE ID = @ID 
 
 Go
+---- Ngày 28/06/2012
+
+CREATE FUNCTION [dbo].[f_get_id_hop_dong_distict_id_cong_viec](
+@ID_CAC_CONG_VIEC VARCHAR(1000))
+RETURNS VARCHAR(1000)
+AS
+BEGIN
+	DECLARE @v_str_id_cac_hop_dong VARCHAR(1000)
+	SET @v_str_id_cac_hop_dong = ''
+	IF @ID_CAC_CONG_VIEC <>''   
+			BEGIN
+				DECLARE @v_i_pos  INT      
+				DECLARE @v_str_id_cong_viec VARCHAR(10)
+				DECLARE @v_dc_id_cong_viec DECIMAL   
+				DECLARE @v_dc_id_hop_dong_cua_cv DECIMAL
+				DECLARE @table_id_hop_dong_full TABLE (ID_HOP_DONG DECIMAL)
+				DECLARE @table_id_hop_dong_distinct TABLE (ID_HD DECIMAL)
+				-- Đây là bước chuẩn hóa lại dữ liệu
+				-- Nếu string dữ liệu đưa vào mà ký tự đầu tiên là dấu ',' thì loại bỏ nó đi
+				IF LEFT(@ID_CAC_CONG_VIEC, 1) = ',' 
+					SET @ID_CAC_CONG_VIEC = RIGHT(@ID_CAC_CONG_VIEC, LEN(@ID_CAC_CONG_VIEC) - 1)        			
+				-- Nếu ký tự cuối cùng ko phải là , thì phải thêm ký tự đó vào
+				IF NOT RIGHT(@ID_CAC_CONG_VIEC, 1) = ',' 
+					SET @ID_CAC_CONG_VIEC = @ID_CAC_CONG_VIEC + ','        
+				-- Lấy vị trí đầu tiên có dấu ,
+				SET @v_i_pos = PATINDEX('%,%', @ID_CAC_CONG_VIEC)
+					-- Thực hiện công việc cho đến khi nào ko còn dấu phảy nữa
+					WHILE @v_i_pos > 0        
+			     		BEGIN        
+			     			-- Nếu giá trị đc cắt có giá trị khác trống
+			      			IF NOT SUBSTRING(@ID_CAC_CONG_VIEC, 1, @v_i_pos - 1) = ''        
+				      		BEGIN        
+							SET @v_str_id_cong_viec = SUBSTRING(@ID_CAC_CONG_VIEC, 1, @v_i_pos - 1) -- Cái này chứa từng ID công việc được chọn   
+							-- Cắt bỏ phần ID vừa đc lấy ra khỏi chuỗi iD công việc ban đầu
+							SET @ID_CAC_CONG_VIEC = SUBSTRING(@ID_CAC_CONG_VIEC, @v_i_pos + 1, LEN(@ID_CAC_CONG_VIEC) - @v_i_pos)      
+							-- Chuyển đổi định dạng ID từ nvarchar sang decimal
+							SET @v_dc_id_cong_viec = CONVERT(NUMERIC,@v_str_id_cong_viec)
+								-- Lấy đc id hd và cho vào table tạm
+								INSERT INTO @table_id_hop_dong_full(ID_HOP_DONG)
+								(SELECT ggcvm.ID_HOP_DONG_KHUNG
+									FROM GD_GV_CONG_VIEC_MOI ggcvm
+									WHERE ggcvm.ID = @v_dc_id_cong_viec)
+							
+							-- Lấy lại vị trí của dấu phảy mới, bắt đầu 1 vòng While mới
+							SET @v_i_pos = PATINDEX('%,%', @ID_CAC_CONG_VIEC)							
+				      		END
+			     		END
+			     -- Lấy ra disticntc các id hop dong
+			     INSERT INTO @table_id_hop_dong_distinct(ID_HD)
+			     (SELECT DISTINCT ID_HOP_DONG
+			        from @table_id_hop_dong_full)
+			-- Hết phần lấy được các hợp đồng của tất cả các việc
+			
+			-- Bắt đầu phần 2: Cắt các ID hd và cho vào tring
+			DECLARE @v_id_hdong DECIMAL
+			DECLARE v_cur_id_hop_dong CURSOR FOR 
+			 (SELECT ID_HD FROM @table_id_hop_dong_distinct)
+			 
+			 OPEN v_cur_id_hop_dong
+			 FETCH NEXT FROM v_cur_id_hop_dong INTO @v_id_hdong
+			 WHILE @@FETCH_STATUS =0
+			 BEGIN
+			 	 SET @v_str_id_cac_hop_dong = @v_str_id_cac_hop_dong + CONVERT(VARCHAR,@v_id_hdong) + ','
+			 	 FETCH NEXT FROM v_cur_id_hop_dong INTO @v_id_hdong
+			 END
+			 CLOSE v_cur_id_hop_dong
+			 DEALLOCATE v_cur_id_hop_dong
+			END
+	RETURN @v_str_id_cac_hop_dong
+END
+
+GO
+
+CREATE PROCEDURE [dbo].[pr_V_GD_GV_CONG_VIEC_MOI_Chuyen_Qua_Thanh_Toan]  
+	 @ID_CAC_CONG_VIEC VARCHAR(1000),    
+	 @ID_DOT_THANH_TOAN DECIMAL,
+	 @USER_LAP_THANH_TOAN NVARCHAR(50)
+AS   
+ 	BEGIN TRANSACTION ChuyenThanhToanCongViecGVDM     
+ 	-- 1 Tách hợp đồng ra. Mỗi HĐ sẽ tạo ra 1 thanh toán
+ 	-- 2 Chèn các thanh toán detail vào, với id_gd_thanh_toan được lấy dựa vào số phiếu thanh toán và HĐ khung
+ 	
+ 	-- Lấy các id HĐ và cho vào 1 string
+ 	DECLARE @v_str_id_hdong VARCHAR(1000)
+ 	DECLARE @v_str_dc_id_hop_dong_ban_dau VARCHAR(1000)
+ 	SET @v_str_id_hdong = dbo.f_get_id_hop_dong_distict_id_cong_viec(@ID_CAC_CONG_VIEC)
+ 	SET @v_str_dc_id_hop_dong_ban_dau = @v_str_id_hdong
+ 	-- Vùng lấy thông tin cơ bản của thanh toán (đợt thanh toán,..)
+ 	DECLARE @v_str_so_phieu_thanh_toan NVARCHAR(200)
+ 	DECLARE @v_dat_ngay_thanh_toan DATETIME
+ 	DECLARE @v_dc_id_trang_thai_thanh_toan DECIMAL
+ 	DECLARE @v_dc_id_trang_thai_cong_viec_da_chuyen_tt DECIMAL
+ 	SET @v_dc_id_trang_thai_cong_viec_da_chuyen_tt = (SELECT cdtd.ID
+ 	                                                    FROM CM_DM_TU_DIEN cdtd 
+ 	                                     WHERE cdtd.ID_LOAI_TU_DIEN = 21 
+ 	                                     AND cdtd.MA_TU_DIEN LIKE '%DA_CHUYEN_THANH_TOAN%')
+ 	
+ 	SET @v_str_so_phieu_thanh_toan = (SELECT ddtt.MA_DOT_TT
+ 	                                    FROM DM_DOT_THANH_TOAN ddtt 
+ 	                                  WHERE ddtt.ID = @ID_DOT_THANH_TOAN)
+ 	SET @v_dat_ngay_thanh_toan = (SELECT ddtt.NGAY_TT_DU_KIEN
+ 	                                FROM DM_DOT_THANH_TOAN ddtt 
+ 	                              WHERE ddtt.ID = @ID_DOT_THANH_TOAN)
+ 	SET @v_dc_id_trang_thai_thanh_toan = (SELECT cdtd.ID
+ 	                                        FROM CM_DM_TU_DIEN cdtd 
+ 	                                      WHERE cdtd.ID_LOAI_TU_DIEN = 15 
+ 										AND cdtd.MA_TU_DIEN LIKE '%DA_LEN_BANG_KE%')
+ 	
+ 	-- Bước 1: Tách các hợp đồng và chèn vào các thanh toán
+ 	IF @v_str_id_hdong <>''   
+			BEGIN
+				DECLARE @v_i_pos_hd  INT      
+				DECLARE @v_str_id_hd VARCHAR(10)
+				DECLARE @v_dc_id_hd DECIMAL   
+				-- Đây là bước chuẩn hóa lại dữ liệu
+				-- Nếu string dữ liệu đưa vào mà ký tự đầu tiên là dấu ',' thì loại bỏ nó đi
+				IF LEFT(@v_str_id_hdong, 1) = ',' 
+					SET @v_str_id_hdong = RIGHT(@v_str_id_hdong, LEN(@v_str_id_hdong) - 1)        			
+				-- Nếu ký tự cuối cùng ko phải là , thì phải thêm ký tự đó vào
+				IF NOT RIGHT(@v_str_id_hdong, 1) = ',' 
+					SET @v_str_id_hdong = @v_str_id_hdong + ','        
+				-- Lấy vị trí đầu tiên có dấu ,
+				SET @v_i_pos_hd = PATINDEX('%,%', @v_str_id_hdong)
+					-- Thực hiện công việc cho đến khi nào ko còn dấu phảy nữa
+					WHILE @v_i_pos_hd > 0        
+			     		BEGIN        
+			     			-- Nếu giá trị đc cắt có giá trị khác trống
+			      			IF NOT SUBSTRING(@v_str_id_hdong, 1, @v_i_pos_hd - 1) = ''        
+				      		BEGIN        
+							SET @v_str_id_hd = SUBSTRING(@v_str_id_hdong, 1, @v_i_pos_hd - 1) -- Cái này chứa từng ID hợp đồng
+							-- Cắt bỏ phần ID vừa đc lấy ra khỏi chuỗi iD HĐ ban đầu
+							SET @v_str_id_hdong = SUBSTRING(@v_str_id_hdong, @v_i_pos_hd + 1, LEN(@v_str_id_hdong) - @v_i_pos_hd)      
+							-- Chuyển đổi định dạng ID từ nvarchar sang decimal
+							SET @v_dc_id_hd = CONVERT(NUMERIC,@v_str_id_hd)
+							
+							-- kiểm tra lại xem HĐGVCM này đã được thanh toán trong đợt này chưa
+							SELECT * FROM GD_THANH_TOAN gtt 
+							WHERE gtt.SO_PHIEU_THANH_TOAN = @v_str_so_phieu_thanh_toan 
+								AND gtt.ID_HOP_DONG_KHUNG = @v_dc_id_hd
+								AND gtt.REFERENCE_CODE = @v_str_id_hdong
+							-- Nếu chưa được thanh toán trong đợt này thì thực hiện thêm thanh toán
+							IF @@RowCount = 0 
+								BEGIN
+									-- thì chèn 1 dòng vào thanh toán cho HĐ này
+									INSERT INTO GD_THANH_TOAN
+									(
+										SO_PHIEU_THANH_TOAN,
+										ID_HOP_DONG_KHUNG,
+										NGAY_THANH_TOAN,
+										[DESCRIPTION],
+										TONG_TIEN_THANH_TOAN,
+										SO_TIEN_THUE,
+										TONG_TIEN_THUC_NHAN,
+										REFERENCE_CODE,
+										ID_TRANG_THAI_THANH_TOAN,
+										PO_LAP_THANH_TOAN,
+										GHI_CHU_CAC_MON_PHU_TRACH,
+										GHI_CHU_THOI_GIAN_LOP_MON,
+										GHI_CHU_HE_SO_DON_GIA,
+										GHI_CHU_4,
+										GHI_CHU_5
+									)
+									VALUES
+									(
+										/* SO_PHIEU_THANH_TOAN	*/@v_str_so_phieu_thanh_toan,
+										/* ID_HOP_DONG_KHUNG	*/@v_dc_id_hd,
+										/* NGAY_THANH_TOAN	*/@v_dat_ngay_thanh_toan,
+										/* [DESCRIPTION]	*/'',
+										/* TONG_TIEN_THANH_TOAN	*/0,
+										/* SO_TIEN_THUE	*/0,
+										/* TONG_TIEN_THUC_NHAN	*/0,
+										/* REFERENCE_CODE	*/@v_str_id_hd,
+										-- nếu mà thanh toán nào có id hop dong khung va so phieu thanh toan
+										-- trung nhau thi do la cua gvcm (cong viec moi)
+										/* ID_TRANG_THAI_THANH_TOAN	*/@v_dc_id_trang_thai_thanh_toan,
+										/* PO_LAP_THANH_TOAN	*/@USER_LAP_THANH_TOAN,
+										/* GHI_CHU_CAC_MON_PHU_TRACH	*/'',
+										/* GHI_CHU_THOI_GIAN_LOP_MON	*/'',
+										/* GHI_CHU_HE_SO_DON_GIA	*/0,
+										/* GHI_CHU_4	*/'',
+										/* GHI_CHU_5	*/''
+									)
+								END
+							SET @v_i_pos_hd = PATINDEX('%,%', @v_str_id_hdong) -- Lấy lại vị trí của dấu phảy mới, bắt đầu 1 vòng While mới
+				      		END
+		          END			
+ 	
+ 	-- Bước 2: Tách các id công việc và chèn vào các thanh toán detail
+ 	-- id_gd_thanh_toan dc lay dua vao id hop dong khung va so phieu thanh toan
+		IF @ID_CAC_CONG_VIEC <>''   
+			BEGIN
+				DECLARE @v_i_pos  INT      
+				DECLARE @v_str_id_cong_viec VARCHAR(10)
+				DECLARE @v_dc_id_cong_viec DECIMAL   
+				DECLARE @v_dc_id_gd_thanh_toan DECIMAL
+				DECLARE @v_dc_id_hop_dong_cua_cv DECIMAL
+				DECLARE @v_str_id_hop_dong_cua_cv VARCHAR(10)
+				DECLARE @v_dc_id_noi_dung_tt DECIMAL
+				DECLARE @v_dc_so_luong_he_so NUMERIC(18,3)
+				DECLARE @v_dc_don_gia NUMERIC(18,3)
+				-- Đây là bước chuẩn hóa lại dữ liệu
+				-- Nếu string dữ liệu đưa vào mà ký tự đầu tiên là dấu ',' thì loại bỏ nó đi
+				IF LEFT(@ID_CAC_CONG_VIEC, 1) = ',' 
+					SET @ID_CAC_CONG_VIEC = RIGHT(@ID_CAC_CONG_VIEC, LEN(@ID_CAC_CONG_VIEC) - 1)        			
+				-- Nếu ký tự cuối cùng ko phải là , thì phải thêm ký tự đó vào
+				IF NOT RIGHT(@ID_CAC_CONG_VIEC, 1) = ',' 
+					SET @ID_CAC_CONG_VIEC = @ID_CAC_CONG_VIEC + ','        
+				-- Lấy vị trí đầu tiên có dấu ,
+				SET @v_i_pos = PATINDEX('%,%', @ID_CAC_CONG_VIEC)
+					-- Thực hiện công việc cho đến khi nào ko còn dấu phảy nữa
+					WHILE @v_i_pos > 0        
+			     		BEGIN        
+			     			-- Nếu giá trị đc cắt có giá trị khác trống
+			      			IF NOT SUBSTRING(@ID_CAC_CONG_VIEC, 1, @v_i_pos - 1) = ''        
+				      		BEGIN        
+							SET @v_str_id_cong_viec = SUBSTRING(@ID_CAC_CONG_VIEC, 1, @v_i_pos - 1) -- Cái này chứa từng ID công việc được chọn   
+							-- Cắt bỏ phần ID vừa đc lấy ra khỏi chuỗi iD công việc ban đầu
+							SET @ID_CAC_CONG_VIEC = SUBSTRING(@ID_CAC_CONG_VIEC, @v_i_pos + 1, LEN(@ID_CAC_CONG_VIEC) - @v_i_pos)      
+							-- Chuyển đổi định dạng ID từ nvarchar sang decimal
+							SET @v_dc_id_cong_viec = CONVERT(NUMERIC,@v_str_id_cong_viec)
+							-- kiểm tra lại xem công việc này đã được chuyển qua thanh toán chưa
+							-- cái này chèn vào reference code trong thanh toán detail, có thêm tiền tố cv_
+							SET @v_str_id_cong_viec = 'cv_' + @v_str_id_cong_viec 
+							SELECT * FROM GD_THANH_TOAN_DETAIL gttd 
+							WHERE gttd.REFERENCE_CODE = @v_str_id_cong_viec
+							-- Nếu chưa được chuyển qua thanh toán thì thực hiện
+							IF @@RowCount = 0
+								BEGIN
+									-- Lấy đc id hd
+									SET @v_dc_id_hop_dong_cua_cv = (SELECT ggcvm.ID_HOP_DONG_KHUNG
+									                                  FROM GD_GV_CONG_VIEC_MOI ggcvm
+									                                WHERE ggcvm.ID = @v_dc_id_cong_viec)
+									SET @v_dc_id_noi_dung_tt = (SELECT ggcvm.ID_NOI_DUNG_TT
+									                                  FROM GD_GV_CONG_VIEC_MOI ggcvm
+									                                WHERE ggcvm.ID = @v_dc_id_cong_viec)
+									SET @v_dc_so_luong_he_so = (SELECT ggcvm.SO_LUONG_NGHIEM_THU
+									                                  FROM GD_GV_CONG_VIEC_MOI ggcvm
+									                                WHERE ggcvm.ID = @v_dc_id_cong_viec)
+									SET @v_dc_don_gia = (SELECT ggcvm.DON_GIA
+									                                  FROM GD_GV_CONG_VIEC_MOI ggcvm
+									                                WHERE ggcvm.ID = @v_dc_id_cong_viec)	                                
+								  -- Lấy id_gd_thanh_toann dựa vào ID HĐ và so phieu thanh toán
+									SET @v_str_id_hop_dong_cua_cv = CONVERT(VARCHAR,@v_dc_id_hop_dong_cua_cv)
+									SET @v_dc_id_gd_thanh_toan = (SELECT gtt.ID
+									                                FROM GD_THANH_TOAN gtt
+									                              WHERE gtt.SO_PHIEU_THANH_TOAN = @v_str_so_phieu_thanh_toan
+								                              AND gtt.ID_HOP_DONG_KHUNG = @v_dc_id_hop_dong_cua_cv
+															  AND gtt.REFERENCE_CODE = @v_str_id_hop_dong_cua_cv)
+								   -- Nếu có thanh toán đó thì chèn vào thanh toán detail
+								   IF(@v_dc_id_gd_thanh_toan IS NOT NULL)
+								   BEGIN
+								   -- Chèn vào thanh toán detail
+								    INSERT INTO GD_THANH_TOAN_DETAIL
+								    (
+								    	ID_GD_THANH_TOAN,
+								    	[DESCRIPTION],
+								    	ID_NOI_DUNG_THANH_TOAN,
+								    	REFERENCE_CODE,
+								    	SO_LUONG_HE_SO,
+								    	DON_GIA_TT
+								    )
+								    VALUES
+								    (
+								    	/* ID_GD_THANH_TOAN	*/@v_dc_id_gd_thanh_toan,
+								    	/* [DESCRIPTION]	*/'',
+								    	/* ID_NOI_DUNG_THANH_TOAN	*/@v_dc_id_noi_dung_tt,
+								    	/* REFERENCE_CODE	*/@v_str_id_cong_viec,
+								    	/* SO_LUONG_HE_SO	*/@v_dc_so_luong_he_so,
+								    	/* DON_GIA_TT	*/@v_dc_don_gia
+								    )
+								-- Thay đổi trạng thái của công việc thành đã chuyển qua thanh toán
+								UPDATE GD_GV_CONG_VIEC_MOI
+								SET ID_TRANG_THAI = @v_dc_id_trang_thai_cong_viec_da_chuyen_tt
+								WHERE ID = @v_dc_id_cong_viec
+								END
+							  END
+							SET @v_i_pos = PATINDEX('%,%', @ID_CAC_CONG_VIEC) -- Lấy lại vị trí của dấu phảy mới, bắt đầu 1 vòng While mới
+				      		END
+		          		END
+			END
+		-- Kết thúc phần chèn các công việc con vào thanh toán detail
+		
+		-- Bước 3: Cập nhật lại số tiền thanh toán trong bảng thanh toán 
+			IF @v_str_dc_id_hop_dong_ban_dau <>''   
+			BEGIN
+				DECLARE @v_i_posi_hd  INT      
+				DECLARE @v_strn_id_hd VARCHAR(10)
+				DECLARE @v_dci_id_hd DECIMAL  
+				
+				DECLARE @v_dc_so_tien_tt NUMERIC(18,2)
+				DECLARE @v_dc_so_tien_thue NUMERIC(18,2)
+				DECLARE @v_dc_so_tien_thuc_nhan NUMERIC(18,2)
+				
+				-- Đây là bước chuẩn hóa lại dữ liệu
+				-- Nếu string dữ liệu đưa vào mà ký tự đầu tiên là dấu ',' thì loại bỏ nó đi
+				IF LEFT(@v_str_dc_id_hop_dong_ban_dau, 1) = ',' 
+					SET @v_str_dc_id_hop_dong_ban_dau = RIGHT(@v_str_dc_id_hop_dong_ban_dau, LEN(@v_str_dc_id_hop_dong_ban_dau) - 1)        			
+				-- Nếu ký tự cuối cùng ko phải là , thì phải thêm ký tự đó vào
+				IF NOT RIGHT(@v_str_dc_id_hop_dong_ban_dau, 1) = ',' 
+					SET @v_str_dc_id_hop_dong_ban_dau = @v_str_dc_id_hop_dong_ban_dau + ','        
+				-- Lấy vị trí đầu tiên có dấu ,
+				SET @v_i_posi_hd = PATINDEX('%,%', @v_str_dc_id_hop_dong_ban_dau)
+					-- Thực hiện công việc cho đến khi nào ko còn dấu phảy nữa
+					WHILE @v_i_posi_hd > 0        
+			     		BEGIN        
+			     			-- Nếu giá trị đc cắt có giá trị khác trống
+			      			IF NOT SUBSTRING(@v_str_dc_id_hop_dong_ban_dau, 1, @v_i_posi_hd - 1) = ''        
+				      		BEGIN        
+							SET @v_strn_id_hd = SUBSTRING(@v_str_dc_id_hop_dong_ban_dau, 1, @v_i_posi_hd - 1) -- Cái này chứa từng ID hợp đồng
+							-- Cắt bỏ phần ID vừa đc lấy ra khỏi chuỗi iD HĐ ban đầu
+							SET @v_str_dc_id_hop_dong_ban_dau = SUBSTRING(@v_str_dc_id_hop_dong_ban_dau, @v_i_posi_hd + 1, LEN(@v_str_dc_id_hop_dong_ban_dau) - @v_i_posi_hd)      
+							-- Chuyển đổi định dạng ID từ nvarchar sang decimal
+							SET @v_dci_id_hd = CONVERT(NUMERIC,@v_strn_id_hd)
+							DECLARE @v_dc_id_giao_dich_ttoan DECIMAL
+							SET @v_dc_id_giao_dich_ttoan =(SELECT gtt.ID
+							                                 FROM GD_THANH_TOAN gtt 
+											WHERE gtt.SO_PHIEU_THANH_TOAN = @v_str_so_phieu_thanh_toan 
+											AND gtt.ID_HOP_DONG_KHUNG = @v_dci_id_hd
+											AND gtt.REFERENCE_CODE = @v_strn_id_hd)	
+							IF(@v_dc_id_giao_dich_ttoan IS NOT NULL)
+							BEGIN
+								SET @v_dc_so_tien_tt = (SELECT SUM(gttd.SO_LUONG_HE_SO * gttd.DON_GIA_TT)
+														  FROM GD_THANH_TOAN_DETAIL gttd 
+														GROUP BY gttd.ID_GD_THANH_TOAN
+														HAVING gttd.ID_GD_THANH_TOAN = @v_dc_id_giao_dich_ttoan)
+								IF(@v_dc_so_tien_tt >=1000000) SET @v_dc_so_tien_thue = (@v_dc_so_tien_tt /10)
+								ELSE SET @v_dc_so_tien_thue = 0
+								SET @v_dc_so_tien_thuc_nhan = @v_dc_so_tien_tt - @v_dc_so_tien_thue
+								UPDATE GD_THANH_TOAN
+								SET
+									TONG_TIEN_THANH_TOAN = @v_dc_so_tien_tt,
+									SO_TIEN_THUE = @v_dc_so_tien_thue,
+									TONG_TIEN_THUC_NHAN = @v_dc_so_tien_thuc_nhan
+								WHERE ID = @v_dc_id_giao_dich_ttoan	
+							END	
+							
+							SET @v_i_posi_hd = PATINDEX('%,%', @v_str_dc_id_hop_dong_ban_dau) -- Lấy lại vị trí của dấu phảy mới, bắt đầu 1 vòng While mới
+				      		END
+			     		END
+			     	END
+	  END
+	IF @@ERROR > 0 ROLLBACK TRANSACTION ChuyenThanhToanCongViecGVDM
+ 	ELSE COMMIT TRANSACTION ChuyenThanhToanCongViecGVDM
