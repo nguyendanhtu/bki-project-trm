@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CConstantValues.cs" />
+    <Compile Include="CHelperCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="US_DM_DON_VI_THANH_TOAN.cs" />
     <Compile Include="US_DM_HOP_DONG_KHUNG.cs" />
