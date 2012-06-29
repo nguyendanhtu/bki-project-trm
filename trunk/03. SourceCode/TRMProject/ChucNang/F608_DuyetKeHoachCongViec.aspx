@@ -238,9 +238,9 @@
 		<td align="center" colspan="2" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
-                Width="100%" DataKeyNames="ID" 
+                Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
-                AllowPaging="True" AllowSorting="True" PageSize="20" 
+                AllowPaging="True" AllowSorting="True" PageSize="30" 
                 
                 onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
                 onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
@@ -283,9 +283,19 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     
-                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
-                    <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
-                    <asp:BoundField HeaderText="Ngày đặt hàng" DataField="NGAY_DAT_HANG" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
+                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" 
+                    DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" FooterText="Tổng tiền: "
+                    DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
+                    <asp:TemplateField HeaderText="Tổng số tiền">
+                        <FooterStyle HorizontalAlign="Right"/>
+                        <ItemTemplate>
+                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_HE_SO")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right"/>
+                    </asp:TemplateField>
+                    <asp:BoundField HeaderText="Ngày đặt hàng" DataField="NGAY_DAT_HANG" 
+                    DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" ItemStyle-HorizontalAlign="Center"/>
                      <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
                             <%# Eval("TEN_TRANG_THAI")%>
@@ -294,7 +304,7 @@
                     <asp:BoundField HeaderText="Ghi chú" DataField="GHI_CHU" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White"  />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerSettings Position="TopAndBottom" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
