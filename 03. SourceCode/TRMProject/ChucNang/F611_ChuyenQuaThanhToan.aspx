@@ -161,7 +161,7 @@
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
-                AllowPaging="True" AllowSorting="True" PageSize="20" 
+                AllowPaging="True" AllowSorting="True" PageSize="30" 
                 
                 onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
                 onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">

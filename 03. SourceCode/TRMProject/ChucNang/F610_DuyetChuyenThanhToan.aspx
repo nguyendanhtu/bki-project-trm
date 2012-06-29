@@ -71,6 +71,10 @@
             <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Duyệt chuyển" CausesValidation="false"
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:button id="m_cmd_xuat_excel" accessKey="u" CssClass="cssButton" Visible="false"
+                runat="server" Width="98px" Height="25px"  Text="Xuất Excel" 
+                CausesValidation="false" OnClick="m_cmd_xuat_excel_Click"/>
         </td>
                <td> <asp:button id="m_cmd_huy_chuyen_duyet_thanh_toan" accessKey="u" 
                        CssClass="cssButton" Visible="false"
