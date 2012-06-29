@@ -220,6 +220,12 @@
                 PageSize="30" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                 <asp:TemplateField HeaderText="Xem chi Tiết">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Xem chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                     NavigateUrl='<%# "/TRMProject/CongTTGV/F1723_ChiTietThanhToanGV.aspx?id_gdtt="+Eval("ID")+"&id_dtt="+Eval("ID_DOT_THANH_TOAN") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                         <ItemStyle Width="2%" />
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="1%"></ItemStyle>
