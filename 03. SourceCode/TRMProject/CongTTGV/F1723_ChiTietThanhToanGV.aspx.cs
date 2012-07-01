@@ -282,12 +282,12 @@ public partial class CongTTGV_F1723_ChiTietThanhToanGV : System.Web.UI.Page
             {
                 //Lấy ID GD_THANH_TOAN
                 m_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(Request.QueryString["id_dtt"]);
-                Response.Redirect("/TRMProject/ChucNang/F1721_ThanhToanGVTheoDot.aspx?id_dtt=" + m_dc_id_dot_thanh_toan.ToString(), false);
+                Response.Redirect("/TRMProject/CongTTGV/F1721_ThanhToanGVTheoDot.aspx?id_dtt=" + m_dc_id_dot_thanh_toan.ToString(), false);
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
             }
             else
             {
-                Response.Redirect("/TRMProject/ChucNang/F1721_ThanhToanGVTheoDot.aspx", false);
+                Response.Redirect("/TRMProject/CongTTGV/F1721_ThanhToanGVTheoDot.aspx", false);
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
             }
         }
