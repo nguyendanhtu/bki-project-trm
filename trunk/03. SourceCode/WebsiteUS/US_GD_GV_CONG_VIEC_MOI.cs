@@ -316,6 +316,14 @@ namespace WebUS
             v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
             v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
         }
+        public void kiem_tra_unique_cong_viec(DS_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi,decimal ip_dc_id_hd_khung, decimal ip_dc_id_noi_dung_tt, DateTime ip_dat_ngay_dat_hang)
+        {
+            CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Check_Unique_Cong_Viec");
+            v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_id_hd_khung);
+            v_cstore.addDecimalInputParam("@ID_NOI_DUNG_TT", ip_dc_id_noi_dung_tt);
+            v_cstore.addDatetimeInputParam("@NGAY_DAT_HANG", ip_dat_ngay_dat_hang);
+            v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+        }
         #endregion
     }
 }

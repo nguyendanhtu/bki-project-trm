@@ -86,6 +86,11 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
                     </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="req_vali4" runat="server" 
+                            ControlToValidate="m_dat_ngay_bat_dau" CssClass="cssManField" 
+                            ErrorMessage="Bạn phải nhập ngày đặt hàng" Text="*"> </asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td align="right" style="width:12%;">

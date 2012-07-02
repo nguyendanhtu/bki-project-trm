@@ -231,13 +231,13 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         strTable += "\n</tr>";
         // Đoạn thuế thu nhập cá nhân
         strTable += "\n<tr>";
-        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
+        strTable += "\n<td rowspan='3' class='cssTitleReport' nowrap='nowrap'></td>";
         strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>Thuế TNCN khấu trừ tại nguồn (10%)</span></td>";
         strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + CIPConvert.ToStr(v_dc_so_tien_thue, "#,###") + "</span></td>"; // Số tiền thuế
         strTable += "\n</tr>";
         //Giá trị thực nhận
         strTable += "\n<tr>";
-        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
+        //strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
         strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>Giá trị thực nhận</span></td>";
         strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + CIPConvert.ToStr(v_dc_tong_tien - v_dc_so_tien_thue, "#,###") + "</span></td>";
         strTable += "\n</tr>";
@@ -245,7 +245,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         string v_str_so_tien_bang_chu = "Bằng chữ: ";
         v_str_so_tien_bang_chu += CHelperCore.ToString(v_dc_tong_tien - v_dc_so_tien_thue);
         strTable += "\n<tr>";
-        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
+        //strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
         strTable += "\n<td colspan='5' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman; font-style:italic;font-size:1.0em'>" + v_str_so_tien_bang_chu + "</span></td>";
         strTable += "\n</tr>";
     }
@@ -357,6 +357,20 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
     {
         try
         {
+            if (m_cbo_ten_giang_vien_loc.SelectedValue.Equals("0"))
+            {
+                m_lbl_thong_bao_chon_giang_vien.Text = "Bạn chưa chọn giảng viên để xuất báo cáo!";
+                return;
+            }
+            else m_lbl_thong_bao_chon_giang_vien.Text = "";
+            if (!m_cbo_trang_thai_cv_loc.SelectedValue.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)))
+            {
+                m_lbl_thong_bao_chon_trang_thai.Text = "Hãy chon trạng thái Đã duyệt chuyển thanh toán!";
+                //m_cbo_trang_thai_cv_loc.SelectedValue = CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN);
+                return;
+            }
+            else m_lbl_thong_bao_chon_trang_thai.Text = "";
+
             string html = loadExport();
             string strNamFile = "PSP444_BaoCaoXacNhanThuLaoChuyenMon" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
             Response.Cache.SetExpires(DateTime.Now.AddSeconds(1));
@@ -399,8 +413,14 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
     {
         try
         {
+            if (m_cbo_ten_giang_vien_loc.SelectedValue.Equals("0"))
+            {
+                m_lbl_thong_bao_chon_giang_vien.Text = "Bạn chưa chọn giảng viên để xuất báo cáo!";
+                return;
+            }
+            else m_lbl_thong_bao_chon_giang_vien.Text = "";
             load_data_2_cbo_hop_dong_loc();
-            visible_xuat_excel_button();
+            //visible_xuat_excel_button();
             visible_huy_duyet_button();
             load_data_2_grv();
         }
@@ -431,7 +451,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
                     m_cmd_huy_chuyen_duyet_thanh_toan.Visible = true;
             }
             else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;
-            visible_xuat_excel_button();
+            //visible_xuat_excel_button();
             visible_huy_duyet_button();
             load_data_2_grv();
         }
@@ -468,7 +488,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
                 m_lbl_thong_bao_sau_cap_nhat.Text = "Đã duyệt chuyển thanh toán các công việc thành công!";
                 m_cbo_trang_thai_cv_loc.SelectedValue = CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN);
                 m_cmd_huy_chuyen_duyet_thanh_toan.Visible = true;
-                visible_xuat_excel_button();
+                //visible_xuat_excel_button();
                 load_data_2_grv();
             }
             // Nếu ko

@@ -125,6 +125,9 @@
                         CssClass="cssDorpdownlist" Width="80%" AutoPostBack="true"
                         onselectedindexchanged="m_cbo_noi_dung_thanh_toan_SelectedIndexChanged">
                     </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;
+			<asp:label id="m_lbl_thong_bao_cong_viec" CssClass="cssManField" runat="server" 
+                Text="" />
                     </td>
             </tr>
             <tr>
