@@ -460,6 +460,13 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addNVarcharInputParam("@ID_CAC_CONG_VIEC", ip_str_id_cac_cong_viec);
         v_cstore.ExecuteCommand(this);
     }
+    public void lay_cong_viec_de_nghiem_thu(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi,decimal ip_dc_id_hop_dong_khung, decimal ip_dc_id_noi_dung_tt)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Lay_Cong_Viec_De_Nghiem_Thu");
+        v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_id_hop_dong_khung);
+        v_cstore.addDecimalInputParam("@ID_NOI_DUNG_TT", ip_dc_id_noi_dung_tt);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
     public void loc_du_lieu_giang_vien_cong_viec_moi_all_gv(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien, decimal ip_dc_hop_dong_khung, decimal ip_dc_trang_thai)
     {
         CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Loc_Duyet_Ke_Hoach_all_gv");

@@ -42,6 +42,9 @@
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
                     </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <asp:label id="m_lbl_thong_bao_chon_giang_vien" runat="server" 
+                CssClass="cssManField" />
                     </td>
     </tr>
     <tr>
@@ -64,6 +67,9 @@
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
                     </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="m_lbl_thong_bao_chon_trang_thai" runat="server" 
+                CssClass="cssManField" />
                     </td>
             </tr>
 	<tr>
@@ -72,7 +78,7 @@
                 runat="server" Width="98px" Height="25px"  Text="Duyệt chuyển" CausesValidation="false"
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:button id="m_cmd_xuat_excel" accessKey="u" CssClass="cssButton" Visible="false"
+            <asp:button id="m_cmd_xuat_excel" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Xuất Excel" 
                 CausesValidation="false" OnClick="m_cmd_xuat_excel_Click"/>
         </td>
@@ -88,7 +94,7 @@
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
-                AllowPaging="True" AllowSorting="True" PageSize="30" 
+                AllowPaging="True" AllowSorting="True" PageSize="35" 
                 
                 onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging" 
                 onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
