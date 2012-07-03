@@ -181,28 +181,32 @@ namespace WebUS
             pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
         }
         #endregion
+
+        #region Additional Functions
         public void fill_data_by_search(decimal i_dc_id_giang_vien,
-                                 decimal i_dc_id_don_vi_tt,
-                                 string i_str_bat_dau_tu,
-                                 string i_str_ket_thuc_tu,
-                                 decimal i_dc_id_trang_thai,
-                                  DS_DM_HO_SO_GIANG_VIEN i_ds)
+                                decimal i_dc_id_don_vi_tt,
+                                string i_str_bat_dau_tu,
+                                string i_str_ket_thuc_tu,
+                                decimal i_dc_id_trang_thai,
+                                 DS_DM_HO_SO_GIANG_VIEN i_ds)
         {
-            try
-            {
-                CStoredProc v_object = new CStoredProc("pr_DM_HO_SO_GIANG_VIEN_Fill_By_Search");
-                v_object.addDecimalInputParam("@ip_id_giang_vien", i_dc_id_giang_vien);
-                v_object.addDecimalInputParam("@ip_id_don_vi_tt", i_dc_id_don_vi_tt);
-                v_object.addDecimalInputParam("@ip_id_trang_thai", i_dc_id_trang_thai);
-                v_object.addDatetimeInputParam("@ip_ngay_bat_dau_tu", CIPConvert.ToDatetime(i_str_bat_dau_tu, "dd/MM/yyyy"));
-                v_object.addDatetimeInputParam("@ip_ngay_ket_thuc_tu", CIPConvert.ToDatetime(i_str_ket_thuc_tu, "dd/MM/yyyy"));
-                v_object.fillDataSetByCommand(this, i_ds);
-            }
-            catch (Exception v_e)
-            {
-                throw v_e;
-            }
+            CStoredProc v_object = new CStoredProc("pr_DM_HO_SO_GIANG_VIEN_Fill_By_Search");
+            v_object.addDecimalInputParam("@ip_id_giang_vien", i_dc_id_giang_vien);
+            v_object.addDecimalInputParam("@ip_id_don_vi_tt", i_dc_id_don_vi_tt);
+            v_object.addDecimalInputParam("@ip_id_trang_thai", i_dc_id_trang_thai);
+            v_object.addDatetimeInputParam("@ip_ngay_bat_dau_tu", CIPConvert.ToDatetime(i_str_bat_dau_tu, "dd/MM/yyyy"));
+            v_object.addDatetimeInputParam("@ip_ngay_ket_thuc_tu", CIPConvert.ToDatetime(i_str_ket_thuc_tu, "dd/MM/yyyy"));
+            v_object.fillDataSetByCommand(this, i_ds);
         }
 
+        public void check_trung_ma_du_an(DS_DM_HO_SO_GIANG_VIEN ip_ds_dm_hs_gv, decimal ip_id_giang_vien, decimal ip_id_dv_tt)
+        {
+            CStoredProc v_cstore = new CStoredProc("pr_DM_HO_SO_GIANG_VIEN_check_trung");
+            v_cstore.addNVarcharInputParam("@id_giang_vien", ip_id_giang_vien);
+            v_cstore.addNVarcharInputParam("@id_don_vi_thanh_toan", ip_id_dv_tt);
+            v_cstore.fillDataSetByCommand(this, ip_ds_dm_hs_gv);
+        }
+        #endregion
+       
     }
 }
