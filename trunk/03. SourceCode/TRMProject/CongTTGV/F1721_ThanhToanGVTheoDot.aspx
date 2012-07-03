@@ -214,7 +214,7 @@
 		    &nbsp;
        <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" ShowFooter="True"
-                Width="150%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
                 PageSize="30" >
@@ -293,7 +293,7 @@
                           <FooterTemplate>
                              <%#string.Format("{0:N0}", get_tong_tien_dot_TT()) %>
                          </FooterTemplate>
-                       <ItemTemplate><%# Eval("TONG_TIEN_THANH_TOAN") %></ItemTemplate>
+                       <ItemTemplate><%# mapping_so_tien(Eval("TONG_TIEN_THANH_TOAN"))%></ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" 
                         HeaderText="Số tiền còn phải thanh toán" FooterText="Thuế:">

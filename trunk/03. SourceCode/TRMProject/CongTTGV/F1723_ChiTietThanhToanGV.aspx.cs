@@ -48,11 +48,14 @@ public partial class CongTTGV_F1723_ChiTietThanhToanGV : System.Web.UI.Page
         {
             m_us_v_gd_thanh_toan_detail.FillDataset(m_ds_v_gd_thanh_toan_detail, " WHERE ID_GD_THANH_TOAN= " + ip_dc_id_thanh_toan);
 
-            if (m_ds_v_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows.Count == 0)
+            if (m_ds_v_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows.Count > 0)
             {
                 // Load to grid                
                 m_grv_gd_thanh_toan_detail.DataSource = m_ds_v_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL;
                 m_grv_gd_thanh_toan_detail.DataBind();
+
+                decimal v_dc_tong_tien = get_sum_tien(m_ds_v_gd_thanh_toan_detail);
+                m_grv_gd_thanh_toan_detail.FooterRow.Cells[7].Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###");
             }
         }
         catch (Exception v_e)
@@ -159,6 +162,25 @@ public partial class CongTTGV_F1723_ChiTietThanhToanGV : System.Web.UI.Page
         US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_dc_hd_tt_id);
         if (v_us_gd_hop_dong_noi_dung_tt.IsIDNull()) return "";
         return v_us_gd_hop_dong_noi_dung_tt.strNOI_DUNG_THANH_TOAN;
+    }
+    public string get_so_tien_thanh_toan(object ip_obj_so_luong_nghiem_thu, object ip_obj_don_gia)
+    {
+        string v_str_so_tien_thanh_toan = "";
+        if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
+            v_str_so_tien_thanh_toan = "";
+        else v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu), "#,###");
+        return v_str_so_tien_thanh_toan;
+    }
+    public decimal get_sum_tien(DS_V_GD_THANH_TOAN_DETAIL ip_ds_gd_thanh_toan_detail)
+    {
+        decimal v_dc_sum_tien = 0;
+        for (int v_i = 0; v_i < ip_ds_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows.Count; v_i++)
+        {
+            if (ip_ds_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows[v_i][V_GD_THANH_TOAN_DETAIL.SO_LUONG_HE_SO].GetType() == typeof(DBNull) || ip_ds_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows[v_i][V_GD_THANH_TOAN_DETAIL.DON_GIA_TT].GetType() == typeof(DBNull))
+                v_dc_sum_tien += 0;
+            else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows[v_i][V_GD_THANH_TOAN_DETAIL.SO_LUONG_HE_SO]) * CIPConvert.ToDecimal(ip_ds_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL.Rows[v_i][V_GD_THANH_TOAN_DETAIL.DON_GIA_TT]);
+        }
+        return v_dc_sum_tien;
     }
     #endregion
 
