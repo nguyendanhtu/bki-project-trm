@@ -29,6 +29,8 @@ namespace WebDS.CDBNames
         , TRANG_THAI_CONG_VIEC_GV = 21
         , TRANG_THAI_HO_SO_GV = 23
         , TRANG_THAI_SU_KIEN_GV = 24
+        , LOAI_HO_SO_GV_CM = 25
+        , LOAI_HO_SO_GV_HD = 26
     }
 
     public enum e_user_group

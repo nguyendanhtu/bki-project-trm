@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 using System.IO;
 using WebDS;
 using WebUS;
@@ -12,6 +13,7 @@ using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
 using System.Data;
+using System.Text;
 
 public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
 {
@@ -29,14 +31,11 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
                 m_lbl_id_ho_so.Text = Request.QueryString["id_hs"];
                 load_data_2_grid(CIPConvert.ToDecimal(m_lbl_id_ho_so.Text));
             }
-            load_data_2_combo_loai_ho_so();
+            load_data_2_basic_control();
+            load_loai_giang_vien();
         }
-
-        load_data_2_basic_control();
     }
-
-
-
+    
     #region Public Interface
     public string get_mapping_ten_giang_vien(object i_dc_id_giang_vien)
     {
@@ -52,6 +51,21 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         }
         return v_str_ten_giang_vien;
     }
+    public string get_mapping_loai_giang_vien(object i_dc_id_giang_vien)
+    {
+        string v_str_loai_giang_vien = "";
+        try
+        {
+            US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(CIPConvert.ToDecimal(i_dc_id_giang_vien));
+            v_str_loai_giang_vien = v_us_dm_giang_vien.strGVHD_YN.Trim() + v_us_dm_giang_vien.strGVCM_YN.Trim();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+        return v_str_loai_giang_vien;
+    }
+
     public string get_mapping_ten_don_vi_thanh_toan(object i_dc_id_don_vi_thanh_toan)
     {
         string v_str_ten_don_vi_thanh_toan = "";
@@ -71,10 +85,29 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm = new US_CM_DM_TU_DIEN(CIPConvert.ToDecimal(ip_ma_tu_dien));
         return v_us_cm_dm.strTEN;
     }
-    #endregion
-
-    #region Data Structure
-
+    // Chuyển tên về không dấu
+    public string Change_AV(string ip_str_change)
+    {
+        Regex v_reg_regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+        string v_str_FormD = ip_str_change.Normalize(NormalizationForm.FormD);
+        return v_reg_regex.Replace(v_str_FormD, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+    }
+    public string get_file_name()
+    {
+        string m_str_file_name;
+        US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
+        string v_str_loai_ho_so = Change_AV(m_cbo_loai_ho_so.SelectedItem.Text);
+        while (v_str_loai_ho_so.Contains(" "))
+        {
+            v_str_loai_ho_so.Replace(" ", "");
+        }
+        m_str_file_name = Change_AV(get_mapping_ten_giang_vien(v_us_gd_ho_so_gv.dcID_GIANG_VIEN)) + "_" + v_str_loai_ho_so + "_ver" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + "_" + DateTime.Now.Hour + DateTime.Now.Minute;
+        //while (m_str_file_name.Contains(" "))
+        //{
+        //    m_str_file_name.Replace(" ", "");
+        //}
+        return m_str_file_name;
+    }
     #endregion
 
     #region Members
@@ -89,28 +122,132 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         m_txt_ghi_chu.Text = "";
         m_cbo_loai_ho_so.SelectedIndex = 0;
         m_lbl_ten_hs_dinh_kem.Text = "";
+        lblHoSoDinhKem1.Visible = false;
+        lblHoSoDinhKem0.Visible = false;
     }
-
-
-    // load dữ liệu lên combo loại hồ  sơ
-    private void load_data_2_combo_loai_ho_so()
+    private void Cap_nhat()
     {
-        US_CM_DM_TU_DIEN v_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+        // Nếu chưa tồn tại
+        string v_str_uploadFolder = Request.PhysicalApplicationPath + "HoSoDinhKem\\";
+        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192)
+        {
+            string someScript;
+            someScript = "<script language='javascript'>alert('File upload phải có dung lượng nhỏ hơn 8Mb');</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+            return;
+        }
+        if (m_up_ho_so.HasFile)
+        {
+            string v_str_extension = Path.GetExtension(m_up_ho_so.PostedFile.FileName);
+            m_txt_ten_hs_dinh_kem.Text = get_file_name();
+            if (m_txt_ten_hs_dinh_kem.Text.Trim() != "")
+            {
+                m_up_ho_so.SaveAs(v_str_uploadFolder + m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension);
+                m_lbl_ten_hs_dinh_kem.Text = m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension;
+            }
+            else
+            {
+                m_up_ho_so.SaveAs(v_str_uploadFolder + Path.GetFileName(m_up_ho_so.PostedFile.FileName) + v_str_extension);
+                m_lbl_ten_hs_dinh_kem.Text = Path.GetFileName(m_up_ho_so.PostedFile.FileName);
+            }
+            form_2_us_object();
+        }
+        else
+        {
+            form_2_us_object_update();
+        }
+        m_us_gd_ho_so_gv_detail.Update();
+        m_lbl_mess.Text = "Cập nhật thành công";
+    }
+    // Load loại giảng viên
+    private void load_loai_giang_vien()
+    {
         try
         {
-            v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, "WHERE ID_LOAI_TU_DIEN = 24");//sẽ insert LOAI_HO_SO vào bảng CM_DM_LOAI_TU_DIEM sau
+            US_CM_DM_TU_DIEN v_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
+            DS_CM_DM_TU_DIEN v_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+            string m_str_loai_giang_vien = "";
+            US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
+            if (!v_us_gd_ho_so_gv.IsIDNull())
+            {
+                m_str_loai_giang_vien = get_mapping_loai_giang_vien(v_us_gd_ho_so_gv.dcID_GIANG_VIEN);
+                if (m_str_loai_giang_vien == "NY" || m_str_loai_giang_vien == "YY")
+                {
+                    m_lbl_loai_giang_vien.Text = "Giảng viên chuyên môn";
+                    v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.LOAI_HO_SO_GV_CM);
+                }
+                else
+                {
+                    m_lbl_loai_giang_vien.Text = "Giảng viên hướng dẫn";
+                    v_cm_dm_tu_dien.FillDataset(v_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.LOAI_HO_SO_GV_HD);
+                }
+                m_cbo_loai_ho_so.DataTextField = CM_DM_TU_DIEN.TEN;
+                m_cbo_loai_ho_so.DataValueField = CM_DM_TU_DIEN.ID;
 
-            m_cbo_loai_ho_so.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_loai_ho_so.DataBind();
-            m_cbo_loai_ho_so.DataTextField = CM_DM_TU_DIEN.TEN;
-            m_cbo_loai_ho_so.DataValueField = CM_DM_TU_DIEN.TEN;
+                m_cbo_loai_ho_so.DataSource = v_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+                m_cbo_loai_ho_so.DataBind();
+            }
         }
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
 
+    }
+    private void Them_moi()
+    {
+        string v_str_result = "";
+        if (!check_exist_giang_vien_dv_tt(CIPConvert.ToDecimal(Request.QueryString["id_hs"]), m_cbo_loai_ho_so.SelectedValue, out v_str_result))
+        {
+            string v_str_script = string.Format("<script language='javascript'> alert('{0}'); </script>", v_str_result);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Oncheck", v_str_script);
+            return;
+        }
+        // Nếu chưa tồn tại
+        string v_str_uploadFolder = Request.PhysicalApplicationPath + "HoSoDinhKem\\";
+        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192)
+        {
+            string someScript;
+            someScript = "<script language='javascript'>alert('File upload phải có dung lượng nhỏ hơn 8Mb');</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+            return;
+        }
+        if (m_up_ho_so.HasFile)
+        {
+            string v_str_extension = Path.GetExtension(m_up_ho_so.PostedFile.FileName);
+            m_txt_ten_hs_dinh_kem.Text = get_file_name();
+            if (m_txt_ten_hs_dinh_kem.Text.Trim() != "")
+            {
+                m_up_ho_so.SaveAs(v_str_uploadFolder + m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension);
+                m_lbl_ten_hs_dinh_kem.Text = m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension;
+            }
+            else
+            {
+                m_up_ho_so.SaveAs(v_str_uploadFolder + Path.GetFileName(m_up_ho_so.PostedFile.FileName) + v_str_extension);
+                m_lbl_ten_hs_dinh_kem.Text = Path.GetFileName(m_up_ho_so.PostedFile.FileName);
+            }
+            m_lbl_mess.Text = "Thêm thành công";
+            form_2_us_object();
+            m_us_gd_ho_so_gv_detail.Insert();
+        }
+        else
+        {
+            m_lbl_mess.Text = "Bạn cần chọn hồ sơ đính kèm";
+        }
+    }
+
+    private bool check_exist_giang_vien_dv_tt(decimal ip_id_ho_so, string ip_str_loai_hs, out string op_str_du_an_trung)
+    {
+        m_us_gd_ho_so_gv_detail.check_trung_giang_vien_dvtt(m_ds_gd_ho_so_gv_detail, ip_id_ho_so, ip_str_loai_hs);
+        op_str_du_an_trung = "";
+        if (m_ds_gd_ho_so_gv_detail.GD_HO_SO_GV_DETAIL.Rows.Count > 0)
+        {
+            op_str_du_an_trung = "Đã tồn tại bản ghi này.";
+            return false;
+        }
+        return true;
     }
 
     private void form_2_us_object(US_GD_HO_SO_GV_DETAIL op_us_gd_ho_so_gv_detail)
@@ -120,8 +257,27 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
 
             op_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
             op_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;
-            op_us_gd_ho_so_gv_detail.dcID_HO_SO =CIPConvert.ToDecimal(m_lbl_id_ho_so.Text);
+            op_us_gd_ho_so_gv_detail.dcID_HO_SO = CIPConvert.ToDecimal(m_lbl_id_ho_so.Text);
             op_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = m_lbl_ten_hs_dinh_kem.Text;
+
+        }
+        catch (Exception v_e)
+        {
+
+            throw v_e;
+        }
+
+    }
+
+    private void form_2_us_object_update(US_GD_HO_SO_GV_DETAIL op_us_gd_ho_so_gv_detail)
+    {
+        try
+        {
+
+            op_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
+            op_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;
+            op_us_gd_ho_so_gv_detail.dcID_HO_SO = CIPConvert.ToDecimal(m_lbl_id_ho_so.Text);
+            op_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = lblHoSoDinhKem0.Text;
 
         }
         catch (Exception v_e)
@@ -136,8 +292,12 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
     {
         try
         {
+            m_cbo_loai_ho_so.Enabled = false;
             m_txt_ghi_chu.Text = ip_us_gd_ho_so_gv_detail.strGHI_CHU;
             m_cbo_loai_ho_so.SelectedValue = ip_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO;
+            lblHoSoDinhKem1.Visible = true;
+            lblHoSoDinhKem0.Visible = true;
+            lblHoSoDinhKem0.Text = ip_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM;
         }
         catch (Exception v_e)
         {
@@ -160,7 +320,6 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-
             throw v_e;
         }
 
@@ -178,7 +337,7 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         try
         {
             m_us_gd_ho_so_gv_detail.FillDataset(m_ds_gd_ho_so_gv_detail, " WHERE ID_HO_SO=" + ip_dc_id_hs);
-            
+
             // Nếu chưa có phụ lục nào ứng với hồ sơ này
             if (m_ds_gd_ho_so_gv_detail.GD_HO_SO_GV_DETAIL.Rows.Count == 0)
             {
@@ -223,14 +382,14 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
             {
                 m_lbl_giang_vien.Text = get_mapping_ten_giang_vien(v_us_gd_ho_so_gv.dcID_GIANG_VIEN);
                 m_lbl_don_vi_thanh_toan.Text = get_mapping_ten_don_vi_thanh_toan(v_us_gd_ho_so_gv.dcID_DON_VI_THANH_TOAN);
-                m_lbl_trang_thai.Text =get_mapping_ma_to_ten_trang_thai(v_us_gd_ho_so_gv.dcID_TRANG_THAI);
-                m_lbl_dat_ngay_cap_nhat.Text =CIPConvert.ToStr(v_us_gd_ho_so_gv.datNGAY_CAP_NHAT);
+                m_lbl_trang_thai.Text = get_mapping_ma_to_ten_trang_thai(v_us_gd_ho_so_gv.dcID_TRANG_THAI);
+                m_lbl_dat_ngay_cap_nhat.Text = CIPConvert.ToStr(v_us_gd_ho_so_gv.datNGAY_CAP_NHAT);
             }
         }
         catch (Exception v_e)
         {
 
-            throw v_e;
+            //throw v_e;
         }
     }
     // Lấy được i nội dung thanh toán từ id phụ lục đã biết
@@ -253,18 +412,32 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         // false nghia là không tồn tại
         return false;
     }
+
+    private void form_2_us_object()
+    {
+        US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
+        m_us_gd_ho_so_gv_detail.dcID_HO_SO = v_us_gd_ho_so_gv.dcID;
+        m_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
+        m_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = m_txt_ten_hs_dinh_kem.Text;
+        m_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;
+    }
+    private void form_2_us_object_update()
+    {
+        US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
+        m_us_gd_ho_so_gv_detail.dcID_HO_SO = v_us_gd_ho_so_gv.dcID;
+        m_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
+        m_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = lblHoSoDinhKem0.Text;
+        m_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;
+    }
     #endregion
 
-    //
-    //Events
-    //
-
+    #region Events
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
         try
         {
             form_2_us_object(m_us_gd_ho_so_gv_detail);
-            if (m_lbl_ten_hs_dinh_kem.Text=="")
+            if (m_lbl_ten_hs_dinh_kem.Text == "")
             {
                 string someScript;
                 someScript = "<script language='javascript'>alert('Chưa đính kèm hồ sơ hoặc chưa ấn upload');</script>";
@@ -400,35 +573,20 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    protected void Upload_Click(object sender, EventArgs e)
+    protected void m_cmd_luu_du_lieu_Click1(object sender, EventArgs e)
     {
-        string v_str_uploadFolder = Request.PhysicalApplicationPath + "HoSoDinhKem\\";
-        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192)
-        {
-            string someScript;
-            someScript = "<script language='javascript'>alert('File upload phải có dung lượng nhỏ hơn 8Mb');</script>";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-            //m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
-            return;
-        }
-        if (m_up_ho_so.HasFile)
-        {
-            string v_str_extension = Path.GetExtension(m_up_ho_so.PostedFile.FileName);
-            if (m_txt_ten_hs_dinh_kem.Text.Trim() != "")
-            {
-                m_up_ho_so.SaveAs(v_str_uploadFolder + m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension);
-                m_lbl_ten_hs_dinh_kem.Text = m_txt_ten_hs_dinh_kem.Text.Trim() + v_str_extension;
-            }
-            else
-            {
-                m_up_ho_so.SaveAs(v_str_uploadFolder + Path.GetFileName(m_up_ho_so.PostedFile.FileName) + v_str_extension);
-                m_lbl_ten_hs_dinh_kem.Text = Path.GetFileName(m_up_ho_so.PostedFile.FileName );
-            }
-            m_lbl_mess.Text = "Upload hồ sơ thành công";
-        }
-        else
-        {
-            m_lbl_mess.Text = "Bạn cần chọn hồ sơ đính kèm";
-        }
+        Them_moi();
+        reset_control();
+        m_lbl_id_ho_so.Text = Request.QueryString["id_hs"];
+        load_data_2_grid(CIPConvert.ToDecimal(m_lbl_id_ho_so.Text));
     }
+    protected void m_cmd_cap_nhat_pl_Click1(object sender, EventArgs e)
+    {
+        Cap_nhat();
+        m_cbo_loai_ho_so.Enabled = true;
+        reset_control();
+        m_lbl_id_ho_so.Text = Request.QueryString["id_hs"];
+        load_data_2_grid(CIPConvert.ToDecimal(m_lbl_id_ho_so.Text));
+    }
+    #endregion
 }

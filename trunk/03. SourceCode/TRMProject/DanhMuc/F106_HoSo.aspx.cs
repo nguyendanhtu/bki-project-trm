@@ -64,7 +64,8 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         MA_TAN_SUAT = 10
             ,
         LOAI_SU_KIEN = 19
-            , TRANG_THAI_SU_KIEN = 20
+            ,
+        TRANG_THAI_SU_KIEN = 20
             , TRANG_THAI_HO_SO_GV = 23
 
     }
@@ -139,7 +140,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
             // Đổ dữ liệu vào DS 
             m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_HO_SO_GV); // Đây là lấy theo điều kiện
-            
+
             //TReo dữ liệu vào Dropdownlist loại hợp đồng
             // dây là giá trị hiển thị
             m_cbo_trang_thai.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -165,7 +166,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         try
         {
             US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(CIPConvert.ToDecimal(i_dc_id_giang_vien));
-            v_str_ten_giang_vien = v_us_dm_giang_vien.strHO_VA_TEN_DEM.TrimEnd()+" "+v_us_dm_giang_vien.strTEN_GIANG_VIEN;
+            v_str_ten_giang_vien = v_us_dm_giang_vien.strHO_VA_TEN_DEM.TrimEnd() + " " + v_us_dm_giang_vien.strTEN_GIANG_VIEN;
         }
         catch (Exception v_e)
         {
@@ -203,7 +204,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             m_us_dm_ho_so_giang_vien.fill_data_by_search(CIPConvert.ToDecimal(m_cbo_loc_giang_vien.SelectedValue)
                             , CIPConvert.ToDecimal(m_cbo_loc_don_vi_thanh_toan.SelectedValue)
                             , v_str_ngay_bat_dau_tu
-                            ,v_str_ngay_ket_thuc_tu
+                            , v_str_ngay_ket_thuc_tu
                             , CIPConvert.ToDecimal(m_cbo_loc_trang_thai.SelectedValue)
                             , m_ds_dm_ho_so_giang_vien
                             );
@@ -251,7 +252,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
             strTable += "\n<tr>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ++v_i_so_thu_tu + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + get_mapping_ten_giang_vien(grv[HO_SO_GIANG_VIEN.ID_GIANG_VIEN]).ToString() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + get_mapping_ten_don_vi_thanh_toan(grv[HO_SO_GIANG_VIEN.ID_DON_VI_THANH_TOAN]).ToString() +"</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + get_mapping_ten_don_vi_thanh_toan(grv[HO_SO_GIANG_VIEN.ID_DON_VI_THANH_TOAN]).ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[HO_SO_GIANG_VIEN.NGAY_CAP_NHAT]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + get_mapping_ma_to_ten(grv[HO_SO_GIANG_VIEN.ID_TRANG_THAI]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[HO_SO_GIANG_VIEN.GHI_CHU]).ToString() + "</td>";
@@ -292,7 +293,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Trạng thái: " + m_cbo_loc_trang_thai.SelectedItem.Text + " </td>";
         strTable += "\n</tr>";
- 
+
         strTable += "\n</table>";
 
         //table noi dung
@@ -378,7 +379,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
     private void us_obj_2_form(US_DM_HO_SO_GIANG_VIEN ip_us_dm_ho_so_giang_vien)
     {
         m_txt_ghi_chu.Text = ip_us_dm_ho_so_giang_vien.strGHI_CHU;
-        m_cbo_trang_thai.SelectedValue =CIPConvert.ToStr( ip_us_dm_ho_so_giang_vien.dcID_TRANG_THAI);
+        m_cbo_trang_thai.SelectedValue = CIPConvert.ToStr(ip_us_dm_ho_so_giang_vien.dcID_TRANG_THAI);
         m_cbo_giang_vien.SelectedValue = CIPConvert.ToStr(ip_us_dm_ho_so_giang_vien.dcID_GIANG_VIEN);
         m_cbo_don_vi_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_dm_ho_so_giang_vien.dcID_DON_VI_THANH_TOAN);
     }
@@ -392,11 +393,28 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
     // Event Hanlder
     //
     //
-
+    private bool check_exist_giang_vien_dv_tt(decimal ip_id_giang_vien, decimal ip_id_don_vi_tt, out string op_str_du_an_trung)
+    {
+        m_us_dm_ho_so_giang_vien.check_trung_ma_du_an(m_ds_dm_ho_so_giang_vien, ip_id_giang_vien, ip_id_don_vi_tt);
+        op_str_du_an_trung = "";
+        if (m_ds_dm_ho_so_giang_vien.DM_HO_SO_GIANG_VIEN.Rows.Count > 0)
+        {
+            op_str_du_an_trung = "Đã tồn tại bản ghi này.";
+            return false;
+        }
+        return true;
+    }
     protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
     {
         try
         {
+            string v_str_result = "";
+            if (!check_exist_giang_vien_dv_tt(CIPConvert.ToDecimal(m_cbo_giang_vien.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue), out v_str_result))
+            {
+                string v_str_script = string.Format("<script language='javascript'> alert('{0}'); </script>", v_str_result);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Oncheck", v_str_script);
+                return;
+            }
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_ho_so_giang_vien);
             m_us_dm_ho_so_giang_vien.Insert();

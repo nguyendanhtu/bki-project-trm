@@ -119,11 +119,14 @@
         <tr>
             <td>
                 <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
-                    <tr>
-                        <td align="right" class="style1">
-                            &nbsp;
+                     <tr>
+                        <td align="right" style="width: 7%;">
+                            <asp:Label ID="m_lbl_loai_gv" CssClass="cssManField" runat="server" Text="Loại giảng viên " />
                         </td>
-                        <td align="left" class="style2">
+                        <td align="left" style="width: 10%;">
+                            <asp:Label ID="m_lbl_loai_giang_vien" runat="server" MaxLength="64" Width="96%" />
+                        </td>
+                        <td align="right" style="width: 5%;">
                             &nbsp;
                         </td>
                         <td align="right" style="width: 7%;">
@@ -142,19 +145,13 @@
                             &nbsp;
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table cellspacing="0" cellpadding="2" style="width: 100%;" class="cssTable" border="0">
                     <tr>
                         <td align="right" style="width: 7%;">
                             <asp:Label ID="lblLoaiHoSo" CssClass="cssManField" runat="server" Text="Loại hồ sơ : " />
                         </td>
                         <td align="left" style="width: 10%;">
                             <asp:DropDownList ID="m_cbo_loai_ho_so" Width="50%" runat="server" 
-                                AutoPostBack="true" 
+                                AutoPostBack="false" 
                                 onselectedindexchanged="m_cbo_loai_ho_so_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
@@ -206,12 +203,14 @@
                     </tr>
                     <tr>
                         <td align="right" style="width: 7%;">
-                            &nbsp;</td>
+                            <asp:Label ID="lblHoSoDinhKem1" CssClass="cssManField" runat="server" 
+                                Text="Tên file đính kèm: " Visible="false" />
+                        </td>
                         <td align="left" style="width: 10%;">
-                            <asp:Label ID="lblHoSoDinhKem0" CssClass="cssManField" runat="server" 
-                                Text="Đổi tên hồ sơ đính kèm : " />
-                            <asp:TextBox ID="m_txt_ten_hs_dinh_kem" runat="server"></asp:TextBox>
-                            <asp:Button ID="Button1" runat="server" onclick="Upload_Click" Text="Upload" />
+                            <asp:Label ID="lblHoSoDinhKem0" runat="server" 
+                                Visible="false" />
+                            <asp:TextBox ID="m_txt_ten_hs_dinh_kem" runat="server" Visible="false"></asp:TextBox>
+                            <asp:Button ID="Button1" runat="server" Text="Upload" Visible="false" />
                             <asp:Label ID="m_lbl_ten_hs_dinh_kem" runat="server" 
                                 Visible="False"></asp:Label>
                             <asp:Label ID="m_lbl_id_ho_so" runat="server" Text="0" Visible="False"></asp:Label>
@@ -262,12 +261,12 @@
                         </td>
                         <td align="left" style="width: 10%;">
                             <asp:Button ID="m_cmd_luu_du_lieu" AccessKey="s" CssClass="cssButton" runat="server"
-                                Width="98px" Text="Tạo phụ lục" Height="24px" 
-                                onclick="m_cmd_luu_du_lieu_Click" />
+                                Width="98px" Text="Thêm mới" Height="24px" 
+                                onclick="m_cmd_luu_du_lieu_Click1"/>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="m_cmd_cap_nhat_pl" runat="server" AccessKey="s" CssClass="cssButton"
-                                Height="24px" Text="Cập nhật phụ lục" Width="98px" 
-                                onclick="m_cmd_cap_nhat_pl_Click" />
+                                Height="24px" Text="Cập nhật" Width="98px" 
+                                onclick="m_cmd_cap_nhat_pl_Click1" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="m_cmd_thoat0" runat="server" CausesValidation="False" CssClass="cssButton"
                                 Height="25px" Text="Xóa trắng" Width="98px" onclick="m_cmd_thoat_Click" />

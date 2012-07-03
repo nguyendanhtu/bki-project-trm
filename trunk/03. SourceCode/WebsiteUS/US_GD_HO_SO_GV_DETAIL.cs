@@ -181,5 +181,15 @@ namespace WebUS
             pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
         }
         #endregion
+
+        #region Additional funtions
+        public void check_trung_giang_vien_dvtt(DS_GD_HO_SO_GV_DETAIL ip_ds_gd_hs_gv_detail, decimal ip_id_ho_so, string ip_str_loai_ho_so)
+        {
+            CStoredProc v_cstore = new CStoredProc("pr_GD_HO_SO_GV_DETAIL_check_trung");
+            v_cstore.addNVarcharInputParam("@id_ho_so", ip_id_ho_so);
+            v_cstore.addNVarcharInputParam("@loai_ho_so", ip_str_loai_ho_so);
+            v_cstore.fillDataSetByCommand(this, ip_ds_gd_hs_gv_detail);
+        }
+        #endregion
     }
 }
