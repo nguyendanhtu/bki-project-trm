@@ -110,7 +110,7 @@
 		    &nbsp;
    <asp:GridView ID="m_grv_gd_thanh_toan_detail" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="100%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" >
                   <AlternatingRowStyle BackColor="White" />
@@ -138,10 +138,15 @@
                      <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">
                      <ItemStyle Width="5%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)">
+                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)" FooterText="Tổng tiền: ">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_TT")),"#,###0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
-                    </asp:TemplateField> 
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Thành tiền (VNĐ)">
+                       <ItemTemplate><%#get_so_tien_thanh_toan(Eval("SO_LUONG_HE_SO"), Eval("DON_GIA_TT"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
+                        <FooterStyle HorizontalAlign="Right" />
+                    </asp:TemplateField>
                      <asp:TemplateField HeaderText="Tần suất thanh toán">
                        <ItemTemplate><%# "Theo " + Eval("TAN_SUAT")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
@@ -151,7 +156,7 @@
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                   <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White"  />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                   <RowStyle BackColor="#E3EAEB" />

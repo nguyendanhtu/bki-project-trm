@@ -136,7 +136,7 @@ public partial class CongTTGV_F1721_ThanhToanGVTheoDot : System.Web.UI.Page
             return CIPConvert.ToStr(ip_obj_str);
         return "";
     }
-    private string mapping_so_tien(object ip_obj_nghiem_thu_thuc_te)
+    public string mapping_so_tien(object ip_obj_nghiem_thu_thuc_te)
     {
         if (ip_obj_nghiem_thu_thuc_te.GetType() == typeof(DBNull)) return "";
         if (CIPConvert.ToDecimal(ip_obj_nghiem_thu_thuc_te) == 0)

@@ -192,7 +192,7 @@ public partial class CongTTGV_F1722_TongHopThanhToanGV : System.Web.UI.Page
         else m_lbl_thong_bao.Text = "";
         m_grv_danh_sach_du_toan.DataSource = m_ds_tbl_gd_thanh_toan.TBL_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
-        m_lbl_danh_sach_thanh_toan.Text = "Danh Đợt sách Thanh toán: " + m_ds_tbl_gd_thanh_toan.TBL_GD_THANH_TOAN.Rows.Count + "đợt thanh toán";        
+        m_lbl_danh_sach_thanh_toan.Text = "Danh Đợt sách Thanh toán: " + m_ds_tbl_gd_thanh_toan.TBL_GD_THANH_TOAN.Rows.Count + " đợt thanh toán";        
     }
     private void load_data_2_excel_search(decimal ip_dc_id_giang_vien,
                                          decimal ip_dc_dv_thanh_toan,

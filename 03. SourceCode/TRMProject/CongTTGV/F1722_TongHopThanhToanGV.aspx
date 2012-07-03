@@ -152,7 +152,7 @@
 		    &nbsp;
        <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" ShowFooter="True"
-                Width="150%" DataKeyNames="ID_DOT_THANH_TOAN"
+                Width="100%" DataKeyNames="ID_DOT_THANH_TOAN"
                 CellPadding="4" ForeColor="#333333" 
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
                 PageSize="30" >
