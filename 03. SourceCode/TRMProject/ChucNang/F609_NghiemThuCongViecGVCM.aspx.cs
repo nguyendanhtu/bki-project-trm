@@ -105,7 +105,20 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         {
             if (m_dat_ngay_bat_dau.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 m_us_cong_viec_moi.datNGAY_DAT_HANG = m_dat_ngay_bat_dau.SelectedDate;
-            else m_us_cong_viec_moi.datNGAY_DAT_HANG = DateTime.Today;
+            // Nếu công việc này chưa đc đặt hàng, lấy ngày đầu tiên của tháng trước
+            else
+            {
+                DateTime v_dat_today = DateTime.Today;
+                int v_i_year = v_dat_today.Year;
+                int v_i_month = v_dat_today.Month - 1;
+                if (v_i_month == 0)
+                {
+                    v_i_year = v_i_year - 1;
+                    v_i_month = 12;
+                }
+                DateTime v_dat_ngay_dat_hang = new DateTime(v_i_year, v_i_month, 1);
+                m_us_cong_viec_moi.datNGAY_DAT_HANG = v_dat_ngay_dat_hang;
+            }
         }
         m_us_cong_viec_moi.datNGAY_NGHIEM_THU = DateTime.Today;
         m_us_cong_viec_moi.dcSO_LUONG_NGHIEM_THU = CIPConvert.ToDecimal(m_txt_so_luong_nghiem_thu.Text.Trim());
@@ -211,12 +224,22 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
             else
             {
                 decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
+                DateTime v_dat_today = DateTime.Today;
+                int v_i_year = v_dat_today.Year;
+                int v_i_month = v_dat_today.Month - 1;
+                if (v_i_month == 0)
+                {
+                    v_i_year = v_i_year - 1;
+                    v_i_month = 12;
+                }
+                DateTime v_dat_ngay_dat_hang = new DateTime(v_i_year, v_i_month, 1);
+
                 US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_noi_dung_tt);
                 m_txt_don_gia.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD, "#,###");
                 m_lbl_mess.Text = "";
                 m_cbo_trang_thai_cv_gv.ToolTip = "-1";
                 m_cbo_so_hop_dong.ToolTip = "-1";
-                m_dat_ngay_bat_dau.Clear();
+                m_dat_ngay_bat_dau.SelectedDate = v_dat_ngay_dat_hang;
                 m_txt_so_luong_nghiem_thu.Text = "";
             }
         }

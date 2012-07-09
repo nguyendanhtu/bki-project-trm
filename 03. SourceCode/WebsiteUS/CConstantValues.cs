@@ -63,4 +63,12 @@ namespace WebUS
         public const decimal DA_CHUYEN_THANH_TOAN = 536;
         public const decimal DA_THANH_TOAN = 547;
     }
+
+    public class ID_TRANG_THAI_GIANG_VIEN
+    {
+        public const decimal DANG_CONG_TAC = 438;
+        public const decimal CHAM_SOC_DUY_TRI = 440;
+        public const decimal KO_CHAM_SOC_DUY_TRI = 442;
+        public const decimal KHONG_XAC_DINH = 475;
+    }
 }
