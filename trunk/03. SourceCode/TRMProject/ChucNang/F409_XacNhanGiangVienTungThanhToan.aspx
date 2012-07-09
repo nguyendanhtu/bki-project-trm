@@ -2,23 +2,39 @@
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<script type="text/javascript">
+    function SelectAllCheckboxes(spanChk) {
+        // Added as ASPX uses SPAN for checkbox
+        var oItem = spanChk.children;
+        var theBox = (spanChk.type == "checkbox") ? spanChk : spanChk.children.item[0];
+        xState = theBox.checked;
+        elm = theBox.form.elements;
+
+        for (i = 0; i < elm.length; i++)
+            if (elm[i].type == "checkbox" && elm[i].id != theBox.id) {
+                if (elm[i].checked != xState)
+                    elm[i].click();
+            }
+    }
+ 
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 <tr>
-		<td class="cssPageTitleBG">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
                 Text="Xác nhận giảng viên của thanh toán"/>
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
                           <asp:Label ID="m_lbl_thong_bao0" CssClass="cssManField" 
                 runat="server"></asp:Label>
                 </td>
 	</tr>
     <tr>
-		<td>
+		<td colspan="2">
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:12%;">
@@ -272,33 +288,57 @@
 		</td>
 	</tr>	
     <tr>
-		<td align="left">
+		<td align="left" style="width:20%">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
-                <asp:HiddenField ID="hdf_id_gv" runat="server" /><asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
-                      <p style="text-align:center">
-                 <span class="cssManField">Trạng thái thanh toán&nbsp;&nbsp; </span>
-                      <asp:DropDownList ID="m_cbo_trang_thai_tt_search" CssClass="cssDorpdownlist" runat="server" 
-                        AutoPostBack="true"  Width="25%" 
-                              onselectedindexchanged="m_cbo_trang_thai_tt_search_SelectedIndexChanged" >
-               </asp:DropDownList>                         
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
-                        <p style="text-align:center">
-                <span class="cssManField">Số hợp đồng&nbsp;&nbsp; </span><asp:TextBox ID="m_txt_so_hd_search" CssClass="cssTextBox" Width="20%" 
-                        runat="server"></asp:TextBox>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    <asp:Button ID="m_cmd_search" runat="server" accessKey="s" 
-                         CssClass="cssButton" Height="24px" 
-                         Text="Tìm kiếm" Width="98px" CausesValidation="false" 
-                                onclick="m_cmd_search_Click"/>
-                 </span>
-                 <br />
-                        </p>
-        </td>
-        <td >
-		    &nbsp;</td>
+                <asp:HiddenField ID="hdf_id_gv" runat="server" />
+                <asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" /></td>
+                </tr>
+                <tr>
+                 <td style="text-align:right">
+                    <asp:Label ID="Label1" runat="server" CssClass="cssManField" 
+                        Text="Tên giảng viên" />
+                    </td>
+                <td>
+                <asp:DropDownList ID="m_cbo_ten_giang_vien" CssClass="cssDorpdownlist" runat="server" 
+                        AutoPostBack="true"  Width="55%" 
+                        onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged">
+               </asp:DropDownList>
+                    </td>
 	</tr>	
-
+                <tr>
+                 <td style="text-align:right">
+                    <asp:Label ID="Label2" runat="server" CssClass="cssManField" 
+                        Text="Số hợp đồng" />
+                    </td>
+                <td>
+                <asp:DropDownList ID="m_txt_so_hd_search" CssClass="cssDorpdownlist" runat="server" 
+                        AutoPostBack="true"  Width="55%" 
+                        onselectedindexchanged="m_txt_so_hd_search_SelectedIndexChanged">
+               </asp:DropDownList>
+                    </td>
+        <td >&nbsp;</td>
+	</tr>
+                <tr>
+                <td style="text-align:right">
+                    <asp:Label ID="lbltan_suat5" runat="server" CssClass="cssManField" 
+                        Text="Trạng thái thanh toán" />
+                    </td>
+                      <td><asp:DropDownList ID="m_cbo_trang_thai_tt_search" CssClass="cssDorpdownlist" runat="server" 
+                        AutoPostBack="true"  Width="55%" 
+                              onselectedindexchanged="m_cbo_trang_thai_tt_search_SelectedIndexChanged" >
+               </asp:DropDownList></td></tr>
+    <tr>
+        <td>
+            <asp:button id="m_cmd_xac_nhan" accessKey="u" CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Xác nhận" 
+                CausesValidation="false" onclick="m_cmd_xac_nhan_Click"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:button id="m_cmd_chua_xac_nhan" accessKey="u" 
+                       CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Hủy xác nhận"
+                       CausesValidation="false" onclick="m_cmd_chua_xac_nhan_Click"/>
+        </td>
+    </tr>
 	<tr>
 		<td align="center" colspan="2" style="height:450px;" valign="top">
 		    &nbsp;
@@ -310,7 +350,17 @@
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                     <asp:TemplateField HeaderText="Chỉnh sửa xác nhận giảng viên">
+                    <asp:TemplateField>
+                  <HeaderTemplate>
+                   <input type="checkbox" id="chkAll" onclick="javascript:SelectAllCheckboxes(this)" runat="server" />
+                  </HeaderTemplate>                 
+                  <ItemTemplate>
+                    <asp:CheckBox runat="server" ID="chkItem" ToolTip='<%# Eval("ID") %>' />
+                    <asp:CheckBox runat="server" ID="chkTrangThai" ToolTip='<%# Eval("ID_TRANG_THAI_THANH_TOAN") %>' Visible="false" />
+                  </ItemTemplate>
+                  <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Chỉnh sửa">
                     <ItemTemplate>
                      <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa xác nhận giảng viên" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
                     <img src='/TRMProject/Images/Button/Update.gif' alt='Chỉnh sửa' />

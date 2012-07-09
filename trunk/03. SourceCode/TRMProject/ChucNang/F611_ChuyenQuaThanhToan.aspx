@@ -97,9 +97,19 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-
-                   
                         </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%; height:30px;">
+			<asp:label id="lblMon8" CssClass="cssManField" runat="server" 
+                Text="Thời gian lớp môn" />
+                </td>
+                <td align="left" colspan="3">
+                <asp:TextBox ID="m_txt_thoi_gian_lop_mon" CssClass="cssTextBox" Width="40%" 
+                        runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ví dụ: 01/11/2011 - 30/11/2011)
+                        </td> 
+                <td align="left" colspan="2"></td>
+                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             </table>        
         </td>

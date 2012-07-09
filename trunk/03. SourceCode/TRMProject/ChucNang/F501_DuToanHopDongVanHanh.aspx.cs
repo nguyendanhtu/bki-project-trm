@@ -93,7 +93,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (ip_obj_time_lop_mon.GetType() == typeof(DBNull)) return "";
         return CIPConvert.ToStr(ip_obj_time_lop_mon,"dd/MM/yyyy");
     }
-
+    public string mapping_ten_lop_mon(object ip_obj_reference_code, object ip_obj_id_hdong)
+    {
+        if (ip_obj_reference_code.GetType() == typeof(DBNull)) return "";
+        if (CIPConvert.ToStr(ip_obj_reference_code).Equals(CIPConvert.ToStr(ip_obj_id_hdong)))
+            return "";
+        return CIPConvert.ToStr(ip_obj_reference_code);
+    }
     #endregion
 
     #region Private Methods

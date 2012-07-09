@@ -452,11 +452,12 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai_moi);
         v_cstore.ExecuteCommand(this);
     }
-    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec, decimal ip_dc_id_dot_thanh_toan, string ip_str_user_lap_thanh_toan)
+    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec, decimal ip_dc_id_dot_thanh_toan, string ip_str_user_lap_thanh_toan, string ip_str_thoi_gian_lop_mon)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Chuyen_Qua_Thanh_Toan");
         v_cstore.addDecimalInputParam("@ID_DOT_THANH_TOAN", ip_dc_id_dot_thanh_toan);
         v_cstore.addNVarcharInputParam("@USER_LAP_THANH_TOAN", ip_str_user_lap_thanh_toan);
+        v_cstore.addNVarcharInputParam("@THOI_GIAN_LOP_MON", ip_str_thoi_gian_lop_mon);
         v_cstore.addNVarcharInputParam("@ID_CAC_CONG_VIEC", ip_str_id_cac_cong_viec);
         v_cstore.ExecuteCommand(this);
     }
@@ -473,6 +474,13 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
+    public void load_data_2_export_excel(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien, decimal ip_dc_hop_dong_khung)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Load_Cong_Viec_Export_Excel");
+        v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
+        v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
     }
     #endregion

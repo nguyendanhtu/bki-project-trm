@@ -523,10 +523,11 @@
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="9%"></ItemStyle>
-                    </asp:TemplateField> 
-                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp môn phụ trách">
-                    <ItemStyle Width="7%" HorizontalAlign="Left" />
-                    </asp:BoundField>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Các lớp môn phụ trách">
+                       <ItemTemplate><%# mapping_ten_lop_mon(Eval("REFERENCE_CODE"), Eval("ID_HOP_DONG_KHUNG"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField>
                      <asp:BoundField DataField="GHI_CHU_CAC_MON_PHU_TRACH" HeaderText="Tên các môn phụ trách">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>

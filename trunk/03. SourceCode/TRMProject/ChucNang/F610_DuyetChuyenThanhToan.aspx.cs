@@ -54,6 +54,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         else
         {
             m_cmd_duyet_ke_hoach.Visible = true;
+            m_cmd_xuat_excel.Visible = true;
             decimal v_dc_tong_tien = get_sum_tien(m_ds_cong_viec_moi);
             m_grv_gd_assign_su_kien_cho_giang_vien.FooterRow.Cells[9].Text = CIPConvert.ToStr(v_dc_tong_tien, "#,###");
             m_lbl_thong_bao_sau_cap_nhat.Text = "";
@@ -252,7 +253,8 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
     private void loadTieuDe(ref string strTable)
     {
         string v_str_ten_mon = "";
-        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_all_gv(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue));
+        m_ds_cong_viec_moi.EnforceConstraints = false;
+        m_us_cong_viec_moi.load_data_2_export_excel(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
@@ -450,8 +452,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
                 if (m_grv_gd_assign_su_kien_cho_giang_vien.Rows.Count > 0)
                     m_cmd_huy_chuyen_duyet_thanh_toan.Visible = true;
             }
-            else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;
-            //visible_xuat_excel_button();
+            else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;            
             visible_huy_duyet_button();
             load_data_2_grv();
         }

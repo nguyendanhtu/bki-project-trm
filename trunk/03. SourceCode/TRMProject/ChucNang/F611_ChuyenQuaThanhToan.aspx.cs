@@ -280,14 +280,15 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             }
             if (v_i_count_check_khong_chuyen_duoc > 0)
             {
-                m_lbl_thong_bao_sau_cap_nhat.Text = "Một số công việc chưa đủ điều kiện để chuyển qua thanh toán!";
+                m_lbl_thong_bao_sau_cap_nhat.Text = "Một số công việc chưa đủ điều kiện để chuyển qua thanh toán. Hãy xem lại trạng thái các công việc!";
                 return;
             }
             // Neu so items duoc check lớn hơn 0
             if (v_i_count > 0)
             {
+                string v_str_thoi_gian_lop_mon = m_txt_thoi_gian_lop_mon.Text.Trim();
                 // Chuyển qua thanh toán
-                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec, CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue), CIPConvert.ToStr(Session["UserName"]));
+                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec, CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue), CIPConvert.ToStr(Session["UserName"]),v_str_thoi_gian_lop_mon);
                 // Load lại dữ liêụ
                 load_data_2_grv();
                 m_lbl_thong_bao_sau_cap_nhat.Text = "Chuyển thanh toán các công việc thành công!";

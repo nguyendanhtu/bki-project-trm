@@ -1,0 +1,9 @@
+﻿- Cơ bản về IPCore
+	+ Cấu trúc
+	+ US, DS, LLBL gen
+- Lập trình ASP.Net sử dụng IPCore
+	+ Tạo form master
+	+ Tạo form detail
+- Lập trình Windows form sử dụng IPCore
+	+ Tạo form master (có thể gen)
+	+ Tạo form detail 

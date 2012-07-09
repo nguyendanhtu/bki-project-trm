@@ -83,7 +83,7 @@
                 Text="&lt;U&gt;N&lt;/U&gt;gày đặt hàng" />
                          </td>
                 <td align="left" colspan="2" style="width:88%;">
-                       <ew:CalendarPopup ID="m_dat_ngay_bat_dau" runat="server" Enabled="false"
+                       <ew:CalendarPopup ID="m_dat_ngay_bat_dau" runat="server"
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
