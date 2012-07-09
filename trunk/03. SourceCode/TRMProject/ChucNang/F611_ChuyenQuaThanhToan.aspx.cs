@@ -19,6 +19,8 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["timelopmon"] != null)
+                m_txt_thoi_gian_lop_mon.Text = Session["timelopmon"].ToString();
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_ten_giang_vien();
