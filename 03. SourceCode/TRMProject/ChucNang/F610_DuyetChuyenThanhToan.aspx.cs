@@ -162,6 +162,54 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         DateTime lastDayOfThisMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1).AddDays(-1);
         return CIPConvert.ToStr(lastDayOfThisMonth,"dd/MM/yyyy");
     }
+    private string get_ngay_bdau_kthuc_mon(string ip_str_ghi_chu_thoi_gian)
+    {
+        string v_str_thoi_gian_bdau = "Từ ngày <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>";
+        string[] v_str_thoi_gian_split = ip_str_ghi_chu_thoi_gian.Split('-');
+        if (v_str_thoi_gian_split.Length >= 2)
+        {
+            v_str_thoi_gian_bdau += v_str_thoi_gian_split[0].Trim();
+            v_str_thoi_gian_bdau += "</span>  Đến ngày   <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>";
+            v_str_thoi_gian_bdau += v_str_thoi_gian_split[1].Trim();
+        }
+        else if (v_str_thoi_gian_split.Length == 1)
+        {
+            v_str_thoi_gian_bdau += v_str_thoi_gian_split[0].Trim();
+            v_str_thoi_gian_bdau += "</span>  Đến ngày   <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>";
+            v_str_thoi_gian_bdau += v_str_thoi_gian_bdau += get_last_day_of_month();
+        }
+        else
+        {
+            int v_i_month = DateTime.Now.Month - 1;
+            int v_i_year = DateTime.Now.Year;
+            if (v_i_month == 0)
+            {
+                v_i_month = 12;
+                v_i_year = v_i_year - 1;
+            }
+            v_str_thoi_gian_bdau += "01/" + v_i_month.ToString() + "/" + v_i_year.ToString();
+            v_str_thoi_gian_bdau += "</span>  Đến ngày  <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>";
+            v_str_thoi_gian_bdau += get_last_day_of_month();
+        }
+        return v_str_thoi_gian_bdau;
+    }
+    private void visible_textbox()
+    {
+        if (m_cbo_ten_giang_vien_loc.SelectedIndex != 0 && m_cbo_trang_thai_cv_loc.SelectedItem.Value.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)))
+        {
+            m_txt_thoi_gian_lop_mon.Visible = true;
+            m_lbl_vi_du.Visible = true;
+            m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Visible = true;
+            m_lbl_thoi_gian_lop_mon.Visible = true;
+        }
+        else
+        {
+            m_txt_thoi_gian_lop_mon.Visible = false;
+             m_lbl_vi_du.Visible = false;
+            m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Visible = false;
+            m_lbl_thoi_gian_lop_mon.Visible = false;
+        }
+    }
     #endregion
 
     #region Public Interfaces
@@ -209,12 +257,12 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         foreach (DataRow grv in this.m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows)
         {
             strTable += "\n<tr>";
-            strTable += "\n<td align='center' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + ++v_i_so_thu_tu + "</span></td>";
-            strTable += "\n<td class='cssTitleReport' style='width:12%;' wrap='wrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + grv[V_GD_GV_CONG_VIEC_MOI.TEN_NOI_DUNG] + "</span></td>";
-            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + mapping_so_tien(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA]) + "</span></td>";
-            strTable += "\n<td align='center' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + mapping_dvt_by_id_noi_dung_tt(CIPConvert.ToDecimal(grv[V_GD_GV_CONG_VIEC_MOI.ID_NOI_DUNG_TT])) + "</span></td>";// ĐVT
-            strTable += "\n<td class='cssTitleReport' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU] + "</span></td>";
-            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + get_so_tien_thanh_toan(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA], grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU]) + "</span></td>";
+            strTable += "\n<td align='center' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + ++v_i_so_thu_tu + "</span></td>";
+            strTable += "\n<td class='cssTitleReport' style='width:12%;' wrap='wrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + grv[V_GD_GV_CONG_VIEC_MOI.TEN_NOI_DUNG] + "</span></td>";
+            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + mapping_so_tien(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA]) + "</span></td>";
+            strTable += "\n<td align='center' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + mapping_dvt_by_id_noi_dung_tt(CIPConvert.ToDecimal(grv[V_GD_GV_CONG_VIEC_MOI.ID_NOI_DUNG_TT])) + "</span></td>";// ĐVT
+            strTable += "\n<td class='cssTitleReport' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU] + "</span></td>";
+            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + get_so_tien_thanh_toan(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA], grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU]) + "</span></td>";
             strTable += "\n</tr>";
         }
         decimal v_dc_tong_tien = get_sum_tien(m_ds_cong_viec_moi);
@@ -223,31 +271,73 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         if(v_dc_tong_tien >=1000000) v_dc_so_tien_thue = v_dc_tong_tien/10;
         // Đây là đoạn tổng cộng số tiền
         strTable += "\n<tr>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;  font-weight:bold; font-size:1.0em'>Tổng cộng</span></td>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td style='width:12%; background-color:#B8D7FF' align='right' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;  font-weight:bold; font-size:1.0em'>" + CIPConvert.ToStr(v_dc_tong_tien, "#,###") + "</span></td>"; // Số tiền tổng
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.1em'></span></td>";
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;  font-weight:bold; font-size:1.1em'>Tổng cộng</span></td>";
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.1em'></span></td>";
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.1em'></span></td>";
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.1em'></span></td>";
+        strTable += "\n<td style='width:12%; background-color:#B8D7FF' align='right' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;  font-weight:bold; font-size:1.1em'>" + CIPConvert.ToStr(v_dc_tong_tien, "#,###") + "</span></td>"; // Số tiền tổng
         strTable += "\n</tr>";
         // Đoạn thuế thu nhập cá nhân
         strTable += "\n<tr>";
         strTable += "\n<td rowspan='3' class='cssTitleReport' nowrap='nowrap'></td>";
-        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>Thuế TNCN khấu trừ tại nguồn (10%)</span></td>";
-        strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + CIPConvert.ToStr(v_dc_so_tien_thue, "#,###") + "</span></td>"; // Số tiền thuế
+        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>Thuế TNCN khấu trừ tại nguồn (10%)</span></td>";
+        strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + CIPConvert.ToStr(v_dc_so_tien_thue, "#,###") + "</span></td>"; // Số tiền thuế
         strTable += "\n</tr>";
         //Giá trị thực nhận
         strTable += "\n<tr>";
-        //strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>Giá trị thực nhận</span></td>";
-        strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.0em'>" + CIPConvert.ToStr(v_dc_tong_tien - v_dc_so_tien_thue, "#,###") + "</span></td>";
+        strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>Giá trị thực nhận</span></td>";
+        strTable += "\n<td colspan='4' align='right' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + CIPConvert.ToStr(v_dc_tong_tien - v_dc_so_tien_thue, "#,###") + "</span></td>";
         strTable += "\n</tr>";
         // Bằng chữ
         string v_str_so_tien_bang_chu = "Bằng chữ: ";
-        v_str_so_tien_bang_chu += CHelperCore.ToString(v_dc_tong_tien - v_dc_so_tien_thue);
+        string v_str_tien_bang_chu = CHelperCore.ToString(v_dc_tong_tien - v_dc_so_tien_thue);
+        string v_str_first_char = v_str_tien_bang_chu.Substring(0, 1);
+        v_str_first_char = v_str_first_char.ToUpper();
+        v_str_tien_bang_chu = v_str_first_char + v_str_tien_bang_chu.Substring(1, v_str_tien_bang_chu.Length - 1);
+        v_str_so_tien_bang_chu += v_str_tien_bang_chu;
         strTable += "\n<tr>";
-        //strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Times New Roman; font-size:1.0em'></span></td>";
-        strTable += "\n<td colspan='5' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman; font-style:italic;font-size:1.0em'>" + v_str_so_tien_bang_chu + "</span></td>";
+        strTable += "\n<td colspan='5' style='width:12%;' class='cssTitleReport' nowrap='nowrap'><span style='font-family:Times New Roman; font-style:italic;font-size:1.1em'>" + v_str_so_tien_bang_chu +" ./."+ "</span></td>";
+        strTable += "\n</tr>";
+        //Khoảng trắng
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='6'></td>";
+        strTable += "\n</tr>";
+        // Ngày tháng năm ký
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='2'></td>";
+        strTable += "\n<td colspan='4' align='left' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hà Nội, ngày&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tháng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;năm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
+        strTable += "\n</tr>";
+        // Giám đốc, cán bộ hành chính
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='2' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-weight:bold; font-size:1.1em'>GIÁM ĐỐC TRUNG TÂM</td>";
+        strTable += "\n<td colspan='4' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-weight:bold; font-size:1.1em'>CÁN BỘ HÀNH CHÍNH</span></td>";
+        strTable += "\n</tr>";
+        // Ký họ tên
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='2' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-style:italic; font-size:1.1em'>(Ký, họ tên)</td>";
+        strTable += "\n<td colspan='4' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-style:italic; font-size:1.1em'>(Ký, họ tên)</span></td>";
+        strTable += "\n</tr>";
+        //Khoảng trắng
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='6'></td>";
+        strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='6'></td>";
+        strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='6'></td>";
+        strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='6'></td>";
+        strTable += "\n</tr>";
+        // Tên người ký
+        strTable += "\n<tr>";
+        strTable += "\n<td colspan='2' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-size:1.1em'>ThS Nguyễn Danh Tú</td>";
+        strTable += "\n<td colspan='4' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-size:1.1em'>Trần Thu Trang</span></td>";
         strTable += "\n</tr>";
     }
     private void loadTieuDe(ref string strTable)
@@ -296,7 +386,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         //Thời gian giảng dạy
         DateTime v_dat_today = DateTime.Today;
           strTable += "\n<tr>";
-          strTable += "\n<td colspan='6' align='left'><class='cssTableView' style='width:100%;' nowrap='nowrap'> <span style='font-family:Times New Roman;font-size:1.1em'>Thời gian giảng dạy: Từ ngày  <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>01/" + v_dat_today.Month + "/" + v_dat_today.Year + "</span>  Đến ngày  <span style='font-family:Times New Roman; font-weight:bold;font-size:1.1em'>" + get_last_day_of_month() + "</span></span></td>";
+          strTable += "\n<td colspan='6' align='left'><class='cssTableView' style='width:100%;' nowrap='nowrap'> <span style='font-family:Times New Roman;font-size:1.1em'>Thời gian giảng dạy:"+get_ngay_bdau_kthuc_mon(m_txt_thoi_gian_lop_mon.Text.Trim())+"</span></td>";
         strTable += "\n</tr>";
         //Khoảng trắng trước khi vào nội dung chính
         strTable += "\n<tr>";
@@ -307,12 +397,12 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
         //table noi dung
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
         strTable += "\n<tr>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>STT</span></td>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>Công việc</span></td>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>Đơn giá (VNĐ)</span></td>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>ĐVT</span></td>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>Số lượng</span></td>";
-        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.0em'>Thành tiền (VNĐ)</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>STT</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>Công việc</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>Đơn giá (VNĐ)</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>ĐVT</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>Số lượng</span></td>";
+        strTable += "\n<td align='center' class='cssTableView' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.1em'>Thành tiền (VNĐ)</span></td>";
         strTable += "\n</tr>";
         loadDSExprort(ref strTable);
         strTable += "\n</table>";
@@ -333,7 +423,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
             + "\n 	{mso-displayed-decimal-separator:'\\.';"
             + "\n 	mso-displayed-thousand-separator:'\\,';}"
             + ".cssTitleReport"
-            + "{font-family: Times New Roman; font-size: 11px;font-weight:normal;border: 1px #000000 solid;}"
+            + "{font-family: Times New Roman; font-size: 1.1em;font-weight:normal;border: 1px #000000 solid;}"
             + ".cssTableView"
             + "{color:#FFFFFF;background-color:#800000;font-family: tahoma,Arial,Times New Roman; font-size: 12px;font-weight:bold;border: 1px #000000 solid;}"
             + "\n 	--></style>"
@@ -372,7 +462,15 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
                 return;
             }
             else m_lbl_thong_bao_chon_trang_thai.Text = "";
+            if (m_txt_thoi_gian_lop_mon.Text.Trim().Equals(""))
+            {
+                m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "Hãy nhập thời gian lớp môn!";
+                return;
+            }
+            else m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "";
 
+            // Lưu vào session thời gian lớp môn
+            Session["timelopmon"] = m_txt_thoi_gian_lop_mon.Text.Trim();
             string html = loadExport();
             string strNamFile = "PSP444_BaoCaoXacNhanThuLaoChuyenMon" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
             Response.Cache.SetExpires(DateTime.Now.AddSeconds(1));
@@ -418,13 +516,15 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
             if (m_cbo_ten_giang_vien_loc.SelectedValue.Equals("0"))
             {
                 m_lbl_thong_bao_chon_giang_vien.Text = "Bạn chưa chọn giảng viên để xuất báo cáo!";
+                load_data_2_cbo_hop_dong_loc();
                 return;
             }
             else m_lbl_thong_bao_chon_giang_vien.Text = "";
             load_data_2_cbo_hop_dong_loc();
-            //visible_xuat_excel_button();
+            visible_textbox();
             visible_huy_duyet_button();
-            load_data_2_grv();
+            if(m_cbo_so_hop_dong_loc.Items.Count > 0)
+                load_data_2_grv();
         }
         catch (Exception v_e)
         {
@@ -454,6 +554,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
             }
             else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;            
             visible_huy_duyet_button();
+            visible_textbox();
             load_data_2_grv();
         }
         catch (Exception v_e)

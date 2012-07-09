@@ -23,13 +23,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
     <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
                 Text="Duyệt chuyển thanh toán"/>
 		</td>
 	</tr>
           <tr>
-        <td colspan="3" align="left">
+        <td colspan="2" align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
 		</td>
     </tr> 
@@ -72,6 +72,18 @@
                 CssClass="cssManField" />
                     </td>
             </tr>
+    <tr>
+         <td align="right" style="width:12%;">
+             <asp:label id="m_lbl_thoi_gian_lop_mon" CssClass="cssManField" runat="server" Visible = "false"
+                Text="Thời gian lớp môn" />
+        </td>
+        <td align="left" style="width:38%;">
+        <asp:TextBox ID="m_txt_thoi_gian_lop_mon" Width="60%" runat="server" Visible ="false"></asp:TextBox>&nbsp;&nbsp;<asp:Label ID="m_lbl_vi_du" runat="server" Visible = "false" Text="VD: (01/03/2012 - 31/03/2012)" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="m_lbl_thong_bao_nhap_thoi_gian_lop_mon" runat="server" Visible = "false"
+                CssClass="cssManField" />
+                    </td>
+            </tr>
 	<tr>
         <td>
             <asp:button id="m_cmd_duyet_ke_hoach" accessKey="u" CssClass="cssButton"
@@ -89,7 +101,7 @@
         </td>
     </tr>
     <tr>
-		<td align="center" colspan="4" valign="top">
+		<td align="center" colspan="2" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" ShowFooter="true"
