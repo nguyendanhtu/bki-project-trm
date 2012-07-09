@@ -723,3 +723,106 @@ AS
 	WHERE (cvm.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG OR @ID_HOP_DONG_KHUNG = 0)
 	AND (cvm.ID_NOI_DUNG_TT = @ID_NOI_DUNG_TT OR @ID_NOI_DUNG_TT = 0)
 	AND cvm.NGAY_DAT_HANG = @NGAY_DAT_HANG
+--- Ngày 04/07/2012
+CREATE PROCEDURE pr_V_DM_HOP_DONG_KHUNG_Load_Hop_Dong_cbo_by_Id_Giang_Vien
+@ID_GIANG_VIEN DECIMAL
+AS 
+SELECT * FROM V_DM_HOP_DONG_KHUNG dhdk
+WHERE (dhdk.ID_GIANG_VIEN = @ID_GIANG_VIEN OR @ID_GIANG_VIEN = 0)
+ORDER BY dhdk.ID_GIANG_VIEN,dhdk.ID
+
+GO
+
+CREATE PROCEDURE pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_id_gv_id_HD
+@MA_DOT_TT NVARCHAR(100)
+,@ID_TRANG_THAI_TT DECIMAL
+,@ID_GIANG_VIEN DECIMAL
+,@ID_HOP_DONG_KHUNG DECIMAL
+as
+SELECT * FROM V_GD_THANH_TOAN vgtt
+WHERE (SO_PHIEU_THANH_TOAN  = @MA_DOT_TT OR @MA_DOT_TT = '')
+AND (vgtt.ID_TRANG_THAI_THANH_TOAN = @ID_TRANG_THAI_TT OR @ID_TRANG_THAI_TT = 0)
+AND (vgtt.ID_GIANG_VIEN = @ID_GIANG_VIEN OR @ID_GIANG_VIEN = 0)
+AND (vgtt.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG)
+ORDER BY vgtt.ID 
+
+------ Ngày 10/07/2012
+CREATE FUNCTION [dbo].[f_get_noi_dung_tt_export_excel]
+(@ID_NOI_DUNG_TT DECIMAL
+,@TEN_NOI_DUNG_TT NVARCHAR(300)
+,@ID_CONG_VIEC DECIMAL
+,@ID_HOP_DONG_KHUNG DECIMAL
+,@NGAY_DAT_HANG DATETIME)
+RETURNS NVARCHAR(500)
+AS
+BEGIN
+	DECLARE @v_str_noi_dung_tt NVARCHAR(300)
+	DECLARE @v_i_so_luong_cv_ung_noi_dung_tt INT
+	DECLARE @v_dc_id_trang_thai_da_duyet_chuyen DECIMAL
+	SET @v_dc_id_trang_thai_da_duyet_chuyen = (SELECT cdtd.ID
+											   FROM CM_DM_TU_DIEN cdtd 
+											   WHERE cdtd.ID_LOAI_TU_DIEN = 21 
+											   AND cdtd.MA_TU_DIEN LIKE '%DA_DUYET_CHUYEN_THANH_TOAN%') 
+	SET @v_i_so_luong_cv_ung_noi_dung_tt = (SELECT COUNT(ggcvm.ID)
+			FROM V_GD_GV_CONG_VIEC_MOI ggcvm
+			WHERE ggcvm.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG
+			AND ggcvm.ID_TRANG_THAI = @v_dc_id_trang_thai_da_duyet_chuyen
+	GROUP BY ggcvm.ID_NOI_DUNG_TT
+			HAVING ggcvm.ID_NOI_DUNG_TT = @ID_NOI_DUNG_TT)
+  IF @v_i_so_luong_cv_ung_noi_dung_tt = 1 -- nghĩa là ko có cái nào trùng nội dung tt này còn tồn từ tháng trước
+	SET @v_str_noi_dung_tt = @TEN_NOI_DUNG_TT
+ ELSE IF @v_i_so_luong_cv_ung_noi_dung_tt > 1
+ 	BEGIN
+ 		SET @v_str_noi_dung_tt = @TEN_NOI_DUNG_TT
+		SET @v_str_noi_dung_tt = @v_str_noi_dung_tt + '(tháng ' +CONVERT(NVARCHAR,MONTH(@NGAY_DAT_HANG)) + ')'
+ 	END
+ 	RETURN @v_str_noi_dung_tt 
+END
+
+GO
+
+CREAtE PROCEDURE [dbo].[pr_GD_GV_CONG_VIEC_MOI_Load_Cong_Viec_Export_Excel]
+	@ID_HOP_DONG_KHUNG DECIMAL,
+	@ID_GIANG_VIEN DECIMAL
+AS
+DECLARE @v_dc_id_trang_thai_da_duyet_chuyen DECIMAL
+SET @v_dc_id_trang_thai_da_duyet_chuyen = (SELECT cdtd.ID
+                                           FROM CM_DM_TU_DIEN cdtd 
+                                           WHERE cdtd.ID_LOAI_TU_DIEN = 21 
+                                           AND cdtd.MA_TU_DIEN LIKE '%DA_DUYET_CHUYEN_THANH_TOAN%') 
+DECLARE @v_str_so_hop_dong NVARCHAR(200)
+DECLARE @v_str_ten_giang_vien NVARCHAR(200)
+SET @v_str_so_hop_dong = (SELECT dhdk.SO_HOP_DONG 
+                          FROM DM_HOP_DONG_KHUNG dhdk WHERE dhdk.ID = @ID_HOP_DONG_KHUNG)
+SET @v_str_ten_giang_vien = (SELECT LTRIM(RTRIM(dgv.HO_VA_TEN_DEM))+' '+LTRIM(RTRIM(dgv.TEN_GIANG_VIEN))
+							 FROM DM_GIANG_VIEN dgv
+                             WHERE dgv.ID = @ID_GIANG_VIEN)
+
+-- Kiểm tra xem trong các cv giảng viên đã duyệt chuyển khoản có cái nào từ tháng trước không?
+
+SELECT a.*
+FROM
+(SELECT cvm.ID,cvm.ID_HOP_DONG_KHUNG,cvm.SO_HOP_DONG,cvm.ID_GIANG_VIEN,
+cvm.HO_VA_TEN_GIANG_VIEN,cvm.ID_NOI_DUNG_TT,dbo.f_get_noi_dung_tt_export_excel(cvm.ID_NOI_DUNG_TT,cvm.TEN_NOI_DUNG,cvm.ID,cvm.ID_HOP_DONG_KHUNG,cvm.NGAY_DAT_HANG) AS TEN_NOI_DUNG,
+cvm.SO_LUONG_HE_SO,cvm.SO_LUONG_NGHIEM_THU,cvm.DON_GIA,cvm.NGAY_DAT_HANG,cvm.NGAY_NGHIEM_THU,
+cvm.ID_TRANG_THAI,cvm.TEN_TRANG_THAI,cvm.ID_USER_NHAP,cvm.TEN_TRUY_CAP,cvm.GHI_CHU
+   FROM V_GD_GV_CONG_VIEC_MOI cvm
+WHERE (cvm.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG)
+AND (cvm.ID_GIANG_VIEN = @ID_GIANG_VIEN)
+AND cvm.ID_TRANG_THAI = @v_dc_id_trang_thai_da_duyet_chuyen
+UNION ALL
+SELECT 1 AS ID, @ID_HOP_DONG_KHUNG AS ID_HOP_DONG_KHUNG,@v_str_so_hop_dong AS SO_HOP_DONG,
+	@ID_GIANG_VIEN AS ID_GIANG_VIEN,@v_str_ten_giang_vien AS HO_VA_TEN_GIANG_VIEN,
+	ghdndt.ID AS ID_NOI_DUNG_TT,
+	ghdndt.NOI_DUNG_THANH_TOAN AS TEN_NOI_DUNG, 0 AS SO_LUONG_HE_SO,0 AS SO_LUONG_NGHIEM_THU
+	,ghdndt.DON_GIA_HD AS DON_GIA,'01/01/1990' AS NGAY_DAT_HANG,'01/01/1990' AS NGAY_NGHIEM_THU,531 AS ID_TRANG_THAI,
+	N'10 - Đã lập kế hoạch' AS TEN_TRANG_THAI,69915 AS ID_USER_NHAP,'test_trangtt',ghdndt.GHI_CHU_NOI_DUNG_TT
+FROM V_GD_HOP_DONG_NOI_DUNG_TT ghdndt
+WHERE ghdndt.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG
+AND ghdndt.ID NOT IN (SELECT ggcvm.ID_NOI_DUNG_TT
+                      FROM V_GD_GV_CONG_VIEC_MOI ggcvm
+                      WHERE ggcvm.ID_HOP_DONG_KHUNG = @ID_HOP_DONG_KHUNG
+					  AND ggcvm.ID_GIANG_VIEN = @ID_GIANG_VIEN
+					  AND ggcvm.ID_TRANG_THAI = @v_dc_id_trang_thai_da_duyet_chuyen)
+) a
+ORDER BY a.ID_NOI_DUNG_TT
