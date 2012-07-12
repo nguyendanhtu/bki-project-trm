@@ -184,13 +184,13 @@
                     <asp:button id="m_cmd_tao_moi" accessKey="l" CssClass="cssButton" 
                 runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_tao_moi_Click" 
                 />&nbsp;&nbsp;
-                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
-                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
-			&nbsp;&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" Visible="false"
                 runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_cap_nhat_Click" 
                  />
+                &nbsp;&nbsp;
+                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
 			        &nbsp;&nbsp;
 			<asp:button id="m_cmd_xoa_trang" accessKey="r" CssClass="cssButton" runat="server" 
                 Width="98px" Height="25px"  Text="Xóa trắng(r)" CausesValidation="false" 
