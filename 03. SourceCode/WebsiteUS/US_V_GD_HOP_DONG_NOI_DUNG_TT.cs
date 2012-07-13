@@ -336,9 +336,11 @@ public class US_V_GD_HOP_DONG_NOI_DUNG_TT : US_Object
     }
     #endregion
     #region Additional Functions
-        public void load_noi_dung_at_phu_luc_hop_dong(decimal ip_dc_id_hop_dong_khung)
+        public void load_noi_dung_at_phu_luc_hop_dong(decimal ip_dc_id_hop_dong_khung, DS_V_GD_HOP_DONG_NOI_DUNG_TT op_ds_v_gd_hd_noi_dung_tt)
         {
-
+            CStoredProc v_cstore = new CStoredProc("pr_GD_HOP_DONG_NOI_DUNG_TT_Load_Phu_Luc_HD");
+            v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG",ip_dc_id_hop_dong_khung);
+            v_cstore.fillDataSetByCommand(this, op_ds_v_gd_hd_noi_dung_tt);
         }
         #endregion
     }
