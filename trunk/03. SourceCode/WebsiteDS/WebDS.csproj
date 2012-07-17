@@ -159,6 +159,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_TBL_GD_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -437,6 +442,17 @@
     </None>
     <None Include="DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xss">
       <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xsc">
+      <DependentUpon>DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xss">
+      <DependentUpon>DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.xsd</DependentUpon>
     </None>
     <None Include="DS_TBL_GD_THANH_TOAN.xsc">
       <DependentUpon>DS_TBL_GD_THANH_TOAN.xsd</DependentUpon>

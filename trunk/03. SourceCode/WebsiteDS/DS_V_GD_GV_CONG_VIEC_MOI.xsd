@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_GD_GV_CONG_VIEC_MOI" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_HOP_DONG_KHUNG, SO_HOP_DONG, ID_GIANG_VIEN, HO_VA_TEN_GIANG_VIEN, ID_NOI_DUNG_TT, TEN_NOI_DUNG, SO_LUONG_HE_SO, SO_LUONG_NGHIEM_THU, DON_GIA, NGAY_DAT_HANG, NGAY_NGHIEM_THU, ID_TRANG_THAI, TEN_TRANG_THAI, ID_USER_NHAP, TEN_TRUY_CAP, GHI_CHU FROM dbo.V_GD_GV_CONG_VIEC_MOI</CommandText>
+                    <CommandText>SELECT ID, ID_HOP_DONG_KHUNG, SO_HOP_DONG, ID_GIANG_VIEN, HO_VA_TEN_GIANG_VIEN, ID_NOI_DUNG_TT, TEN_NOI_DUNG, ID_NOI_DUNG_GOC, SO_LUONG_HE_SO, SO_LUONG_NGHIEM_THU, DON_GIA, NGAY_DAT_HANG, NGAY_NGHIEM_THU, ID_TRANG_THAI, TEN_TRANG_THAI, ID_USER_NHAP, TEN_TRUY_CAP, GHI_CHU FROM dbo.V_GD_GV_CONG_VIEC_MOI</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -26,6 +26,7 @@
               <Mapping SourceColumn="HO_VA_TEN_GIANG_VIEN" DataSetColumn="HO_VA_TEN_GIANG_VIEN" />
               <Mapping SourceColumn="ID_NOI_DUNG_TT" DataSetColumn="ID_NOI_DUNG_TT" />
               <Mapping SourceColumn="TEN_NOI_DUNG" DataSetColumn="TEN_NOI_DUNG" />
+              <Mapping SourceColumn="ID_NOI_DUNG_GOC" DataSetColumn="ID_NOI_DUNG_GOC" />
               <Mapping SourceColumn="SO_LUONG_HE_SO" DataSetColumn="SO_LUONG_HE_SO" />
               <Mapping SourceColumn="SO_LUONG_NGHIEM_THU" DataSetColumn="SO_LUONG_NGHIEM_THU" />
               <Mapping SourceColumn="DON_GIA" DataSetColumn="DON_GIA" />
@@ -75,6 +76,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="ID_NOI_DUNG_GOC" msprop:Generator_ColumnVarNameInTable="columnID_NOI_DUNG_GOC" msprop:Generator_ColumnPropNameInRow="ID_NOI_DUNG_GOC" msprop:Generator_ColumnPropNameInTable="ID_NOI_DUNG_GOCColumn" msprop:Generator_UserColumnName="ID_NOI_DUNG_GOC" type="xs:decimal" />
               <xs:element name="SO_LUONG_HE_SO" msprop:Generator_ColumnVarNameInTable="columnSO_LUONG_HE_SO" msprop:Generator_ColumnPropNameInRow="SO_LUONG_HE_SO" msprop:Generator_ColumnPropNameInTable="SO_LUONG_HE_SOColumn" msprop:Generator_UserColumnName="SO_LUONG_HE_SO" type="xs:decimal" minOccurs="0" />
               <xs:element name="SO_LUONG_NGHIEM_THU" msprop:Generator_ColumnVarNameInTable="columnSO_LUONG_NGHIEM_THU" msprop:Generator_ColumnPropNameInRow="SO_LUONG_NGHIEM_THU" msprop:Generator_ColumnPropNameInTable="SO_LUONG_NGHIEM_THUColumn" msprop:Generator_UserColumnName="SO_LUONG_NGHIEM_THU" type="xs:decimal" minOccurs="0" />
               <xs:element name="DON_GIA" msprop:Generator_ColumnVarNameInTable="columnDON_GIA" msprop:Generator_ColumnPropNameInRow="DON_GIA" msprop:Generator_ColumnPropNameInTable="DON_GIAColumn" msprop:Generator_UserColumnName="DON_GIA" type="xs:decimal" minOccurs="0" />
