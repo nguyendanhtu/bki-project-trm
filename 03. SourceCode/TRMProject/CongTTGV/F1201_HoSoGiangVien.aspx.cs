@@ -25,7 +25,7 @@ public partial class CongTTGV_F1201_HoSoGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
             load_data_2_cbo_po_quan_ly_chinh_va_phu();
-            m_lbl_mess.Visible = false;
+            m_lbl_mess.Text = "";
             if (Session["UserName"] == null)
                 Response.Redirect("/TRMProject/Account/Login.aspx");
             else

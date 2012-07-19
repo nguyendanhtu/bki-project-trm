@@ -508,18 +508,13 @@
                 <asp:label id="m_lbl_" CssClass="cssManField" runat="server"
                 Text="Tình trạng thông tin" />
 		                    </td>
-                <td align="left" class="style3" colspan="1">
-                        <asp:DropDownList ID="m_cbo_trang_thai_thong_tin" runat="server" 
-                            CssClass="cssDorpdownlist" Width="96%">
-                            <asp:ListItem Value="Y">Thông tin đầy đủ, chính xác</asp:ListItem>
-                            <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
-                        </asp:DropDownList>
+                <td align="left" class="style3" colspan="4">
+                    <asp:RadioButtonList ID="m_cbo_trang_thai_thong_tin" runat="server"
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Value="Y" Selected="True">Thông tin đầy đủ, chính xác</asp:ListItem>
+                        <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
+                    </asp:RadioButtonList>
                     </td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="left" style="width:10%;">
-			        &nbsp;</td>            
-                         <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
