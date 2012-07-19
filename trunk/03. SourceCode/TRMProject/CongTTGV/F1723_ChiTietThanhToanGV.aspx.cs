@@ -208,6 +208,7 @@ public partial class CongTTGV_F1723_ChiTietThanhToanGV : System.Web.UI.Page
     private void loadTieuDe(ref string strTable)
     {
         m_ds_v_gd_thanh_toan_detail.Clear();
+        m_dc_id_gd_thanh_toan = CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]);
         m_us_v_gd_thanh_toan_detail.FillDataset(m_ds_v_gd_thanh_toan_detail, " WHERE ID_GD_THANH_TOAN= " + m_dc_id_gd_thanh_toan);
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
         strTable += "\n<tr>";

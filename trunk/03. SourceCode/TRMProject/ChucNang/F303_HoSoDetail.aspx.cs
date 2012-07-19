@@ -51,6 +51,20 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         }
         return v_str_ten_giang_vien;
     }
+    public string get_mapping_ten_loai_ho_so(object i_dc_id_loai_ho_so)
+    {
+        string v_str_ten_loai_ho_so = "";
+        try
+        {
+            US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN(CIPConvert.ToDecimal(i_dc_id_loai_ho_so));
+            v_str_ten_loai_ho_so = v_us_dm_tu_dien.strTEN;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+        return v_str_ten_loai_ho_so;
+    }
     public string get_mapping_loai_giang_vien(object i_dc_id_giang_vien)
     {
         string v_str_loai_giang_vien = "";
@@ -97,11 +111,12 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         string m_str_file_name;
         US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
         string v_str_loai_ho_so = Change_AV(m_cbo_loai_ho_so.SelectedItem.Text);
-        while (v_str_loai_ho_so.Contains(" "))
+        string v_str_new_loai_ho_so = "";
+        if (v_str_loai_ho_so.Contains(" "))
         {
-            v_str_loai_ho_so.Replace(" ", "");
+            v_str_new_loai_ho_so = v_str_loai_ho_so.Replace(" ", "");
         }
-        m_str_file_name = Change_AV(get_mapping_ten_giang_vien(v_us_gd_ho_so_gv.dcID_GIANG_VIEN)) + "_" + v_str_loai_ho_so + "_ver" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + "_" + DateTime.Now.Hour + DateTime.Now.Minute;
+        m_str_file_name = Change_AV(get_mapping_ten_giang_vien(v_us_gd_ho_so_gv.dcID_GIANG_VIEN)) + "_" + v_str_new_loai_ho_so + "_ver" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + "_" + DateTime.Now.Hour + DateTime.Now.Minute;
         //while (m_str_file_name.Contains(" "))
         //{
         //    m_str_file_name.Replace(" ", "");
@@ -206,7 +221,7 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         }
         // Nếu chưa tồn tại
         string v_str_uploadFolder = Request.PhysicalApplicationPath + "HoSoDinhKem\\";
-        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192)
+        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192000)
         {
             string someScript;
             someScript = "<script language='javascript'>alert('File upload phải có dung lượng nhỏ hơn 8Mb');</script>";

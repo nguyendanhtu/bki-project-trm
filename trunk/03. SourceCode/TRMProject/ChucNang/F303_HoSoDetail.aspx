@@ -344,9 +344,12 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="TEN_LOAI_HO_SO" HeaderText="Tên loại hồ sơ">
-                    <ItemStyle Width="30%" HorizontalAlign="Left" />
-                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="Tên loại hồ sơ">
+                       <ItemTemplate>
+                       <%# get_mapping_ten_loai_ho_so(Eval("TEN_LOAI_HO_SO"))%>
+                       </ItemTemplate>
+                        <ItemStyle Width="30%"></ItemStyle>
+                    </asp:TemplateField>
                      <asp:BoundField DataField="HO_SO_DINH_KEM" HeaderText="Hồ sơ đính kèm">
                     </asp:BoundField>
                      <asp:BoundField DataField="NGAY_CAP_NHAT" HeaderText="Ngày cập nhật" DataFormatString="{0:dd/MM/yyyy}">

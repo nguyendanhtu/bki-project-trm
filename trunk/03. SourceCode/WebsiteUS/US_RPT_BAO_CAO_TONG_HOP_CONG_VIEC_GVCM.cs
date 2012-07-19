@@ -189,5 +189,16 @@ public class US_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
-	}
+
+    #region Additional Functions
+    public void load_data_2_export_bao_cao_706(DS_RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM op_ds_v_gd_cv_moi, decimal ip_dc_thang_dat_hang, decimal ip_dc_nam_dat_hang, decimal ip_dc_id_trang_thai_cv)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Load_Cong_Viec_Export_Bao_Cao_706");
+        v_cstore.addDecimalInputParam("@THANG_DAT_HANG", ip_dc_thang_dat_hang);
+        v_cstore.addDecimalInputParam("@NAM_DAT_HANG", ip_dc_nam_dat_hang);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_CV", ip_dc_id_trang_thai_cv);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
+    #endregion
+}
 }
