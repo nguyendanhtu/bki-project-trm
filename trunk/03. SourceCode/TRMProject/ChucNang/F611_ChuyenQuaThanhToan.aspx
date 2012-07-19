@@ -107,6 +107,9 @@
                 <td align="left" colspan="3">
                 <asp:TextBox ID="m_txt_thoi_gian_lop_mon" CssClass="cssTextBox" Width="40%" 
                         runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ví dụ: 01/11/2011 - 30/11/2011)
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="m_lbl_thong_bao_nhap_thoi_gian_lop_mon" runat="server" 
+                        CssClass="cssManField" Visible="false" />
                         </td> 
                 <td align="left" colspan="2"></td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -134,6 +137,9 @@
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
                     </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;
+		   <asp:label id="m_lbl_thong_bao_chon_giang_vien" runat="server" 
+                CssClass="cssManField" />
                     </td>
     </tr>
     <tr>
@@ -156,6 +162,9 @@
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
                     </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="m_lbl_thong_bao_chon_trang_thai" runat="server" 
+                CssClass="cssManField" />
                     </td>
             </tr>
             <tr>
@@ -163,6 +172,11 @@
             <asp:button id="m_cmd_chuyen_qua_thanh_toan" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Chuyển qua TT" 
                 CausesValidation="false" onclick="m_cmd_chuyen_qua_thanh_toan_Click"/>
+                </td>
+                <td> 
+            <asp:button id="m_cmd_xuat_excel" accessKey="u" CssClass="cssButton"
+                runat="server" Width="98px" Height="25px"  Text="Xuất Excel" 
+                CausesValidation="false" OnClick="m_cmd_xuat_excel_Click"/>
                 </td>
             </tr>
 	<tr>
