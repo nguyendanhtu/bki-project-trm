@@ -34,10 +34,10 @@
 		</td>
     </tr> 
     <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label1" CssClass="cssManField" runat="server" 
+         <td align="right" style="width:20%;"><asp:label id="Label1" CssClass="cssManField" runat="server" 
                 Text="Tên giảng viên" />
         </td>
-        <td align="left" style="width:38%;">
+        <td align="left" style="width:80%;">
             <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" AutoPostBack="true"
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
@@ -48,10 +48,10 @@
                     </td>
     </tr>
     <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label2" CssClass="cssManField" runat="server" 
+         <td align="right" style="width:20%;"><asp:label id="Label2" CssClass="cssManField" runat="server" 
                 Text="Số hơp đồng" />
         </td>
-        <td align="left" style="width:38%;">
+        <td align="left" style="width:80%;">
             <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" AutoPostBack="true"
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged">
@@ -59,10 +59,10 @@
                     </td>
     </tr>
     <tr>
-         <td align="right" style="width:12%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
+         <td align="right" style="width:20%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
                 Text="Trạng thái công việc" />
         </td>
-        <td align="left" style="width:38%;">
+        <td align="left" style="width:80%;">
             <asp:DropDownList id="m_cbo_trang_thai_cv_loc" runat="server" AutoPostBack="true"
                         CssClass="cssDorpdownlist" Width="60%" 
                 onselectedindexchanged="m_cbo_trang_thai_cv_loc_SelectedIndexChanged">
@@ -73,11 +73,11 @@
                     </td>
             </tr>
     <tr>
-         <td align="right" style="width:12%;">
+         <td align="right" style="width:20%;">
              <asp:label id="m_lbl_thoi_gian_lop_mon" CssClass="cssManField" runat="server" Visible = "false"
                 Text="Thời gian lớp môn" />
         </td>
-        <td align="left" style="width:38%;">
+        <td align="left" style="width:80%;">
         <asp:TextBox ID="m_txt_thoi_gian_lop_mon" Width="60%" runat="server" Visible ="false"></asp:TextBox>&nbsp;&nbsp;<asp:Label ID="m_lbl_vi_du" runat="server" Visible = "false" Text="VD: (01/03/2012 - 31/03/2012)" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="m_lbl_thong_bao_nhap_thoi_gian_lop_mon" runat="server" Visible = "false"
@@ -90,11 +90,12 @@
                 runat="server" Width="98px" Height="25px"  Text="Duyệt chuyển" CausesValidation="false"
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+               <td> 
             <asp:button id="m_cmd_xuat_excel" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Xuất Excel" 
                 CausesValidation="false" OnClick="m_cmd_xuat_excel_Click"/>
-        </td>
-               <td> <asp:button id="m_cmd_huy_chuyen_duyet_thanh_toan" accessKey="u" 
+        &nbsp;&nbsp;&nbsp; <asp:button id="m_cmd_huy_chuyen_duyet_thanh_toan" accessKey="u" 
                        CssClass="cssButton" Visible="false"
                 runat="server" Width="98px" Height="25px"  Text="Hủy duyệt" 
                        CausesValidation="false" onclick="m_cmd_huy_chuyen_duyet_thanh_toan_Click"/>

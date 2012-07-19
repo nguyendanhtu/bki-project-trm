@@ -23,19 +23,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
     <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="m_lbl_ds_cv_gv" runat="server" CssClass="cssPageTitle" 
                 Text="Duyệt nghiệm thu công việc của GVCM"/>
 		</td>
 	</tr>
     <tr>
-        <td colspan="4" align="left">
+        <td colspan="2" align="left">
 		   <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
 		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
 		</td>
     </tr>	
     <tr>
-        <td colspan="3"> 
+        <td colspan="2"> 
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:12%;">
@@ -185,10 +185,6 @@
             <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Duyệt" onclick="m_cmd_cap_nhat_Click"/>
                  &nbsp;&nbsp;
-                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
-                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
-			        &nbsp;&nbsp;
 			        <asp:Button ID="m_cmd_huy" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Hủy" 
                         Width="98px" onclick="m_cmd_huy_Click"/>
@@ -198,13 +194,13 @@
         </td>
     </tr> 
           <tr>
-        <td colspan="3" align="left">
+        <td colspan="2" align="left">
 		   <asp:label id="m_lbl_thong_bao_sau_cap_nhat" runat="server" CssClass="cssManField" />
            <asp:HiddenField runat="server" ID="m_hdf_check_hd" />
 		</td>
     </tr> 
     <tr>
-		<td class="cssPageTitleBG" colspan="3">
+		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="m_lbl_ket_qua_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Kết quả lọc dữ liệu"/>
 		</td>
@@ -232,6 +228,19 @@
                     </td>
     </tr>
     <tr>
+         <td align="right" style="width:12%;">
+			<asp:label id="lbl_noi_dung_tt0" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;C&lt;/U&gt;ông việc" />
+        </td>
+        <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_noi_dung_thanh_toan_loc" runat="server" 
+                        CssClass="cssDorpdownlist" Width="60%"
+                AutoPostBack="true" 
+                onselectedindexchanged="m_cbo_noi_dung_thanh_toan_loc_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    </td>
+    </tr>
+    <tr>
          <td align="right" style="width:12%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
                 Text="Trạng thái công việc" />
         </td>
@@ -248,9 +257,14 @@
                 runat="server" Width="98px" Height="25px"  Text="Duyệt" CausesValidation="false"
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
         </td>
+        <td>
+                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
+			        </td>
     </tr>
     <tr>
-		<td align="center" colspan="4" valign="top">
+		<td align="center" colspan="2" valign="top">
 		    &nbsp;
             <asp:GridView ID="m_grv_gd_assign_su_kien_cho_giang_vien" runat="server" AutoGenerateColumns="False"
                 Width="100%" DataKeyNames="ID" ShowFooter="true"

@@ -169,10 +169,6 @@
 			&nbsp;&nbsp;
             <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Cập nhật(u)" onclick="m_cmd_cap_nhat_Click"/>
-                 &nbsp;&nbsp;
-                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
-                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
 			        &nbsp;&nbsp;
 			        <asp:Button ID="m_cmd_huy" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Hủy" 
@@ -217,6 +213,19 @@
                     </td>
     </tr>
     <tr>
+         <td align="right" style="width:12%;">
+			<asp:label id="lbl_noi_dung_tt0" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;C&lt;/U&gt;ông việc" />
+        </td>
+        <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_noi_dung_thanh_toan_loc" runat="server" 
+                        CssClass="cssDorpdownlist" Width="60%" 
+                onselectedindexchanged="m_cbo_noi_dung_thanh_toan_loc_SelectedIndexChanged" 
+                AutoPostBack="true">
+                    </asp:DropDownList>
+                    </td>
+    </tr>
+    <tr>
          <td align="right" style="width:12%;"><asp:label id="Label3" CssClass="cssManField" runat="server" 
                 Text="Trạng thái công việc" />
         </td>
@@ -233,6 +242,11 @@
                 runat="server" Width="98px" Height="25px"  Text="Duyệt" 
                 onclick="m_cmd_duyet_ke_hoach_Click"/>
         </td>
+        <td>
+                <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
+			        </td>
     </tr>
     <tr>
 		<td align="center" colspan="2" valign="top">

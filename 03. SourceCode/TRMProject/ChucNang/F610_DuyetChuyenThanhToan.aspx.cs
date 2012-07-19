@@ -455,10 +455,9 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
                 return;
             }
             else m_lbl_thong_bao_chon_giang_vien.Text = "";
-            if (!m_cbo_trang_thai_cv_loc.SelectedValue.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)))
+            if (!m_cbo_trang_thai_cv_loc.SelectedValue.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)) && !m_cbo_trang_thai_cv_loc.SelectedValue.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN)))
             {
-                m_lbl_thong_bao_chon_trang_thai.Text = "Hãy chon trạng thái Đã duyệt chuyển thanh toán!";
-                //m_cbo_trang_thai_cv_loc.SelectedValue = CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN);
+                m_lbl_thong_bao_chon_trang_thai.Text = "Hãy chon trạng thái Đã duyệt chuyển thanh toán hoặc đã thanh toán";
                 return;
             }
             else m_lbl_thong_bao_chon_trang_thai.Text = "";
@@ -546,13 +545,18 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
     {
         try
         {
-            // Nếu đang ở trạng thái đã duyệt chuyển nghiệm thu thì cho hiển thị chức năng hủy duyệt chuyển thanh toán
+            // Nếu đang ở trạng thái đã duyệt chuyển thanh toán thì cho hiển thị chức năng hủy duyệt chuyển thanh toán
             if (m_cbo_trang_thai_cv_loc.SelectedItem.Value.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)))
             {
                 if (m_grv_gd_assign_su_kien_cho_giang_vien.Rows.Count > 0)
                     m_cmd_huy_chuyen_duyet_thanh_toan.Visible = true;
             }
-            else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;            
+            else m_cmd_huy_chuyen_duyet_thanh_toan.Visible = false;
+            if (!m_cbo_trang_thai_cv_loc.SelectedItem.Value.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN)) && !m_cbo_trang_thai_cv_loc.SelectedItem.Value.Equals(CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN)))
+            {
+                m_lbl_thong_bao_chon_trang_thai.Text = "Hãy chon trạng thái Đã duyệt chuyển thanh toán hoặc đã thanh toán";
+            }
+            else m_lbl_thong_bao_chon_trang_thai.Text = "";
             visible_huy_duyet_button();
             visible_textbox();
             load_data_2_grv();
