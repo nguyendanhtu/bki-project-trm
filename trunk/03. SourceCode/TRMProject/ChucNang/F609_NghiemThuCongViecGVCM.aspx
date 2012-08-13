@@ -214,7 +214,7 @@
 			&nbsp;&nbsp;
             <asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton"
                 runat="server" Width="98px" Height="25px"  Text="Nghiệm thu" onclick="m_cmd_cap_nhat_Click"/>
-                 &nbsp;&nbsp;
+                 &nbsp;
                 <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" Visible="false"
                         CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
                         Width="98px" onclick="m_cmd_xuat_excel_Click"/>
@@ -246,12 +246,21 @@
                 Width="100%" DataKeyNames="ID" ShowFooter="true"
                 CellPadding="4" ForeColor="#333333" 
                 AllowPaging="True" AllowSorting="True" PageSize="35"
-                onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging">
+                
+                onpageindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_PageIndexChanging" 
+                onselectedindexchanging="m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                <asp:TemplateField HeaderText="Chỉnh sửa">
+                        <ItemTemplate>
+                        <asp:LinkButton runat='server' ID='m_lbt_duyet'
+                         CommandName='Select' ToolTip='Chỉnh sửa' CausesValidation='false'>  
+                         <center><img src='../Images/Button/edit.png' width='20px' height='20px' alt='Sửa' /></center>
+                         </asp:LinkButton></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng">
                         <ItemTemplate>

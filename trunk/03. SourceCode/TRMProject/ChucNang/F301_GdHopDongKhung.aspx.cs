@@ -43,14 +43,14 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                     load_data_2_us_by_id_and_show_on_form(CIPConvert.ToDecimal(Request.QueryString["id"]));
                     m_cmd_luu_va_sinh_pl.Enabled = false;
                 }
-                //else
-                //{
-                //    if (Session["UserName"] != null)
-                //    {
-                //       // m_cbo_po_phu_trach_chinh.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
-                //        //m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
-                //    }
-                //}
+                else
+                {
+                    if (Session["UserName"] != null)
+                    {
+                        m_cbo_po_phu_trach_hop_dong.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
+                        m_cbo_po_phu_trach_hop_dong.ToolTip = CIPConvert.ToStr(Session["UserName"]);
+                    }
+                }
             }
 
             if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))

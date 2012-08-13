@@ -360,7 +360,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,v_str_hdkh
                                                 ,v_str_po_phu_trach_chinh
                                                 ,v_str_po_phu_trach_phu
-                                                ,v_str_trang_thai_thong_tin_gv);
+                                                ,v_str_trang_thai_thong_tin_gv
+                                                , CIPConvert.ToStr(Session["Username"]));
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -446,7 +447,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                             , v_str_hdkh
                                             , v_str_po_phu_trach_chinh
                                             , v_str_po_phu_trach_phu
-                                            , v_str_trang_thai_thong_tin_gv);
+                                            , v_str_trang_thai_thong_tin_gv
+                                            , CIPConvert.ToStr(Session["Username"]));
     }
     /// <summary>
     /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
@@ -487,7 +489,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                , CIPConvert.ToStr(Session["Shdkh"])
                                                , CIPConvert.ToStr(Session["Spochinh"])
                                                , CIPConvert.ToStr(Session["Spophu"])
-                                               , CIPConvert.ToStr(Session["Strangthaitt"]));
+                                               , CIPConvert.ToStr(Session["Strangthaitt"])
+                                               , CIPConvert.ToStr(Session["Username"]));
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -869,7 +872,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         }
     }
     protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
-    {
+        {
         try
         {
             m_grv_dm_danh_sach_giang_vien.PageSize = 30;

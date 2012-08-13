@@ -123,7 +123,8 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
         // Nếu ko search theo trạng thái thanh toán
-        v_us_gd_thanh_toan.f409_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_gvien_so_hd(ip_str_ma_dot_tt, ip_dc_id_trang_thai_tt, CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue), CIPConvert.ToDecimal(m_txt_so_hd_search.SelectedValue), v_ds_gd_thanh_toan);
+        v_us_gd_thanh_toan.f409_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_gvien_so_hd(ip_str_ma_dot_tt, ip_dc_id_trang_thai_tt, CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)
+            , CIPConvert.ToDecimal(m_txt_so_hd_search.SelectedValue), v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
 
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -153,25 +154,6 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         m_cbo_trang_thai_thanh_toan.DataValueField = CM_DM_TU_DIEN.ID;
         m_cbo_trang_thai_thanh_toan.DataSource = m_ds_cm_tu_dien.CM_DM_TU_DIEN;
         m_cbo_trang_thai_thanh_toan.DataBind();
-    }
-    private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
-    {
-        US_DM_HOP_DONG_KHUNG v_us_dm_hd_khung = new US_DM_HOP_DONG_KHUNG();
-        DS_DM_HOP_DONG_KHUNG v_ds_dm_hd_khung = new DS_DM_HOP_DONG_KHUNG();
-        v_us_dm_hd_khung.FillDataset(v_ds_dm_hd_khung, " WHERE SO_HOP_DONG =N'" + ip_str_so_hd + "'");
-        if (v_ds_dm_hd_khung.DM_HOP_DONG_KHUNG.Rows.Count > 0)
-            return CIPConvert.ToDecimal(v_ds_dm_hd_khung.DM_HOP_DONG_KHUNG.Rows[0][DM_HOP_DONG_KHUNG.ID]);
-        return 0;
-    }
-    private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
-    {
-        US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_dot_tt);
-        return v_us_cm_dm_tu_dien.strMA_TU_DIEN;
-    }
-    private decimal get_id_trang_thai_dot_tt_by_ma(string ip_str_ma_dot_tt)
-    {
-        US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN("DOT_THANH_TOAN", ip_str_ma_dot_tt);
-        return v_us_cm_dm_tu_dien.dcID;
     }
     private void reset_controls()
     {
@@ -277,33 +259,6 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
             throw v_e;
         }
 
-    }
-    private void delete_row_thanh_toan(int ip_i_id_thanh_toan)
-    {
-        // Lấy được ID thanh tóan
-        decimal v_dc_id_thanh_toan = CIPConvert.ToDecimal(m_grv_danh_sach_du_toan.DataKeys[ip_i_id_thanh_toan].Value);
-        m_us_v_gd_thanh_toan.dcID = v_dc_id_thanh_toan;
-        // Xóa GD_THANH_TOAN
-        m_us_v_gd_thanh_toan.DeleteByID(v_dc_id_thanh_toan);
-        m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
-        // Load lại dữ liệu
-        load_data_2_grid_search(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), CIPConvert.ToDecimal(m_cbo_trang_thai_tt_search.SelectedValue));
-    }
-    private decimal get_id_trang_thai_da_thanh_toan()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_THANH_TOAN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 505;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
-    }
-    private decimal get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien()
-    {
-        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
-        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
-        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 517;
-        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private string get_ma_trang_thai_thanh_toan_by_id(decimal ip_dc_id_tt)
     {

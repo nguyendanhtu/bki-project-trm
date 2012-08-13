@@ -75,7 +75,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
         US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_us_v_gd_cv_moi.dcID_NOI_DUNG_TT);
         m_lbl_don_vi.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
         m_cbo_noi_dung_thanh_toan.Enabled = false;
-        m_cbo_so_hop_dong.Enabled = false;
+        //m_cbo_so_hop_dong.Enabled = false;
 
         m_cbo_trang_thai_cv_gv.ToolTip = CIPConvert.ToStr(ip_us_v_gd_cv_moi.dcID_TRANG_THAI); // Cái này lưu trạng thái cũ
 
@@ -371,8 +371,9 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
             US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hd_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
             m_txt_don_gia.Text = CIPConvert.ToStr(v_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"#,###");
             load_data_2_grv();
-            m_cbo_so_hop_dong.ToolTip = "";
+            //m_cbo_so_hop_dong.ToolTip = "";
             m_lbl_thong_bao_sau_cap_nhat.Text = " * Cập nhật thành công !";
+            m_cbo_noi_dung_thanh_toan.Enabled = true;
         }
         catch (Exception v_e)
         {
@@ -471,6 +472,7 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
     {
         try
         {
+            m_txt_so_luong_nghiem_thu.Text = "";
             if (!m_cbo_noi_dung_thanh_toan.SelectedValue.Equals("0"))
             {
                 load_data_2_control_cong_viec();
@@ -501,6 +503,28 @@ public partial class ChucNang_F609_NghiemThuCongViecGVCM : System.Web.UI.Page
             load_data_2_cbo_noi_dung_tt();
             load_data_2_control_cong_viec();
             load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_gd_assign_su_kien_cho_giang_vien_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+            // Lấy dữ liệu của dòng vừa chọn và cho vào US
+            load_data_2_us_update(e.NewSelectedIndex);
+            // Kiểm tra trạng thái để xem có chuyển đc không?
+            if (!check_trang_thai_chuyen(m_us_cong_viec_moi.dcID_TRANG_THAI, ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_NGHIEM_THU))
+            {
+                string sScript;
+                sScript = "<script language='javascript'>alert('Công việc này đã được duyệt nghiệm thu hoặc chưa đủ điều kiện để duyệt nghiệm thu...!');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", sScript);
+                return;
+            }
+            // Nếu được phép thì hiển thị dữ liệu lên form
+            us_object_2_form(m_us_cong_viec_moi);
         }
         catch (Exception v_e)
         {
