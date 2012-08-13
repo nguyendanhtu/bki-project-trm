@@ -233,52 +233,57 @@ namespace WebDS.CDBNames
         public const string CO_LOI_YN = "CO_LOI_YN";
     }
 
-   public  class V_DM_HOP_DONG_KHUNG
-     {
-         public const string ID = "ID";
-         public const string SO_HOP_DONG = "SO_HOP_DONG";
-         public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
-         public const string GIANG_VIEN = "GIANG_VIEN";
-         public const string MA_SO_THUE = "MA_SO_THUE";
-         public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
-         public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
-         public const string NGAY_KY = "NGAY_KY";
-         public const string NGAY_HIEU_LUC = "NGAY_HIEU_LUC";
-         public const string NGAY_KET_THUC_DU_KIEN = "NGAY_KET_THUC_DU_KIEN";
-         public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
-         public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
-         public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
-         public const string LOAI_HOP_DONG = "LOAI_HOP_DONG";
-         public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
-         public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
-         public const string GHI_CHU = "GHI_CHU";
-         public const string ID_TRANG_THAI_HOP_DONG = "ID_TRANG_THAI_HOP_DONG";
-         public const string TRANG_THAI_HOP_DONG = "TRANG_THAI_HOP_DONG";
-         public const string ID_DON_VI_THANH_TOAN = "ID_DON_VI_THANH_TOAN";
-         public const string DON_VI_THANH_TOAN = "DON_VI_THANH_TOAN";
-         public const string THUE_SUAT = "THUE_SUAT";
-         public const string ID_MON1 = "ID_MON1";
-         public const string FIRST_MON = "FIRST_MON";
-         public const string ID_MON2 = "ID_MON2";
-         public const string SEC_MON = "SEC_MON";
-         public const string ID_MON3 = "ID_MON3";
-         public const string THIR_MON = "THIR_MON";
-         public const string ID_MON4 = "ID_MON4";
-         public const string FOURTH_MON = "FOURTH_MON";
-         public const string ID_MON5 = "ID_MON5";
-         public const string FITH_MON = "FITH_MON";
-         public const string ID_MON6 = "ID_MON6";
-         public const string SIXTH_MON = "SIXTH_MON";
-         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
-         public const string VAN_HANH_YN = "VAN_HANH_YN";
-         public const string MA_PO_PHU_TRACH = "MA_PO_PHU_TRACH";
-         public const string GHI_CHU2 = "GHI_CHU2";
-         public const string GHI_CHU3 = "GHI_CHU3";
-         public const string GHI_CHU4 = "GHI_CHU4";
-         public const string CO_SO_HD_YN = "CO_SO_HD_YN";
-         public const string TRANG_THAI_TT_HOP_DONG = "TRANG_THAI_TT_HOP_DONG";
-
-     }
+  public class V_DM_HOP_DONG_KHUNG
+  {
+      public const string ID = "ID";
+      public const string SO_HOP_DONG = "SO_HOP_DONG";
+      public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
+      public const string GIANG_VIEN = "GIANG_VIEN";
+      public const string MA_SO_THUE = "MA_SO_THUE";
+      public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
+      public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
+      public const string NGAY_KY = "NGAY_KY";
+      public const string NGAY_HIEU_LUC = "NGAY_HIEU_LUC";
+      public const string NGAY_KET_THUC_DU_KIEN = "NGAY_KET_THUC_DU_KIEN";
+      public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
+      public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
+      public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
+      public const string LOAI_HOP_DONG = "LOAI_HOP_DONG";
+      public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+      public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
+      public const string GHI_CHU = "GHI_CHU";
+      public const string ID_TRANG_THAI_HOP_DONG = "ID_TRANG_THAI_HOP_DONG";
+      public const string TRANG_THAI_HOP_DONG = "TRANG_THAI_HOP_DONG";
+      public const string ID_DON_VI_THANH_TOAN = "ID_DON_VI_THANH_TOAN";
+      public const string DON_VI_THANH_TOAN = "DON_VI_THANH_TOAN";
+      public const string THUE_SUAT = "THUE_SUAT";
+      public const string ID_MON1 = "ID_MON1";
+      public const string FIRST_MON = "FIRST_MON";
+      public const string ID_MON2 = "ID_MON2";
+      public const string SEC_MON = "SEC_MON";
+      public const string ID_MON3 = "ID_MON3";
+      public const string THIR_MON = "THIR_MON";
+      public const string ID_MON4 = "ID_MON4";
+      public const string FOURTH_MON = "FOURTH_MON";
+      public const string ID_MON5 = "ID_MON5";
+      public const string FITH_MON = "FITH_MON";
+      public const string ID_MON6 = "ID_MON6";
+      public const string SIXTH_MON = "SIXTH_MON";
+      public const string HOC_LIEU_YN = "HOC_LIEU_YN";
+      public const string VAN_HANH_YN = "VAN_HANH_YN";
+      public const string MA_PO_PHU_TRACH = "MA_PO_PHU_TRACH";
+      public const string PO_PHU_TRACH_CHINH = "PO_PHU_TRACH_CHINH";
+      public const string PO_PHU_TRACH_PHU = "PO_PHU_TRACH_PHU";
+      public const string PO_PHU_TRACH_PHU2 = "PO_PHU_TRACH_PHU2";
+      public const string PO_PHU_TRACH_PHU3 = "PO_PHU_TRACH_PHU3";
+      public const string PO_PHU_TRACH_PHU4 = "PO_PHU_TRACH_PHU4";
+      public const string GHI_CHU2 = "GHI_CHU2";
+      public const string GHI_CHU3 = "GHI_CHU3";
+      public const string GHI_CHU4 = "GHI_CHU4";
+      public const string CO_SO_HD_YN = "CO_SO_HD_YN";
+      public const string GEN_PHU_LUC_YN = "GEN_PHU_LUC_YN";
+      public const string TRANG_THAI_TT_HOP_DONG = "TRANG_THAI_TT_HOP_DONG";
+  }
 
     public class DM_HOP_DONG_KHUNG {
         public const string ID = "ID";

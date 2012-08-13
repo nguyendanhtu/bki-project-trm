@@ -836,6 +836,116 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         pm_objDR["MA_PO_PHU_TRACH"] = System.Convert.DBNull;
     }
 
+    public string strPO_PHU_TRACH_CHINH
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_CHINH", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_CHINH"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_CHINHNull()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_CHINH");
+    }
+
+    public void SetPO_PHU_TRACH_CHINHNull()
+    {
+        pm_objDR["PO_PHU_TRACH_CHINH"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHUNull()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU");
+    }
+
+    public void SetPO_PHU_TRACH_PHUNull()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU2
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU2", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU2"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU2Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU2");
+    }
+
+    public void SetPO_PHU_TRACH_PHU2Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU2"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU3
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU3", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU3"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU3Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU3");
+    }
+
+    public void SetPO_PHU_TRACH_PHU3Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU3"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU4
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU4", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU4"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHU4Null()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU4");
+    }
+
+    public void SetPO_PHU_TRACH_PHU4Null()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU4"] = System.Convert.DBNull;
+    }
+
     public string strGHI_CHU2
     {
         get
@@ -1018,7 +1128,8 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
                                     , DateTime ip_dat_ngay_hieu_luc
                                     , DateTime ip_dat_ngay_ket_thuc
                                     , string ip_str_ma_po_quan_ly
-                                    , DS_V_DM_HOP_DONG_KHUNG op_ds_dm_hop_dong_khung)
+                                    , DS_V_DM_HOP_DONG_KHUNG op_ds_dm_hop_dong_khung
+                                    , string ip_str_po)
     {
 
         CStoredProc v_sp_search_hop_dong_khung = new CStoredProc("pr_V_DM_HOP_DONG_KHUNG_Search");
@@ -1039,7 +1150,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         v_sp_search_hop_dong_khung.addDecimalInputParam("@NAM_KY", ip_dc_nam_ky);
         v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_HIEU_LUC", ip_dat_ngay_hieu_luc);
         v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KET_THUC", ip_dat_ngay_ket_thuc);
-
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_sp_search_hop_dong_khung.addNVarcharInputParam("@MA_PO_QUAN_LY", ip_str_ma_po_quan_ly);
 
         v_sp_search_hop_dong_khung.fillDataSetByCommand(this, op_ds_dm_hop_dong_khung);
@@ -1061,6 +1172,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
     public void load_hop_dong_by_id_giang_vien_cm_da_ky(decimal ip_dc_id_giang_vien, DS_V_DM_HOP_DONG_KHUNG ip_ds_v_dm_hop_dong_khung)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_DM_HOP_DONG_KHUNG_Load_data_2_cbo_by_Id_Giang_Vien_CM_da_ky");
+        ip_ds_v_dm_hop_dong_khung.EnforceConstraints = false;
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_hop_dong_khung);
     }

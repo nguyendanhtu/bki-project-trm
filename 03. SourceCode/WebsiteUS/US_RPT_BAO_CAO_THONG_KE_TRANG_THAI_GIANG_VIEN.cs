@@ -213,6 +213,7 @@ public class US_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN : US_Object
     public void bao_cao_thong_ke_gv(DS_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN op_ds_bao_cao_thong_ke_trang_thai_giang_vien)
     {
         CStoredProc v_cstore = new CStoredProc("rpt_pr_DM_GIANG_VIEN");
+        op_ds_bao_cao_thong_ke_trang_thai_giang_vien.EnforceConstraints = false;
         v_cstore.fillDataSetByCommand(this, op_ds_bao_cao_thong_ke_trang_thai_giang_vien);
     }
     #endregion

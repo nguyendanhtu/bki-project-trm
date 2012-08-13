@@ -836,7 +836,9 @@ public class US_V_GD_THANH_TOAN : US_Object
             return 0;
         return CIPConvert.ToDecimal(op_v_ds_gd_tt.V_GD_THANH_TOAN.Rows[0][0]);
     }
-    public void fill_dataset_by_dot_tt_va_loai_hd(string ip_str_ma_dot, string ip_str_loai_hd, decimal ip_dc_thang_tt, decimal ip_dc_nam_tt,decimal ip_dc_dv_thanh_toan, DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
+    public void fill_dataset_by_dot_tt_va_loai_hd(string ip_str_ma_dot, string ip_str_loai_hd,
+        decimal ip_dc_thang_tt, decimal ip_dc_nam_tt,
+        decimal ip_dc_dv_thanh_toan, DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan, string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotAndLoaiHD");
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot);
@@ -844,6 +846,7 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
         v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
         v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_dv_thanh_toan);
+        v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
     public void fill_dataset_by_giang_vien_va_dv_thanh_toan(decimal ip_dc_id_giang_vien, 
@@ -853,7 +856,7 @@ public class US_V_GD_THANH_TOAN : US_Object
                                                             string ip_str_loai_hop_dong, 
                                                             decimal ip_dc_thang_tt,
                                                             decimal ip_dc_nam_tt,
-                                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
+                                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan, string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByGiangVienvaDVThanhToan");
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
@@ -863,6 +866,7 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hop_dong);
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
         v_cstore.addNVarcharInputParam("@REFERENCE_CODE", ip_str_reference_code);
+        v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
     
@@ -891,11 +895,12 @@ public class US_V_GD_THANH_TOAN : US_Object
 
     public void fill_dataset_by_so_hop_dong(string ip_str_loai_hop_dong,
                                             string ip_str_so_hop_dong,
-                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
+                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan, string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanBySoHopDong");
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hop_dong);
         v_cstore.addNVarcharInputParam("@SO_HOP_DONG", ip_str_so_hop_dong);
+        v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
     public void fill_dataset_by_po_phu_trach_va_thoi_gian(string ip_str_po_phu_trach,
@@ -919,54 +924,75 @@ public class US_V_GD_THANH_TOAN : US_Object
     }
 
     // LinhDH 09/05/2012
-    public void f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(string ip_str_ma_dot_tt,string ip_str_loai_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+    public void f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(string ip_str_ma_dot_tt
+                                                           , string ip_str_loai_hd
+                                                           , DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan
+                                                           , string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
+        v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", 0);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
     }
     // LinhDH 09/05/2012
-     public void f501_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt(string ip_str_ma_dot_tt,decimal ip_dc_trang_thai_tt, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     public void f501_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt(string ip_str_ma_dot_tt,decimal ip_dc_trang_thai_tt, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan, string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", "");
+        v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
     }
      // LinhDH 09/05/2012
-     public void f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt,string ip_str_loai_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     public void f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(string ip_str_ma_dot_tt, 
+                                                decimal ip_dc_trang_thai_tt,string ip_str_loai_hd,
+                                                DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan,
+                                                string ip_str_po)
      {
          CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_loai_hd");
          v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
          v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
          v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
+         v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
          v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
      }
-     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, string ip_str_so_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     // LinhDH 10/08/2012
+     public void f410_load_data_2_grid(string ip_str_ma_dot_tt,
+                                       decimal ip_dc_trang_thai_tt1, decimal ip_dc_trang_thai_tt2,
+                                       DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan,
+                                       string ip_str_po)
      {
-         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_so_HD");
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_410_load_data_2_grid");
          v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
-         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
-         v_cstore.addNVarcharInputParam("@SO_HOP_DONG", ip_str_so_hd);
+         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT1", ip_dc_trang_thai_tt1);
+         v_cstore.addNVarcharInputParam("@ID_TRANG_THAI_TT2", ip_dc_trang_thai_tt2);
+         v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
          v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
      }
-     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, string ip_str_so_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     public void f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt
+         , string ip_str_so_hd, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan, string ip_str_po)
      {
          CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_like_so_HD");
          v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
          v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
          v_cstore.addNVarcharInputParam("@SO_HOP_DONG", ip_str_so_hd);
+         v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
          v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
      }
-     public void f409_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_gvien_so_hd(string ip_str_ma_dot_tt, decimal ip_dc_trang_thai_tt, decimal ip_dc_id_giang_vien, decimal ip_str_so_hdong, DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan)
+     public void f409_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_gvien_so_hd(string ip_str_ma_dot_tt
+                                                            , decimal ip_dc_trang_thai_tt, decimal ip_dc_id_giang_vien
+                                                            , decimal ip_str_so_hdong
+                                                            , DS_V_GD_THANH_TOAN op_ds_v_gd_thanh_toan
+                                                            , string ip_str_po)
      {
          CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotThanhToan_TrangThaiTT_va_id_gv_id_HD");
          v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
          v_cstore.addDecimalInputParam("@ID_TRANG_THAI_TT", ip_dc_trang_thai_tt);
          v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
+         v_cstore.addNVarcharInputParam("@USER_NAME", ip_str_po);
          v_cstore.addNVarcharInputParam("@ID_HOP_DONG_KHUNG", ip_str_so_hdong);
          v_cstore.fillDataSetByCommand(this, op_ds_v_gd_thanh_toan);
      }
