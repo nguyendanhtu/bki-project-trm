@@ -263,7 +263,9 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         }
         else m_str_loai_hd = "All";
 
-        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt,ip_str_loai_hop_dong, ip_dc_thang_tt,ip_dc_nam_tt,ip_dc_dv_thanh_toan, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt,ip_str_loai_hop_dong
+            , ip_dc_thang_tt,ip_dc_nam_tt,ip_dc_dv_thanh_toan, m_v_ds_gd_thanh_toan
+            , CIPConvert.ToStr(Session["user_quyen"]));
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -297,7 +299,8 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
                                                                 CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), 
                                                                 CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),
                                                                 CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue), 
-                                                                m_v_ds_gd_thanh_toan);
+                                                                m_v_ds_gd_thanh_toan
+                                                                , CIPConvert.ToStr(Session["user_quyen"]));
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
     {

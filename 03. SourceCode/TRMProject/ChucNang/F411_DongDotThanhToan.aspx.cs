@@ -244,7 +244,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Hiển thị toàn bộ các thanh toán trong đợt thanh toán đang chọn
-            v_us_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt(ip_str_ma_dot_tt, 0, v_ds_gd_thanh_toan);
+            v_us_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt(ip_str_ma_dot_tt, 0, v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
             //v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt+"' ORDER BY ID");
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {

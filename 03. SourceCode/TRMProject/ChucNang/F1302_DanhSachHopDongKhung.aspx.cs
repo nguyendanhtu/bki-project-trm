@@ -398,7 +398,8 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dat_ngay_hieu_luc
                                                         , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly
-                                                        , m_ds_hop_dong_khung);
+                                                        , m_ds_hop_dong_khung
+                                                        , CIPConvert.ToStr(Session["Username"]));
             m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {
@@ -472,7 +473,8 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
                                                     , v_dat_ngay_hieu_luc
                                                     , v_dat_ngay_ket_thuc
                                                     , v_str_ma_po_quan_ly
-                                                    , m_ds_hop_dong_khung);
+                                                    , m_ds_hop_dong_khung
+                                                    , CIPConvert.ToStr(Session["Username"]));
     }
     /// <summary>
     /// Search sử dụng session
@@ -493,7 +495,8 @@ public partial class ChucNang_F1302_DanhSachHopDongKhung : System.Web.UI.Page
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]))
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
                                                , CIPConvert.ToStr(Session["Spokhung"])
-                                               , m_ds_hop_dong_khung);
+                                               , m_ds_hop_dong_khung
+                                               , CIPConvert.ToStr(Session["Username"]));
             m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {

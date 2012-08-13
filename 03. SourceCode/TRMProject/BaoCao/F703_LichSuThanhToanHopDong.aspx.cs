@@ -239,7 +239,7 @@ public partial class BaoCao_F703_LichSuThanhToanHopDong : System.Web.UI.Page
         }
         else m_str_loai_hd = "All";
 
-        m_us_v_gd_thanh_toan.fill_dataset_by_so_hop_dong(ip_str_loai_hop_dong, ip_str_so_hd, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_so_hop_dong(ip_str_loai_hop_dong, ip_str_so_hd, m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -269,7 +269,7 @@ public partial class BaoCao_F703_LichSuThanhToanHopDong : System.Web.UI.Page
         }
         // Học liệu
         else m_str_loai_hd = "HL";
-        m_us_v_gd_thanh_toan.fill_dataset_by_so_hop_dong(m_str_loai_hd, ip_str_so_hd, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_so_hop_dong(m_str_loai_hd, ip_str_so_hd, m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
     {

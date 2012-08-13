@@ -179,7 +179,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
         // Số phiếu thanh toán là mã đợt thanh toán
-        m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
         //m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL' ORDER BY ID");
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -216,10 +216,10 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         else
         {
             if (ip_dc_id_trang_thai_tt == 1)
-                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt,ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET,"HL",m_v_ds_gd_thanh_toan);
+                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
                 //m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_da_duyet() + " AND LOAI_HOP_DONG='HL' ORDER BY ID");
             else
-                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan);
+                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
                 //m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_chua_duyet() + " AND LOAI_HOP_DONG='HL' ORDER BY ID");
 
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
@@ -368,8 +368,8 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         if (rdl_trang_thai_tt_check.Items[0].Selected)
              load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         else if (rdl_trang_thai_tt_check.Items[1].Selected)
-             m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan);
-        else m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan);
+            m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+        else m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
     }
     #endregion
 

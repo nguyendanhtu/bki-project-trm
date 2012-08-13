@@ -104,24 +104,6 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
     #endregion
 
     #region Private Methods
-    private void load_data_2_grid()
-    {
-        try
-        {
-            // Đổ dữ liệu từ US vào DS
-            m_us_dm_hop_dong_khung.FillDataset(m_ds_hop_dong_khung);
-
-            // Treo dữ liệu lên lưới
-            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
-            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
-        }
-        catch (Exception v_e)
-        {
-            //nhớ using Ip.Common
-            CSystemLog_301.ExceptionHandle(this, v_e);
-
-        }
-    }
     private void load_2_cbo_don_vi_quan_ly()
     {
         try
@@ -394,7 +376,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dat_ngay_hieu_luc
                                                         , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly
-                                                        , m_ds_hop_dong_khung);
+                                                        , m_ds_hop_dong_khung
+                                                        , CIPConvert.ToStr(Session["Username"]));
             m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {
@@ -468,7 +451,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                     , v_dat_ngay_hieu_luc
                                                     , v_dat_ngay_ket_thuc
                                                     , v_str_ma_po_quan_ly
-                                                    , m_ds_hop_dong_khung);
+                                                    , m_ds_hop_dong_khung
+                                                    , CIPConvert.ToStr(Session["Username"]));
     }
     /// <summary>
     /// Search sử dụng session
@@ -489,7 +473,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]))
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
                                                , CIPConvert.ToStr(Session["Spokhung"])
-                                               , m_ds_hop_dong_khung);
+                                               , m_ds_hop_dong_khung
+                                               , CIPConvert.ToStr(Session["Username"]));
             m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {
