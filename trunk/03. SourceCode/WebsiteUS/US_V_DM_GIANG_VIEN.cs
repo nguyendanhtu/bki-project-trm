@@ -1027,7 +1027,8 @@ public class US_V_DM_GIANG_VIEN : US_Object
                                  , string ip_str_hdkh
                                  , string ip_str_po_phu_trach_chinh
                                  , string ip_str_po_phu_trach_phu
-                                 , string ip_str_trang_thai_thong_tin_gv)
+                                 , string ip_str_trang_thai_thong_tin_gv
+                                 , string ip_str_po)
     {
         CStoredProc v_sp_search_giang_vien = new CStoredProc("pr_V_DM_GIANG_VIEN_Search");
         v_sp_search_giang_vien.addNVarcharInputParam("@TEN_GIANG_VIEN", ip_str_ten_giang_vien);
@@ -1048,6 +1049,7 @@ public class US_V_DM_GIANG_VIEN : US_Object
         v_sp_search_giang_vien.addNVarcharInputParam("@PO_PHU_TRACH_CHINH", ip_str_po_phu_trach_chinh);
         v_sp_search_giang_vien.addNVarcharInputParam("@PO_PHU_TRACH_PHU", ip_str_po_phu_trach_phu);
         v_sp_search_giang_vien.addNVarcharInputParam("@TRANG_THAI_HO_SO", ip_str_trang_thai_thong_tin_gv);
+        v_sp_search_giang_vien.addNVarcharInputParam("@USER_NAME", ip_str_po);
         v_sp_search_giang_vien.fillDataSetByCommand(this, op_ds_giang_vien);
     }
 
