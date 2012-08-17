@@ -277,9 +277,9 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
     public string get_so_tien_thanh_toan(object ip_obj_don_gia, object ip_obj_trang_thai, object ip_obj_so_luong, object ip_obj_so_luong_nghiem_thu)
     {
         string v_str_so_tien_thanh_toan = "";
-        if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
-            v_str_so_tien_thanh_toan = "";
-        else
+        //if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
+        //    v_str_so_tien_thanh_toan = "";
+        //else
         {
             if (CIPConvert.ToDecimal(ip_obj_trang_thai) > ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH)
                 v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu), "#,###");
