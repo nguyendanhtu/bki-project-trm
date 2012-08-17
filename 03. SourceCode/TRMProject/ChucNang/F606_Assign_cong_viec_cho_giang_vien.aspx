@@ -114,7 +114,8 @@
                         runat="server"></asp:TextBox> 
 		            &nbsp;
                      <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
-                         ErrorMessage="Bạn phải nhập số lượng công việc" Text="*" 
+                         ErrorMessage="Bạn phải nhập 
+                          công việc" Text="*" 
                         ControlToValidate="m_txt_so_luong" CssClass="cssManField"> </asp:RequiredFieldValidator>
                     <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
                 Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_luong" Text="*" ErrorMessage = "Số lượng nhập không đúng định dạng" CssClass="cssManField" />
@@ -248,12 +249,15 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
-                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" 
-                    DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" FooterText="Tổng tiền: "  FooterStyle-HorizontalAlign="Right"/>
+                    <asp:TemplateField HeaderText="Số lượng" FooterText="Tổng tiền: "  FooterStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                            <%#get_so_luong(Eval("ID_TRANG_THAI"), Eval("SO_LUONG_HE_SO"), Eval("SO_LUONG_NGHIEM_THU"))%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                      <asp:TemplateField HeaderText="Số tiền thanh toán">
                         <FooterStyle HorizontalAlign="Right"/>
                         <ItemTemplate>
-                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_HE_SO")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
+                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("ID_TRANG_THAI"), Eval("SO_LUONG_HE_SO"), Eval("SO_LUONG_NGHIEM_THU")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Right"/>
                     </asp:TemplateField>

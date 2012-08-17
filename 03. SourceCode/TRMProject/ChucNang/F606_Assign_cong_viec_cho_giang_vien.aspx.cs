@@ -273,16 +273,26 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         {
             if (ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO].GetType() == typeof(DBNull) || ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.DON_GIA].GetType() == typeof(DBNull))
                 v_dc_sum_tien += 0;
-            else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.DON_GIA]);
+            else
+            {
+                if(CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.ID_TRANG_THAI]) > ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH)
+                    v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.DON_GIA]);
+                else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.V_GD_GV_CONG_VIEC_MOI.Rows[v_i][GD_GV_CONG_VIEC_MOI.DON_GIA]);
+            }
         }
         return v_dc_sum_tien;
     }
-    public string get_so_tien_thanh_toan(object ip_obj_so_luong_nghiem_thu, object ip_obj_don_gia)
+    public string get_so_tien_thanh_toan(object ip_obj_don_gia, object ip_obj_trang_thai, object ip_obj_so_luong, object ip_obj_so_luong_nghiem_thu)
     {
         string v_str_so_tien_thanh_toan = "";
         if (ip_obj_so_luong_nghiem_thu.GetType() == typeof(DBNull) || ip_obj_don_gia.GetType() == typeof(DBNull))
             v_str_so_tien_thanh_toan = "";
-        else v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu), "#,###");
+        else
+        {
+            if (CIPConvert.ToDecimal(ip_obj_trang_thai) > ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH)       
+              v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong_nghiem_thu), "#,###");
+            else v_str_so_tien_thanh_toan = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_don_gia) * CIPConvert.ToDecimal(ip_obj_so_luong), "#,###");
+        }
         return v_str_so_tien_thanh_toan;
     }
     public string mapping_so_hop_dong_by_id(object ip_obj_id_hop_dong)
@@ -307,6 +317,12 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
         v_us_hop_dong.FillDataset(v_ds_hop_dong, " WHERE SO_HOP_DONG = N'"+ip_so_hop_dong+"'");
         return CIPConvert.ToDecimal(v_ds_hop_dong.DM_HOP_DONG_KHUNG.Rows[0][DM_HOP_DONG_KHUNG.ID]);
     }
+    public string get_so_luong(object ip_id_trang_thai, object ip_so_luong_he_so, object ip_so_luong_nghiem_thu)
+    {
+        if (CIPConvert.ToDecimal(ip_id_trang_thai) > ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_KE_HOACH)
+            return CIPConvert.ToStr(ip_so_luong_nghiem_thu,"#,###");
+        return CIPConvert.ToStr(ip_so_luong_he_so,"#,###");
+    }
     #endregion
 
     #region Export Excel
@@ -324,7 +340,7 @@ public partial class ChucNang_F606_Assign_cong_viec_cho_giang_vien : System.Web.
             strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + mapping_so_tien(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA]) + "</span></td>";
             strTable += "\n<td class='cssTitleReport' align='center' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO] + "</span></td>";
             strTable += "\n<td align='center' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + mapping_dvt_by_id_noi_dung_tt(CIPConvert.ToDecimal(grv[V_GD_GV_CONG_VIEC_MOI.ID_NOI_DUNG_TT])) + "</span></td>";// ĐVT
-            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + get_so_tien_thanh_toan(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA], grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO]) + "</span></td>";
+            strTable += "\n<td align='right' class='cssTitleReport' style='width:12%;' nowrap='nowrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + get_so_tien_thanh_toan(grv[V_GD_GV_CONG_VIEC_MOI.DON_GIA], grv[V_GD_GV_CONG_VIEC_MOI.ID_TRANG_THAI], grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_HE_SO], grv[V_GD_GV_CONG_VIEC_MOI.SO_LUONG_NGHIEM_THU]) + "</span></td>";
             strTable += "\n<td class='cssTitleReport' style='width:12%;' wrap='wrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + grv[V_GD_GV_CONG_VIEC_MOI.NGAY_DAT_HANG] + "</span></td>";
             strTable += "\n<td class='cssTitleReport' style='width:12%;' wrap='wrap'><span style='font-family:Times New Roman;font-size:1.1em'>" + grv[V_GD_GV_CONG_VIEC_MOI.TEN_TRANG_THAI] + "</span></td>";
             strTable += "\n</tr>";

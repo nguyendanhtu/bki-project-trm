@@ -33,6 +33,7 @@ public partial class DanhMuc_F106_HoSo : System.Web.UI.Page
                 load_2_cbo_giang_vien();
                 load_2_cbo_don_vi_thanh_toan();
                 load_2_cbo_giang_trang_thai();
+                load_data_2_grid();
             }
         }
         catch (Exception v_e)
