@@ -562,7 +562,7 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         try
         {
             fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            search_data_show_on_grid(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            //search_data_show_on_grid(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
