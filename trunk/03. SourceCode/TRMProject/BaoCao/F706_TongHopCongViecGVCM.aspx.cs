@@ -105,9 +105,12 @@ public partial class BaoCao_F706_TongHopCongViecGVCM : System.Web.UI.Page
         decimal v_dc_sum_tien = 0;
         for (int v_i = 0; v_i < ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows.Count; v_i++)
         {
-            if (ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.TONG_SO_LUONG].GetType() == typeof(DBNull) || ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.DON_GIA].GetType() == typeof(DBNull))
+            if (ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.THANH_TIEN].GetType() == typeof(DBNull))
                 v_dc_sum_tien += 0;
-            else v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.TONG_SO_LUONG]) * CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.DON_GIA]);
+            else
+            {
+                v_dc_sum_tien += CIPConvert.ToDecimal(ip_ds_gd_gv_cong_viec.RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.Rows[v_i][RPT_BAO_CAO_TONG_HOP_CONG_VIEC_GVCM.THANH_TIEN]);
+            }
         }
         return v_dc_sum_tien;
     }

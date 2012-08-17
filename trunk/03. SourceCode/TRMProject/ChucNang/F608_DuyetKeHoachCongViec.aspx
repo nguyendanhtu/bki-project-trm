@@ -297,14 +297,17 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     
-                    <asp:BoundField HeaderText="Số lượng" DataField="SO_LUONG_HE_SO" 
-                    DataFormatString="{0:0}" ItemStyle-HorizontalAlign="Center" />
+                    <asp:TemplateField HeaderText="Số lượng" FooterText="Tổng tiền: "  FooterStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                            <%#get_so_luong(Eval("ID_TRANG_THAI"), Eval("SO_LUONG_HE_SO"), Eval("SO_LUONG_NGHIEM_THU"))%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField HeaderText="Đơn giá" DataField="DON_GIA" FooterText="Tổng tiền: "
                     DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" />
                     <asp:TemplateField HeaderText="Tổng số tiền">
                         <FooterStyle HorizontalAlign="Right"/>
                         <ItemTemplate>
-                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("SO_LUONG_HE_SO")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
+                            <asp:Label Text='<%# get_so_tien_thanh_toan(Eval("DON_GIA"),Eval("ID_TRANG_THAI"), Eval("SO_LUONG_HE_SO"), Eval("SO_LUONG_NGHIEM_THU")) %>' runat="server" ID="m_lbl_so_tien_nghiem_thu"></asp:Label>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Right"/>
                     </asp:TemplateField>

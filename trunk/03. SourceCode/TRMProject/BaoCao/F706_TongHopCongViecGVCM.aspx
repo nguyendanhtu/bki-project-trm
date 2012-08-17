@@ -93,7 +93,7 @@
                         DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" >
 <ItemStyle HorizontalAlign="Right"></ItemStyle>
                     </asp:BoundField>
-                       <asp:BoundField HeaderText="Thành tiền" DataField="THANH_TIEN" FooterText="Tổng tiền: "
+                       <asp:BoundField HeaderText="Thành tiền" DataField="THANH_TIEN" FooterText=""
                        FooterStyle-HorizontalAlign="Right"
                         DataFormatString="{0:N0}" ItemStyle-HorizontalAlign="Right" >
                         <ItemStyle HorizontalAlign="Right"></ItemStyle>
