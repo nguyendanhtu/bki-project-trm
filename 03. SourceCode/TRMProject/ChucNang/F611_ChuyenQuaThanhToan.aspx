@@ -109,7 +109,7 @@
                         runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ví dụ: 01/11/2011 - 30/11/2011)
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="m_lbl_thong_bao_nhap_thoi_gian_lop_mon" runat="server" 
-                        CssClass="cssManField" Visible="false" />
+                        CssClass="cssManField" />
                         </td> 
                 <td align="left" colspan="2"></td>
                 <td align="left" style="width:10%;">&nbsp;</td>
