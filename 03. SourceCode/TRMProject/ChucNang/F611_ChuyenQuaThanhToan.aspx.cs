@@ -445,7 +445,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             else m_lbl_thong_bao_chon_trang_thai.Text = "";
             if (Session["timelopmon"] != null)
                 m_txt_thoi_gian_lop_mon.Text = Session["timelopmon"].ToString();
-            else
+            if(m_txt_thoi_gian_lop_mon.Text.Trim() =="")
             {
                 m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "Bạn chưa nhập thời gian lớp môn!";
                 return;
@@ -562,6 +562,13 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
     {
         try
         {
+            if (Session["timelopmon"] != null)
+                m_txt_thoi_gian_lop_mon.Text = Session["timelopmon"].ToString();
+            if (m_txt_thoi_gian_lop_mon.Text.Trim() == "")
+            {
+                m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "Bạn chưa nhập thời gian lớp môn!";
+                return;
+            }
             int v_i_count = 0;
             int v_i_count_check_khong_chuyen_duoc = 0;
             string v_str_id_cac_cong_viec = "";
