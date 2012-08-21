@@ -172,11 +172,28 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
         US_V_DM_HOP_DONG_KHUNG v_us_v_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
         DS_V_DM_HOP_DONG_KHUNG v_ds_v_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
         v_us_v_dm_hop_dong_khung.load_hop_dong_by_id_giang_vien_cm_da_ky(CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), v_ds_v_dm_hop_dong_khung);
-
-        //m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả", "0"));
-        for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+        if (v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count > 0)
         {
-            m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+            //m_cmd_tao_moi.Enabled = true;
+            if (m_cbo_ten_giang_vien_loc.SelectedIndex == 0)
+            {
+                m_cbo_so_hop_dong_loc.Items.Add(new ListItem("Tất cả", "0"));
+            }
+            else
+            {
+                for (int v_i = 0; v_i < v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count; v_i++)
+                {
+                    m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
+                }
+            }
+        }
+        else
+        {
+            m_lbl_mess.Text = "Chưa có hợp đồng cho giảng viên này!";
+            m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = null;
+            m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
+            //m_lbl_ket_qua_loc_du_lieu.Text = "";
+            //m_cmd_tao_moi.Enabled = false;
         }
     }
     private string mapping_so_tien(object ip_obj_so_tien)
@@ -450,6 +467,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
                 m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "Bạn chưa nhập thời gian lớp môn!";
                 return;
             }
+            else m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text ="";
             string html = loadExport();
             string strNamFile = "PSP444_BaoCaoXacNhanThuLaoChuyenMon" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
             Response.Cache.SetExpires(DateTime.Now.AddSeconds(1));
@@ -569,6 +587,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
                 m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "Bạn chưa nhập thời gian lớp môn!";
                 return;
             }
+            else m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "";
             int v_i_count = 0;
             int v_i_count_check_khong_chuyen_duoc = 0;
             string v_str_id_cac_cong_viec = "";
