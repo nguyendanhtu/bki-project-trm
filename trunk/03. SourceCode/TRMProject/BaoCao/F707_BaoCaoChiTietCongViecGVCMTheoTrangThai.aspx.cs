@@ -23,6 +23,7 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
             load_data_2_cbo_hop_dong_loc();
             load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
+            load_data_2_cbo_thoi_gian_dat_hang();
             load_data_2_grv();
         }
     }
@@ -34,12 +35,30 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
     #endregion
 
     #region Private Methods
+    private void load_data_2_cbo_thoi_gian_dat_hang()
+    {
+        // Load tháng đặt hàng
+        m_cbo_thang_dat_hang.Items.Add(new ListItem("Tất cả", "0"));
+        for (int v_i = 1; v_i <= 12; v_i++)
+        {
+            m_cbo_thang_dat_hang.Items.Add(new ListItem(CIPConvert.ToStr(v_i), CIPConvert.ToStr(v_i)));
+        }
+        // Load năm đặt hàng
+        m_cbo_nam_dat_hang.Items.Add(new ListItem("Tất cả", "0"));
+        for (int v_i = 2012; v_i < 2050; v_i++)
+        {
+            m_cbo_nam_dat_hang.Items.Add(new ListItem(CIPConvert.ToStr(v_i), CIPConvert.ToStr(v_i)));
+        }
+
+    }
     private void load_data_2_grv()
     {
-        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f606(m_ds_v_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
+        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f707(m_ds_v_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue)
-                                                        , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
+                                                        , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_thang_dat_hang.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_v_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_v_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
@@ -209,10 +228,12 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
     private void loadTieuDe(ref string strTable)
     {
         //m_ds_cong_viec_moi.EnforceConstraints = false;
-        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f606(m_ds_v_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
-                                                       , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue)
-                                                       , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue)
-                                                       , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue));
+        m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f707(m_ds_v_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_thang_dat_hang.SelectedValue)
+                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
@@ -396,6 +417,28 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
         try
         {
             m_grv_gd_assign_su_kien_cho_giang_vien.PageIndex = e.NewPageIndex;
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_thang_dat_hang_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            load_data_2_grv();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_nam_dat_hang_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
             load_data_2_grv();
         }
         catch (Exception v_e)

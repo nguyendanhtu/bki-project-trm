@@ -144,7 +144,7 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
     {
         // Nếu chưa tồn tại
         string v_str_uploadFolder = Request.PhysicalApplicationPath + "HoSoDinhKem\\";
-        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192)
+        if (m_up_ho_so.HasFile && m_up_ho_so.PostedFile.ContentLength > 8192000)
         {
             string someScript;
             someScript = "<script language='javascript'>alert('File upload phải có dung lượng nhỏ hơn 8Mb');</script>";
@@ -172,6 +172,7 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
         {
             form_2_us_object_update();
         }
+        m_us_gd_ho_so_gv_detail.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
         m_us_gd_ho_so_gv_detail.Update();
         m_lbl_mess.Text = "Cập nhật thành công";
     }
@@ -430,16 +431,16 @@ public partial class ChucNang_F303_HoSoDetail : System.Web.UI.Page
 
     private void form_2_us_object()
     {
-        US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
-        m_us_gd_ho_so_gv_detail.dcID_HO_SO = v_us_gd_ho_so_gv.dcID;
+        //US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN();
+        m_us_gd_ho_so_gv_detail.dcID_HO_SO = CIPConvert.ToDecimal(Request.QueryString["id_hs"]);
         m_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
         m_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = m_txt_ten_hs_dinh_kem.Text;
         m_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;
     }
     private void form_2_us_object_update()
     {
-        US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
-        m_us_gd_ho_so_gv_detail.dcID_HO_SO = v_us_gd_ho_so_gv.dcID;
+        //US_DM_HO_SO_GIANG_VIEN v_us_gd_ho_so_gv = new US_DM_HO_SO_GIANG_VIEN(CIPConvert.ToDecimal(Request.QueryString["id_hs"]));
+        m_us_gd_ho_so_gv_detail.dcID_HO_SO = CIPConvert.ToDecimal(Request.QueryString["id_hs"]);
         m_us_gd_ho_so_gv_detail.strTEN_LOAI_HO_SO = m_cbo_loai_ho_so.SelectedValue;
         m_us_gd_ho_so_gv_detail.strHO_SO_DINH_KEM = lblHoSoDinhKem0.Text;
         m_us_gd_ho_so_gv_detail.strGHI_CHU = m_txt_ghi_chu.Text;

@@ -24,40 +24,52 @@
 			        <asp:label id="Label1" CssClass="cssManField" runat="server" 
                 Text="Tên giảng viên" />
                          </td>
-                <td align="left" style="width:38%;">
+                <td align="left" style="width:30%;">
             <asp:DropDownList id="m_cbo_ten_giang_vien_loc" runat="server" AutoPostBack="true"
-                        CssClass="cssDorpdownlist" Width="90%" 
+                        CssClass="cssDorpdownlist" Width="80%" 
                 onselectedindexchanged="m_cbo_ten_giang_vien_loc_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
-                <td align="left">
-                     <asp:label id="m_lbl_thong_bao_giang_vien" runat="server" CssClass="cssManField" />
-                </td>
-            </tr>
-            <tr>
-                <td align="right" style="width:12%;">
+                <td align="right" style="width:10%;">
 			<asp:label id="lbl_so_hop_dong" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;S&lt;/U&gt;ố hợp đồng" />
+                Text="&lt;U&gt;S&lt;/U&gt;ố hợp đồng" Visible="false" />
                          </td>
-                <td align="left" style="width:38%;">
+                <td align="left" style="width:40%;">
                     <asp:DropDownList id="m_cbo_so_hop_dong_loc" runat="server" AutoPostBack="true"
                         CssClass="cssDorpdownlist" Width="90%" 
-                onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged">
+                onselectedindexchanged="m_cbo_so_hop_dong_loc_SelectedIndexChanged" Visible="false">
                     </asp:DropDownList>
                     </td>
-                <td align="left">
-                     <asp:label id="m_lbl_thong_bao_so_hd" runat="server" CssClass="cssManField" />
-                </td>
             </tr>
             <tr>
                 <td align="right" style="width:12%;">
 			<asp:label id="lbl_noi_dung_tt" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;C&lt;/U&gt;ông việc" />
                          </td>
-                <td align="left" colspan="2" style="width:88%;">
-                &nbsp;<asp:DropDownList id="m_cbo_noi_dung_thanh_toan" runat="server" 
-                        CssClass="cssDorpdownlist" Width="93%" 
+                <td align="left" colspan="3" style="width:880%;">
+                <asp:DropDownList id="m_cbo_noi_dung_thanh_toan" runat="server" 
+                        CssClass="cssDorpdownlist" Width="50%" 
                         onselectedindexchanged="m_cbo_noi_dung_thanh_toan_SelectedIndexChanged" AutoPostBack="true">
+                    </asp:DropDownList>
+                    </td>
+            </tr>
+             <tr>
+                <td align="right" style="width:12%;">
+			        <asp:label id="Label2" CssClass="cssManField" runat="server" 
+                Text="Tháng đặt hàng" />
+                         </td>
+                <td align="left" style="width:38%;">
+            <asp:DropDownList id="m_cbo_thang_dat_hang" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="30%" 
+                        onselectedindexchanged="m_cbo_thang_dat_hang_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:label id="Label4" CssClass="cssManField" runat="server"  style="width:10%;"
+                Text="Năm đặt hàng" />
+                 &nbsp;&nbsp;&nbsp;
+            <asp:DropDownList id="m_cbo_nam_dat_hang" runat="server" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" Width="30%" 
+                        onselectedindexchanged="m_cbo_nam_dat_hang_SelectedIndexChanged">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -67,14 +79,13 @@
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái" />
                          </td>
                 <td align="left" style="width:38%;">
-                &nbsp;<asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server"  AutoPostBack="true"
+                <asp:DropDownList id="m_cbo_trang_thai_cv_gv" runat="server"  AutoPostBack="true"
                         CssClass="cssDorpdownlist" 
                         onselectedindexchanged="m_cbo_trang_thai_cv_gv_SelectedIndexChanged"  >
                     </asp:DropDownList>
                     </td>
-                    <td>
-                     <asp:label id="m_lbl_thong_bao_trang_thai" runat="server" CssClass="cssManField" />
-                 </td>
+                    <td colspan="2">
+                        &nbsp;</td>
             </tr>
              <tr>
                <td align="right" style="width:12%;">
@@ -84,7 +95,7 @@
 		<td align="left" style="width:38%;">
 		    <asp:TextBox ID="m_txt_tu_khoa" runat="server" CssClass="cssTextBox" 
                         Width="98%"></asp:TextBox>
-	    <td align="left" style="width:50%;">
+	    <td align="left" style="width:50%;" colspan="2">
             <asp:label id="lbl_tb_cap_nhat" CssClass="cssLabel" runat="server" 
                 Text="(Dùng trong trường hợp muốn lọc dữ liệu.)" />
         </td>
@@ -94,14 +105,14 @@
                <td align="right" style="width:12%;">
 			
                          </td>
-		<td colspan="2" align="left">
+		<td colspan="3" align="left">
 			<asp:label id="lbl_tu_khoa_tim_kiem" CssClass="cssLabel" runat="server" 
                 Text="(Từ khóa tìm kiếm: Số hợp đồng, nội dung thanh toán, trạng thái, họ và tên giảng viên, user người tạo...)" />
 		</td> 
             </tr>
             <tr>
 	    <td></td>
-		<td colspan="2" align="left">
+		<td colspan="3" align="left">
 			&nbsp;&nbsp;
             <asp:button id="m_cmd_loc_du_lieu" accessKey="c" CssClass="cssButton" CausesValidation="false"
                 runat="server" Width="98px" Height="25px"  Text="Lọc dữ liệu(l)" onclick="m_cmd_loc_du_lieu_Click" 
