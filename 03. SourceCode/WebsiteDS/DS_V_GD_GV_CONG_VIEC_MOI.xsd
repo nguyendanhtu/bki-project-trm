@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_GD_GV_CONG_VIEC_MOI" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ID_HOP_DONG_KHUNG, SO_HOP_DONG, ID_GIANG_VIEN, HO_VA_TEN_GIANG_VIEN, ID_NOI_DUNG_TT, TEN_NOI_DUNG, ID_NOI_DUNG_GOC, SO_LUONG_HE_SO, SO_LUONG_NGHIEM_THU, DON_GIA, NGAY_DAT_HANG, NGAY_NGHIEM_THU, ID_TRANG_THAI, TEN_TRANG_THAI, ID_USER_NHAP, TEN_TRUY_CAP, GHI_CHU FROM dbo.V_GD_GV_CONG_VIEC_MOI</CommandText>
+                    <CommandText>SELECT ID, ID_HOP_DONG_KHUNG, SO_HOP_DONG, ID_GIANG_VIEN, HO_VA_TEN_GIANG_VIEN, ID_NOI_DUNG_TT, TEN_NOI_DUNG, ID_NOI_DUNG_GOC, SO_LUONG_HE_SO, SO_LUONG_NGHIEM_THU, DON_GIA, NGAY_DAT_HANG, NGAY_NGHIEM_THU, ID_TRANG_THAI, TEN_TRANG_THAI, ID_USER_NHAP, TEN_TRUY_CAP, GHI_CHU, THANG_THANH_TOAN, NAM_THANH_TOAN FROM dbo.V_GD_GV_CONG_VIEC_MOI</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -37,6 +37,8 @@
               <Mapping SourceColumn="ID_USER_NHAP" DataSetColumn="ID_USER_NHAP" />
               <Mapping SourceColumn="TEN_TRUY_CAP" DataSetColumn="TEN_TRUY_CAP" />
               <Mapping SourceColumn="GHI_CHU" DataSetColumn="GHI_CHU" />
+              <Mapping SourceColumn="THANG_THANH_TOAN" DataSetColumn="THANG_THANH_TOAN" />
+              <Mapping SourceColumn="NAM_THANH_TOAN" DataSetColumn="NAM_THANH_TOAN" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -105,6 +107,8 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="THANG_THANH_TOAN" msprop:Generator_ColumnVarNameInTable="columnTHANG_THANH_TOAN" msprop:Generator_ColumnPropNameInRow="THANG_THANH_TOAN" msprop:Generator_ColumnPropNameInTable="THANG_THANH_TOANColumn" msprop:Generator_UserColumnName="THANG_THANH_TOAN" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NAM_THANH_TOAN" msprop:Generator_ColumnVarNameInTable="columnNAM_THANH_TOAN" msprop:Generator_ColumnPropNameInRow="NAM_THANH_TOAN" msprop:Generator_ColumnPropNameInTable="NAM_THANH_TOANColumn" msprop:Generator_UserColumnName="NAM_THANH_TOAN" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
