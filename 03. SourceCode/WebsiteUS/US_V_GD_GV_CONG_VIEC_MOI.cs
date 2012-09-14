@@ -417,8 +417,53 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         pm_objDR["GHI_CHU"] = System.Convert.DBNull;
     }
 
+    public decimal dcTHANG_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "THANG_THANH_TOAN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["THANG_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsTHANG_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("THANG_THANH_TOAN");
+    }
+
+    public void SetTHANG_THANH_TOANNull()
+    {
+        pm_objDR["THANG_THANH_TOAN"] = System.Convert.DBNull;
+    }
+
+    public decimal dcNAM_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "NAM_THANH_TOAN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["NAM_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsNAM_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("NAM_THANH_TOAN");
+    }
+
+    public void SetNAM_THANH_TOANNull()
+    {
+        pm_objDR["NAM_THANH_TOAN"] = System.Convert.DBNull;
+    }
+
     #endregion
-#region "Init Functions"
+    
+    #region "Init Functions"
 	public US_V_GD_GV_CONG_VIEC_MOI() 
 	{
 		pm_objDS = new DS_V_GD_GV_CONG_VIEC_MOI();
@@ -474,13 +519,20 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai_moi);
         v_cstore.ExecuteCommand(this);
     }
-    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec, decimal ip_dc_id_dot_thanh_toan, string ip_str_user_lap_thanh_toan, string ip_str_thoi_gian_lop_mon)
+    public void chuyen_cong_viec_qua_thanh_toan(string ip_str_id_cac_cong_viec
+                                                , decimal ip_dc_id_dot_thanh_toan
+                                                , string ip_str_user_lap_thanh_toan
+                                                , string ip_str_thoi_gian_lop_mon
+                                                , decimal ip_dc_thoi_diem_thanh_toan_thang
+                                                , decimal ip_dc_thoi_diem_thanh_toan_nam)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_GV_CONG_VIEC_MOI_Chuyen_Qua_Thanh_Toan");
         v_cstore.addDecimalInputParam("@ID_DOT_THANH_TOAN", ip_dc_id_dot_thanh_toan);
         v_cstore.addNVarcharInputParam("@USER_LAP_THANH_TOAN", ip_str_user_lap_thanh_toan);
         v_cstore.addNVarcharInputParam("@THOI_GIAN_LOP_MON", ip_str_thoi_gian_lop_mon);
         v_cstore.addNVarcharInputParam("@ID_CAC_CONG_VIEC", ip_str_id_cac_cong_viec);
+        v_cstore.addDecimalInputParam("@THOI_DIEM_THANG", ip_dc_thoi_diem_thanh_toan_thang);
+        v_cstore.addDecimalInputParam("@THOI_DIEM_NAM", ip_dc_thoi_diem_thanh_toan_nam);
         v_cstore.ExecuteCommand(this);
     }
     public void lay_cong_viec_de_nghiem_thu(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi,decimal ip_dc_id_hop_dong_khung, decimal ip_dc_id_noi_dung_tt)
