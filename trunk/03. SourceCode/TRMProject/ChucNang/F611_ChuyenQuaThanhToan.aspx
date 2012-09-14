@@ -104,15 +104,44 @@
 			<asp:label id="lblMon8" CssClass="cssManField" runat="server" 
                 Text="Thời gian lớp môn" />
                 </td>
-                <td align="left" colspan="3">
+                <td align="left">
                 <asp:TextBox ID="m_txt_thoi_gian_lop_mon" CssClass="cssTextBox" Width="40%" 
                         runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ví dụ: 01/11/2011 - 30/11/2011)
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="m_lbl_thong_bao_nhap_thoi_gian_lop_mon" runat="server" 
                         CssClass="cssManField" />
                         </td> 
-                <td align="left" colspan="2"></td>
+                <td align="left"></td>
                 <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:12%;">
+			<asp:label id="lblMon9" CssClass="cssManField" runat="server" 
+                Text="Thời điểm thanh toán: " />
+                         </td>
+                <td align="left" style="width:38%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:12%;">
+                         </td>
+                <td align="left" style="width:38%;">
+                  <asp:label id="Label5" CssClass="cssManField" runat="server" 
+                Text="Tháng: " />
+            &nbsp;&nbsp;
+            <asp:DropDownList id="m_cbo_thang_dat_hang" runat="server"
+                        CssClass="cssDorpdownlist" Width="10%" >
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:label id="Label6" CssClass="cssManField" runat="server"  style="width:10%;"
+                Text="Năm: " />
+                 &nbsp;&nbsp;&nbsp;
+            <asp:DropDownList id="m_cbo_nam_dat_hang" runat="server"
+                        CssClass="cssDorpdownlist" Width="10%">
+                    </asp:DropDownList>&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="m_lbl_thong_bao_chon_thang_thanh_toan" runat="server" 
+                        CssClass="cssManField" />
+                    </td>
             </tr>
             </table>        
         </td>

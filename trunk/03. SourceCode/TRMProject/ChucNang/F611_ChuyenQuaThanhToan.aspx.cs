@@ -25,6 +25,7 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_ten_giang_vien();
             load_data_2_cbo_hop_dong_loc();
+            load_data_2_cbo_thoi_gian_dat_hang();
             if (m_cbo_dot_thanh_toan.Items.Count > 0)
             {
                 m_us_dm_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
@@ -208,6 +209,21 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
         US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_dc_id_noi_dung_tt);
         if (v_us_gd_hop_dong_noi_dung_tt.IsIDNull()) return "";
         return v_us_gd_hop_dong_noi_dung_tt.strDON_VI_TINH;
+    }
+    private void load_data_2_cbo_thoi_gian_dat_hang()
+    {
+        // Load tháng đặt hàng
+        m_cbo_thang_dat_hang.Items.Add(new ListItem("---", "0"));
+        for (int v_i = 1; v_i <= 12; v_i++)
+        {
+            m_cbo_thang_dat_hang.Items.Add(new ListItem(CIPConvert.ToStr(v_i), CIPConvert.ToStr(v_i)));
+        }
+        // Load năm đặt hàng
+        for (int v_i = 2012; v_i < 2050; v_i++)
+        {
+            m_cbo_nam_dat_hang.Items.Add(new ListItem(CIPConvert.ToStr(v_i), CIPConvert.ToStr(v_i)));
+        }
+        m_cbo_nam_dat_hang.SelectedValue = DateTime.Now.Year.ToString();
     }
     #endregion
 
@@ -588,6 +604,12 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
                 return;
             }
             else m_lbl_thong_bao_nhap_thoi_gian_lop_mon.Text = "";
+            if(m_cbo_thang_dat_hang.SelectedIndex ==0)
+            {
+                m_lbl_thong_bao_chon_thang_thanh_toan.Text = "Hãy chọn thời điểm thanh toán!";
+                return;
+            }
+            else m_lbl_thong_bao_chon_thang_thanh_toan.Text = "";
             int v_i_count = 0;
             int v_i_count_check_khong_chuyen_duoc = 0;
             string v_str_id_cac_cong_viec = "";
@@ -629,7 +651,12 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
             {
                 string v_str_thoi_gian_lop_mon = m_txt_thoi_gian_lop_mon.Text.Trim();
                 // Chuyển qua thanh toán
-                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec, CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue), CIPConvert.ToStr(Session["UserName"]),v_str_thoi_gian_lop_mon);
+                m_us_cong_viec_moi.chuyen_cong_viec_qua_thanh_toan(v_str_id_cac_cong_viec
+                                                                , CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)
+                                                                , CIPConvert.ToStr(Session["UserName"])
+                                                                , v_str_thoi_gian_lop_mon
+                                                                , CIPConvert.ToDecimal(m_cbo_thang_dat_hang.SelectedValue)
+                                                                , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue));
                 // Load lại dữ liêụ
                 load_data_2_grv();
                 m_lbl_thong_bao_sau_cap_nhat.Text = "Chuyển thanh toán các công việc thành công!";
