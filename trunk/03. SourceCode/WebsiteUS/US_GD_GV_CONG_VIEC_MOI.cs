@@ -264,6 +264,50 @@ namespace WebUS
             pm_objDR["GHI_CHU"] = System.Convert.DBNull;
         }
 
+        public decimal dcTHANG_THANH_TOAN
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "THANG_THANH_TOAN", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["THANG_THANH_TOAN"] = value;
+            }
+        }
+
+        public bool IsTHANG_THANH_TOANNull()
+        {
+            return pm_objDR.IsNull("THANG_THANH_TOAN");
+        }
+
+        public void SetTHANG_THANH_TOANNull()
+        {
+            pm_objDR["THANG_THANH_TOAN"] = System.Convert.DBNull;
+        }
+
+        public decimal dcNAM_THANH_TOAN
+        {
+            get
+            {
+                return CNull.RowNVLDecimal(pm_objDR, "NAM_THANH_TOAN", IPConstants.c_DefaultDecimal);
+            }
+            set
+            {
+                pm_objDR["NAM_THANH_TOAN"] = value;
+            }
+        }
+
+        public bool IsNAM_THANH_TOANNull()
+        {
+            return pm_objDR.IsNull("NAM_THANH_TOAN");
+        }
+
+        public void SetNAM_THANH_TOANNull()
+        {
+            pm_objDR["NAM_THANH_TOAN"] = System.Convert.DBNull;
+        }
+
         #endregion
         #region "Init Functions"
         public US_GD_GV_CONG_VIEC_MOI()
