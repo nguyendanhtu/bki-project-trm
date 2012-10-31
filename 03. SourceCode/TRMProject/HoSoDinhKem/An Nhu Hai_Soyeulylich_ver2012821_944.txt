@@ -1,0 +1,10 @@
+﻿Nghiệm thu: khi chọn 1 nội dung công việc, chương trình sẽ lọc ra công việc gần nhất được đặt hàng đang trong trạng thái chờ duyệt hoặc đã duyệt. 
+
+Giải quyết tiếp theo: công việc đã được nghiệm thu hay chưa? Nếu đã đc nghiệm thu thì hiển thị ra số lượng đã nghiệm thu để chỉnh sửa
+Trong 1 thời điểm, chỉ 1 nội dung công việc đc hiển thị
+
+Hiện tại báo cáo mới hỗ trợ in ra những công việc có nghiệm thu và duyệt chuyển thanh toán, chưa hiển thi ra tất các đầu mục trong phụ lục hợp đồng. Mục tiêu là hiển thị ra được, và những đầu mục nào ko có thì sẽ để số là 0
+
+
+
+

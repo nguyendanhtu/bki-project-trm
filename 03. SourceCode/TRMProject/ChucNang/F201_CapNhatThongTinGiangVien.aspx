@@ -492,44 +492,126 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
-                <p>
-                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
-                Text="Mô tả" /></p><p></p>
-                  <p>
-                <asp:label id="m_lbl_trang_tahi" CssClass="cssManField" runat="server" 
-                Text="Tình trạng thông tin" /></p>
+             
+		                    &nbsp;
+                            <p>
+                                <asp:Label ID="Label2" runat="server" CssClass="cssManField" Tex="" 
+                                    Text="PO phụ trách phụ 3" />
+                            </p>
+                            <p>
+                                <asp:Label ID="Label3" runat="server" CssClass="cssManField" Tex="" 
+                                    Text="PO phụ trách phụ 4" />
+                            </p>
+                              <p>
+                        <asp:Label ID="Label4" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ 5" />
+                    </p>
 		                    </td>
                 <td align="left" class="style3">
-                <p>
-                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
-               TextMode="MultiLine" Rows="4" Width="96%" /></p>
-               <p>
+              
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu3" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu4" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                 <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu5" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                </td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" class="style1">
+                  
+                    <p>
+                        <asp:Label ID="Label5" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ 6" />
+                    </p>
+                    <p>
+                        <asp:Label ID="Label7" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ 7" />
+                    </p>
+                    <p>
+                        <asp:Label ID="lblMaPoChinh0" runat="server" CssClass="cssManField" 
+                            Text="PO phụ trách phụ 8" />
+                    </p>
+                </td>
+                <td align="left" style="width:10%;">
+                    
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu6" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu7" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%">
+                        </asp:DropDownList>
+                    </p>
+                    <p>    <asp:DropDownList ID="m_cbo_po_phu_trach_phu8" runat="server" 
+                        CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>            
+                         <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp; 
+                    <p>
+                        <asp:Label ID="lblMaPophu0" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ 9" />
+                    </p>
+                    <p>
+                        <asp:Label ID="Label6" runat="server" CssClass="cssManField" Tex="" 
+                            Text="PO phụ trách phụ 10" />
+                    </p>
+                    </td>
+                <td align="left" class="style3">
+                   
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu9" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                    <p>
+                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu10" runat="server" 
+                            CssClass="cssDorpdownlist" Width="96%" />
+                    </p>
+                   
+                </td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" class="style1">
+             
+                    <p>
+                        <asp:Label ID="m_lbl_description0" runat="server" CssClass="cssManField" 
+                            Text="Mô tả" />
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                        <asp:Label ID="m_lbl_trang_tahi0" runat="server" CssClass="cssManField" 
+                            Text="Tình trạng thông tin" />
+                    </p>
+             
+                </td>
+                <td align="left" style="width:10%;">
+                  
+                    <p>
+                        <asp:TextBox ID="m_txt_description" runat="server" CssClass="cssTextBox" 
+                            Rows="4" TextMode="MultiLine" Width="96%" />
+                    </p>
+                    <p>
                         <asp:DropDownList ID="m_cbo_trang_thai_thong_tin" runat="server" 
                             CssClass="cssDorpdownlist" Width="96%">
                             <asp:ListItem Value="Y">Thông tin đầy đủ, chính xác</asp:ListItem>
                             <asp:ListItem Value="N">Thông tin chưa chính xác</asp:ListItem>
                         </asp:DropDownList>
                     </p>
-                </td>
-                     <td align="left" style="width:1%;">&nbsp;</td>
-                <td align="right" class="style1">
-                    &nbsp; <p>
-			<asp:label id="Label2" Text="PO phụ trách phụ 3" CssClass="cssManField" runat="server" 
-                Tex="" />
-                    </p>
-                     <p>
-			<asp:label id="Label3" Text="PO phụ trách phụ 4" CssClass="cssManField" runat="server" 
-                Tex="" />
-                    </p></td>
-                <td align="left" style="width:10%;">
-                    <p>
-                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu3" runat="server" 
-                            CssClass="cssDorpdownlist" Width="96%" />
-                    </p>
-                    <p>
-                        <asp:DropDownList ID="m_cbo_po_phu_trach_phu4" runat="server" CssClass="cssDorpdownlist" 
-                            Width="96%" />
-                    </p>
+                  
                 </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>

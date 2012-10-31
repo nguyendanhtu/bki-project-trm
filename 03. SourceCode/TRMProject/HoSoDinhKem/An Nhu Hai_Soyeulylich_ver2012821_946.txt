@@ -1,0 +1,9 @@
+﻿- Sửa lại các links trong Admin.master
+- Các trang quản lý nhóm nên có nút thêm mới
+
+- Quản lý tin tức: 
+  + Shortcontent để 100 từ
+  + Để link vào shortcontent
+- Tên chuyên mục chuyển thành nhóm sản phẩm (Nhóm sản phẩm, sản phẩm)
+- Bảng relative_product: thêm 1 trường RELATIVE_PRODUCT_NAME
+
