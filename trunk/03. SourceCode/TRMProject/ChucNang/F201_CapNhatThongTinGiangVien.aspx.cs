@@ -154,7 +154,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
         try
         {
-            v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
+            v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung, " WHERE ID_USER_GROUP <> " + LOAI_USER_QUYEN.GIANG_VIEN);
 
             // Load data to PO phụ trách chính Combobox
             m_cbo_po_phu_trach_chinh.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
@@ -167,13 +167,13 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             DataRow v_dr_none = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG.NewHT_NGUOI_SU_DUNGRow();
             v_dr_none[HT_NGUOI_SU_DUNG.ID] = "0";
             v_dr_none[HT_NGUOI_SU_DUNG.TEN] = "Không có";
-            v_dr_none[HT_NGUOI_SU_DUNG.MAT_KHAU] = "123456";
+            //v_dr_none[HT_NGUOI_SU_DUNG.MAT_KHAU] = "123456";
             v_dr_none[HT_NGUOI_SU_DUNG.TEN_TRUY_CAP] = "KHONG_CO";
-            v_dr_none[HT_NGUOI_SU_DUNG.NGAY_TAO] = CIPConvert.ToDatetime("01/01/2011");
-            v_dr_none[HT_NGUOI_SU_DUNG.NGUOI_TAO] = "ADMIN";
-            v_dr_none[HT_NGUOI_SU_DUNG.BUILT_IN_YN] = "N";
-            v_dr_none[HT_NGUOI_SU_DUNG.TRANG_THAI] = "0";
-
+            //v_dr_none[HT_NGUOI_SU_DUNG.NGAY_TAO] = CIPConvert.ToDatetime("01/01/2011");
+            //v_dr_none[HT_NGUOI_SU_DUNG.NGUOI_TAO] = "ADMIN";
+            //v_dr_none[HT_NGUOI_SU_DUNG.BUILT_IN_YN] = "N";
+            //v_dr_none[HT_NGUOI_SU_DUNG.TRANG_THAI] = "0";
+            v_ds_nguoi_su_dung.EnforceConstraints = false;
             v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows.InsertAt(v_dr_none, 0);
 
             // Cbo phụ 1
@@ -203,6 +203,48 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_cbo_po_phu_trach_phu4.DataTextField = HT_NGUOI_SU_DUNG.TEN;
             m_cbo_po_phu_trach_phu4.SelectedIndex = 0;
             m_cbo_po_phu_trach_phu4.DataBind();
+
+            // Cbo phụ 5
+            m_cbo_po_phu_trach_phu5.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu5.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu5.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu5.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu5.DataBind();
+
+            // Cbo phụ 6
+            m_cbo_po_phu_trach_phu6.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu6.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu6.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu6.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu6.DataBind();
+
+            // Cbo phụ 7
+            m_cbo_po_phu_trach_phu7.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu7.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu7.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu7.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu7.DataBind();
+
+            // Cbo phụ 8
+            m_cbo_po_phu_trach_phu8.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu8.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu8.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu8.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu8.DataBind();
+
+            // Cbo phụ 9
+            m_cbo_po_phu_trach_phu9.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu9.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu9.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu9.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu9.DataBind();
+
+            // Cbo phụ 10
+            m_cbo_po_phu_trach_phu10.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu10.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu10.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu10.SelectedIndex = 0;
+            m_cbo_po_phu_trach_phu10.DataBind();
         }
         catch (Exception v_e)
         {
@@ -278,26 +320,6 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strCHUC_VU_HIEN_TAI = m_txt_chuc_vu_hien_tai.Text.Trim();
             ip_us_giang_vien.strCHUYEN_NGANH_CHINH = m_txt_chuyen_nganh_chinh.Text.Trim();
             ip_us_giang_vien.strDESCRIPTION = m_txt_description.Text.Trim();
-            
-            //if (m_txt_email.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL = "";
-            //else if (!IsEmail(m_txt_email.Text))
-            //{
-            //    string someScript;
-            //    someScript = "<script language='javascript'>alert('Email nhập sai định dạng !');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-            //    m_txt_email.Focus();
-            //    return;
-            //}
-
-            //if (m_txt_email_topica.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL_TOPICA = "";
-            //else if (!IsEmail(m_txt_email_topica.Text))
-            //{
-            //    string someScript;
-            //    someScript = "<script language='javascript'>alert('Email Topica nhập sai định dạng !');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-            //    m_txt_email_topica.Focus();
-            //    return;
-            //}
 
             ip_us_giang_vien.strEMAIL = m_txt_email.Text.Trim();
             ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text.Trim();
@@ -352,12 +374,21 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                     ip_us_giang_vien.datNGAY_BD_HOP_TAC = m_dat_ngay_bat_dau_hop_tac.SelectedDate;
                 else ip_us_giang_vien.SetNGAY_BD_HOP_TACNull();
             }            
-                    
+
+            // PO phụ trách
             ip_us_giang_vien.strPO_PHU_TRACH_CHINH = m_cbo_po_phu_trach_chinh.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU = m_cbo_po_phu_trach_phu.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU2 = m_cbo_po_phu_trach_phu2.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU3 = m_cbo_po_phu_trach_phu3.SelectedValue;
             ip_us_giang_vien.strPO_PHU_TRACH_PHU4 = m_cbo_po_phu_trach_phu4.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU5 = m_cbo_po_phu_trach_phu5.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU6 = m_cbo_po_phu_trach_phu6.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU7 = m_cbo_po_phu_trach_phu7.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU8 = m_cbo_po_phu_trach_phu8.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU9 = m_cbo_po_phu_trach_phu9.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU10 = m_cbo_po_phu_trach_phu10.SelectedValue;
+            
+            // Phản hồi lỗi
             ip_us_giang_vien.strCO_LOI_YN = m_cbo_trang_thai_thong_tin.SelectedValue;
         }
         catch (Exception v_e)
@@ -413,6 +444,12 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_cbo_po_phu_trach_phu2.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU2;
             m_cbo_po_phu_trach_phu3.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU3;
             m_cbo_po_phu_trach_phu4.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU4;
+            m_cbo_po_phu_trach_phu5.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU5;
+            m_cbo_po_phu_trach_phu6.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU6;
+            m_cbo_po_phu_trach_phu7.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU7;
+            m_cbo_po_phu_trach_phu8.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU8;
+            m_cbo_po_phu_trach_phu9.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU9;
+            m_cbo_po_phu_trach_phu10.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU10;
             m_txt_dia_chi_gv.Text = ip_us_giang_vien.strDIA_CHI;
             
             //calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);

@@ -369,6 +369,18 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnCO_LOI_YN;
             
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU5;
+            
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU6;
+            
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU7;
+            
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU8;
+            
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU9;
+            
+            private global::System.Data.DataColumn columnPO_PHU_TRACH_PHU10;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public V_DM_GIANG_VIENDataTable() {
@@ -764,6 +776,54 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU5Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU6Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU7Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU8Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU8;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU9Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PO_PHU_TRACH_PHU10Column {
+                get {
+                    return this.columnPO_PHU_TRACH_PHU10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -843,7 +903,13 @@ namespace WebDS {
                         string PO_PHU_TRACH_PHU3, 
                         string PO_PHU_TRACH_PHU4, 
                         string DIA_CHI, 
-                        string CO_LOI_YN) {
+                        string CO_LOI_YN, 
+                        string PO_PHU_TRACH_PHU5, 
+                        string PO_PHU_TRACH_PHU6, 
+                        string PO_PHU_TRACH_PHU7, 
+                        string PO_PHU_TRACH_PHU8, 
+                        string PO_PHU_TRACH_PHU9, 
+                        string PO_PHU_TRACH_PHU10) {
                 V_DM_GIANG_VIENRow rowV_DM_GIANG_VIENRow = ((V_DM_GIANG_VIENRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -890,7 +956,13 @@ namespace WebDS {
                         PO_PHU_TRACH_PHU3,
                         PO_PHU_TRACH_PHU4,
                         DIA_CHI,
-                        CO_LOI_YN};
+                        CO_LOI_YN,
+                        PO_PHU_TRACH_PHU5,
+                        PO_PHU_TRACH_PHU6,
+                        PO_PHU_TRACH_PHU7,
+                        PO_PHU_TRACH_PHU8,
+                        PO_PHU_TRACH_PHU9,
+                        PO_PHU_TRACH_PHU10};
                 rowV_DM_GIANG_VIENRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_DM_GIANG_VIENRow);
                 return rowV_DM_GIANG_VIENRow;
@@ -971,6 +1043,12 @@ namespace WebDS {
                 this.columnPO_PHU_TRACH_PHU4 = base.Columns["PO_PHU_TRACH_PHU4"];
                 this.columnDIA_CHI = base.Columns["DIA_CHI"];
                 this.columnCO_LOI_YN = base.Columns["CO_LOI_YN"];
+                this.columnPO_PHU_TRACH_PHU5 = base.Columns["PO_PHU_TRACH_PHU5"];
+                this.columnPO_PHU_TRACH_PHU6 = base.Columns["PO_PHU_TRACH_PHU6"];
+                this.columnPO_PHU_TRACH_PHU7 = base.Columns["PO_PHU_TRACH_PHU7"];
+                this.columnPO_PHU_TRACH_PHU8 = base.Columns["PO_PHU_TRACH_PHU8"];
+                this.columnPO_PHU_TRACH_PHU9 = base.Columns["PO_PHU_TRACH_PHU9"];
+                this.columnPO_PHU_TRACH_PHU10 = base.Columns["PO_PHU_TRACH_PHU10"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1066,6 +1144,18 @@ namespace WebDS {
                 base.Columns.Add(this.columnDIA_CHI);
                 this.columnCO_LOI_YN = new global::System.Data.DataColumn("CO_LOI_YN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCO_LOI_YN);
+                this.columnPO_PHU_TRACH_PHU5 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU5", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU5);
+                this.columnPO_PHU_TRACH_PHU6 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU6", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU6);
+                this.columnPO_PHU_TRACH_PHU7 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU7", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU7);
+                this.columnPO_PHU_TRACH_PHU8 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU8", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU8);
+                this.columnPO_PHU_TRACH_PHU9 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU9", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU9);
+                this.columnPO_PHU_TRACH_PHU10 = new global::System.Data.DataColumn("PO_PHU_TRACH_PHU10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_PHU_TRACH_PHU10);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1128,6 +1218,12 @@ namespace WebDS {
                 this.columnPO_PHU_TRACH_PHU4.MaxLength = 50;
                 this.columnDIA_CHI.MaxLength = 250;
                 this.columnCO_LOI_YN.MaxLength = 1;
+                this.columnPO_PHU_TRACH_PHU5.MaxLength = 50;
+                this.columnPO_PHU_TRACH_PHU6.MaxLength = 50;
+                this.columnPO_PHU_TRACH_PHU7.MaxLength = 50;
+                this.columnPO_PHU_TRACH_PHU8.MaxLength = 50;
+                this.columnPO_PHU_TRACH_PHU9.MaxLength = 50;
+                this.columnPO_PHU_TRACH_PHU10.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1928,6 +2024,102 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU5 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU5\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU6 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU6\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU7 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU7\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU8 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU8Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU8\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU8Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU9 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU9\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PO_PHU_TRACH_PHU10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_PHU_TRACH_PHU10\' in table \'V_DM_GIANG_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNGAY_SINHNull() {
                 return this.IsNull(this.tableV_DM_GIANG_VIEN.NGAY_SINHColumn);
             }
@@ -2309,6 +2501,78 @@ namespace WebDS {
             public void SetCO_LOI_YNNull() {
                 this[this.tableV_DM_GIANG_VIEN.CO_LOI_YNColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU5Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU5Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU6Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU6Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU7Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU7Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU7Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU8Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU8Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU8Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU8Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU9Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU9Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPO_PHU_TRACH_PHU10Null() {
+                return this.IsNull(this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPO_PHU_TRACH_PHU10Null() {
+                this[this.tableV_DM_GIANG_VIEN.PO_PHU_TRACH_PHU10Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2515,6 +2779,12 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU4", "PO_PHU_TRACH_PHU4");
             tableMapping.ColumnMappings.Add("DIA_CHI", "DIA_CHI");
             tableMapping.ColumnMappings.Add("CO_LOI_YN", "CO_LOI_YN");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU5", "PO_PHU_TRACH_PHU5");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU6", "PO_PHU_TRACH_PHU6");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU7", "PO_PHU_TRACH_PHU7");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU8", "PO_PHU_TRACH_PHU8");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU9", "PO_PHU_TRACH_PHU9");
+            tableMapping.ColumnMappings.Add("PO_PHU_TRACH_PHU10", "PO_PHU_TRACH_PHU10");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2531,7 +2801,7 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_QUAY_HL, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, PO_PHU_TRACH_PHU2, PO_PHU_TRACH_PHU3, PO_PHU_TRACH_PHU4, DIA_CHI, CO_LOI_YN FROM dbo.V_DM_GIANG_VIEN";
+            this._commandCollection[0].CommandText = @"SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_QUAY_HL, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, PO_PHU_TRACH_PHU2, PO_PHU_TRACH_PHU3, PO_PHU_TRACH_PHU4, DIA_CHI, CO_LOI_YN, PO_PHU_TRACH_PHU5, PO_PHU_TRACH_PHU6, PO_PHU_TRACH_PHU7, PO_PHU_TRACH_PHU8, PO_PHU_TRACH_PHU9, PO_PHU_TRACH_PHU10 FROM dbo.V_DM_GIANG_VIEN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

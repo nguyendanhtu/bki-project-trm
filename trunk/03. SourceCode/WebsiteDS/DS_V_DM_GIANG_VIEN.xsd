@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_DM_GIANG_VIEN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_QUAY_HL, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, PO_PHU_TRACH_PHU2, PO_PHU_TRACH_PHU3, PO_PHU_TRACH_PHU4, DIA_CHI, CO_LOI_YN FROM dbo.V_DM_GIANG_VIEN</CommandText>
+                    <CommandText>SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_QUAY_HL, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, PO_PHU_TRACH_PHU2, PO_PHU_TRACH_PHU3, PO_PHU_TRACH_PHU4, DIA_CHI, CO_LOI_YN, PO_PHU_TRACH_PHU5, PO_PHU_TRACH_PHU6, PO_PHU_TRACH_PHU7, PO_PHU_TRACH_PHU8, PO_PHU_TRACH_PHU9, PO_PHU_TRACH_PHU10 FROM dbo.V_DM_GIANG_VIEN</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -64,6 +64,12 @@
               <Mapping SourceColumn="PO_PHU_TRACH_PHU4" DataSetColumn="PO_PHU_TRACH_PHU4" />
               <Mapping SourceColumn="DIA_CHI" DataSetColumn="DIA_CHI" />
               <Mapping SourceColumn="CO_LOI_YN" DataSetColumn="CO_LOI_YN" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU5" DataSetColumn="PO_PHU_TRACH_PHU5" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU6" DataSetColumn="PO_PHU_TRACH_PHU6" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU7" DataSetColumn="PO_PHU_TRACH_PHU7" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU8" DataSetColumn="PO_PHU_TRACH_PHU8" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU9" DataSetColumn="PO_PHU_TRACH_PHU9" />
+              <Mapping SourceColumn="PO_PHU_TRACH_PHU10" DataSetColumn="PO_PHU_TRACH_PHU10" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -360,6 +366,48 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU5" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU5" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU5" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU5Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU6" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU6" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU6" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU6Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU7" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU7" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU7" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU7Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU8" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU8" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU8" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU8Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU9" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU9" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU9" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU9Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_PHU_TRACH_PHU10" msprop:Generator_ColumnVarNameInTable="columnPO_PHU_TRACH_PHU10" msprop:Generator_ColumnPropNameInRow="PO_PHU_TRACH_PHU10" msprop:Generator_ColumnPropNameInTable="PO_PHU_TRACH_PHU10Column" msprop:Generator_UserColumnName="PO_PHU_TRACH_PHU10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
