@@ -283,6 +283,12 @@ namespace WebDS.CDBNames
       public const string PO_PHU_TRACH_PHU2 = "PO_PHU_TRACH_PHU2";
       public const string PO_PHU_TRACH_PHU3 = "PO_PHU_TRACH_PHU3";
       public const string PO_PHU_TRACH_PHU4 = "PO_PHU_TRACH_PHU4";
+      public const string PO_PHU_TRACH_PHU5 = "PO_PHU_TRACH_PHU5";
+      public const string PO_PHU_TRACH_PHU6 = "PO_PHU_TRACH_PHU6";
+      public const string PO_PHU_TRACH_PHU7 = "PO_PHU_TRACH_PHU7";
+      public const string PO_PHU_TRACH_PHU8 = "PO_PHU_TRACH_PHU8";
+      public const string PO_PHU_TRACH_PHU9 = "PO_PHU_TRACH_PHU9";
+      public const string PO_PHU_TRACH_PHU10 = "PO_PHU_TRACH_PHU10";
       public const string GHI_CHU2 = "GHI_CHU2";
       public const string GHI_CHU3 = "GHI_CHU3";
       public const string GHI_CHU4 = "GHI_CHU4";
