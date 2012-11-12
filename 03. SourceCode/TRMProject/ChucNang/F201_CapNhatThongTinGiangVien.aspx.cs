@@ -33,6 +33,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                 m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
                 load_data_2_us_by_id_and_show_on_form(m_dc_id);
                 m_txt_ma_giang_vien.Enabled = false;
+                if (po_is_po_phu()) disable_controls();
             }
 
         }
@@ -252,7 +253,51 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         }
     }
 
-
+    private void disable_controls()
+    {
+        m_txt_ma_giang_vien.Enabled = false;
+        m_txt_middle_name.Enabled = false;
+        m_txt_last_name.Enabled = false;
+        m_cbo_dm_don_vi_quan_ly.Enabled = false;
+        m_dat_ngay_sinh_gv.Enabled = false;
+        rb_sex.Enabled = false;
+        m_txt_dia_chi_gv.Enabled = false;
+        m_txt_co_quan_cong_tac.Enabled = false;
+        m_txt_tel_office.Enabled = false;
+        m_txt_mobile_phone.Enabled = false;
+        m_txt_tel_home.Enabled = false;
+        m_txt_so_cmnd.Enabled = false;
+        m_dat_ngay_cap.Enabled = false;
+        m_txt_noi_cap.Enabled = false;
+        m_txt_email.Enabled = false;
+        m_txt_email_topica.Enabled = false;
+        m_txt_so_tai_khoan.Enabled = false;
+        m_txt_ten_ngan_hang.Enabled = false;
+        m_txt_ma_so_thue.Enabled = false;
+        m_cbo_hoc_vi.Enabled = false;
+        m_cbo_hoc_ham.Enabled = false;
+        m_txt_truong_dao_tao.Enabled = false;
+        m_txt_chuyen_nganh_chinh.Enabled = false;
+        m_txt_chuc_vu_hien_tai.Enabled = false;
+        m_txt_chuc_vu_cao_nhat.Enabled = false;
+        m_cbo_dm_trang_thai_giang_vien.Enabled = false;
+        m_dat_ngay_bat_dau_hop_tac.Enabled = false;
+        m_cbl_loai_hop_dong.Enabled = false;
+        m_cbo_po_phu_trach_chinh.Enabled = false;
+        m_cbo_po_phu_trach_phu.Enabled = false;
+        m_cbo_po_phu_trach_phu2.Enabled = false;
+        m_cbo_po_phu_trach_phu3.Enabled = false;
+        m_cbo_po_phu_trach_phu4.Enabled = false;
+        m_cbo_po_phu_trach_phu5.Enabled = false;
+        m_cbo_po_phu_trach_phu6.Enabled = false;
+        m_cbo_po_phu_trach_phu7.Enabled = false;
+        m_cbo_po_phu_trach_phu8.Enabled = false;
+        m_cbo_po_phu_trach_phu9.Enabled = false;
+        m_cbo_po_phu_trach_phu10.Enabled = false;
+        m_txt_description.Enabled = false;
+        m_cbo_trang_thai_thong_tin.Enabled = false;
+        m_cmd_luu_du_lieu.Enabled = false;
+    }
     private void reset_control()
     {
         m_txt_ma_giang_vien.Enabled = true;
@@ -475,6 +520,23 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
          v_us_nguoi_su_dung.FillDataset(v_ds_ht_nguoi_su_dung," WHERE TEN_TRUY_CAP = N'"+ip_str_ten_truy_cap+"'");
          if (v_ds_ht_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows.Count > 0) return v_ds_ht_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows[0][HT_NGUOI_SU_DUNG.TEN].ToString();
          return "";
+     }
+     private bool po_is_po_phu()
+     {
+         US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(m_dc_id);
+         string v_str_username = CIPConvert.ToStr(Session["UserName"]);
+         if (v_us_dm_giang_vien.strPO_PHU_TRACH_PHU.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU2.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU3.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU4.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU5.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU6.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU7.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU8.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU9.Equals(v_str_username)
+             || v_us_dm_giang_vien.strPO_PHU_TRACH_PHU10.Equals(v_str_username)) return true;
+         return false;  // Là các quyền khác được toàn quyền xem, chỉnh sửa thông tin giảng viên
      }
     #endregion
 
