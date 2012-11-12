@@ -587,10 +587,10 @@
                 <td align="right" class="style1">
              
                     <p>
-                        <asp:Label ID="m_lbl_description0" runat="server" CssClass="cssManField" 
-                            Text="Mô tả" />
                     </p>
                     <p>
+                     <asp:Label ID="m_lbl_description0" runat="server" CssClass="cssManField" 
+                            Text="Mô tả" />
                     </p>
                     <p>
                         <asp:Label ID="m_lbl_trang_tahi0" runat="server" CssClass="cssManField" 

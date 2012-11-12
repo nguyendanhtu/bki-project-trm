@@ -34,6 +34,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         {
             m_txt_ten_giang_vien.Focus();
             m_lbl_thong_bao.Text = "";
+            
             if (!IsPostBack)
             {                
                 // Nếu đã tồn tại session, ta load lại dữ liệu lên form và search theo session
@@ -45,6 +46,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                 load_2_cbo_don_vi_q_ly();
                 load_2_cbo_trang_thai_giang_vien();
                 load_data_2_nam_bd_hop_tac();
+
                 if (Request.QueryString["edit"] != null)
                 {
                     if (Request.QueryString["edit"].ToString().Equals("ok"))
