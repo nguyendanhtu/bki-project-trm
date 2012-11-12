@@ -24,7 +24,8 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
             load_data_2_cbo_noi_dung_tt();
             load_data_2_cbo_trang_thai_cv_gv();
             load_data_2_cbo_thoi_gian_dat_hang();
-            load_data_2_grv();
+            if(m_cbo_ten_giang_vien_loc.Items.Count > 1)
+                load_data_2_grv();
         }
     }
 
@@ -58,7 +59,8 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
                                                         , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_thang_dat_hang.SelectedValue)
-                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue));
+                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue)
+                                                        , CIPConvert.ToStr(Session["UserName"]));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_v_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_v_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
@@ -74,7 +76,8 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
         US_V_DM_GIANG_VIEN v_us_v_dm_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_v_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
         m_cbo_ten_giang_vien_loc.Items.Add(new ListItem("Tất cả", "0"));
-        v_us_v_dm_giang_vien.load_all_giang_vien_CM(v_ds_v_dm_giang_vien);
+        v_us_v_dm_giang_vien.load_giang_vien_CM_dang_cong_tac_by_Po(v_ds_v_dm_giang_vien
+                                                                  , CIPConvert.ToStr(Session["UserName"]));
         for (int v_i = 0; v_i < v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
             m_cbo_ten_giang_vien_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM]).Trim() + " " + CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN]).Trim(), CIPConvert.ToStr(v_ds_v_dm_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID])));
@@ -99,6 +102,7 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
                     m_cbo_so_hop_dong_loc.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.SO_HOP_DONG]), CIPConvert.ToStr(v_ds_v_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[v_i][V_DM_HOP_DONG_KHUNG.ID])));
                 }
             }
+            m_lbl_mess.Text = "";
         }
         else
         {
@@ -233,7 +237,8 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
                                                         , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_gv.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue)
                                                         , CIPConvert.ToDecimal(m_cbo_thang_dat_hang.SelectedValue)
-                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue));
+                                                        , CIPConvert.ToDecimal(m_cbo_nam_dat_hang.SelectedValue)
+                                                        , CIPConvert.ToStr(Session["UserName"]));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
@@ -325,7 +330,13 @@ public partial class BaoCao_F707_BaoCaoChiTietCongViecGVCMTheoTrangThai : System
     {
         try
         {
-            load_data_2_grv();
+            // Nếu chỉ có GV là tất cả thì ko cho lọc
+            if (m_cbo_ten_giang_vien_loc.Items.Count > 1)
+            {
+                load_data_2_grv();
+                m_lbl_mess.Text = "";
+            }
+            else m_lbl_mess.Text = "PO này không phụ trách GVCM nào!";
         }
         catch (Exception v_e)
         {

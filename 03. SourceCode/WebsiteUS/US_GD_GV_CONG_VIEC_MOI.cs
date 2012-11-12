@@ -360,14 +360,19 @@ namespace WebUS
             v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
             v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
         }
-        public void loc_du_lieu_giang_vien_cong_viec_moi_f606(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien
-                                                            , decimal ip_dc_hop_dong_khung, decimal ip_dc_trang_thai, decimal ip_dc_id_cong_viec_id)
+        public void loc_du_lieu_giang_vien_cong_viec_moi_f606(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi
+                                                            , decimal ip_dc_id_giang_vien
+                                                            , decimal ip_dc_hop_dong_khung
+                                                            , decimal ip_dc_trang_thai
+                                                            , decimal ip_dc_id_cong_viec_id
+                                                            , string ip_str_po)
         {
             CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Loc_Cong_Viec_Giang_Vien_606");
             v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
             v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
             v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
             v_cstore.addDecimalInputParam("@ID_HD_NOI_DUNG_TT", ip_dc_id_cong_viec_id);
+            v_cstore.addNVarcharInputParam("@USERNAME", ip_str_po);
             v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
         }
         public void loc_du_lieu_giang_vien_cong_viec_moi_f707(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi
@@ -376,7 +381,8 @@ namespace WebUS
                                                             , decimal ip_dc_trang_thai  
                                                             , decimal ip_dc_id_cong_viec_id
                                                             , decimal ip_dc_thang_dat_hang
-                                                            , decimal ip_dc_nam_dat_hang)
+                                                            , decimal ip_dc_nam_dat_hang
+                                                            , string ip_str_po)
         {
             CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Loc_Chi_Tiet_Cong_Viec_Giang_Vien_707");
             v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
@@ -385,6 +391,7 @@ namespace WebUS
             v_cstore.addDecimalInputParam("@ID_HD_NOI_DUNG_TT", ip_dc_id_cong_viec_id);
             v_cstore.addDecimalInputParam("@THANG_DAT_HANG", ip_dc_thang_dat_hang);
             v_cstore.addDecimalInputParam("@NAM_DAT_HANG", ip_dc_nam_dat_hang);
+            v_cstore.addNVarcharInputParam("@USERNAME", ip_str_po);
             v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
         }
         public void kiem_tra_unique_cong_viec(DS_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi,decimal ip_dc_id_hd_khung, decimal ip_dc_id_noi_dung_tt, DateTime ip_dat_ngay_dat_hang)

@@ -1207,12 +1207,25 @@ public class US_V_DM_GIANG_VIEN : US_Object
         CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Load_data_2_cbo_CM");
         v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_giang_vien);
     }
+    public void load_giang_vien_CM_dang_cong_tac_by_Po(DS_V_DM_GIANG_VIEN ip_ds_v_dm_giang_vien, string ip_str_po)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Load_data_2_cbo_GV_CM_by_PO");
+        v_cstore.addNVarcharInputParam("@USERNAME", ip_str_po);
+        v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_giang_vien);
+    }
     public void thay_doi_trang_thai_thong_tin_ho_so()
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Thay_Doi_Trang_Thai");
         v_cstore.addNVarcharInputParam("@TRANG_THAI_HO_SO", this.strCO_LOI_YN);
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", this.dcID);
         v_cstore.ExecuteCommand(this);
+    }
+    public void load_giang_vien_dang_cong_tac_theo_po(DS_V_DM_GIANG_VIEN ip_ds_v_dm_giang_vien
+                                                      , string ip_str_username)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_GIANG_VIEN_Loc_Giang_Vien_Theo_PO");
+        v_cstore.addNVarcharInputParam("@USERNAME", ip_str_username);
+        v_cstore.fillDataSetByCommand(this, ip_ds_v_dm_giang_vien);
     }
 
     #endregion

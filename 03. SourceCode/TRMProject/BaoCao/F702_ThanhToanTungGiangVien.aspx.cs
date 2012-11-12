@@ -25,16 +25,6 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
             load_data_2_cbo_giang_vien();
             load_data_2_cbo_trang_thai_thanh_toan();
             m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
-            //load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
-            //if (m_cbo_dot_thanh_toan.Items.Count > 0)
-            //{
-            //    m_cmd_tim_kiem.Enabled = true;
-            //    fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            //}
-            //else
-            //{
-            //    m_cmd_tim_kiem.Enabled = false;
-            //}
         }
     }
 
@@ -265,9 +255,9 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     {
         US_V_DM_GIANG_VIEN v_us_giang_vien = new US_V_DM_GIANG_VIEN();
         DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
-        v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM,TEN_GIANG_VIEN");
+       v_us_giang_vien.load_giang_vien_dang_cong_tac_theo_po(v_ds_giang_vien, CIPConvert.ToStr(Session["UserName"]));
         // Add thêm tất cả vào cbo
-        m_cbo_ten_giang_vien.Items.Add(new ListItem("Tất cả",CIPConvert.ToStr(0)));
+        //m_cbo_ten_giang_vien.Items.Add(new ListItem("Tất cả",CIPConvert.ToStr(0)));
         for (int v_i = 0; v_i < v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
         {
             m_cbo_ten_giang_vien.Items.Add(new ListItem(v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() + " " + v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
@@ -314,7 +304,8 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
                                             ip_str_loai_hop_dong,
                                             ip_dc_thang_tt,
                                             ip_dc_nam_tt,
-                                            m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+                                            m_v_ds_gd_thanh_toan,
+                                            CIPConvert.ToStr(Session["UserName"]));
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
