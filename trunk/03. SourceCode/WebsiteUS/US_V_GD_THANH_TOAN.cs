@@ -856,7 +856,8 @@ public class US_V_GD_THANH_TOAN : US_Object
                                                             string ip_str_loai_hop_dong, 
                                                             decimal ip_dc_thang_tt,
                                                             decimal ip_dc_nam_tt,
-                                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan, string ip_str_po)
+                                                            DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan,
+                                                            string ip_str_po)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByGiangVienvaDVThanhToan");
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);

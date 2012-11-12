@@ -253,7 +253,13 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         }
         else m_str_loai_hd = "All";
 
-        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt, ip_str_loai_hop_dong, ip_dc_thang_tt, ip_dc_nam_tt, ip_dc_dv_thanh_toan,m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt
+                                                             , ip_str_loai_hop_dong
+                                                             , ip_dc_thang_tt
+                                                             , ip_dc_nam_tt
+                                                             , ip_dc_dv_thanh_toan
+                                                             , m_v_ds_gd_thanh_toan
+                                                             , CIPConvert.ToStr(Session["UserName"]));
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -317,7 +323,11 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         else if (m_rdl_loai_hop_dong.Items[1].Selected)
             v_str_loai_hd = "VH";
         else v_str_loai_hd = "HL";
-        load_data_2_grid_search(get_ma_dot_tt_by_id_dot(ip_dc_id_dot_tt), v_str_loai_hd, CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),0);
+        load_data_2_grid_search(get_ma_dot_tt_by_id_dot(ip_dc_id_dot_tt)
+                                , v_str_loai_hd
+                                , CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue)
+                                , CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue)
+                                , 0);
     }
     private string get_dv_tt_by_id_dot(decimal ip_dc_id_dot_tt)
     {

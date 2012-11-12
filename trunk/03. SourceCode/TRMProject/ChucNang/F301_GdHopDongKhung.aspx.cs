@@ -57,6 +57,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             {
                 m_init_mode = DataEntryFormMode.UpdateDataState;
                 m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
+                if (!po_is_po_phu_trach_hop_dong()) disable_controls();
             }
             else
             {
@@ -125,7 +126,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
          try
          {
-             v_us_giang_vien.FillDataset(v_ds_giang_vien, " ORDER BY HO_VA_TEN_DEM, TEN_GIANG_VIEN");
+             v_us_giang_vien.FillDataset(v_ds_giang_vien, " WHERE ID_TRANG_THAI_GIANG_VIEN = " + ID_TRANG_THAI_GIANG_VIEN.DANG_CONG_TAC+" ORDER BY HO_VA_TEN_DEM, TEN_GIANG_VIEN");
              for (int v_i = 0; v_i < v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count; v_i++)
              {
                  m_cbo_gvien.Items.Add(new ListItem(v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.HO_VA_TEN_DEM].ToString().TrimEnd() +" "+ v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.TEN_GIANG_VIEN].ToString(), v_ds_giang_vien.V_DM_GIANG_VIEN.Rows[v_i][V_DM_GIANG_VIEN.ID].ToString()));
@@ -438,7 +439,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          }
 
      }
-
      private void us_object_2_form(US_V_DM_HOP_DONG_KHUNG ip_us_hd_khung)
      {
          try
@@ -511,6 +511,44 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          us_object_2_form(v_us_hop_dong_khung);
      }
 
+     private bool po_is_po_phu_trach_hop_dong()
+     {
+         US_V_DM_HOP_DONG_KHUNG v_us_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG(m_dc_id);
+         string v_str_username = CIPConvert.ToStr(Session["UserName"]);
+         if (v_us_dm_hop_dong_khung.strMA_PO_PHU_TRACH.Equals(v_str_username)) return true;
+         return false;
+     }
+     private void disable_controls()
+     {
+         m_txt_so_hop_dong.Enabled = false;
+         m_dat_ngay_ki.Enabled = false;
+         m_cbo_po_phu_trach_hop_dong.Enabled = false;
+         m_cbo_dm_loai_don_vi_quan_li.Enabled = false;
+         m_cbo_dm_loai_don_vi_thanh_toan.Enabled = false;
+         m_cbo_gvien.Enabled = false;
+         m_cbo_dm_loai_hop_dong.Enabled = false;
+         m_cbo_dm_mon_hoc_1.Enabled = false;
+         m_cbo_dm_mon_hoc_2.Enabled = false;
+         m_cbo_dm_mon_hoc_3.Enabled = false;
+         m_cbo_dm_mon_hoc_4.Enabled = false;
+         m_cbo_dm_mon_hoc_5.Enabled = false;
+         m_cbo_dm_mon_hoc_6.Enabled = false;
+         m_dat_ngay_hieu_luc.Enabled = false;
+         m_dat_ngay_ket_thuc.Enabled = false;
+         m_cbo_dm_trang_thai_hop_dong.Enabled = false;
+         m_txt_gia_tri_hop_dong.Enabled = false;
+         m_txt_thue_suat.Enabled = false;
+         m_rbt_bt_vanhanh_yn.Enabled = false;
+         m_rbt_co_so_hd_yn.Enabled = false;
+         m_rbt_hoclieu_yn.Enabled = false;
+         m_txt_ghi_chu1.Enabled = false;
+         m_txt_ghi_chu2.Enabled = false;
+         m_txt_ghi_chu3.Enabled = false;
+         m_txt_ghi_chu4.Enabled = false;
+
+         m_cmd_luu_du_lieu.Enabled = false;
+         m_cmd_luu_va_sinh_pl.Enabled = false;
+     }
      private void save_data()
      {
          try
