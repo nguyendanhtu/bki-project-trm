@@ -359,7 +359,14 @@ public partial class ChucNang_F611_ChuyenQuaThanhToan : System.Web.UI.Page
     {
         string v_str_ten_mon = "";
         m_ds_cong_viec_moi.EnforceConstraints = false;
-        m_us_cong_viec_moi.load_data_2_export_excel(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
+        if(m_cbo_trang_thai_cv_loc.SelectedValue == CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_DUYET_CHUYEN_THANH_TOAN))
+            m_us_cong_viec_moi.load_data_2_export_excel_da_duyet_chuyen(m_ds_cong_viec_moi
+                                                                    , CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
+                                                                    , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
+        else if(m_cbo_trang_thai_cv_loc.SelectedValue == CIPConvert.ToStr(ID_TRANG_THAI_CONG_VIEC_GVCM.DA_CHUYEN_THANH_TOAN))
+            m_us_cong_viec_moi.load_data_2_export_excel_da_chuyen_thanh_toan(m_ds_cong_viec_moi
+                                                                   , CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
+                                                                   , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
