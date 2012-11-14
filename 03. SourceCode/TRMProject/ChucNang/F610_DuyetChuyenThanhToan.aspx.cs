@@ -344,7 +344,7 @@ public partial class ChucNang_F610_DuyetChuyenThanhToan : System.Web.UI.Page
     {
         string v_str_ten_mon = "";
         m_ds_cong_viec_moi.EnforceConstraints = false;
-        m_us_cong_viec_moi.load_data_2_export_excel(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
+        m_us_cong_viec_moi.load_data_2_export_excel_da_duyet_chuyen(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue), CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
