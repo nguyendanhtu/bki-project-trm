@@ -39,7 +39,8 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f606(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
                                                        , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue)
                                                        , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue)
-                                                       , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan_loc.SelectedValue));
+                                                       , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan_loc.SelectedValue)
+                                                       , CIPConvert.ToStr(Session["UserName"]));
         m_grv_gd_assign_su_kien_cho_giang_vien.DataSource = m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI;
         m_grv_gd_assign_su_kien_cho_giang_vien.DataBind();
         m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_cong_viec_moi.V_GD_GV_CONG_VIEC_MOI.Rows.Count + " bản ghi";
@@ -351,7 +352,8 @@ public partial class ChucNang_F608_DuyetKeHoachCongViec : System.Web.UI.Page
         m_us_cong_viec_moi.loc_du_lieu_giang_vien_cong_viec_moi_f606(m_ds_cong_viec_moi, CIPConvert.ToDecimal(m_cbo_ten_giang_vien_loc.SelectedValue)
                                                       , CIPConvert.ToDecimal(m_cbo_so_hop_dong_loc.SelectedValue)
                                                       , CIPConvert.ToDecimal(m_cbo_trang_thai_cv_loc.SelectedValue)
-                                                      , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan_loc.SelectedValue));
+                                                      , CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan_loc.SelectedValue)
+                                                      , CIPConvert.ToStr(Session["UserName"]));
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
 
         strTable += "\n<tr>";
