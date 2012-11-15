@@ -124,7 +124,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
         // Nếu ko search theo trạng thái thanh toán
         v_us_gd_thanh_toan.f409_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_gvien_so_hd(ip_str_ma_dot_tt, ip_dc_id_trang_thai_tt, CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue)
-            , CIPConvert.ToDecimal(m_txt_so_hd_search.SelectedValue), v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            , CIPConvert.ToDecimal(m_txt_so_hd_search.SelectedValue), v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
 
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {

@@ -550,9 +550,16 @@ public class US_V_GD_GV_CONG_VIEC_MOI : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI", ip_dc_trang_thai);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
     }
-    public void load_data_2_export_excel(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien, decimal ip_dc_hop_dong_khung)
+    public void load_data_2_export_excel_da_duyet_chuyen(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien, decimal ip_dc_hop_dong_khung)
     {
         CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Load_Cong_Viec_Export_Excel");
+        v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
+        v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
+    }
+    public void load_data_2_export_excel_da_chuyen_thanh_toan(DS_V_GD_GV_CONG_VIEC_MOI op_ds_v_gd_cv_moi, decimal ip_dc_id_giang_vien, decimal ip_dc_hop_dong_khung)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_GD_GV_CONG_VIEC_MOI_Load_Cong_Viec_Export_Excel_da_chuyen_thanh_toan");
         v_cstore.addDecimalInputParam("@ID_HOP_DONG_KHUNG", ip_dc_hop_dong_khung);
         v_cstore.addDecimalInputParam("@ID_GIANG_VIEN", ip_dc_id_giang_vien);
         v_cstore.fillDataSetByCommand(this, op_ds_v_gd_cv_moi);
