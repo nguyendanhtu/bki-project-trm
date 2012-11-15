@@ -149,7 +149,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
         // Số phiếu thanh toán là mã đợt thanh toán
-        m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt,"VH",m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+        m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt,"VH",m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
@@ -185,9 +185,9 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         else
         {
             if (ip_dc_id_trang_thai_tt == 1)
-                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
             else
-                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+                m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(ip_str_ma_dot_tt, ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
 
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
@@ -222,10 +222,10 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     private void search_data_to_export_excel()
     {
         if (rdl_trang_thai_tt_check.Items[0].Selected)
-            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
         else if (rdl_trang_thai_tt_check.Items[1].Selected)
-            m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
-        else m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
+        else m_us_v_gd_thanh_toan.f412_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_loai_hd(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), ID_TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET, "VH", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
     }
     private string get_trang_thai_tt()
     {

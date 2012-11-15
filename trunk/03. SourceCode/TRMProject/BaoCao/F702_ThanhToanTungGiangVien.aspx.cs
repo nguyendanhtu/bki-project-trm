@@ -347,7 +347,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
                                                                          m_str_loai_hd,
                                                                          ip_dc_thang_tt,
                                                                          ip_dc_nam_tt,
-                                                                         m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+                                                                         m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
     {

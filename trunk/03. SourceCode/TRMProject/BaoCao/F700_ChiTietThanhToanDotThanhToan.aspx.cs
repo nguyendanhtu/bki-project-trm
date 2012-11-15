@@ -293,7 +293,7 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
                                                                 CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), 
                                                                 CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),0,
                                                                 m_v_ds_gd_thanh_toan
-                                                                , CIPConvert.ToStr(Session["user_quyen"]));
+                                                                , CIPConvert.ToStr(Session["UserName"]));
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
     {

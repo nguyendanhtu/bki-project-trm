@@ -137,7 +137,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            v_us_gd_thanh_toan.f410_load_data_2_grid(ip_str_ma_dot_tt, CIPConvert.ToDecimal(lblUser.ToolTip), CIPConvert.ToDecimal(m_lbl_thong_bao0.ToolTip), v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            v_us_gd_thanh_toan.f410_load_data_2_grid(ip_str_ma_dot_tt, CIPConvert.ToDecimal(lblUser.ToolTip), CIPConvert.ToDecimal(m_lbl_thong_bao0.ToolTip), v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
             //v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND (ID_TRANG_THAI_THANH_TOAN = " + lblUser.ToolTip + " OR ID_TRANG_THAI_THANH_TOAN = " + m_lbl_thong_bao0.ToolTip + ") ORDER BY ID");
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
@@ -162,7 +162,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        v_us_gd_thanh_toan.f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(ip_str_ma_dot_tt,0, ip_str_so_hd, v_ds_gd_thanh_toan,CIPConvert.ToStr(Session["user_quyen"]));
+        v_us_gd_thanh_toan.f403_load_thanh_toan_by_ma_dot_tt_va_trang_thai_tt_va_like_so_hd(ip_str_ma_dot_tt,0, ip_str_so_hd, v_ds_gd_thanh_toan,CIPConvert.ToStr(Session["UserName"]));
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;

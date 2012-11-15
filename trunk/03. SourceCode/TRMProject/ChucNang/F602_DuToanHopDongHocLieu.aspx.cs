@@ -126,7 +126,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             //US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             //DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -148,7 +148,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         else
         {
             // Số phiếu thanh toán là mã đợt thanh toán
-            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["user_quyen"]));
+            m_us_v_gd_thanh_toan.f501_load_thanh_toan_by_ma_dot_tt_va_loai_hd(ip_str_ma_dot_tt, "HL", m_v_ds_gd_thanh_toan, CIPConvert.ToStr(Session["UserName"]));
         }
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
